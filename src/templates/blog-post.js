@@ -4,45 +4,84 @@ import { Link, graphql } from "gatsby"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { rhythm, scale } from "../utils/typography"
 
-class BlogPostTemplate extends React.Component {
-  render() {
-    const post = this.props.data.markdownRemark
-    const siteTitle = this.props.data.site.siteMetadata.title
-    const { previous, next } = this.props.pageContext
+/** @jsx jsx */
+import { jsx } from "theme-ui"
+import { Styled } from 'theme-ui'
+import { useColorMode } from 'theme-ui'
+import { MDXRenderer } from "gatsby-plugin-mdx"
+
+
+export default props => {
+
+    const post = props.data.mdx
+    const siteTitle = props.data.site.siteMetadata.title
+    const { previous, next } = props.pageContext
+    const [colorMode, setColorMode] = useColorMode()
+
+    setColorMode('light')
 
     return (
-      <Layout location={this.props.location} title={siteTitle}>
+      <Layout location={props.location} title={siteTitle}>
+
         <SEO
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}
         />
-        <article>
+
+        <article
+          sx = {{
+            display: ['block', '', 'grid'],
+            gridGap: 5,
+            gridTemplateColumns: [
+              '',
+              '',
+              '180px 1fr',
+              '320px 1fr',
+            ]
+          }}
+        >
           <header>
             <h1
-              style={{
-                marginTop: rhythm(1),
-                marginBottom: 0,
+              sx = {{
+                fontFamily: 'heading',
+                fontSize: 5,
+                display: 'inline',
+                color: 'secondary',
+                mr: 2,
               }}
             >
               {post.frontmatter.title}
             </h1>
-            <p
-              style={{
-                ...scale(-1 / 5),
-                display: `block`,
-                marginBottom: rhythm(1),
+            <h2
+              sx = {{
+                fontFamily: 'heading',
+                fontSize: 5,
+                fontWeight: 'bold',
+                color: 'primary',
+                display: 'inline',
               }}
             >
+              {post.frontmatter.description}
+            </h2>
+            <p
+              sx = {{
+                  fontFamily: 'body',
+                  display: 'block',
+                  fontSize: 1,
+                  color: 'secondary',
+                  mt: 3,
+                }}
+              >
               {post.frontmatter.date}
             </p>
           </header>
-          <section dangerouslySetInnerHTML={{ __html: post.html }} />
+          <section>
+            <Styled.root>
+              <MDXRenderer>{post.body}</MDXRenderer>
+            </Styled.root>
+          </section>
           <hr
-            style={{
-              marginBottom: rhythm(1),
-            }}
           />
           <footer>
             <Bio />
@@ -51,13 +90,6 @@ class BlogPostTemplate extends React.Component {
 
         <nav>
           <ul
-            style={{
-              display: `flex`,
-              flexWrap: `wrap`,
-              justifyContent: `space-between`,
-              listStyle: `none`,
-              padding: 0,
-            }}
           >
             <li>
               {previous && (
@@ -78,9 +110,6 @@ class BlogPostTemplate extends React.Component {
       </Layout>
     )
   }
-}
-
-export default BlogPostTemplate
 
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
@@ -90,10 +119,10 @@ export const pageQuery = graphql`
         author
       }
     }
-    markdownRemark(fields: { slug: { eq: $slug } }) {
+    mdx(fields: { slug: { eq: $slug } }) {
       id
       excerpt(pruneLength: 160)
-      html
+      body
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")

@@ -8,7 +8,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const result = await graphql(
     `
       {
-        allMarkdownRemark(
+        allMdx(
           sort: { fields: [frontmatter___date], order: DESC }
           limit: 1000
         ) {
@@ -19,6 +19,7 @@ exports.createPages = async ({ graphql, actions }) => {
               }
               frontmatter {
                 title
+                tags
               }
             }
           }
@@ -32,9 +33,13 @@ exports.createPages = async ({ graphql, actions }) => {
   }
 
   // Create blog posts pages.
-  const posts = result.data.allMarkdownRemark.edges
+  const posts = result.data.allMdx.edges
+  const blogPosts = posts.filter(function(post) {
+    const tags = post.node.frontmatter.tags || []
+    return !tags.includes("microblog")
+  })
 
-  posts.forEach((post, index) => {
+  blogPosts.forEach((post, index) => {
     const previous = index === posts.length - 1 ? null : posts[index + 1].node
     const next = index === 0 ? null : posts[index - 1].node
 
@@ -53,12 +58,41 @@ exports.createPages = async ({ graphql, actions }) => {
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
 
-  if (node.internal.type === `MarkdownRemark`) {
-    const value = createFilePath({ node, getNode })
+  if (node.internal.type === `Mdx`) {
+    const value = createFilePath({
+      node,
+      getNode,
+    })
+
+    const pathArray = value.split("-")
+    const year = pathArray[0]
+    const month = pathArray[1]
+    const day = pathArray[2]
+    const remove = pathArray.splice(0, 3)
+    const title = pathArray.join("-")
+
+    createNodeField({
+      name: `year`,
+      node,
+      value,
+    })
+
+    createNodeField({
+      name: `month`,
+      node,
+      value,
+    })
+
+    createNodeField({
+      name: `day`,
+      node,
+      value,
+    })
+
     createNodeField({
       name: `slug`,
       node,
-      value,
+      value: `${year}/${month}/${day}/${title}`,
     })
   }
 }
