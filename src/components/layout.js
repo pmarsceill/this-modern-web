@@ -4,6 +4,7 @@ import { Link } from "gatsby"
 /** @jsx jsx */
 import { jsx } from "theme-ui"
 import { Global } from "@emotion/core"
+import Micropub from "../components/micropub"
 
 export default props => {
     const { location, title, children } = props
@@ -74,6 +75,7 @@ export default props => {
           px: [3, 4, 4, 3],
         }}
       >
+        <Micropub />
         <Global
           styles={theme => ({
             '@font-face': {
@@ -115,7 +117,7 @@ export default props => {
               }}
             >
               <Link
-                to = "/"
+                to = { location.pathname }
                 sx = {{
                   color: "primary",
                   textDecoration: "none"

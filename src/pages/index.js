@@ -46,48 +46,101 @@ export default props => {
           borderColor: 'muted',
         }}
       >
-      <h3
-        sx = {{
-          display: 'inline',
-            fontFamily: 'heading',
-            fontSize: 6,
-        }}
-      >
         <Link
           to = {slug}
           sx = {{
             color: 'primary',
-              textDecoration: 'none',
+            textDecoration: 'none',
+            display: 'block',
           }}
         >
-          {title}
+          <h3
+            sx = {{
+              display: 'inline',
+              fontFamily: 'heading',
+              fontSize: 6,
+            }}
+          >
+              {title}
+          </h3>
+          <p
+            sx = {{
+              fontFamily: 'heading',
+              display: 'inline',
+              fontSize: 6,
+              color: 'secondary',
+              fontWeight: 'bold',
+              ml: 2,
+            }}
+          >
+            {description}
+          </p>
         </Link>
-      </h3>
-      <p
-        sx = {{
-          fontFamily: 'heading',
-          display: 'inline',
-          fontSize: 6,
-          color: 'secondary',
-          fontWeight: 'bold',
-          ml: 2,
-        }}
-      >
-        {description}
-      </p>
-      <small
-        sx = {{
-          fontFamily: 'body',
-          display: 'block',
-          fontSize: 1,
-          color: 'greyLt0',
-          mt: 3,
-        }}
-      >
-        {date}
-      </small>
-    </article>
+        <small
+          sx = {{
+            fontFamily: 'body',
+            display: 'block',
+            fontSize: 1,
+            color: 'greyLt0',
+            mt: 3,
+          }}
+        >
+          {date}
+        </small>
+      </article>
     )
+  }
+
+  function microBlogLayout(body, timeAgo, permalink, id, slug) {return (
+    <article
+      key = {slug}
+      sx = {{
+        mb: '4',
+          pb: '4',
+          borderBottom: '1px solid',
+          borderColor: 'muted',
+      }}
+      id = {id}
+    >
+    <div
+      sx = {{
+        color: 'primary',
+        textDecoration: 'none',
+        fontSize: 'body',
+      }}
+    >
+      <Styled.root
+        sx = {{
+          fontFamily: 'monospace',
+          fontSize: 1,
+        }}
+      >
+        <MDXRenderer>
+          {body}
+        </MDXRenderer>
+      </Styled.root>
+    </div>
+
+    <small
+      sx = {{
+        fontFamily: 'monospace',
+        display: 'block',
+        fontSize: 0,
+        mt: 3,
+      }}
+    >
+      <Link
+        to = {permalink}
+        sx = {{
+          textDecoration: 'none',
+          color: 'secondary',
+        }}
+      >
+        ⌘ {timeAgo}
+      </Link>
+    </small>
+  </article>
+  )
   }
 
   return (
@@ -215,54 +268,15 @@ export default props => {
           })}
 
           {microBlogs.map(({ node }, index) => {
-            const title = node.frontmatter.title || node.fields.slug
-            const tags = node.frontmatter.tags || []
-            const i = index
+            const body = node.body || node.fields.title || node.fields.slug
             const timeAgo = moment(node.frontmatter.date).fromNow()
+            const permalink = `#${node.id}`
+            const id = node.id
+            const slug = node.fields.slug
 
-            if (i < 10) {
+            if (index < 4) {
               return (
-                <article
-                  key = {node.fields.slug}
-                  sx = {{
-                    mb: '4',
-                    pb: '4',
-                    borderBottom: '1px solid',
-                    borderColor: 'muted',
-                  }}
-                >
-                  <Link
-                    to = {node.fields.slug}
-                    sx = {{
-                      color: 'primary',
-                      textDecoration: 'none',
-                      fontSize: 'body',
-                    }}
-                  >
-                    <Styled.root
-                      sx = {{
-                        fontFamily: 'monospace',
-                        fontSize: 1,
-                      }}
-                    >
-                      <MDXRenderer>
-                        {node.body}
-                      </MDXRenderer>
-                    </Styled.root>
-                  </Link>
-
-                  <small
-                    sx = {{
-                      fontFamily: 'monospace',
-                      display: 'block',
-                      fontSize: 0,
-                      color: 'greyLt0',
-                      mt: 3,
-                    }}
-                  >
-                    {timeAgo}
-                  </small>
-                </article>
+                microBlogLayout(body, timeAgo, permalink, id, slug)
               )
             }
           })}
@@ -273,12 +287,25 @@ export default props => {
             const date = node.frontmatter.date
             const slug = node.fields.slug
 
-            if (index >= 2) {
+            if (index >= 2 && index <= 4) {
               return (
                 currentBlogLayout(title, tags, description, date, slug)
               )
             }
           })}
+          {microBlogs.map(({ node }, index) => {
+            const body = node.body || node.fields.title || node.fields.slug
+            const timeAgo = moment(node.frontmatter.date).fromNow()
+            const permalink = `#${node.id}`
+            const id = node.id
+            const slug = node.fields.slug
+
+            if (index >= 4) {
+              return (
+                microBlogLayout(body, timeAgo, permalink, id, slug)
+              )
+            }
+            })}
         </div>
       </div>
     </Layout>
@@ -296,6 +323,7 @@ export const pageQuery = graphql`
     allMdx(sort: { fields: [frontmatter___date], order: DESC}) {
       edges {
         node {
+          id
           excerpt
           fields {
             slug

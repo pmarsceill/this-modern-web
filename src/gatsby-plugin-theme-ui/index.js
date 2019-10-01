@@ -95,7 +95,8 @@ export default {
       ml: 0,
       pl: 4,
       borderLeft: '1px solid',
-      borderColor: 'muted',
+      borderColor: 'secondary',
+      fontStyle: 'italic',
     },
     ul: {
       listStyle: 'none',
@@ -118,12 +119,13 @@ export default {
         position: 'relative',
         "&::before": {
           position: 'absolute',
-          top: '0.1em',
+          top: '0.15em',
           left: '-1.6em',
           color: 'secondary',
           content: 'counter(step-counter)',
           'counter-increment': 'step-counter',
           fontSize: 1,
+          fontFamily: 'body',
         }
       }
     },
