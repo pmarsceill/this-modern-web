@@ -22,11 +22,6 @@ To keep myself disciplined, I set a pace of constant ideation, followed by editi
 
 * **I didn't set a launch date.** This really wasn’t a purposeful decision. Just a feeling that if I could live with the design locally and chisel away at it until it felt right, it would evolve in the most organic way possible. I looked at the fully coded site every day for about a month (in my local dev environment), even if just for five minutes at a time. While I was browsing other sites, I would purposefully pull it up to see what the experience was like—judging how natural or jarring it felt. This lead me to discover more details that I wanted to temper and I hammered at them until they felt _done_.
 
-<!-- <figure class="mb-6">
-  <img src="images/articles/designing-for-yourself/ps-diary.jpg" alt="An screenshot of my Photoshop Diary" class="img-fluid card mb-4">
-  <figcaption>
-    An excerpt from my Photoshop Diary
-  </figcaption>
-</figure> -->
+![An excerpt of my Photoshop Diary](assets/designing-for-yourself/ps-diary.jpg)
 
 Out of this thing comes a desire to try to break some of the rigidity that I impose on myself for both personal and professional projects. Designing for yourself is an exercise in confidence and trust in your own intuitions. It's a challenge in restraint and a willingness to allow change to happen as consequence of growth. It's a reminder to foster the formation of ideas, constantly evolve their execution, but allow their core to remain true.

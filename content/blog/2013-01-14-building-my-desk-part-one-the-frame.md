@@ -1,9 +1,8 @@
 ---
 layout: post
-title: "Building My Desk &mdash; Part One: The Frame"
+title: "Building My Desk — Part One: The Frame"
 date: 2013-01-14 16:15
 tags: ["legacy"]
-disqus_comments: true
 ---
 
 Over the last week and a half, I designed and constructed a new desk for my home office.  If you <a href="http://instagram.com/pmarsceill" title="Patrick Marsceill's Instagram">follow me on Instagram</a> you might have seen some of the progress photos that I've been posting.  I wanted to document my experience building this thing and what learned along the way. This was not only one of my favorite construction projects from a process perspective, but also my favorite finished product.
@@ -12,12 +11,7 @@ _First, a little backstory_&hellip; A few years ago, I saw <a href="http://www.a
 
 About a month ago, I stumbled upon <a href="http://spacekat.github.com">Jessica's blog</a> through a link  that someone posted on Twitter about some of her work at Engine Yard. I then found my way to <a href="http://spacekat.github.com/blog/2012/07/31/steel-pipe-standing-desk/">this very detailed post about how she constructed a standing desk</a>, using similar materials and construction methods as the shelving unit mentioned above.  This immediately got the gears turning in my head and I spent a few days imagining how I could construct something like this.
 
-<figure class="mb-6">
-  <img src="{{ site.assets-base-url }}images/articles/desk/plans.jpg" class="img-fluid card mb-4" aria-labelledby="caption-1" alt="">
-  <figcaption id="caption-1">
-    Plans for my desk
-  </figcaption>
-</figure>
+![Plans for my desk](assets/desk/plans.jpg)
 
 Unlike Jessica's desk, I didn't want mine to be that of the standing variety.  I did some research and found <a href="http://www.apartmenttherapy.com/look-desks-and-68448">a few photos of other sitting desks that people had made out of plumbing pipe</a>. Based on these photos and Jessica's design, I sketched out some plans borrowing ideas from both.
 
@@ -47,24 +41,8 @@ All parts galvanized steel, 1" diameter and the fittings made by Mueller
 
 When I got home, I decided to clean all the parts and quickly assemble the frame (without measuring or really tightening anything) just to make sure I had all the pieces I needed.  The saw and the pipe threading machine at Lowe's gets the pipes pretty greasy, so I used some spray degreaser and rags to clean each piece and remove any stickers.
 
-<figure class="mb-6">
-  <img src="{{ site.assets-base-url }}images/articles/desk/mock_frame.jpg" class="img-fluid card mb-4" aria-labelledby="caption-2" alt="">
-  <figcaption id="caption-2">
-    The frame all mocked up and cleaned.
-  </figcaption>
-</figure>
-<figure class="mb-6">
-  <img src="{{ site.assets-base-url }}images/articles/desk/primed.jpg" class="img-fluid card mb-4" aria-labelledby="caption-3" alt="">
-  <figcaption id="caption-3">
-    The frame primed and ready for paint.
-  </figcaption>
-</figure>
+![The frame primed and ready for paint](assets/desk/primed.jpg)
 
 The next weekend, it was time to prime and paint the frame.  I reconstructed the frame and measured all the fittings, legs, and connectors to ensure I had a symmetrical table before it was too late to turn back.  I put on one coat of primer, let it dry for about 2 hours, and then one coat of spray paint.  This actually used up the entire can of paint and if I could do it again, I would have bought another can for a second coat.
 
-<figure>
-  <img src="{{ site.assets-base-url }}images/articles/desk/painted.jpg" class="img-fluid card mb-4" aria-labelledby="caption-4" alt="">
-  <figcaption id="caption-4">
-    The frame painted.
-  </figcaption>
-</figure>
+![The frame painted](assets/desk/painted.jpg)
