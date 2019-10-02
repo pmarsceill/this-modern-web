@@ -35,7 +35,7 @@ Fire up Terminal and `cd` to your `algo-vpn` folder...
 
 The first thing you want to do is check to see if you have `python` installed...
 
-```bash
+```shell
 $ which python
 ```
 
@@ -43,31 +43,31 @@ You may get back `python not found` (which means you need to install Python 2) o
 
 Algo _requires_ Python 2. If you're unsure what version you're running `python --version` will give you a clue.
 
-```bash
+```shell
 $ python --version
 Python 3.6.3
 ```
 
 So I'm running Python 3 (which I installed from [Homebrew](https://brew.sh)). This means that I need also install Python 2 and tell my computer to use it and not Python 3 for this...
 
-```bash
+```shell
 $ brew install python2
 ```
 
 Ok, now let's see how my Python versions are setup:
 
-```bash
+```shell
 $ which python
 python: aliased to python3
 ```
-```bash
+```shell
 $ python --version
 Python 3.6.3
 ```
 
 👍 I wanted this to remain my default Python for other nerdy shit that I'm into.
 
-```bash
+```shell
 $ python2 --version
 Python 2.7.14
 ```
@@ -76,19 +76,19 @@ Python 2.7.14
 
 Now we can follow the install instructions from the [Algo GitHub repo](https://github.com/trailofbits/algo), replacing the `python` command to use `python2` instead...
 
-```
+```shell
 $ python2 -m virtualenv --python=`which python2` env && source env/bin/activate && python2 -m pip install -U pip && python2 -m pip install -r requirements.txt
 ```
 
 _but_ this doesn't work because my Python 2 doesn't have the `virtualenv` module installed yet. To install `virtualenv` it, I must use `pip` (Python's built-in package manager). I'm going to use `pip2` here so it explicitly installs it to my Python 2 instance and not my default Python 3 instance. I'm also going to use `sudo` here because the command won't have write access to the proper folders without it, and I'm too lazy to reconfigure access for just this one thing.
 
-```
+```shell
 $ sudo pip2 install virtualenv
 ```
 
 Ok, so let's try it again...
 
-```
+```shell
 $ python2 -m virtualenv --python=`which python2` env && source env/bin/activate && python2 -m pip install -U pip && python2 -m pip install -r requirements.txt
 ```
 
@@ -106,7 +106,7 @@ users:
 ### 4. Setup and deploy to Digital Ocean
 This single command will create a Droplet, set it up, and deploy it to your Digital Ocean account:
 
-```bash
+```shell
 $ ./algo
 ```
 

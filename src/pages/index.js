@@ -91,7 +91,8 @@ export default props => {
     )
   }
 
-  function microBlogLayout(body, timeAgo, permalink, id, slug) {return (
+  function microBlogLayout(body, timeAgo, permalink, id, slug) {
+    return (
     <article
       key = {slug}
       sx = {{
@@ -129,15 +130,15 @@ export default props => {
         mt: 3,
       }}
     >
-      <Link
-        to = {permalink}
+      <a
+        href = {permalink}
         sx = {{
           textDecoration: 'none',
           color: 'secondary',
         }}
       >
         ⌘ {timeAgo}
-      </Link>
+      </a>
     </small>
   </article>
   )

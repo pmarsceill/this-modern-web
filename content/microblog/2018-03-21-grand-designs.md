@@ -1,7 +1,5 @@
 ---
-layout: microblog
 date: '2018-03-21T04:14:58.123Z'
-title: ''
 slug: 'grand-designs'
 tags: ["microblog"]
 ---
