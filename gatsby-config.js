@@ -10,6 +10,20 @@ module.exports = {
       keybase: `pmarsceill`,
       dribbble: `pmarsceill`,
     },
+    menuLinks: [
+      {
+        name: 'Feed',
+        link: '/'
+      },
+      {
+        name: 'About',
+        link: '/about',
+      },
+      {
+        name: 'Inbox',
+        link: '/inbox'
+      },
+    ]
   },
   plugins: [
     `gatsby-transformer-sharp`,

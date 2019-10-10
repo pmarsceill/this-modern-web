@@ -8,8 +8,10 @@ import { Styled } from 'theme-ui'
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import moment from "moment"
 
+import TwoCol from "../components/two-col"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import Nav from "../components/nav"
 
 export default props => {
   const { data } = props
@@ -40,8 +42,8 @@ export default props => {
       <article
         key = {slug}
         sx = {{
-          mb: '4',
-          pb: '4',
+          mb: '5',
+          pb: '5',
           borderBottom: '1px solid',
           borderColor: 'muted',
         }}
@@ -52,13 +54,18 @@ export default props => {
             color: 'primary',
             textDecoration: 'none',
             display: 'block',
+            '&:hover': {
+              color: 'accent',
+            }
           }}
         >
           <h3
             sx = {{
               display: 'inline',
               fontFamily: 'heading',
-              fontSize: 6,
+              fontSize: [5, 6],
+              letterSpacing: 'heading',
+              lineHeight: 'heading',
             }}
           >
               {title}
@@ -67,9 +74,11 @@ export default props => {
             sx = {{
               fontFamily: 'heading',
               display: 'inline',
-              fontSize: 6,
+              fontSize: [5, 6],
               color: 'secondary',
               fontWeight: 'bold',
+              letterSpacing: 'heading',
+              lineHeight: 'heading',
               ml: 2,
             }}
           >
@@ -80,7 +89,7 @@ export default props => {
           sx = {{
             fontFamily: 'body',
             display: 'block',
-            fontSize: 1,
+            fontSize: [0],
             color: 'greyLt0',
             mt: 3,
           }}
@@ -96,10 +105,10 @@ export default props => {
     <article
       key = {slug}
       sx = {{
-        mb: '4',
-          pb: '4',
-          borderBottom: '1px solid',
-          borderColor: 'muted',
+        mb: '5',
+        pb: '5',
+        borderBottom: '1px solid',
+        borderColor: 'muted',
       }}
       id = {id}
     >
@@ -110,15 +119,18 @@ export default props => {
         fontSize: 'body',
       }}
     >
-      <Styled.root
+      <Styled.root>
+      <div
         sx = {{
           fontFamily: 'monospace',
-          fontSize: 1,
+          fontSize: [1, '', '', '', ''],
+          lineHeight: 'body',
         }}
       >
-        <MDXRenderer>
-          {body}
-        </MDXRenderer>
+          <MDXRenderer>
+            {body}
+          </MDXRenderer>
+        </div>
       </Styled.root>
     </div>
 
@@ -145,169 +157,71 @@ export default props => {
   }
 
   return (
-    <Layout location={props.location} title={siteTitle}>
-      <div
-        sx = {{
-          display: ['block', '', 'grid'],
-          gridGap: 5,
-          gridTemplateColumns: [
-            '',
-            '',
-            '180px 1fr',
-            '320px 1fr',
-          ]
-        }}
-      >
-        <nav>
-          <ul
-            sx = {{
-              display: ['flex', '', 'block'],
-              listStyle: 'none',
-              my: [4, '', 0],
-              pl: 0,
-              pb: [4, '', 0],
-              justifyContent: 'space-between',
-              borderBottom: ['1px solid', '', 'none'],
-              borderColor: 'muted',
-            }}
-          >
-            <li
-              sx = {{
-                display: 'block',
-                mt: [0, '', 2],
-              }}
-            >
-              <Link
-                to = "/"
-                sx = {{
-                  color: 'primary',
-                  textDecoration: 'none',
-                  fontFamily: 'body',
-                  fontSize: [3, '', '', 4],
-                }}
-              >
-                <span
-                  sx = {{
-                    fontFamily: 'monospace',
-                      mr: 3,
-                  }}
-                >
-                  1.0
-                </span>
-                Feed
-              </Link>
-            </li>
-            <li
-              sx = {{
-                display: 'block',
-                mt: [0, '', 6],
-              }}
-            >
-              <Link
-                to = "/"
-                sx = {{
-                  color: 'secondary',
-                  textDecoration: 'none',
-                  fontFamily: 'body',
-                  fontSize: [3, '', '', 4],
-                }}
-              >
-              <span
-                sx = {{
-                  fontFamily: 'monospace',
-                  mr: 3,
-                }}
-              >
-              1.1
-              </span>
-              About
-              </Link>
-            </li>
-            <li
-              sx = {{
-                display: 'block',
-                mt: [0, '', 6],
-              }}
-            >
-              <Link
-                to = "/"
-                sx = {{
-                  color: 'secondary',
-                  textDecoration: 'none',
-                  fontFamily: 'body',
-                  fontSize: [3, '', '', 4],
-                }}
-              >
-              <span
-                sx = {{
-                  fontFamily: 'monospace',
-                  mr: 3,
-                }}
-              >
-              1.2
-              </span>
-              Page
-              </Link>
-            </li>
-          </ul>
-        </nav>
-        <div>
-          <SEO title="All posts" />
+    <Layout
+      location={props.location}
+      title={siteTitle}
+    >
+      <div>
+        <TwoCol>
+          <Nav />
+          <div>
+            <SEO title="All posts" />
 
-          {currentBlogs.map(({node}, index) => {
-            const title = node.frontmatter.title || node.fields.slug
-            const tags = node.frontmatter.tags || []
-            const description = node.frontmatter.description || ""
-            const date = node.frontmatter.date
-            const slug = node.fields.slug
+            {currentBlogs.map(({node}, index) => {
+              const title = node.frontmatter.title || node.fields.slug
+              const tags = node.frontmatter.tags || []
+              const description = node.frontmatter.description || ""
+              const date = node.frontmatter.date
+              const slug = node.fields.slug
 
-            if (index < 2) {
-              return (
-                currentBlogLayout(title, tags, description, date, slug)
-              )
-            }
-          })}
-
-          {microBlogs.map(({ node }, index) => {
-            const body = node.body || node.fields.title || node.fields.slug
-            const timeAgo = moment(node.frontmatter.date).fromNow()
-            const permalink = `#${node.id}`
-            const id = node.id
-            const slug = node.fields.slug
-
-            if (index < 4) {
-              return (
-                microBlogLayout(body, timeAgo, permalink, id, slug)
-              )
-            }
-          })}
-          {currentBlogs.map(({node}, index) => {
-            const title = node.frontmatter.title || node.fields.slug
-            const tags = node.frontmatter.tags || []
-            const description = node.frontmatter.description || ""
-            const date = node.frontmatter.date
-            const slug = node.fields.slug
-
-            if (index >= 2 && index <= 4) {
-              return (
-                currentBlogLayout(title, tags, description, date, slug)
-              )
-            }
-          })}
-          {microBlogs.map(({ node }, index) => {
-            const body = node.body || node.fields.title || node.fields.slug
-            const timeAgo = moment(node.frontmatter.date).fromNow()
-            const permalink = `#${node.id}`
-            const id = node.id
-            const slug = node.fields.slug
-
-            if (index >= 4) {
-              return (
-                microBlogLayout(body, timeAgo, permalink, id, slug)
-              )
-            }
+              if (index < 2) {
+                return (
+                  currentBlogLayout(title, tags, description, date, slug)
+                )
+              }
             })}
-        </div>
+
+            {microBlogs.map(({ node }, index) => {
+              const body = node.body || node.fields.title || node.fields.slug
+              const timeAgo = moment(node.frontmatter.date).fromNow()
+              const permalink = `#${node.id}`
+              const id = node.id
+              const slug = node.fields.slug
+
+              if (index < 4) {
+                return (
+                  microBlogLayout(body, timeAgo, permalink, id, slug)
+                )
+              }
+            })}
+            {currentBlogs.map(({node}, index) => {
+              const title = node.frontmatter.title || node.fields.slug
+              const tags = node.frontmatter.tags || []
+              const description = node.frontmatter.description || ""
+              const date = node.frontmatter.date
+              const slug = node.fields.slug
+
+              if (index >= 2 && index <= 4) {
+                return (
+                  currentBlogLayout(title, tags, description, date, slug)
+                )
+              }
+            })}
+            {microBlogs.map(({ node }, index) => {
+              const body = node.body || node.fields.title || node.fields.slug
+              const timeAgo = moment(node.frontmatter.date).fromNow()
+              const permalink = `#${node.id}`
+              const id = node.id
+              const slug = node.fields.slug
+
+              if (index >= 4) {
+                return (
+                  microBlogLayout(body, timeAgo, permalink, id, slug)
+                )
+              }
+              })}
+          </div>
+        </TwoCol>
       </div>
     </Layout>
   )

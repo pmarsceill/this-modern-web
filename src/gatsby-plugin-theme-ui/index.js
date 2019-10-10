@@ -7,7 +7,8 @@ export default {
     background: '#182027',
     primary: '#fff',
     secondary: '#b2b5cc',
-    accent: '#fff',
+    accent: '#20e9ea',
+    accentMuted: '#79e4e4',
     muted: '#333548',
     modes: {
       light: {
@@ -16,7 +17,8 @@ export default {
         primary: '#182027',
         secondary: '#888ba0',
         muted: '#dadcea',
-        accent: '#182027',
+        accent: '#ea2020',
+        accentMuted: '#ffbdbd',
       },
     },
   },
@@ -27,6 +29,9 @@ export default {
     title: "Optician Sans, system-ui, sans-serif",
     serif: "Palatino,Palatino Linotype,Palatino LT STD,Book Antiqua,Georgia,serif"
   },
+  backgroundImages: {
+    link: 'linear-gradient(#eeebee 0%, #eeebee 100%)',
+  },
   fontWeights: {
     body: 400,
     heading: 700,
@@ -36,55 +41,79 @@ export default {
     body: 1.5,
     heading: 1.125,
     title: 0.7,
-    content: 1.8,
+    content: 1.7,
   },
-  fontSizes: [12, 14, 16, 18, 21, 24, 36, 48, 64, 72, 78],
-  space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
+  letterSpacings: {
+    heading: '-0.03em',
+  },
+  fontSizes: [12, 14, 16, 17, 21, 28, 36, 48, 64, 72, 78],
+  space: [0, 4, 8, 12, 16, 32, 64, 128, 256, 512],
   sizes: {
     container: 1168,
-    content: 768,
+    content: 924,
   },
   styles: {
     root: {
       fontFamily: 'serif',
-      fontSize: 3,
+      fontSize: [2, '', '', 3],
       lineHeight: 'content',
-      '>*': {
-        maxWidth: 'content',
-      },
+
       a: {
-        color: 'accent'
+        color: 'primary',
+        textDecoration: 'none',
+        overflow: 'hidden',
+        textOverflow: 'ellipses',
+        whitespace: 'nowrap',
+        backgroundImage: theme => `linear-gradient(${theme.colors.accentMuted} 0%, ${theme.colors.accentMuted} 100%)`,
+        backgroundRepeat: 'repeat-x',
+        backgroundPosition: '0 100%',
+        backgroundSize: '1px 1px',
+        '&:hover': {
+          color: 'accent',
+        }
       }
     },
     h1: {
       lineHeight: 'heading',
+      fontFamily: 'heading',
+      letterSpacing: 'heading',
       mt: 0,
       fontSize: 3,
     },
     h2: {
       lineHeight: 'heading',
+      fontFamily: 'heading',
+      letterSpacing: 'heading',
       mt: '2em',
       mb: '1em',
       fontSize: 3,
     },
     h3: {
       lineHeight: 'heading',
+      fontFamily: 'heading',
+      letterSpacing: 'heading',
       mt: '2em',
       mb: '1em',
       fontSize: 3,
     },
     h4: {
       lineHeight: 'heading',
+      fontFamily: 'heading',
+      letterSpacing: 'heading',
       mt: '2em',
       mb: '1em',
     },
     h5: {
       lineHeight: 'heading',
+      fontFamily: 'heading',
+      letterSpacing: 'heading',
       mt: '2em',
       mb: '1em',
     },
     h6: {
       lineHeight: 'heading',
+      fontFamily: 'heading',
+      letterSpacing: 'heading',
       mt: '2em',
       mb: '1em',
     },
@@ -135,6 +164,10 @@ export default {
       '&[class*="language-"]': {
         fontSize: 1,
         background: 'transparent',
+      },
+      '*:not(pre) > &[class*="language-"]': {
+        whiteSpace: 'pre-wrap',
+        wordBreak: 'break-word',
       }
     },
     pre: {
