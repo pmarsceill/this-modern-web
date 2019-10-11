@@ -99,7 +99,7 @@ class BlogPostPage extends React.Component {
 		sx = {{
 		  position: ['', '', 'sticky'],
 		  top: 5,
-		  mb: 3,
+		  mb: [5, 3],
 		  mt: 1,
 		}}
 	      >
@@ -108,6 +108,7 @@ class BlogPostPage extends React.Component {
 		sx = {{
 		  display: 'none',
                   mb: 4,
+                  pr: 4,
 		  '&.show': {
 		     display: 'block',
 		  }

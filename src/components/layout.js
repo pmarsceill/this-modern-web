@@ -27,7 +27,7 @@ export default props => {
 	      fontWeight: 400,
 	      letterSpacing: '-0.07em',
 	      lineHeight: 'title',
-              wordSpacing: ['10em', '0'],
+              wordSpacing: ['12em', '0'],
               mt: 0,
               mb: [0, 2],
 	    }}
@@ -105,7 +105,7 @@ export default props => {
         sx={{
 	  maxWidth: 'container',
           mx: 'auto',
-          px: [4, 6, 5, ''],
+          px: [4, 6, '', 5],
         }}
       >
         <Micropub />

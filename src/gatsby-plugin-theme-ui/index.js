@@ -10,6 +10,7 @@ export default {
     accent: '#20e9ea',
     accentMuted: '#79e4e4',
     muted: '#333548',
+    medium: '#3f4e5a',
     modes: {
       light: {
 	background: '#f4f4f9',
@@ -132,12 +133,16 @@ export default {
       pl: 0,
       li: {
         position: 'relative',
+        pl: ['1.3em', 0],
         '::before': {
           position: 'absolute',
-          marginLeft: '-1.3em',
+          left: [0, '-1.3em'],
           content: '"—"',
           color: 'secondary',
         }
+      },
+      ul: {
+        pl: [0, '1.3em'],
       }
     },
     ol: {
@@ -146,10 +151,11 @@ export default {
       pl: 0,
       "> li": {
         position: 'relative',
+        pl: ['1.6em', 0],
         "&::before": {
           position: 'absolute',
           top: '0.15em',
-          left: '-1.6em',
+          left: [0, '-1.6em'],
           color: 'secondary',
           content: 'counter(step-counter)',
           'counter-increment': 'step-counter',
