@@ -29,15 +29,19 @@ export default props => {
           <Nav />
           <div
 	    sx = {{
-	      display: 'grid',
-	      gridGap: ['', 5, '', 6],
-	      gridTemplateColumns: [
-	      '',
-	      '1fr 1fr',
-	      ]
+	      display: ['grid'],
+	      gridGap: ['', 3, 5],
+              gridTemplateAreas: [
+                '"intro" "image" "details" "more"',
+                '"intro image image" "details image image" "more more more"',
+                '"intro image image" "details image image" "more more x"',
+              ]
 	    }}
 	  >
             <div
+              sx = {{
+                gridArea: 'intro',
+              }}
             >
 	      <h1
                 sx = {{
@@ -56,14 +60,20 @@ export default props => {
                     ml: '0.2em',
 		  }}
 		>
-		  is a product design manager at GitHub leading teams that build planet-scale products for 40 million developers.
+		  is a product design manager at GitHub leading teams that design &amp; build planet-scale tools for over 40 million developers.
 		</span>
               </h1>
+            </div>
+            <div
+              sx = {{
+                gridArea: 'details',
+              }}
+            >
 	      <div
                 sx = {{
                   fontFamily: 'body',
                   lineHeight: 'body',
-                  fontSize: [1, '', '' ,3],
+                  fontSize: [1, '', '' ,2],
                   color: 'medium',
                 }}
               >
@@ -82,14 +92,57 @@ export default props => {
 		</p>
 	      </div>
             </div>
-	    <img src={aboutGif} alt="Patrick Marsceill"
+            <div
+              sx = {{
+                gridArea: 'image',
+              }}
+            >
+	      <img src={aboutGif} alt="Patrick Marsceill"
+		sx = {{
+		  width: '100%',
+		  mt: [4, 6, '']
+		}}
+	      />
+            </div>
+
+	    <div
 	      sx = {{
-		width: '100%',
-		mt: [4, 6, '']
+		gridArea: 'more',
 	      }}
-	    />
-          </div>
+            >
+              <h2
+                sx = {{
+                  fontFamily: 'heading',
+                  fontSize: [4, '', '', 5],
+                  letterSpacing: 'heading',
+                  lineHeight: 'heading',
+                  mt: 5,
+                }}
+              >
+                About this website
+              </h2>
+              <div
+                sx = {{
+                  fontFamily: 'body',
+                  lineHeight: 'body',
+                  fontSize: [1, '', '' ,2],
+                  color: 'medium',
+                  }}
+              >
+                <p>This website is powered by <Styled.a href="https://gatsbyjs.org">GatsbyJS</Styled.a>, a very nice framework for React. The logotype is set in Optician Sans (Open Source on GitHub), the reset of the site uses system-safe fontstacks:</p>
+                <Styled.a href="https://gatsbyjs.org">GatsbyJS</Styled.a>
+
+                <Styled.ul>
+                  <li>Headings</li>
+                  <li>Headings</li>
+                  <li>Headings</li>
+                </Styled.ul>
+
+              </div>
+	    </div>
+	  </div>
         </TwoCol>
+
     </Layout>
   )
 }

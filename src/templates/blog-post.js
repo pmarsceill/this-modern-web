@@ -118,7 +118,7 @@ class BlogPostPage extends React.Component {
 		  sx = {{
 		    fontFamily: 'heading',
 		    fontWeight: 'heading',
-		    fontSize: [3],
+		    fontSize: [4],
 		    display: ['none', '', 'inline' ],
 		    color: 'primary',
 		    letterSpacing: 'heading',
@@ -131,11 +131,12 @@ class BlogPostPage extends React.Component {
 		  sx = {{
 		    fontFamily: 'heading',
 		    fontWeight: 'heading',
-		    fontSize: [3],
+		    fontSize: [4],
 		    display: ['none', '', 'inline' ],
 		    color: 'secondary',
 		    letterSpacing: 'heading',
 		    mr: 2,
+
 		  }}
 		>
 		  {post.frontmatter.description}
@@ -160,31 +161,85 @@ class BlogPostPage extends React.Component {
 	      </Styled.root>
 	    </section>
 	  </TwoCol>
-	  <hr />
-	  <footer>
-	    <Bio />
+          <Styled.root>
+	    <footer
+	      sx = {{
+		fontFamily: 'body',
+                fontSize: 1,
+		lineHeight: 'body',
+		borderTop: '1px solid',
+		borderColor: 'muted',
+		marginTop: 6,
+	      }}
+	    >
+	      <nav
+		sx = {{
+		  mt: 5,
+		}}
+	      >
+		<ul
+		  sx = {{
+		    display: 'grid',
+		    listStyle: 'none',
+		    pl: 0,
+		    m: 0,
+		    width: '100%',
+		    gridTemplateColumns: [
+		      '1fr 1fr',
+		    ]
+		  }}
+		>
+		  <li
+                  >
+                    <span
+                      sx = {{
+                        fontSize: 0,
+                        color: 'secondary',
+                        display: 'block',
+                      }}
+		    >
+                      previously
+                    </span>
+		    {previous && (
+		      <Link to={previous.fields.slug} rel="prev">
+		      ← {previous.frontmatter.title}
+		      </Link>
+		    ) || (
+		      <Link to='/' rel="prev">
+			← Feed
+		      </Link>
+		    )}
+		  </li>
+		  <li
+		    sx = {{
+		      textAlign: 'right',
+		    }}
+		  >
+		    <span
+      sx = {{
+	fontSize: 0,
+	  color: 'secondary',
+	display: 'block',
+      }}
+      >
+next
+    </span>
+		    {next && (
+		      <Link to={next.fields.slug} rel="next">
+			{next.frontmatter.title} →
+		    </Link>
+		  ) || (
+		    <Link to='/' rel="next">
+		      Feed →
+		    </Link>
+		  )}
+                </li>
+	      </ul>
+	    </nav>
 	  </footer>
+          </Styled.root>
 	</article>
 
-	<nav>
-	  <ul
-	  >
-	    <li>
-	      {previous && (
-		<Link to={previous.fields.slug} rel="prev">
-		  ← {previous.frontmatter.title}
-		</Link>
-	      )}
-	    </li>
-	    <li>
-	      {next && (
-		<Link to={next.fields.slug} rel="next">
-		  {next.frontmatter.title} →
-		</Link>
-	      )}
-	    </li>
-	  </ul>
-	</nav>
       </Layout>
     )
   }

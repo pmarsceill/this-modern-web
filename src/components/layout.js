@@ -16,18 +16,19 @@ export default props => {
       header = (
         <div
           sx = {{
-            mt: 5,
-            mb: [3, '', 7],
+            mt: [4, '', 6],
+            mb: [5, '', 6, '20vh'],
+            pb: 5,
           }}
         >
 	  <h1
 	    sx = {{
 	      fontFamily: 'title',
-	      fontSize: [6, 8, 10],
+	      fontSize: [5, 8, '', 10],
 	      fontWeight: 400,
 	      letterSpacing: '-0.07em',
 	      lineHeight: 'title',
-              wordSpacing: ['12em', '0'],
+              wordSpacing: ['16em', '0'],
               mt: 0,
               mb: [0, 2],
 	    }}
@@ -58,20 +59,19 @@ export default props => {
       header = (
         <div
           sx = {{
-            mt: 5,
-            mb: [5, '', 6, '25vh'],
+            mt: [4, '', 6],
+            mb: [5, '', 6, '20vh'],
             pb: 5,
-            borderBottom: '1px solid',
-            borderColor: 'muted',
           }}
         >
 	  <h3
 	    sx = {{
 	      fontFamily: 'title',
-	      fontSize: [4, 5, 6],
+	      fontSize: [5, 6],
 	      fontWeight: 400,
 	      letterSpacing: '-0.07em',
 	      lineHeight: 'title',
+              wordSpacing: ['16em', '0'],
               mt: 0,
               mb: 0,
 	    }}

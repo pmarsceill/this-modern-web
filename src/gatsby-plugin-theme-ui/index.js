@@ -74,12 +74,26 @@ export default {
         }
       }
     },
+    a: {
+      color: 'primary',
+      textDecoration: 'none',
+      overflow: 'hidden',
+      textOverflow: 'ellipses',
+      whitespace: 'nowrap',
+      backgroundImage: theme => `linear-gradient(${theme.colors.accentMuted} 0%, ${theme.colors.accentMuted} 100%)`,
+      backgroundRepeat: 'repeat-x',
+      backgroundPosition: '0 100%',
+      backgroundSize: '1px 1px',
+      '&:hover': {
+        color: 'accent',
+      }
+    },
     h1: {
       lineHeight: 'heading',
       fontFamily: 'heading',
       letterSpacing: 'heading',
       mt: 0,
-      fontSize: 3,
+      fontSize: 4,
     },
     h2: {
       lineHeight: 'heading',
@@ -87,7 +101,7 @@ export default {
       letterSpacing: 'heading',
       mt: '2em',
       mb: '1em',
-      fontSize: 3,
+      fontSize: 4,
     },
     h3: {
       lineHeight: 'heading',
@@ -95,7 +109,7 @@ export default {
       letterSpacing: 'heading',
       mt: '2em',
       mb: '1em',
-      fontSize: 3,
+      fontSize: 4,
     },
     h4: {
       lineHeight: 'heading',
@@ -103,6 +117,7 @@ export default {
       letterSpacing: 'heading',
       mt: '2em',
       mb: '1em',
+      fontSize: 4,
     },
     h5: {
       lineHeight: 'heading',
@@ -120,6 +135,7 @@ export default {
     },
     p: {
       mt: 0,
+      mb: 4,
     },
     blockquote: {
       ml: 0,
@@ -145,6 +161,13 @@ export default {
         pl: [0, '1.3em'],
       }
     },
+    dl: {
+      listStyle: 'none',
+      pl: 0,
+      dt: {
+        fontWeight: 'bold',
+      },
+    },
     ol: {
       listStyle: 'none',
       counterReset: 'step-counter',
@@ -162,6 +185,24 @@ export default {
           fontSize: 1,
           fontFamily: 'body',
         }
+      },
+      ol: {
+	pl: [0, '1.3em'],
+      }
+    },
+    hr: {
+      borderStyle: 'solid',
+      border: 'none',
+      py: 5,
+      position: 'relative',
+      '&::after': {
+        position: 'absolute',
+	width: theme => `${theme.space[7]}px`,
+        height: '2px',
+        left: theme =>`calc(50% - ${theme.space[7] / 2}px)`,
+        top: 'calc(50% - 2px)',
+        backgroundColor: 'muted',
+        content: '""',
       }
     },
     code: {
@@ -180,10 +221,10 @@ export default {
       background: 'transparent',
       border: '1px solid',
       borderColor: 'muted',
-      marginBottom: 3,
+      marginBottom: 4,
       '&[class*="language-"]': {
         background: 'transparent',
-        marginBottom: 3,
+        marginBottom: 4,
       }
     }
   }
