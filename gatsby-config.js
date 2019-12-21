@@ -128,7 +128,6 @@ module.exports = {
                         description
                         date
                         tags
-                        featuredImg
                       }
                     }
                   }
