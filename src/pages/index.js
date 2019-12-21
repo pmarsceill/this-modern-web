@@ -208,7 +208,7 @@ export default props => {
 
             {microBlogs.map(({ node }, index) => {
               const body = node.body || node.fields.title || node.fields.slug
-              const timeAgo = moment(node.frontmatter.date).fromNow()
+              const timeAgo = moment(node.frontmatter.date).startOf('minute').fromNow()
               const permalink = `#${node.id}`
               const id = node.id
               const slug = node.fields.slug
@@ -238,7 +238,7 @@ export default props => {
 
             {microBlogs.map(({ node }, index) => {
               const body = node.body || node.fields.title || node.fields.slug
-              const timeAgo = moment(node.frontmatter.date).fromNow()
+              const timeAgo = moment(node.frontmatter.date).startOf('minute').fromNow()
               const permalink = `#${node.id}`
               const id = node.id
               const slug = node.fields.slug
