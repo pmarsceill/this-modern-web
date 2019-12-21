@@ -202,7 +202,7 @@ export default props => {
               }}
             >
               <a
-                href = "https://github.com/pmarsceill/this-modern-web"
+                href = "https://github.com/pmarsceill"
                 rel = "me"
                 sx = {{
                   color: "primary",
