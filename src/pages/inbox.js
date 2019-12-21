@@ -20,6 +20,7 @@ export default props => {
       location={props.location}
       title={siteTitle}
       >
+        <SEO title="Inbox" />
         <div
           sx = {{
             display: ['block', '', 'grid'],

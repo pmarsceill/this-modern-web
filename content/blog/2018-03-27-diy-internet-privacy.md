@@ -4,6 +4,7 @@ title: "DIY internet privacy"
 tags: ["journal", "IPSec", "VPN", "DIY"]
 date: "2018-03-27 14:38"
 description: "Roll your own VPN for (almost) free"
+featuredImage: ./assets/diy-internet-privacy/featured.png
 ---
 
 For years Virtual Private Networks have been used by corporations to provide a secure channel to employees for access  to sensitive company data or systems. In simple terms, a VPN server acts as a proxy and all network traffic is routed through it, encapsulated, encrypted and delivered to the end-user. This type of private secure delivery doesn't only have business applications, though.
@@ -20,7 +21,7 @@ Having a VPN server laying around for this type of personal use has historically
 
 I choose Digital Ocean because it was easy, required next to no setup, and costs less than five bucks a month (and comes with a ten dollar referral credit). If you want a setup like mine, use this link to create your account... *Note that you don't need to configure a Droplet or anything yet, this will happen automatically later.*
 
-[💁 Sign up for Digital Ocean](https://m.do.co/c/e675b6b6aa8e){: .btn .mb-3 }
+[💁 Sign up for Digital Ocean](https://m.do.co/c/e675b6b6aa8e)
 
 ### 2. Download the VPN server source locally
 
@@ -203,3 +204,6 @@ Voila, they should be connected automatically. Open up network preferences and t
 Network settings showing VPN connected on MacOS
 
 I turned off the `connect on demand` option because I like to manually connect to VPN when I need to, not automatically connect when not on a trusted network.
+
+
+![egg](./assets/diy-internet-privacy/featured.png)

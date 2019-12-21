@@ -154,6 +154,7 @@ export default {
           position: 'absolute',
           left: [0, '-1.3em'],
           content: '"—"',
+          fontWeight: 'normal',
           color: 'secondary',
         }
       },

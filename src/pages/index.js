@@ -7,6 +7,7 @@ import { useColorMode } from 'theme-ui'
 import { Styled } from 'theme-ui'
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import moment from "moment"
+import Img from "gatsby-image"
 
 import TwoCol from "../components/two-col"
 import Layout from "../components/layout"
@@ -37,7 +38,16 @@ export default props => {
 
   setColorMode('default')
 
-  function currentBlogLayout(title, tags, description, date, slug) {
+  function currentBlogLayout(title, tags, description, date, slug, imageData) {
+
+    const image = (imageData ?
+      <Img fixed = {imageData}
+        sx = {{
+          borderRadius: '6px',
+          ml: '3'
+        }}></Img>
+      : '')
+
     return (
       <article
         key = {slug}
@@ -53,107 +63,120 @@ export default props => {
           sx = {{
             color: 'primary',
             textDecoration: 'none',
-            display: 'block',
+            display: 'flex',
             '&:hover': {
               color: 'accent',
             }
           }}
         >
-          <h3
-            sx = {{
-              display: 'inline',
-              fontFamily: 'heading',
-              fontSize: [5, 6],
-              letterSpacing: 'heading',
-              lineHeight: 'heading',
-            }}
-          >
-              {title}
-          </h3>
-          <p
-            sx = {{
-              fontFamily: 'heading',
-              display: 'inline',
-              fontSize: [5, 6],
-              color: 'secondary',
-              fontWeight: 'bold',
-              letterSpacing: 'heading',
-              lineHeight: 'heading',
-              ml: 2,
-            }}
-          >
-            {description}
-          </p>
+          <div>
+            <h3
+              sx = {{
+                display: 'inline',
+                fontFamily: 'heading',
+                fontSize: [5, 6],
+                letterSpacing: 'heading',
+                lineHeight: 'heading',
+              }}
+            >
+                {title}
+            </h3>
+            <p
+              sx = {{
+                fontFamily: 'heading',
+                display: 'inline',
+                fontSize: [5, 6],
+                color: 'secondary',
+                fontWeight: 'bold',
+                letterSpacing: 'heading',
+                lineHeight: 'heading',
+                ml: 2,
+              }}
+            >
+              {description}
+            </p>
+            <small
+              sx = {{
+                fontFamily: 'body',
+                display: 'block',
+                fontSize: [0],
+                color: 'greyLt0',
+                  mt: 3,
+              }}
+              >
+              {date}
+            </small>
+          </div>
+          <div>
+            {image}
+          </div>
         </Link>
-        <small
-          sx = {{
-            fontFamily: 'body',
-            display: 'block',
-            fontSize: [0],
-            color: 'greyLt0',
-            mt: 3,
-          }}
-        >
-          {date}
-        </small>
       </article>
     )
   }
 
   function microBlogLayout(body, timeAgo, permalink, id, slug) {
     return (
-    <article
-      key = {slug}
-      sx = {{
-        mb: '5',
-        pb: '5',
-        borderBottom: '1px solid',
-        borderColor: 'muted',
-      }}
-      id = {id}
-    >
-    <div
-      sx = {{
-        color: 'primary',
-        textDecoration: 'none',
-        fontSize: 'body',
-      }}
-    >
-      <Styled.root>
-      <div
+      <article
+        key = {slug}
         sx = {{
-          fontFamily: 'monospace',
-          fontSize: [1, '', '', '', ''],
-          lineHeight: 'body',
+          mb: '5',
+          pb: '5',
+          borderBottom: '1px solid',
+          borderColor: 'muted',
         }}
+        id = {id}
       >
-          <MDXRenderer>
-            {body}
-          </MDXRenderer>
+        <div
+          sx = {{
+            color: 'primary',
+            textDecoration: 'none',
+            fontSize: 'body',
+          }}
+        >
+          <Styled.root>
+            <div
+              sx = {{
+                fontFamily: 'monospace',
+                fontSize: [1, '', '', '', ''],
+                lineHeight: 'body',
+              }}
+            >
+              <MDXRenderer>
+                {body}
+              </MDXRenderer>
+            </div>
+          </Styled.root>
         </div>
-      </Styled.root>
-    </div>
 
-    <small
-      sx = {{
-        fontFamily: 'monospace',
-        display: 'block',
-        fontSize: 0,
-        mt: 3,
-      }}
-    >
-      <a
-        href = {permalink}
-        sx = {{
-          textDecoration: 'none',
-          color: 'secondary',
-        }}
-      >
-        ⌘ {timeAgo}
-      </a>
-    </small>
-  </article>
-  )
+        <small
+          sx = {{
+            fontFamily: 'monospace',
+            display: 'block',
+            fontSize: 0,
+            mt: 3,
+          }}
+        >
+          <a
+            href = {permalink}
+            sx = {{
+              textDecoration: 'none',
+              color: 'secondary',
+            }}
+          >
+            ⌘ {timeAgo}
+          </a>
+        </small>
+      </article>
+    )
+  }
+
+  function renderBlog(i) {
+
+  }
+
+  function renerMicroblog(i) {
+
   }
 
   return (
@@ -165,7 +188,7 @@ export default props => {
         <TwoCol>
           <Nav />
           <div>
-            <SEO title="All posts" />
+            <SEO title="Feed | Latest posts" />
 
             {currentBlogs.map(({node}, index) => {
               const title = node.frontmatter.title || node.fields.slug
@@ -173,10 +196,12 @@ export default props => {
               const description = node.frontmatter.description || ""
               const date = node.frontmatter.date
               const slug = node.fields.slug
+              const featuredImage = node.frontmatter.featuredImage || ""
+              const imageData = (featuredImage ? featuredImage.childImageSharp.fixed : '')
 
               if (index < 2) {
                 return (
-                  currentBlogLayout(title, tags, description, date, slug)
+                  currentBlogLayout(title, tags, description, date, slug, imageData)
                 )
               }
             })}
@@ -194,19 +219,23 @@ export default props => {
                 )
               }
             })}
+
             {currentBlogs.map(({node}, index) => {
               const title = node.frontmatter.title || node.fields.slug
               const tags = node.frontmatter.tags || []
               const description = node.frontmatter.description || ""
               const date = node.frontmatter.date
               const slug = node.fields.slug
+              const featuredImage = node.frontmatter.featuredImage || ""
+              const imageData = (featuredImage ? featuredImage.childImageSharp.fixed : '')
 
               if (index >= 2 && index <= 4) {
                 return (
-                  currentBlogLayout(title, tags, description, date, slug)
+                  currentBlogLayout(title, tags, description, date, slug, imageData)
                 )
               }
             })}
+
             {microBlogs.map(({ node }, index) => {
               const body = node.body || node.fields.title || node.fields.slug
               const timeAgo = moment(node.frontmatter.date).fromNow()
@@ -219,7 +248,7 @@ export default props => {
                   microBlogLayout(body, timeAgo, permalink, id, slug)
                 )
               }
-              })}
+            })}
           </div>
         </TwoCol>
       </div>
@@ -248,6 +277,13 @@ export const pageQuery = graphql`
             title
             description
             tags
+            featuredImage {
+              childImageSharp {
+		fixed(width: 140, height: 140) {
+		 ...GatsbyImageSharpFixed
+		}
+              }
+            }
           }
           body
         }

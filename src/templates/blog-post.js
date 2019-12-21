@@ -12,6 +12,7 @@ import { Styled } from 'theme-ui'
 import { useColorMode } from 'theme-ui'
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import { InView } from 'react-intersection-observer'
+import Img from 'gatsby-image'
 
 class BlogPostPage extends React.Component {
 
@@ -97,7 +98,7 @@ class BlogPostPage extends React.Component {
 	    >
 	      <div
 		sx = {{
-		  position: ['', '', 'sticky'],
+		  position: ['', '', '', 'sticky'],
 		  top: 5,
 		  mb: [5, 3],
 		  mt: 1,
@@ -110,7 +111,7 @@ class BlogPostPage extends React.Component {
                   mb: 4,
                   pr: 4,
 		  '&.show': {
-		     display: 'block',
+                    display: ['none', '', '', 'block'],
 		  }
 		}}
 	      >

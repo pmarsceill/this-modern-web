@@ -4,6 +4,7 @@ title:  "Hacking the font Stack"
 description: "Explorations in a modern native fonts on the web"
 date: 2016-11-28 17:18:00
 tags: ["native-type"]
+featuredImage: ./assets/hacking-font-stack/hacking-font-stack.png
 ---
 
 When the `@font-face` directive (which allows the use of non-system font files on webpages) made its [official debut][423c2466] in the CSS3 fonts module, Flash was still a big part of the web. Compared to CSS at the time, Flash allowed for seemingly limitless possibilities in layout, typography, animations and consistency across platforms.  It was extremely attractive to adopt with its relatively shallow learning curve and gave designers a more visual way to put content on the web.

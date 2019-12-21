@@ -16,8 +16,8 @@ export default props => {
 	    gridTemplateColumns: [
 	    '',
 	    '',
-	    '160px minmax(0, 1fr)',
-	    '180px minmax(0, 1fr)',
+	    '140px minmax(0, 1fr)',
+	    '168px minmax(0, 1fr)',
 	]
 	}}
       >
@@ -33,8 +33,8 @@ export default props => {
 	  gridTemplateColumns: [
 	    '',
 	    '',
-	    '160px minmax(0, 1fr)',
-	    '180px minmax(0, 1fr) 180px',
+	    '140px minmax(0, 1fr)',
+	    '168px minmax(0, 1fr) 168px',
 	  ]
 	}}
       >

@@ -25,6 +25,7 @@ export default props => {
       location={props.location}
       title={siteTitle}
       >
+        <SEO title="About Patrick Marsceill" />
         <TwoCol extended = 'true'>
           <Nav />
           <div
@@ -60,7 +61,7 @@ export default props => {
                     ml: '0.2em',
 		  }}
 		>
-		  is a product design manager at GitHub leading teams that design &amp; build planet-scale tools for over 40 million developers.
+		  is a product design manager at GitHub leading teams that design &amp; build tools used by over 40 million developers.
 		</span>
               </h1>
             </div>
@@ -80,7 +81,7 @@ export default props => {
 		<p>
 		  At GitHub, I manage the product design teams that comprise the core workflows that developers use daily:
 		</p>
-		<Styled.ul>
+		<Styled.ul sx = {{ color: 'text', fontWeight: 'bold' }}>
 		  <li>GitHub Actions</li>
 		  <li>GitHub Packages</li>
 		  <li>Pull Requests</li>
@@ -129,11 +130,12 @@ export default props => {
                   color: 'medium',
                   }}
               >
-                <p>This website is powered by <Styled.a href="https://gatsbyjs.org">GatsbyJS</Styled.a>, a very nice framework for React. The logotype is set in Optician Sans (Open Source on GitHub), the reset of the site uses system-safe fontstacks:</p>
+                <p>This website is powered by a custom theme that I wrote for <Styled.a href="https://gatsbyjs.org">GatsbyJS</Styled.a>, a very nice framework for React. You can find the source code is available on GitHub and hosting is provided by Netlify.</p>
+                <p>The logotype is set in Optician Sans (Open Source on GitHub), the reset of the site uses system-safe fontstacks:</p>
                 <Styled.a href="https://gatsbyjs.org">GatsbyJS</Styled.a>
 
                 <Styled.ul>
-                  <li>Headings</li>
+                  <li><strong>Headings</strong></li>
                   <li>Headings</li>
                   <li>Headings</li>
                 </Styled.ul>
