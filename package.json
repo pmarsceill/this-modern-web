@@ -42,7 +42,8 @@
   },
   "devDependencies": {
     "eslint-config-prettier": "^6.9.0",
-    "prettier": "1.19.1"
+    "prettier": "1.19.1",
+    "stylelint-config-recommended": "^3.0.0"
   },
   "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
   "keywords": [
