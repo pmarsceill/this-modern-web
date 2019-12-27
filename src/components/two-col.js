@@ -5,40 +5,40 @@ import { jsx } from "theme-ui"
 
 export default props => {
   const { children, extended } = props
-  console.log('extended: ' + extended)
+  console.log("extended: " + extended)
 
-  if (extended == 'true') {
+  if (extended == "true") {
     return (
       <div
-	sx = {{
-	  display: ['block', '', 'grid'],
-	    gridGap: ['', '', 4, 6],
-	    gridTemplateColumns: [
-	    '',
-	    '',
-	    '140px minmax(0, 1fr)',
-	    '168px minmax(0, 1fr)',
-	]
-	}}
+        sx={{
+          display: ["block", "", "grid"],
+          gridGap: ["", "", 4, 6],
+          gridTemplateColumns: [
+            "",
+            "",
+            "140px minmax(0, 1fr)",
+            "168px minmax(0, 1fr)",
+          ],
+        }}
       >
-	{children}
+        {children}
       </div>
     )
   } else {
     return (
       <div
-	sx = {{
-	  display: ['block', '', 'grid'],
-	  gridGap: ['', '', 4, 6],
-	  gridTemplateColumns: [
-	    '',
-	    '',
-	    '140px minmax(0, 1fr)',
-	    '168px minmax(0, 1fr) 168px',
-	  ]
-	}}
+        sx={{
+          display: ["block", "", "grid"],
+          gridGap: ["", "", 4, 6],
+          gridTemplateColumns: [
+            "",
+            "",
+            "140px minmax(0, 1fr)",
+            "168px minmax(0, 1fr) 168px",
+          ],
+        }}
       >
-	{children}
+        {children}
       </div>
     )
   }

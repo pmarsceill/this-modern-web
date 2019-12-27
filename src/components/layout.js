@@ -9,21 +9,24 @@ import Micropub from "../components/micropub"
 export default props => {
   const { location, title, fullWidth, pageTitle, children } = props
   const rootPath = `${__PATH_PREFIX__}/`
-  const bigHeader = location.pathname === rootPath || location.pathname === '/about' || location.pathname === '/inbox'
+  const bigHeader =
+    location.pathname === rootPath ||
+    location.pathname === "/about" ||
+    location.pathname === "/inbox"
   let headingTitle
 
   if (pageTitle) {
     headingTitle = (
       <h1
-        sx = {{
-          position: 'absolute',
-          right: '0',
-          top: '0',
-          fontFamily: 'title',
+        sx={{
+          position: "absolute",
+          right: "0",
+          top: "0",
+          fontFamily: "title",
           fontSize: [5, 6],
           fontWeight: 400,
-          letterSpacing: '-0.07em',
-          lineHeight: 'title',
+          letterSpacing: "-0.07em",
+          lineHeight: "title",
           my: 0,
         }}
       >
@@ -37,38 +40,38 @@ export default props => {
   if (bigHeader) {
     header = (
       <div
-        sx = {{
-          mt: [4, '', 6],
-          mb: [5, '', 6, '20vh'],
+        sx={{
+          mt: [4, "", 6],
+          mb: [5, "", 6, "20vh"],
           pb: 5,
         }}
       >
         <h1
-          sx = {{
-            fontFamily: 'title',
-            fontSize: [5, 8, '', 10],
+          sx={{
+            fontFamily: "title",
+            fontSize: [5, 8, "", 10],
             fontWeight: 400,
-            letterSpacing: '-0.07em',
-            lineHeight: 'title',
-            wordSpacing: ['16em', '0'],
+            letterSpacing: "-0.07em",
+            lineHeight: "title",
+            wordSpacing: ["16em", "0"],
             mt: 0,
             mb: [0, 2],
           }}
         >
           <Link
-            to = {`/`}
-            sx = {{
-              color: 'primary',
-              textDecoration: 'none',
+            to={`/`}
+            sx={{
+              color: "primary",
+              textDecoration: "none",
             }}
           >
             {title}
           </Link>
         </h1>
         <p
-          sx = {{
-            fontFamily: 'body',
-            color: 'secondary',
+          sx={{
+            fontFamily: "body",
+            color: "secondary",
             fontSize: [0, 1, 3],
             mt: 0,
           }}
@@ -80,42 +83,42 @@ export default props => {
   } else {
     header = (
       <div
-        sx = {{
-          mt: [4, '', 6],
-          mb: [5, '', 6, '20vh'],
+        sx={{
+          mt: [4, "", 6],
+          mb: [5, "", 6, "20vh"],
           pb: 5,
-          position: 'relative',
+          position: "relative",
         }}
       >
         <span
-          sx = {{
-            fontFamily: 'title',
+          sx={{
+            fontFamily: "title",
             fontSize: [5, 6],
             fontWeight: 400,
-            letterSpacing: '-0.07em',
-            lineHeight: 'title',
-            wordSpacing: ['16em', '0'],
+            letterSpacing: "-0.07em",
+            lineHeight: "title",
+            wordSpacing: ["16em", "0"],
             mt: 0,
             mb: 0,
           }}
         >
           <Link
-            to = {`/`}
-            sx = {{
-              color: 'secondary',
-              textDecoration: 'none',
+            to={`/`}
+            sx={{
+              color: "secondary",
+              textDecoration: "none",
             }}
           >
             {title}
           </Link>
         </span>
         <p
-          sx = {{
-            fontFamily: 'body',
-            color: 'secondary',
+          sx={{
+            fontFamily: "body",
+            color: "secondary",
             fontSize: 0,
             mt: 0,
-            flex: 'auto',
+            flex: "auto",
           }}
         >
           the personal website of Patrick Marsceill
@@ -129,22 +132,22 @@ export default props => {
     <div>
       <div
         sx={{
-          maxWidth: 'container',
-          mx: 'auto',
-          px: [4, 6, '', 5],
+          maxWidth: "container",
+          mx: "auto",
+          px: [4, 6, "", 5],
         }}
       >
         <Micropub />
         <Global
-          styles={
-            theme => ({
-            '@font-face': {
-              fontFamily: 'Optician Sans',
-              src: 'url(\'/fonts/Optician-Sans.woff2\') format(\'woff2\'), url(\'/fonts/Optician-Sans.woff\') format(\'woff\')',
+          styles={theme => ({
+            "@font-face": {
+              fontFamily: "Optician Sans",
+              src:
+                "url('/fonts/Optician-Sans.woff2') format('woff2'), url('/fonts/Optician-Sans.woff') format('woff')",
               fontWeight: 400,
             },
-            '*': {
-              boxSizing: 'border-box',
+            "*": {
+              boxSizing: "border-box",
             },
             body: {
               margin: 0,
@@ -155,15 +158,15 @@ export default props => {
       </div>
       <div
         sx={{
-          maxWidth: (fullWidth ? 'none' : 'container'),
-          mx: 'auto',
-          px: [4, 6, '', 5],
+          maxWidth: fullWidth ? "none" : "container",
+          mx: "auto",
+          px: [4, 6, "", 5],
         }}
       >
         <main
-          sx = {{
+          sx={{
             mb: 6,
-            minHeight: ['','','calc(100vh - 389px)'],
+            minHeight: ["", "", "calc(100vh - 389px)"],
           }}
         >
           {children}
@@ -171,84 +174,84 @@ export default props => {
       </div>
       <div
         sx={{
-          maxWidth: 'container',
-            mx: 'auto',
-            px: [4, 6, '', 5],
+          maxWidth: "container",
+          mx: "auto",
+          px: [4, 6, "", 5],
         }}
       >
         <footer
-          sx = {{
+          sx={{
             fontFamily: "body",
             fontSize: 1,
             color: "secondary",
-            pb: 4
+            pb: 4,
           }}
         >
           &copy; 2012-{new Date().getFullYear()} Patrick Marsceill.
           <ul
-            sx = {{
-              listStyle: 'none',
+            sx={{
+              listStyle: "none",
               pl: 0,
               fontSize: 2,
-              display: ['block', 'flex' ],
+              display: ["block", "flex"],
             }}
           >
             <li
-              sx = {{
+              sx={{
                 mr: 4,
               }}
             >
               <Link
-                to = { location.pathname }
-                sx = {{
+                to={location.pathname}
+                sx={{
                   color: "primary",
-                  textDecoration: "none"
+                  textDecoration: "none",
                 }}
               >
                 Back to top
               </Link>
             </li>
             <li
-              sx = {{
+              sx={{
                 mr: 4,
               }}
             >
               <a
-                href = "mailto:patrick.marsceill@gmail.com"
-                sx = {{
+                href="mailto:patrick.marsceill@gmail.com"
+                sx={{
                   color: "primary",
-                  textDecoration: "none"
+                  textDecoration: "none",
                 }}
               >
                 Email me
               </a>
             </li>
             <li
-              sx = {{
+              sx={{
                 mr: 4,
               }}
             >
               <a
-                href = "https://twitter.com/pmarsceill"
-                sx = {{
+                href="https://twitter.com/pmarsceill"
+                sx={{
                   color: "primary",
-                    textDecoration: "none"
+                  textDecoration: "none",
                 }}
               >
                 Twitter
               </a>
             </li>
             <li
-              sx = {{
+              sx={{
                 mr: 4,
               }}
             >
               <a
-                href = "https://github.com/pmarsceill"
-                rel = "me"
-                sx = {{
+                href="https://github.com/pmarsceill"
+                rel="me"
+                sx={{
                   color: "primary",
-                    textDecoration: "none"
+                  textDecoration: "none",
                 }}
               >
                 GitHub

@@ -2,9 +2,9 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 
 /** @jsx jsx */
-import { jsx } from "theme-ui";
-import { useColorMode } from 'theme-ui'
-import { Styled } from 'theme-ui'
+import { jsx } from "theme-ui"
+import { useColorMode } from "theme-ui"
+import { Styled } from "theme-ui"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import moment from "moment"
 import Img from "gatsby-image"
@@ -36,80 +36,81 @@ export default props => {
 
   const [colorMode, setColorMode] = useColorMode()
 
-  setColorMode('dark')
+  setColorMode("dark")
 
   function currentBlogLayout(title, tags, description, date, slug, imageData) {
-
-    const image = (imageData ?
-      <Img fixed = {imageData}
-        sx = {{
-          borderRadius: '6px',
-          ml: '3'
-        }}></Img>
-      : '')
+    const image = imageData ? (
+      <Img
+        fixed={imageData}
+        sx={{
+          borderRadius: "6px",
+          ml: "3",
+        }}
+      ></Img>
+    ) : (
+      ""
+    )
 
     return (
       <article
-        key = {slug}
-        sx = {{
-          mb: '5',
-          pb: '5',
-          borderBottom: '1px solid',
-          borderColor: 'muted',
+        key={slug}
+        sx={{
+          mb: "5",
+          pb: "5",
+          borderBottom: "1px solid",
+          borderColor: "muted",
         }}
       >
         <Link
-          to = {slug}
-          sx = {{
-            color: 'primary',
-            textDecoration: 'none',
-            display: 'flex',
-            '&:hover': {
-              color: 'accent',
-            }
+          to={slug}
+          sx={{
+            color: "primary",
+            textDecoration: "none",
+            display: "flex",
+            "&:hover": {
+              color: "accent",
+            },
           }}
         >
           <div>
             <h3
-              sx = {{
-                display: 'inline',
-                fontFamily: 'heading',
+              sx={{
+                display: "inline",
+                fontFamily: "heading",
                 fontSize: [5, 6],
-                letterSpacing: 'heading',
-                lineHeight: 'heading',
+                letterSpacing: "heading",
+                lineHeight: "heading",
               }}
             >
-                {title}
+              {title}
             </h3>
             <p
-              sx = {{
-                fontFamily: 'heading',
-                display: 'inline',
+              sx={{
+                fontFamily: "heading",
+                display: "inline",
                 fontSize: [5, 6],
-                color: 'secondary',
-                fontWeight: 'bold',
-                letterSpacing: 'heading',
-                lineHeight: 'heading',
+                color: "secondary",
+                fontWeight: "bold",
+                letterSpacing: "heading",
+                lineHeight: "heading",
                 ml: 2,
               }}
             >
               {description}
             </p>
             <small
-              sx = {{
-                fontFamily: 'body',
-                display: 'block',
+              sx={{
+                fontFamily: "body",
+                display: "block",
                 fontSize: [0],
-                color: 'secondary',
+                color: "secondary",
                 mt: 3,
               }}
-              >
+            >
               {date}
             </small>
           </div>
-          <div>
-            {image}
-          </div>
+          <div>{image}</div>
         </Link>
       </article>
     )
@@ -118,50 +119,48 @@ export default props => {
   function microBlogLayout(body, timeAgo, permalink, id, slug) {
     return (
       <article
-        key = {slug}
-        sx = {{
-          mb: '5',
-          pb: '5',
-          borderBottom: '1px solid',
-          borderColor: 'muted',
+        key={slug}
+        sx={{
+          mb: "5",
+          pb: "5",
+          borderBottom: "1px solid",
+          borderColor: "muted",
         }}
-        id = {id}
+        id={id}
       >
         <div
-          sx = {{
-            color: 'primary',
-            textDecoration: 'none',
-            fontSize: 'body',
+          sx={{
+            color: "primary",
+            textDecoration: "none",
+            fontSize: "body",
           }}
         >
           <Styled.root>
             <div
-              sx = {{
-                fontFamily: 'monospace',
-                fontSize: [1, '', '', '', ''],
-                lineHeight: 'body',
+              sx={{
+                fontFamily: "monospace",
+                fontSize: [1, "", "", "", ""],
+                lineHeight: "body",
               }}
             >
-              <MDXRenderer>
-                {body}
-              </MDXRenderer>
+              <MDXRenderer>{body}</MDXRenderer>
             </div>
           </Styled.root>
         </div>
 
         <small
-          sx = {{
-            fontFamily: 'monospace',
-            display: 'block',
+          sx={{
+            fontFamily: "monospace",
+            display: "block",
             fontSize: 0,
             mt: 3,
           }}
         >
           <a
-            href = {permalink}
-            sx = {{
-              textDecoration: 'none',
-              color: 'secondary',
+            href={permalink}
+            sx={{
+              textDecoration: "none",
+              color: "secondary",
             }}
           >
             ⌘ {timeAgo}
@@ -172,28 +171,34 @@ export default props => {
   }
 
   return (
-    <Layout
-      location={props.location}
-      title={siteTitle}
-    >
+    <Layout location={props.location} title={siteTitle}>
       <div>
         <TwoCol>
           <Nav />
           <div>
             <SEO title="Feed | Latest posts" />
 
-            {currentBlogs.map(({node}, index) => {
+            {currentBlogs.map(({ node }, index) => {
               const title = node.frontmatter.title || node.fields.slug
               const tags = node.frontmatter.tags || []
               const description = node.frontmatter.description || ""
-              const date = moment.utc(node.frontmatter.date).format('MMMM DD, YYYY')
+              const date = moment
+                .utc(node.frontmatter.date)
+                .format("MMMM DD, YYYY")
               const slug = node.fields.slug
               const featuredImage = node.frontmatter.featuredImage || ""
-              const imageData = (featuredImage ? featuredImage.childImageSharp.fixed : '')
+              const imageData = featuredImage
+                ? featuredImage.childImageSharp.fixed
+                : ""
 
               if (index < 2) {
-                return (
-                  currentBlogLayout(title, tags, description, date, slug, imageData)
+                return currentBlogLayout(
+                  title,
+                  tags,
+                  description,
+                  date,
+                  slug,
+                  imageData
                 )
               }
             })}
@@ -206,39 +211,47 @@ export default props => {
               const slug = node.fields.slug
 
               if (index < 4) {
-                return (
-                  microBlogLayout(body, timeAgo, permalink, id, slug)
-                )
+                return microBlogLayout(body, timeAgo, permalink, id, slug)
               }
             })}
 
-            {currentBlogs.map(({node}, index) => {
+            {currentBlogs.map(({ node }, index) => {
               const title = node.frontmatter.title || node.fields.slug
               const tags = node.frontmatter.tags || []
               const description = node.frontmatter.description || ""
-              const date = moment.utc(node.frontmatter.date).format('MMMM DD, YYYY')
+              const date = moment
+                .utc(node.frontmatter.date)
+                .format("MMMM DD, YYYY")
               const slug = node.fields.slug
               const featuredImage = node.frontmatter.featuredImage || ""
-              const imageData = (featuredImage ? featuredImage.childImageSharp.fixed : '')
+              const imageData = featuredImage
+                ? featuredImage.childImageSharp.fixed
+                : ""
 
               if (index >= 2 && index <= 4) {
-                return (
-                  currentBlogLayout(title, tags, description, date, slug, imageData)
+                return currentBlogLayout(
+                  title,
+                  tags,
+                  description,
+                  date,
+                  slug,
+                  imageData
                 )
               }
             })}
 
             {microBlogs.map(({ node }, index) => {
               const body = node.body || node.fields.title || node.fields.slug
-              const timeAgo = moment.utc(node.frontmatter.date).local().fromNow()
+              const timeAgo = moment
+                .utc(node.frontmatter.date)
+                .local()
+                .fromNow()
               const permalink = `#${node.id}`
               const id = node.id
               const slug = node.fields.slug
 
               if (index >= 4) {
-                return (
-                  microBlogLayout(body, timeAgo, permalink, id, slug)
-                )
+                return microBlogLayout(body, timeAgo, permalink, id, slug)
               }
             })}
             <Link to="archive">Archive</Link>
@@ -249,7 +262,6 @@ export default props => {
   )
 }
 
-
 export const pageQuery = graphql`
   query allPosts {
     site {
@@ -257,7 +269,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMdx(sort: { fields: [frontmatter___date], order: DESC}) {
+    allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
       edges {
         node {
           id
@@ -272,9 +284,9 @@ export const pageQuery = graphql`
             tags
             featuredImage {
               childImageSharp {
-		fixed(width: 140, height: 140) {
-		 ...GatsbyImageSharpFixed
-		}
+                fixed(width: 140, height: 140) {
+                  ...GatsbyImageSharpFixed
+                }
               }
             }
           }

@@ -1,27 +1,28 @@
 import React from "react"
 
 /** @jsx jsx */
-import { jsx } from "theme-ui";
+import { jsx } from "theme-ui"
 
-export function TagList({tags}) {
+export function TagList({ tags }) {
   if (!tags || tags.length === 0) {
     return null
   }
 
   return (
     <ul
-      sx = {{
+      sx={{
         listStyle: "none",
         pl: 0,
       }}
     >
       {tags.map(tag => (
         <li
-          sx = {{
+          sx={{
             display: "inlineBlock",
           }}
-          key={tag}>
-            {tag}
+          key={tag}
+        >
+          {tag}
         </li>
       ))}
     </ul>
