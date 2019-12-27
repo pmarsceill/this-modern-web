@@ -36,7 +36,7 @@ export default props => {
 
   const [colorMode, setColorMode] = useColorMode()
 
-  setColorMode('default')
+  setColorMode('dark')
 
   function currentBlogLayout(title, tags, description, date, slug, imageData) {
 
@@ -171,14 +171,6 @@ export default props => {
     )
   }
 
-  function renderBlog(i) {
-
-  }
-
-  function renerMicroblog(i) {
-
-  }
-
   return (
     <Layout
       location={props.location}
@@ -194,7 +186,7 @@ export default props => {
               const title = node.frontmatter.title || node.fields.slug
               const tags = node.frontmatter.tags || []
               const description = node.frontmatter.description || ""
-              const date = node.frontmatter.date
+              const date = moment.utc(node.frontmatter.date).format('MMMM DD, YYYY')
               const slug = node.fields.slug
               const featuredImage = node.frontmatter.featuredImage || ""
               const imageData = (featuredImage ? featuredImage.childImageSharp.fixed : '')
@@ -208,7 +200,7 @@ export default props => {
 
             {microBlogs.map(({ node }, index) => {
               const body = node.body || node.fields.title || node.fields.slug
-              const timeAgo = moment(node.frontmatter.date).startOf('minute').fromNow()
+              const timeAgo = moment.utc(node.frontmatter.date).fromNow()
               const permalink = `#${node.id}`
               const id = node.id
               const slug = node.fields.slug
@@ -224,7 +216,7 @@ export default props => {
               const title = node.frontmatter.title || node.fields.slug
               const tags = node.frontmatter.tags || []
               const description = node.frontmatter.description || ""
-              const date = node.frontmatter.date
+              const date = moment.utc(node.frontmatter.date).format('MMMM DD, YYYY')
               const slug = node.fields.slug
               const featuredImage = node.frontmatter.featuredImage || ""
               const imageData = (featuredImage ? featuredImage.childImageSharp.fixed : '')
@@ -238,7 +230,7 @@ export default props => {
 
             {microBlogs.map(({ node }, index) => {
               const body = node.body || node.fields.title || node.fields.slug
-              const timeAgo = moment(node.frontmatter.date).startOf('minute').fromNow()
+              const timeAgo = moment.utc(node.frontmatter.date).local().fromNow()
               const permalink = `#${node.id}`
               const id = node.id
               const slug = node.fields.slug
@@ -249,6 +241,7 @@ export default props => {
                 )
               }
             })}
+            <Link to="archive">Archive</Link>
           </div>
         </TwoCol>
       </div>
@@ -273,7 +266,7 @@ export const pageQuery = graphql`
             slug
           }
           frontmatter {
-            date(formatString: "MMMM DD, YYYY")
+            date(formatString: "MMMM DD, YYYY, hh:mm:ss a")
             title
             description
             tags

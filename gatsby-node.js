@@ -2,7 +2,7 @@ const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
 exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions
+  const { createPage, createRedirect } = actions
 
   const blogPost = path.resolve(`./src/templates/blog-post.js`)
   const result = await graphql(
@@ -14,6 +14,7 @@ exports.createPages = async ({ graphql, actions }) => {
         ) {
           edges {
             node {
+              id
               fields {
                 slug
               }
@@ -34,9 +35,15 @@ exports.createPages = async ({ graphql, actions }) => {
 
   // Create blog posts pages.
   const posts = result.data.allMdx.edges
+
   const blogPosts = posts.filter(function(post) {
     const tags = post.node.frontmatter.tags || []
     return !tags.includes("microblog")
+  })
+
+  const microBlogs = posts.filter(function(post) {
+    const tags = post.node.frontmatter.tags || []
+    return tags.includes("microblog")
   })
 
   blogPosts.forEach((post, index) => {
@@ -51,6 +58,15 @@ exports.createPages = async ({ graphql, actions }) => {
         previous,
         next,
       },
+    })
+  })
+
+  microBlogs.forEach((post, index) => {
+    createRedirect({
+      fromPath: post.node.fields.slug,
+      toPath: `/` + `#` + post.node.id,
+      isPermanent: true,
+      redirectInBrowser: true,
     })
   })
 }

@@ -6,8 +6,6 @@ date: "2018-03-14 01:00"
 description: "Is the future of the web a network of independent sites?"
 ---
 
-Is the future of the web a network of independent sites?
-
 > There seems to be a weak undercurrent of old and young bloggers like us that feel sentimental or curious and want to bring back blogging. Blogging won’t save the world. But, hell, after two weeks now, we can confirm: it feels great to be back on the blogging line.
 
 > If you are one of those old or young bloggers, please join in. Drop Facebook, drop Twitter and drop Medium for original thought. Own your traffic. You can use them to engage in discussion. But don’t get lost in there. Write daily. Publish as often as you have something to say. Link to other blogs.

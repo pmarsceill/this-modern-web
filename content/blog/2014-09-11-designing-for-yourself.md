@@ -3,7 +3,6 @@ layout: post
 title:  "Designing for Yourself"
 date:   2014-09-11 19:25:00
 tags: ["legacy"]
-disqus_comments: true
 ---
 
 Redesigning my personal website has historically been a stressful process riddled with self-doubt. Designing for yourself is hard. It's hard for individuals, it's hard for companies, and it's usually the project that will lose out to more pressing priorities. In past iterations of my personal site, I primarily focused on _just getting it to work_ so I could move on. Rather than spending the time to discover and enhance the details that might have elevated the experience, I raced through it to get something launched. For this version, I was very conscious of taking the time to allow these details to flourish through patience and iteration.

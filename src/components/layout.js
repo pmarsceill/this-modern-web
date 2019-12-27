@@ -64,7 +64,7 @@ export default props => {
             pb: 5,
           }}
         >
-	  <h3
+	  <span
 	    sx = {{
 	      fontFamily: 'title',
 	      fontSize: [5, 6],
@@ -85,7 +85,7 @@ export default props => {
 	    >
 	      {title}
 	    </Link>
-	  </h3>
+	  </span>
 	  <p
 	    sx = {{
 	      fontFamily: 'body',

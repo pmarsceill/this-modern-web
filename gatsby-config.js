@@ -86,9 +86,12 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-feed`,
+      resolve: `gatsby-plugin-feed-generator`,
       options: {
-        query: `
+        generator: `GatsbyJS`,
+        rss: true,
+        json: true,
+        siteQuery: `
           {
             site {
               siteMetadata {
@@ -102,14 +105,15 @@ module.exports = {
         `,
         feeds: [
           {
-            serialize: ({ query: { site, allMdx } }) => {
+            normalize: ({ query: { site, allMdx } }) => {
               return allMdx.edges.map(edge => {
                 return Object.assign({}, edge.node.frontmatter, {
+                  title: (edge.node.frontmatter.title == edge.node.frontmatter.date ? undefined : edge.node.frontmatter.title),
                   description: edge.node.frontmatter.description,
                   date: edge.node.frontmatter.date,
                   url: site.siteMetadata.siteUrl + edge.node.fields.slug,
                   guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                  custom_elements: [{ "content:encoded": edge.node.html }],
+                  html: (edge.node.frontmatter.description ? `<h2>${ edge.node.frontmatter.description}</h2>` + edge.node.html : edge.node.html)
                 })
               })
             },
@@ -134,8 +138,41 @@ module.exports = {
                 }
               }
             `,
-            output: "/rss.xml",
-            title: "This Modern Web - All posts",
+            name: "rss",
+          },
+          {
+            normalize: ({ query: { site, allMdx } }) => {
+              return allMdx.edges.map(edge => {
+                return Object.assign({}, edge.node.frontmatter, {
+                  title: (edge.node.frontmatter.title == edge.node.frontmatter.date ? undefined : edge.node.frontmatter.title),
+                  date: edge.node.frontmatter.date,
+                  url: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                  guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                  html: (edge.node.frontmatter.tags && edge.node.frontmatter.tags.includes('microblog') ? edge.node.html : `<p>${edge.node.frontmatter.description} — ${edge.node.excerpt} <a href="${site.siteMetadata.siteUrl + edge.node.fields.slug}">thismodernweb.com</a></p>`),
+                })
+              })
+            },
+            query: `
+              {
+                allMdx(
+                  sort: {fields: frontmatter___date, order: DESC}) {
+                  edges {
+                    node {
+                      html
+                      excerpt
+                      fields { slug }
+                      frontmatter {
+                        title
+                        description
+                        date
+                        tags
+                      }
+                    }
+                  }
+                }
+              }
+            `,
+            name: 'microblog',
           },
         ],
       },
