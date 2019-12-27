@@ -2,6 +2,11 @@
   "extends": [
     "plugin:react/recommended"
   ],
+  "extends": ["prettier"],
+  "plugins": ["prettier"],
+  "rules": {
+    "prettier/prettier": "error"
+  },
   "parserOptions": {
     "ecmaFeatures": {
         "jsx": true,

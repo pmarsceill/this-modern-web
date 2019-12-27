@@ -86,6 +86,10 @@ export default {
         color: 'accent',
       }
     },
+    img: {
+      borderRadius: '6px',
+      boxShadow: 'none',
+    },
     h1: {
       lineHeight: 'heading',
       fontFamily: 'heading',
@@ -225,6 +229,6 @@ export default {
         background: 'transparent',
         marginBottom: 4,
       }
-    }
+    },
   }
 }

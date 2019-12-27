@@ -7,103 +7,129 @@ import { Global } from "@emotion/core"
 import Micropub from "../components/micropub"
 
 export default props => {
-    const { location, title, children } = props
-    const rootPath = `${__PATH_PREFIX__}/`
-    const bigHeader = location.pathname === rootPath || location.pathname === '/about' || location.pathname === '/inbox'
-    let header
+  const { location, title, fullWidth, pageTitle, children } = props
+  const rootPath = `${__PATH_PREFIX__}/`
+  const bigHeader = location.pathname === rootPath || location.pathname === '/about' || location.pathname === '/inbox'
+  let headingTitle
 
-    if (bigHeader) {
-      header = (
-        <div
+  if (pageTitle) {
+    headingTitle = (
+      <h1
+        sx = {{
+          position: 'absolute',
+          right: '0',
+          top: '0',
+          fontFamily: 'title',
+          fontSize: [5, 6],
+          fontWeight: 400,
+          letterSpacing: '-0.07em',
+          lineHeight: 'title',
+          my: 0,
+        }}
+      >
+        {pageTitle}
+      </h1>
+    )
+  }
+
+  let header
+
+  if (bigHeader) {
+    header = (
+      <div
+        sx = {{
+          mt: [4, '', 6],
+          mb: [5, '', 6, '20vh'],
+          pb: 5,
+        }}
+      >
+        <h1
           sx = {{
-            mt: [4, '', 6],
-            mb: [5, '', 6, '20vh'],
-            pb: 5,
+            fontFamily: 'title',
+            fontSize: [5, 8, '', 10],
+            fontWeight: 400,
+            letterSpacing: '-0.07em',
+            lineHeight: 'title',
+            wordSpacing: ['16em', '0'],
+            mt: 0,
+            mb: [0, 2],
           }}
         >
-	  <h1
-	    sx = {{
-	      fontFamily: 'title',
-	      fontSize: [5, 8, '', 10],
-	      fontWeight: 400,
-	      letterSpacing: '-0.07em',
-	      lineHeight: 'title',
-              wordSpacing: ['16em', '0'],
-              mt: 0,
-              mb: [0, 2],
-	    }}
-	  >
-	    <Link
-	      to = {`/`}
-	      sx = {{
-		color: 'primary',
-		textDecoration: 'none',
-	      }}
-	    >
-	      {title}
-	    </Link>
-	  </h1>
-	  <p
-	    sx = {{
-	      fontFamily: 'body',
-              color: 'secondary',
-              fontSize: [0, 1, 3],
-              mt: 0,
-	    }}
-	  >
-	    the personal website of Patrick Marsceill
-	  </p>
-        </div>
-      )
-    } else {
-      header = (
-        <div
+          <Link
+            to = {`/`}
+            sx = {{
+              color: 'primary',
+              textDecoration: 'none',
+            }}
+          >
+            {title}
+          </Link>
+        </h1>
+        <p
           sx = {{
-            mt: [4, '', 6],
-            mb: [5, '', 6, '20vh'],
-            pb: 5,
+            fontFamily: 'body',
+            color: 'secondary',
+            fontSize: [0, 1, 3],
+            mt: 0,
           }}
         >
-	  <span
-	    sx = {{
-	      fontFamily: 'title',
-	      fontSize: [5, 6],
-	      fontWeight: 400,
-	      letterSpacing: '-0.07em',
-	      lineHeight: 'title',
-              wordSpacing: ['16em', '0'],
-              mt: 0,
-              mb: 0,
-	    }}
-	  >
-	    <Link
-	      to = {`/`}
-	      sx = {{
-                color: 'secondary',
-		textDecoration: 'none',
-	      }}
-	    >
-	      {title}
-	    </Link>
-	  </span>
-	  <p
-	    sx = {{
-	      fontFamily: 'body',
+          the personal website of Patrick Marsceill
+        </p>
+      </div>
+    )
+  } else {
+    header = (
+      <div
+        sx = {{
+          mt: [4, '', 6],
+          mb: [5, '', 6, '20vh'],
+          pb: 5,
+          position: 'relative',
+        }}
+      >
+        <span
+          sx = {{
+            fontFamily: 'title',
+            fontSize: [5, 6],
+            fontWeight: 400,
+            letterSpacing: '-0.07em',
+            lineHeight: 'title',
+            wordSpacing: ['16em', '0'],
+            mt: 0,
+            mb: 0,
+          }}
+        >
+          <Link
+            to = {`/`}
+            sx = {{
               color: 'secondary',
-              fontSize: 0,
-              mt: 0,
-              flex: 'auto',
-	    }}
-	  >
-	    the personal website of Patrick Marsceill
-	  </p>
-        </div>
-      )
-    }
-    return (
+              textDecoration: 'none',
+            }}
+          >
+            {title}
+          </Link>
+        </span>
+        <p
+          sx = {{
+            fontFamily: 'body',
+            color: 'secondary',
+            fontSize: 0,
+            mt: 0,
+            flex: 'auto',
+          }}
+        >
+          the personal website of Patrick Marsceill
+        </p>
+        {headingTitle}
+      </div>
+    )
+  }
+
+  return (
+    <div>
       <div
         sx={{
-	  maxWidth: 'container',
+          maxWidth: 'container',
           mx: 'auto',
           px: [4, 6, '', 5],
         }}
@@ -126,6 +152,14 @@ export default props => {
           })}
         />
         <header>{header}</header>
+      </div>
+      <div
+        sx={{
+          maxWidth: (fullWidth ? 'none' : 'container'),
+          mx: 'auto',
+          px: [4, 6, '', 5],
+        }}
+      >
         <main
           sx = {{
             mb: 6,
@@ -134,6 +168,14 @@ export default props => {
         >
           {children}
         </main>
+      </div>
+      <div
+        sx={{
+          maxWidth: 'container',
+            mx: 'auto',
+            px: [4, 6, '', 5],
+        }}
+      >
         <footer
           sx = {{
             fontFamily: "body",
@@ -215,5 +257,6 @@ export default props => {
           </ul>
         </footer>
       </div>
-    )
-  }
+    </div>
+  )
+}

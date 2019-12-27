@@ -100,8 +100,8 @@ export default props => {
                 fontFamily: 'body',
                 display: 'block',
                 fontSize: [0],
-                color: 'greyLt0',
-                  mt: 3,
+                color: 'secondary',
+                mt: 3,
               }}
               >
               {date}

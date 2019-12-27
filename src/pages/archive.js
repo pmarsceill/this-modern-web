@@ -13,7 +13,7 @@ import SEO from "../components/seo"
 
 export default props => {
   const { data } = props
-  const siteTitle = data.site.siteMetadata.title + ` / Archive`
+  const siteTitle = data.site.siteMetadata.title
   const [colorMode, setColorMode] = useColorMode()
 
   setColorMode('dark')
@@ -33,67 +33,144 @@ export default props => {
     return(
       uniqYears.map((year, index) => {
         const yearlyPosts = []
-
 	return (
-          <div>
-	    <Styled.h2>{year}</Styled.h2>
+          <div
+            sx = {{
+              width: '280px',
+              pr: '5',
+            }}
+            id = {"archive-" + year}
+          >
+            <h2
+              sx = {{
+                fontFamily: 'heading',
+                letterSpacing: 'heading',
+                fontSize: '1',
+                color: 'secondary',
+                borderBottom: '2px solid',
+                borderColor: 'muted',
+                py: '3'
+              }}
+            >
+              {year}
+            </h2>
 	      {reversePosts.map(({node}, index) => {
 		const postYear = moment.utc(node.frontmatter.date).format('YYYY')
-                const microblog = (node.frontmatter.date == node.frontmatter.title ? true : false)
+                const microblog = (node.frontmatter.tags && node.frontmatter.tags.includes('microblog') ? true : false)
 
 		if (postYear == year) {
                   if (microblog == true) {
 
-		    const timeAgo = moment.utc(node.frontmatter.date).fromNow()
-
                     return (
-                      <article>
-		      <div
-		      sx = {{
-			color: 'primary',
-			  textDecoration: 'none',
-			  fontSize: 'body',
-		      }}
-		      >
-		      <Styled.root>
-			<div
-		      sx = {{
-			fontFamily: 'monospace',
-			  fontSize: [1, '', '', '', ''],
-			  lineHeight: 'body',
-		      }}
-		      >
-		      <MDXRenderer>
-			{node.body}
-		      </MDXRenderer>
-		      </div>
-		      </Styled.root>
-		      </div>
+                      <article
+                        key = {node.fields.slug}
+                        sx = {{
+                          mb: '4',
+                          pb: '4',
+                          borderBottom: '1px solid',
+                          borderColor: 'muted',
+                        }}
+                      >
+                        <div
+                          sx = {{
+                            color: 'primary',
+                            textDecoration: 'none',
+                            fontSize: 'body',
+                          }}
+                        >
+                          <Styled.root>
+                            <div
+                              sx = {{
+                                fontFamily: 'monospace',
+                                fontSize: [1, '', '', '', ''],
+                                lineHeight: 'body',
+                              }}
+                            >
+                              <MDXRenderer>
+                                {node.body}
+                              </MDXRenderer>
+                            </div>
+                          </Styled.root>
+                        </div>
 
-		      <small
-			sx = {{
-			  fontFamily: 'monospace',
-			  display: 'block',
-			  fontSize: 0,
-			  mt: 3,
-			}}
-		      >
-			<a
-			  href = {node.fields.slug}
-			  sx = {{
-			    textDecoration: 'none',
-			    color: 'secondary',
-			  }}
-			>
-			  ⌘ {timeAgo}
-			</a>
-		      </small>
+                        <small
+                          sx = {{
+                            fontFamily: 'body',
+                            display: 'block',
+                            fontSize: 0,
+                            mt: 3,
+                          }}
+                        >
+                          <Link
+                            to = {node.fields.slug}
+                            sx = {{
+                              textDecoration: 'none',
+                              color: 'secondary',
+                            }}
+                          >
+                            {moment.utc(node.frontmatter.date).format('MMMM DD')}
+                          </Link>
+                        </small>
                       </article>
                     )
                   } else {
 		    return(
-                      <article>
-			<Link to={node.fields.slug}><Styled.h3>{node.frontmatter.title}</Styled.h3>{node.frontmatter.description}</Link>
+                      <article
+                        key = {node.fields.slug}
+                        sx = {{
+                          mb: '4',
+                          pb: '4',
+                          borderBottom: '1px solid',
+                          borderColor: 'muted',
+                        }}
+                      >
+                        <Link
+                          to = {node.fields.slug}
+                          sx = {{
+                            color: 'primary',
+                            textDecoration: 'none',
+                            '&:hover': {
+                              color: 'accent',
+                            }
+                          }}
+                        >
+                          <h3
+                            sx = {{
+                              display: 'inline',
+                              fontFamily: 'heading',
+                              fontSize: [3, 4],
+                              letterSpacing: 'heading',
+                              lineHeight: 'heading',
+                            }}
+                          >
+                              {node.frontmatter.title}
+                          </h3>
+                          <p
+                            sx = {{
+                              fontFamily: 'heading',
+                              display: 'inline',
+                              fontSize: [3, 4],
+                              color: 'secondary',
+                              fontWeight: 'bold',
+                              letterSpacing: 'heading',
+                              lineHeight: 'heading',
+                              ml: 2,
+                            }}
+                          >
+                            {node.frontmatter.description}
+                          </p>
+                          <small
+                            sx = {{
+                              fontFamily: 'body',
+                              display: 'block',
+                              fontSize: [0],
+                              color: 'secondary',
+                              mt: 3,
+                            }}
+                            >
+                            {moment.utc(node.frontmatter.date).format('MMMM DD')}
+                          </small>
+                        </Link>
                       </article>
 		    )
                   }
@@ -107,13 +184,30 @@ export default props => {
 
   return (
     <Layout
-    location={props.location}
-    title={siteTitle}
+      location={props.location}
+      title={siteTitle}
+      pageTitle = {"Archive"}
+      fullWidth = {true}
     >
-      <Styled.h1>Archive</Styled.h1>
-
-      {spreadYears()}
-
+      <div
+        className = "yearsMatrix"
+        sx = {{
+          position: 'relative',
+          minHeight: '200vh',
+          overflowX: 'auto',
+          overflowY: 'hidden',
+        }}
+      >
+        <div
+          sx = {{
+            display: "flex",
+            position: 'absolute',
+            left: '0'
+          }}
+        >
+          {spreadYears()}
+        </div>
+      </div>
     </Layout>
   )
 }
