@@ -2,9 +2,7 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 
 /** @jsx jsx */
-import { jsx } from "theme-ui"
-import { useColorMode } from "theme-ui"
-import { Styled } from "theme-ui"
+import { jsx, useColorMode, Styled } from "theme-ui"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import moment from "moment"
 import Img from "gatsby-image"
@@ -13,6 +11,7 @@ import TwoCol from "../components/two-col"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Nav from "../components/nav"
+import Button from "../components/button"
 
 export default props => {
   const { data } = props
@@ -41,10 +40,12 @@ export default props => {
   function currentBlogLayout(title, tags, description, date, slug, imageData) {
     const image = imageData ? (
       <Img
-        fixed={imageData}
+        fluid={imageData}
         sx={{
           borderRadius: "6px",
           ml: "3",
+          width: ["120px", "140px", "180px"],
+          backgroundColor: "muted",
         }}
       ></Img>
     ) : (
@@ -188,7 +189,7 @@ export default props => {
               const slug = node.fields.slug
               const featuredImage = node.frontmatter.featuredImage || ""
               const imageData = featuredImage
-                ? featuredImage.childImageSharp.fixed
+                ? featuredImage.childImageSharp.fluid
                 : ""
 
               if (index < 2) {
@@ -225,7 +226,7 @@ export default props => {
               const slug = node.fields.slug
               const featuredImage = node.frontmatter.featuredImage || ""
               const imageData = featuredImage
-                ? featuredImage.childImageSharp.fixed
+                ? featuredImage.childImageSharp.fluid
                 : ""
 
               if (index >= 2 && index <= 4) {
@@ -254,7 +255,9 @@ export default props => {
                 return microBlogLayout(body, timeAgo, permalink, id, slug)
               }
             })}
-            <Link to="archive">Archive</Link>
+            <Button variant="outline" to="archive" block="true">
+              Archive
+            </Button>
           </div>
         </TwoCol>
       </div>
@@ -284,8 +287,8 @@ export const pageQuery = graphql`
             tags
             featuredImage {
               childImageSharp {
-                fixed(width: 140, height: 140) {
-                  ...GatsbyImageSharpFixed
+                fluid(maxWidth: 180) {
+                  ...GatsbyImageSharpFluid
                 }
               }
             }

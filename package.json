@@ -1,20 +1,19 @@
 {
-  "name": "gatsby-starter-blog",
+  "name": "this-modern-web",
   "private": true,
-  "description": "A starter for a blog powered by Gatsby and Markdown",
+  "description": "The personal website of Patrick Marsceill",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Patrick Marsceill <patrick.marsceill@gmail.com>",
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/pmarsceill/this-modern-web/issues"
   },
   "dependencies": {
     "@emotion/core": "^10.0.17",
     "@mdx-js/mdx": "^1.4.5",
     "@mdx-js/react": "^1.4.5",
     "gatsby": "^2.15.16",
-    "gatsby-cli": "^2.8.19",
+    "gatsby-cli": "^2.8.22",
     "gatsby-image": "^2.2.19",
-    "gatsby-plugin-feed": "^2.3.12",
     "gatsby-plugin-feed-generator": "^2.0.5",
     "gatsby-plugin-google-analytics": "^2.1.16",
     "gatsby-plugin-manifest": "^2.2.16",

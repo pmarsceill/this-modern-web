@@ -182,15 +182,13 @@ Keep this screen handy... you'll need it later.
 
 You should also now be able to log into Digital Ocean and see your VPN server Droplet running:
 
-<img src="images/articles/secure-your-sh*t/digital-ocean.png" class="img-fluid card mb-4" />
-The VPN server on Digital Ocean
+!["The VPN server on Digital Ocean"](./assets/diy-internet-privacy/digital-ocean.png)
 
 ### 5. Configure a computer to connect to the VPN
 
 In your `algo-vpn` folder, find `configs/xxx.xxx.xxx.xx/username.mobileconfig`. Send this file to the user of the VPN (if they use a Mac or iOS device — if they use Windows or Linux there are equivalent VPN profiles in here). When they open this file they will be prompted with:
 
-<img src="images/articles/secure-your-sh*t/install-profile.png" alt="" class="img-fluid card mb-4" />
-VPN profile installation on MacOS
+!["VPN profile installation on MacOS"](./assets/diy-internet-privacy/install-profile.png)
 
 And they can continue through the installation process. Eventually, they will need to enter the password from the previous section (obfuscated with X's), not their system password:
 
@@ -200,10 +198,7 @@ And they can continue through the installation process. Eventually, they will ne
 
 Voila, they should be connected automatically. Open up network preferences and they should see something like:
 
-<img src="images/articles/secure-your-sh*t/network-settings.png" alt="" class="img-fluid card mb-4" />
-Network settings showing VPN connected on MacOS
+!["Network settings showing VPN connected on MacOS"](./assets/diy-internet-privacy/network-settings.png)
 
 I turned off the `connect on demand` option because I like to manually connect to VPN when I need to, not automatically connect when not on a trusted network.
 
-
-![egg](./assets/diy-internet-privacy/featured.png)

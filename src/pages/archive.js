@@ -35,8 +35,8 @@ export default props => {
       return (
         <div
           sx={{
-            width: "280px",
-            pr: "5",
+            width: ["", "", "280px"],
+            pr: ["", "", "5"],
           }}
           id={"archive-" + year}
         >
@@ -49,6 +49,7 @@ export default props => {
               borderBottom: "2px solid",
               borderColor: "muted",
               py: "3",
+              mb: [5, "", 4],
             }}
           >
             {year}
@@ -67,8 +68,8 @@ export default props => {
                   <article
                     key={node.fields.slug}
                     sx={{
-                      mb: "4",
-                      pb: "4",
+                      mb: ["5", "", "4"],
+                      pb: ["5", "", "4"],
                       borderBottom: "1px solid",
                       borderColor: "muted",
                     }}
@@ -118,8 +119,8 @@ export default props => {
                   <article
                     key={node.fields.slug}
                     sx={{
-                      mb: "4",
-                      pb: "4",
+                      mb: ["5", "", "4"],
+                      pb: ["5", "", "4"],
                       borderBottom: "1px solid",
                       borderColor: "muted",
                     }}
@@ -200,7 +201,8 @@ export default props => {
         <div
           sx={{
             display: "flex",
-            position: "absolute",
+            flexDirection: ["column-reverse", "", "row"],
+            position: ["", "", "absolute"],
             left: "0",
           }}
         >

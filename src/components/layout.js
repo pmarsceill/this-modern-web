@@ -19,15 +19,16 @@ export default props => {
     headingTitle = (
       <h1
         sx={{
-          position: "absolute",
+          position: ["", "", "absolute"],
           right: "0",
           top: "0",
-          fontFamily: "title",
-          fontSize: [5, 6],
-          fontWeight: 400,
-          letterSpacing: "-0.07em",
-          lineHeight: "title",
+          fontFamily: "heading",
+          fontSize: [4, 5],
+          fontWeight: "heading",
+          letterSpacing: "heading",
+          lineHeight: "heading",
           my: 0,
+          mt: [5, "", 0],
         }}
       >
         {pageTitle}
@@ -41,9 +42,10 @@ export default props => {
     header = (
       <div
         sx={{
-          mt: [4, "", 6],
+          mt: [4, 6, ""],
           mb: [5, "", 6, "20vh"],
           pb: 5,
+          position: "relative",
         }}
       >
         <h1
@@ -53,7 +55,7 @@ export default props => {
             fontWeight: 400,
             letterSpacing: "-0.07em",
             lineHeight: "title",
-            wordSpacing: ["16em", "0"],
+            wordSpacing: ["20em", "0"],
             mt: 0,
             mb: [0, 2],
           }}
@@ -97,9 +99,10 @@ export default props => {
             fontWeight: 400,
             letterSpacing: "-0.07em",
             lineHeight: "title",
-            wordSpacing: ["16em", "0"],
+            wordSpacing: ["20em", "0"],
             mt: 0,
             mb: 0,
+            display: "block",
           }}
         >
           <Link

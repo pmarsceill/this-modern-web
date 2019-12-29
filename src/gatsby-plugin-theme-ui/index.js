@@ -52,6 +52,31 @@ export default {
     container: 1168,
     content: 924,
   },
+  buttons: {
+    primary: {
+      color: "background",
+      bg: "primary",
+      "&:hover": {
+        color: "accent",
+      },
+    },
+    secondary: {
+      color: "background",
+      bg: "secondary",
+      "&:hover": {
+        color: "accent",
+      },
+    },
+    outline: {
+      bg: "transparent",
+      boxShadow: theme => `0 0 0 1px ${theme.colors.secondary}`,
+      color: "primary",
+      "&:hover": {
+        color: "accent",
+        boxShadow: theme => `0 0 0 1px ${theme.colors.accent}`,
+      },
+    },
+  },
   styles: {
     root: {
       fontFamily: "serif",
@@ -74,6 +99,7 @@ export default {
         },
       },
     },
+
     a: {
       color: "primary",
       textDecoration: "none",
@@ -89,10 +115,7 @@ export default {
         color: "accent",
       },
     },
-    img: {
-      borderRadius: "6px",
-      boxShadow: "none",
-    },
+    figure: {},
     h1: {
       lineHeight: "heading",
       fontFamily: "heading",
