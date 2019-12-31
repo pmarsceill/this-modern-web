@@ -43,8 +43,8 @@ export default props => {
         fluid={imageData}
         sx={{
           borderRadius: "6px",
-          ml: "3",
-          width: ["120px", "140px", "180px"],
+          ml: [3, 4, 5],
+          width: ["100px", "140px", "160px", "180px"],
           backgroundColor: "muted",
         }}
       ></Img>
@@ -78,7 +78,7 @@ export default props => {
               sx={{
                 display: "inline",
                 fontFamily: "heading",
-                fontSize: [5, 6],
+                fontSize: [4, 5, 6],
                 letterSpacing: "heading",
                 lineHeight: "heading",
               }}
@@ -89,11 +89,12 @@ export default props => {
               sx={{
                 fontFamily: "heading",
                 display: "inline",
-                fontSize: [5, 6],
+                fontSize: [4, 5, 6],
                 color: "secondary",
                 fontWeight: "bold",
                 letterSpacing: "heading",
                 lineHeight: "heading",
+                hyphens: "auto",
                 ml: 2,
               }}
             >
@@ -287,7 +288,7 @@ export const pageQuery = graphql`
             tags
             featuredImage {
               childImageSharp {
-                fluid(maxWidth: 180) {
+                fluid(maxWidth: 180, maxHeight: 180) {
                   ...GatsbyImageSharpFluid
                 }
               }
