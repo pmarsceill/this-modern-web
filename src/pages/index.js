@@ -137,17 +137,15 @@ export default props => {
             fontSize: "body",
           }}
         >
-          <Styled.root>
-            <div
-              sx={{
-                fontFamily: "monospace",
-                fontSize: [1, "", "", "", ""],
-                lineHeight: "body",
-              }}
-            >
-              <MDXRenderer>{body}</MDXRenderer>
-            </div>
-          </Styled.root>
+          <div
+            sx={{
+              fontFamily: "monospace",
+              fontSize: [1, "", "", "", ""],
+              lineHeight: "body",
+            }}
+          >
+            <MDXRenderer>{body}</MDXRenderer>
+          </div>
         </div>
 
         <small

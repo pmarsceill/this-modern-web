@@ -51,7 +51,7 @@ export default props => {
         <h1
           sx={{
             fontFamily: "title",
-            fontSize: [5, 8, "", 10],
+            fontSize: [5, 8, "", 9],
             fontWeight: 400,
             letterSpacing: "-0.07em",
             lineHeight: "title",

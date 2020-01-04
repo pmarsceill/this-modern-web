@@ -46,12 +46,13 @@ export default {
   letterSpacings: {
     heading: "-0.03em",
   },
-  fontSizes: [12, 14, 16, 17, 21, 28, 36, 48, 64, 72, 78],
+  fontSizes: [12, 14, 16, 18, 21, 28, 36, 48, 64, 72, 78],
   space: [0, 4, 8, 12, 16, 32, 64, 128, 256, 512],
   sizes: {
     container: 1168,
     content: 924,
   },
+  breakpoints: ["40em", "57em", "64em", "72em"],
   buttons: {
     primary: {
       color: "background",
@@ -99,7 +100,6 @@ export default {
         },
       },
     },
-
     a: {
       color: "primary",
       textDecoration: "none",
@@ -115,7 +115,6 @@ export default {
         color: "accent",
       },
     },
-    figure: {},
     h1: {
       lineHeight: "heading",
       fontFamily: "heading",
@@ -168,9 +167,12 @@ export default {
     blockquote: {
       ml: 0,
       pl: 4,
-      borderLeft: "1px solid",
-      borderColor: "secondary",
+      borderLeft: "2px solid",
+      borderColor: "muted",
       fontStyle: "italic",
+    },
+    li: {
+      mb: "0.25em",
     },
     ul: {
       listStyle: "none",
@@ -180,8 +182,8 @@ export default {
         pl: ["1.3em", 0],
         "::before": {
           position: "absolute",
-          left: [0, "-1.3em"],
-          content: '"—"',
+          left: [0, "-1em"],
+          content: '"–"',
           fontWeight: "normal",
           color: "secondary",
         },
@@ -254,6 +256,64 @@ export default {
       '&[class*="language-"]': {
         background: "transparent",
         marginBottom: 4,
+      },
+    },
+    p: {
+      ".gatsby-resp-image-link": {
+        backgroundImage: "none",
+      },
+      ".gatsby-resp-image-image": {
+        boxShadow: "none !important",
+        borderRadius: "6px",
+      },
+      ".postBody &": {
+        my: "1em",
+        "&:first-of-type": {
+          mt: 0,
+        },
+        ".gatsby-resp-image-figure": {
+          mx: 0,
+          my: 5,
+          figcaption: {
+            width: theme => [
+              "",
+              "",
+              `calc(100% + ${theme.space[6]}px) !important`,
+            ],
+            height: theme => [
+              "",
+              "",
+              `calc(100% + ${theme.space[6]}px) !important`,
+            ],
+            marginLeft: theme => [
+              "",
+              "",
+              `-${theme.space[6] / 2}px !important`,
+            ],
+            marginRight: theme => [
+              "",
+              "",
+              `-${theme.space[6] / 2}px !important`,
+            ],
+            fontSize: [1],
+            my: 2,
+            color: "secondary",
+          },
+        },
+        ".gatsby-resp-image-wrapper": {
+          width: theme => [
+            "",
+            "",
+            `calc(100% + ${theme.space[6]}px) !important`,
+          ],
+          height: theme => [
+            "",
+            "",
+            `calc(100% + ${theme.space[6]}px) !important`,
+          ],
+          marginLeft: theme => ["", "", `-${theme.space[6] / 2}px !important`],
+          marginRight: theme => ["", "", `-${theme.space[6] / 2}px !important`],
+        },
       },
     },
   },

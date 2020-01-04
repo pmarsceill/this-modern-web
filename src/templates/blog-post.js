@@ -157,6 +157,7 @@ class BlogPostPage extends React.Component {
               sx={{
                 pt: ["", 4, 0, 0],
               }}
+              className="postBody"
             >
               <Styled.root>
                 <MDXRenderer>{post.body}</MDXRenderer>

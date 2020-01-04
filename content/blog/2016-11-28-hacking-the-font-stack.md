@@ -7,6 +7,8 @@ tags: ["native-type"]
 featuredImage: ./assets/hacking-font-stack/hacking-font-stack.png
 ---
 
+![](./assets/hacking-font-stack/hacking-font-stack.png)
+
 When the `@font-face` directive (which allows the use of non-system font files on webpages) made its [official debut][423c2466] in the CSS3 fonts module, Flash was still a big part of the web. Compared to CSS at the time, Flash allowed for seemingly limitless possibilities in layout, typography, animations and consistency across platforms.  It was extremely attractive to adopt with its relatively shallow learning curve and gave designers a more visual way to put content on the web.
 
 A lot of folks (myself included) developed a palpable distaste for Flash-based sites as they were often slow to load, relied on a locally installed plugin, and often were a black box of content that was inaccessible to a large chunk of the web’s users. `@font-face` was just the thing CSS needed if was going to seriously compete with Flash and become adopted as part of the modern (and standard) way to build websites. HTML + CSS offered a more extensible and accessible way to present content and with the addition of features like `@font-face` we could start to see a future where the aesthetic consistency of Flash could be replicated with CSS.
@@ -50,20 +52,11 @@ On the Apple side of things, we're using a font intended for a Japanese characte
 -   Android / ChromeOS - **Roboto Serif**
 -   Falls back to - **local serif**
 
-<div class="d-flex flex-wrap flex-justify-center mxn-md-11 mxn-lg-12 mt-6 mb-10 py-3 px-3 card">
-  <div markdown="1" class="px-3 col-md-4 col-lg-4">
-#### macOS / iOS rendering
-![Hiragino Mincho Pro (Latin characters) on macOS](images/articles/hacking-font-stack/apple-hiragino-mincho-pro.png)
-  </div>
-  <div markdown="1" class="px-3 col-md-4 col-lg-4">
-#### Windows rendering
-![Cambria](images/articles/hacking-font-stack/windows-cambria.png)
-  </div>
-  <div markdown="1" class="px-3 col-md-4 col-lg-4">
-#### Android rendering
-![Roboto Serif](images/articles/hacking-font-stack/android-roboto-serif.png)
-  </div>
-</div>
+
+![Hiragino Mincho Pro (Latin characters) on macOS](./assets/hacking-font-stack/apple-hiragino-mincho-pro.png)
+![Cambria on Windows](./assets/hacking-font-stack/windows-cambria.png)
+![Roboto Serif on Android / ChromeOS](./assets/hacking-font-stack/android-roboto-serif.png)
+
 
 ## 2. The Helvetica / Arial alternative
 
@@ -86,21 +79,9 @@ You might have seen this type of stack used on Medium, GitHub, and Facebook rece
 
 If you want to stay strictly with neo-grotesque typefaces, you could pull out `Segoe UI` font to allow Windows to render the fall back (Arial). Segoe UI is one of the only default fonts on Windows that has a light weight option, which makes it useful in many display sized contexts.
 
-
-<div class="d-flex flex-wrap flex-justify-center mxn-md-11 mxn-lg-12 mt-6 mb-10 py-3 px-3 card">
-  <div markdown="1" class="px-3 col-md-4 col-lg-4">
-#### macOS / iOS rendering
-![San Francisco on macOS / iOS](images/articles/hacking-font-stack/apple-san-francisco.png)
-  </div>
-  <div markdown="1" class="px-3 col-md-4 col-lg-4">
-#### Windows rendering
-![Segoe UI on Windows](images/articles/hacking-font-stack/windows-segoe-ui.png)
-  </div>
-  <div markdown="1" class="px-3 col-md-4 col-lg-4">
-#### Android rendering
-![Roboto on Android / ChromeOS](images/articles/hacking-font-stack/android-roboto.png)
-  </div>
-</div>
+![San Francisco on macOS / iOS](./assets/hacking-font-stack/apple-san-francisco.png)
+![Segoe UI on Windows](./assets/hacking-font-stack/windows-segoe-ui.png)
+![Roboto on Android / ChromeOS](./assets/hacking-font-stack/android-roboto.png)
 
 ## 3. The humanist sans
 
@@ -120,20 +101,9 @@ body {
 -   Falls back to - **Lucida Grande, Calibri, local sans serif**
 
 
-<div class="d-flex flex-wrap flex-justify-center mxn-md-11 mxn-lg-12 mt-6 mb-10 py-3 px-3 card">
-  <div markdown="1" class="px-3 col-md-4 col-lg-4">
-#### macOS / iOS rendering
-![Gill Sans on macOS / iOS](images/articles/hacking-font-stack/apple-gill-sans.png)
-  </div>
-  <div markdown="1" class="px-3 col-md-4 col-lg-4">
-#### Windows rendering
-![Segoe UI on Windows](images/articles/hacking-font-stack/windows-segoe-ui.png)
-  </div>
-  <div markdown="1" class="px-3 col-md-4 col-lg-4">
-#### Android rendering
-![Roboto on Android / ChromeOS](images/articles/hacking-font-stack/android-roboto.png)
-  </div>
-</div>
+![Gill Sans on macOS / iOS](./assets/hacking-font-stack/apple-gill-sans.png)
+![Segoe UI on Windows](./assets/hacking-font-stack/windows-segoe-ui.png)
+![Roboto on Android / ChromeOS](./assets/hacking-font-stack/android-roboto.png)
 
 ## 4. Classical serif
 
@@ -158,23 +128,14 @@ Here we are only using `Palatino Linotype` for display sized headings on Windows
 -   Android / ChromeOS - **Roboto Serif**
 -   Falls back to - **local serif**
 
-<div class="d-flex flex-wrap flex-justify-center mxn-md-11 mxn-lg-12 mt-6 mb-10 py-3 px-3 card">
-  <div markdown="1" class="px-3 col-md-4 col-lg-4">
-#### macOS / iOS rendering
-![Athelas on macOS / iOS](images/articles/hacking-font-stack/apple-athelas.png)
-  </div>
-  <div markdown="1" class="px-3 col-md-4 col-lg-4">
+![Athelas on macOS / iOS](./assets/hacking-font-stack/apple-athelas.png)
 #### Windows rendering
-![Palentino Linotype and Times New Roman on Windows](images/articles/hacking-font-stack/windows-palentino-linotype-times-new-roman.png)
-  </div>
-  <div markdown="1" class="px-3 col-md-4 col-lg-4">
+![Palentino Linotype and Times New Roman on Windows](./assets/hacking-font-stack/windows-palentino-linotype-times-new-roman.png)
 #### Android rendering
-![Roboto Serif on Android / ChromeOS](images/articles/hacking-font-stack/android-roboto-serif.png)
-  </div>
-</div>
+![Roboto Serif on Android / ChromeOS](./assets/hacking-font-stack/android-roboto-serif.png)
 
 ### Suggestions or additions?
 
 If you have suggestions or additions to the stacks above, [open an issue on this site's GitHub repo][c20fa7d6] and I'll update or append them to this list.
 
-  [c20fa7d6]: https://github.com/pmarsceill/patrickmarsceill.com/issues/new?title={{ "Article - " | url_escape }}{{ page.title | url_escape }}{{" (" | url_escape }}{{page.url | url_escape }}{{")" | url_escape }} "Open and Issue on GitHub"
+  [c20fa7d6]: https://github.com/pmarsceill/this-modern-web/issues/new "Open an Issue on GitHub"
