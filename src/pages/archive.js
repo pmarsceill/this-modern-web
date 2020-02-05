@@ -21,7 +21,7 @@ export default props => {
   const posts = data.allMdx.edges
   const reversePosts = [...new Set(posts)].reverse()
 
-  function spreadYears() {
+  function SpreadYears() {
     const years = []
 
     posts.map(({ node }, index) => {
@@ -37,6 +37,7 @@ export default props => {
           sx={{
             width: ["", "", "280px"],
             pr: ["", "", "5"],
+            flexShrink: "0",
           }}
           id={"archive-" + year}
         >
@@ -182,6 +183,42 @@ export default props => {
     })
   }
 
+
+
+  class YearsMatrix extends React.Component {
+    componentDidMount() {
+      const matrix = document.getElementById('yearsMatrix')
+      const width = matrix.scrollWidth
+      matrix.scrollTo(width, 0)
+    }
+
+    render() {
+      return (
+        <div
+          id="yearsMatrix"
+          sx={{
+            position: "relative",
+              minHeight: "100%",
+              overflowX: "auto",
+              overflowY: "hidden",
+              display: "flex",
+              flexDirection: "column",
+          }}
+        >
+          <div
+            sx={{
+              display: "flex",
+              flexDirection: ["column-reverse", "", "row"],
+              left: "0",
+            }}
+          >
+            <SpreadYears />
+          </div>
+        </div>
+      )
+    }
+  }
+
   return (
     <Layout
       location={props.location}
@@ -189,26 +226,7 @@ export default props => {
       pageTitle={"Archive"}
       fullWidth={true}
     >
-      <div
-        className="yearsMatrix"
-        sx={{
-          position: "relative",
-          minHeight: "200vh",
-          overflowX: "auto",
-          overflowY: "hidden",
-        }}
-      >
-        <div
-          sx={{
-            display: "flex",
-            flexDirection: ["column-reverse", "", "row"],
-            position: ["", "", "absolute"],
-            left: "0",
-          }}
-        >
-          {spreadYears()}
-        </div>
-      </div>
+      <YearsMatrix />
     </Layout>
   )
 }

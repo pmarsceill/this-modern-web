@@ -4,6 +4,7 @@ import { Link, graphql } from "gatsby"
 /** @jsx jsx */
 import { jsx } from "theme-ui"
 import { useColorMode } from "theme-ui"
+import { Styled } from "theme-ui"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -27,7 +28,25 @@ export default props => {
       >
         <Nav />
         <div>
-          <h1>hello</h1>
+            <h1
+              sx={{
+                fontFamily: "heading",
+                fontSize: [5, "", 6, 7],
+                letterSpacing: "heading",
+                lineHeight: "heading",
+                mt: 0,
+              }}
+            >
+              Inbox
+              <span
+                sx={{
+                  color: "secondary",
+                  ml: "0.2em",
+                }}
+              >
+                — what Iʼm reading, watching, or listening to...
+              </span>
+            </h1>
         </div>
       </div>
     </Layout>

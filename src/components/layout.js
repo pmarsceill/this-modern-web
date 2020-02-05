@@ -43,7 +43,7 @@ export default props => {
       <div
         sx={{
           mt: [4, 6, ""],
-          mb: [5, "", 6, "20vh"],
+          mb: [5, "", 6, "18vh"],
           pb: 5,
           position: "relative",
         }}
@@ -86,8 +86,8 @@ export default props => {
     header = (
       <div
         sx={{
-          mt: [4, "", 6],
-          mb: [5, "", 6, "20vh"],
+          mt: [4, 6],
+          mb: [5, "", 6, "18vh"],
           pb: 5,
           position: "relative",
         }}
@@ -185,7 +185,7 @@ export default props => {
         <footer
           sx={{
             fontFamily: "body",
-            fontSize: 1,
+            fontSize: [1],
             color: "secondary",
             pb: 4,
           }}
@@ -195,7 +195,7 @@ export default props => {
             sx={{
               listStyle: "none",
               pl: 0,
-              fontSize: 2,
+              fontSize: 1,
               display: ["block", "flex"],
             }}
           >
@@ -207,8 +207,10 @@ export default props => {
               <Link
                 to={location.pathname}
                 sx={{
+                  display: "inline-block",
                   color: "primary",
                   textDecoration: "none",
+                  py: [1, "", 0],
                 }}
               >
                 Back to top
@@ -222,8 +224,10 @@ export default props => {
               <a
                 href="mailto:patrick.marsceill@gmail.com"
                 sx={{
+                  display: "inline-block",
                   color: "primary",
                   textDecoration: "none",
+                  py: [1, "", 0],
                 }}
               >
                 Email me
@@ -237,8 +241,10 @@ export default props => {
               <a
                 href="https://twitter.com/pmarsceill"
                 sx={{
+                  display: "inline-block",
                   color: "primary",
                   textDecoration: "none",
+                  py: [1, "", 0],
                 }}
               >
                 Twitter
@@ -253,8 +259,10 @@ export default props => {
                 href="https://github.com/pmarsceill"
                 rel="me"
                 sx={{
+                  display: "inline-block",
                   color: "primary",
                   textDecoration: "none",
+                  py: [1, "", 0],
                 }}
               >
                 GitHub

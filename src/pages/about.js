@@ -76,22 +76,23 @@ export default props => {
               }}
             >
               <p>
-                At GitHub, I manage the product design teams that comprise the
-                core workflows that developers use daily:
+                At GitHub, I manage the <em>Code to Cloud</em> Product Design team, which focuses on enabling developers build, test, and deploy their code on GitHub. You may have seen our work in products like:
               </p>
-              <Styled.ul sx={{ color: "text", fontWeight: "bold" }}>
+              <Styled.ul sx={{ color: "text" }}>
                 <li>GitHub Actions</li>
                 <li>GitHub Packages</li>
+                <li>GitHub Pages</li>
+              </Styled.ul>
+              <p>
+                Previously, I managed the product design teams that comprise the
+                core workflows that developers use daily including:
+              </p>
+              <Styled.ul sx={{ color: "text" }}>
                 <li>Pull Requests</li>
                 <li>Code Review</li>
                 <li>Repositories</li>
+                <li>Ecosystem powering third-party apps</li>
               </Styled.ul>
-              <p>
-                Before joining GitHub in 2015, I worked in client services
-                partnering with Fortune 500 industry leaders, scrappy start-ups,
-                and mission-driven non-profits to build digital products for
-                screens of all sizes.
-              </p>
             </div>
           </div>
           <div
@@ -105,6 +106,7 @@ export default props => {
               sx={{
                 width: "100%",
                 mt: [4, 6, ""],
+                borderRadius: "6px",
               }}
             />
           </div>
@@ -114,17 +116,6 @@ export default props => {
               gridArea: "more",
             }}
           >
-            <h2
-              sx={{
-                fontFamily: "heading",
-                fontSize: [4, "", "", 5],
-                letterSpacing: "heading",
-                lineHeight: "heading",
-                mt: 5,
-              }}
-            >
-              About this website
-            </h2>
             <div
               sx={{
                 fontFamily: "body",
@@ -133,6 +124,13 @@ export default props => {
                 color: "medium",
               }}
             >
+            <p>
+              Before joining GitHub in 2015, I led design teams at Happy Cog and Empathy Lab working with Fortune 500 industry leaders, scrappy start-ups,
+              and mission-driven non-profits to build digital products for screens of all sizes.
+            </p>
+            <Styled.h2>
+              About this website
+            </Styled.h2>
               <p>
                 This website is powered by a custom theme that I wrote for{" "}
                 <Styled.a href="https://gatsbyjs.org">GatsbyJS</Styled.a>, a

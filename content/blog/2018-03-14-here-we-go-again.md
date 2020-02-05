@@ -17,11 +17,9 @@ It's worth talking about how you can do this in 2018. The benefits of using Twit
 On the surface, Micro.blog looks a lot like early-Twitter. But that's really where the similarities end. On Micro.blog you own and can self-host (if you want to) all the content yourself. This BYO content model uses Micro.blog as the network layer that sits on top of your posts (which are syndicated to Micro.blog via RSS or hosted on their platform). For five bucks a month, Micro.blog also offers a _hosted_ option if you don't want to set up your own separate blog that syndicates to your Micro.blog account.
 
 > Micro.blog adds discovery and conversations on top of previously unconnected blog posts.
-{: .pullquote }
 
 — [Micro.blog FAQ](http://help.micro.blog/faq/)
 
 Micro.blog also offers [a native iOS app](https://itunes.apple.com/us/app/micro-blog/id1253201335?ls=1&mt=8) to make the browsing and posting a bit nicer, though unless you use their hosted option, your site must support the [Micropub](http://micropub.net) API standard to create posts through the third-party services.
 
-Read more about [why Micro.blog was created](http://help.micro.blog/2015/why-i-created-this/) ↪
-{: .fs-small }
+↪︎ _Read more about [why Micro.blog was created](http://help.micro.blog/2015/why-i-created-this/)_

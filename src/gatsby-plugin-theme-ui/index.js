@@ -83,7 +83,6 @@ export default {
       fontFamily: "serif",
       fontSize: [2, "", "", 3],
       lineHeight: "content",
-
       a: {
         color: "primary",
         textDecoration: "none",
@@ -97,6 +96,31 @@ export default {
         backgroundSize: "1px 1px",
         "&:hover": {
           color: "accent",
+        },
+      },
+      ".gatsby-resp-image-image": {
+        boxShadow: "none !important",
+      },
+      ".gatsby-resp-image-wrapper": {
+        overflow: "hidden",
+        borderRadius: "6px",
+      },
+      ".gatsby-resp-image-link": {
+        backgroundImage: "none",
+      },
+      ".gatsby-resp-image-figure": {
+        mx: 0,
+        my: 5,
+        pt: 5,
+
+        ".gatsby-resp-image-figcaption": {
+          fontSize: 1,
+          fontStyle: "italic",
+          px: 3,
+          py: 4,
+          textAlign: "center",
+          color: "secondary",
+          lineHeight: "heading",
         },
       },
     },
@@ -259,62 +283,12 @@ export default {
       },
     },
     p: {
-      ".gatsby-resp-image-link": {
-        backgroundImage: "none",
-      },
-      ".gatsby-resp-image-image": {
-        boxShadow: "none !important",
-        borderRadius: "6px",
-      },
       ".postBody &": {
         my: "1em",
         "&:first-of-type": {
           mt: 0,
-        },
-        ".gatsby-resp-image-figure": {
-          mx: 0,
-          my: 5,
-          figcaption: {
-            width: theme => [
-              "",
-              "",
-              `calc(100% + ${theme.space[6]}px) !important`,
-            ],
-            height: theme => [
-              "",
-              "",
-              `calc(100% + ${theme.space[6]}px) !important`,
-            ],
-            marginLeft: theme => [
-              "",
-              "",
-              `-${theme.space[6] / 2}px !important`,
-            ],
-            marginRight: theme => [
-              "",
-              "",
-              `-${theme.space[6] / 2}px !important`,
-            ],
-            fontSize: [1],
-            my: 2,
-            color: "secondary",
-          },
-        },
-        ".gatsby-resp-image-wrapper": {
-          width: theme => [
-            "",
-            "",
-            `calc(100% + ${theme.space[6]}px) !important`,
-          ],
-          height: theme => [
-            "",
-            "",
-            `calc(100% + ${theme.space[6]}px) !important`,
-          ],
-          marginLeft: theme => ["", "", `-${theme.space[6] / 2}px !important`],
-          marginRight: theme => ["", "", `-${theme.space[6] / 2}px !important`],
-        },
-      },
-    },
-  },
+        }
+      }
+    }
+  }
 }

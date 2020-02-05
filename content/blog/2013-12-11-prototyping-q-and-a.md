@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Prototyping Q&amp;A"
+title: "Prototyping Q&A"
 date: 2013-12-11 11:20
 tags: ["legacy"]
 ---

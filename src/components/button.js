@@ -22,11 +22,11 @@ const Button = ({ variant = "primary", block = "false", ...props }) => {
   }
 
   if (props.href) {
-    return <a {...props} href={props.href} sx={styles} />
+    return <a {...props} href = {props.href} sx = {styles} />
   } else if (props.to) {
-    return <Link {...props} to={props.to} sx={styles} />
+    return <Link {...props} to = {props.to} sx = {styles} />
   } else {
-    return <button {...props} sx={styles} />
+    return <button {...props} sx = {styles} />
   }
 }
 

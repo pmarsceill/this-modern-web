@@ -146,7 +146,7 @@ class BlogPostPage extends React.Component {
                   sx={{
                     fontSize: [0],
                     color: "secondary",
-                    mt: 0,
+                    mt: [0, 0, 0, 2]
                   }}
                 >
                   {post.frontmatter.date}

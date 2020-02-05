@@ -29,23 +29,17 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
-      resolve: `gatsby-transformer-remark`,
-      options: {
-        plugins: [ `gatsby-remark-images` ],
-      }
-    },
-    {
       resolve: `gatsby-plugin-mdx`,
       options: {
         extensions: [`.mdx`, `.md`],
-        plugins: [`gatsby-remark-images`],
+        plugins: [`gatsby-remark-unwrap-images`,`gatsby-remark-images`],
         gatsbyRemarkPlugins: [
+          `gatsby-remark-unwrap-images`,
           {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 768,
               showCaptions: true,
-
             },
           },
           {
@@ -188,12 +182,11 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `content/assets/gatsby-icon.png`,
+        icon: `content/assets/tmw-favicon.png`,
       },
     },
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-theme-ui`,
   ],
-
 }

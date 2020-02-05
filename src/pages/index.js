@@ -37,7 +37,19 @@ export default props => {
 
   setColorMode("dark")
 
-  function currentBlogLayout(title, tags, description, date, slug, imageData) {
+  function currentBlogLayout(node) {
+    const title = node.frontmatter.title || node.fields.slug
+    const tags = node.frontmatter.tags || []
+    const description = node.frontmatter.description || ""
+    const date = moment
+    .utc(node.frontmatter.date)
+      .format("MMMM DD, YYYY")
+    const slug = node.fields.slug
+    const featuredImage = node.frontmatter.featuredImage || ""
+    const imageData = featuredImage
+      ? featuredImage.childImageSharp.fluid
+      : ""
+
     const image = imageData ? (
       <Img
         fluid={imageData}
@@ -47,6 +59,7 @@ export default props => {
           width: ["100px", "140px", "160px", "180px"],
           backgroundColor: "muted",
         }}
+        alt=""
       ></Img>
     ) : (
       ""
@@ -118,7 +131,12 @@ export default props => {
     )
   }
 
-  function microBlogLayout(body, timeAgo, permalink, id, slug) {
+  function microBlogLayout(node) {
+    const body = node.body || node.fields.title || node.fields.slug
+    const timeAgo = moment.utc(node.frontmatter.date).fromNow()
+    const permalink = `#${node.id}`
+    const id = node.id
+    const slug = node.fields.slug
     return (
       <article
         key={slug}
@@ -179,81 +197,29 @@ export default props => {
             <SEO title="Feed | Latest posts" />
 
             {currentBlogs.map(({ node }, index) => {
-              const title = node.frontmatter.title || node.fields.slug
-              const tags = node.frontmatter.tags || []
-              const description = node.frontmatter.description || ""
-              const date = moment
-                .utc(node.frontmatter.date)
-                .format("MMMM DD, YYYY")
-              const slug = node.fields.slug
-              const featuredImage = node.frontmatter.featuredImage || ""
-              const imageData = featuredImage
-                ? featuredImage.childImageSharp.fluid
-                : ""
-
               if (index < 2) {
-                return currentBlogLayout(
-                  title,
-                  tags,
-                  description,
-                  date,
-                  slug,
-                  imageData
-                )
+                return currentBlogLayout(node)
               }
             })}
 
             {microBlogs.map(({ node }, index) => {
-              const body = node.body || node.fields.title || node.fields.slug
-              const timeAgo = moment.utc(node.frontmatter.date).fromNow()
-              const permalink = `#${node.id}`
-              const id = node.id
-              const slug = node.fields.slug
-
               if (index < 4) {
-                return microBlogLayout(body, timeAgo, permalink, id, slug)
+                return microBlogLayout(node)
               }
             })}
 
             {currentBlogs.map(({ node }, index) => {
-              const title = node.frontmatter.title || node.fields.slug
-              const tags = node.frontmatter.tags || []
-              const description = node.frontmatter.description || ""
-              const date = moment
-                .utc(node.frontmatter.date)
-                .format("MMMM DD, YYYY")
-              const slug = node.fields.slug
-              const featuredImage = node.frontmatter.featuredImage || ""
-              const imageData = featuredImage
-                ? featuredImage.childImageSharp.fluid
-                : ""
-
               if (index >= 2 && index <= 4) {
-                return currentBlogLayout(
-                  title,
-                  tags,
-                  description,
-                  date,
-                  slug,
-                  imageData
-                )
+                return currentBlogLayout(node)
               }
             })}
 
             {microBlogs.map(({ node }, index) => {
-              const body = node.body || node.fields.title || node.fields.slug
-              const timeAgo = moment
-                .utc(node.frontmatter.date)
-                .local()
-                .fromNow()
-              const permalink = `#${node.id}`
-              const id = node.id
-              const slug = node.fields.slug
-
               if (index >= 4) {
-                return microBlogLayout(body, timeAgo, permalink, id, slug)
+                return microBlogLayout(node)
               }
             })}
+
             <Button variant="outline" to="archive" block="true">
               Archive
             </Button>
