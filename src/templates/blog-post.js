@@ -13,6 +13,7 @@ import { useColorMode } from "theme-ui"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import { InView } from "react-intersection-observer"
 import Img from "gatsby-image"
+import moment from "moment"
 
 class BlogPostPage extends React.Component {
   SetColor() {
@@ -54,8 +55,8 @@ class BlogPostPage extends React.Component {
         <article>
           <header
             sx={{
-              mb: [3, "", 5, 6],
-              maxWidth: ["420px", "680px"],
+              mb: [5, "", 6],
+              maxWidth: ["420px", "100%", "720px"],
               pr: ["", 5, 0, 0],
             }}
           >
@@ -66,10 +67,11 @@ class BlogPostPage extends React.Component {
               <h1
                 sx={{
                   fontFamily: "heading",
-                  fontSize: [5, 6, "", 7],
+                  fontSize: [6, "", "", 7],
                   display: "inline",
                   color: "primary",
                   letterSpacing: "heading",
+                  lineHeight: "heading",
                   mr: 2,
                 }}
               >
@@ -78,11 +80,12 @@ class BlogPostPage extends React.Component {
               <h2
                 sx={{
                   fontFamily: "heading",
-                  fontSize: [5, 6, "", 7],
+                  fontSize: [6, "", "", 7],
                   fontWeight: "bold",
                   color: "secondary",
                   display: "inline",
                   letterSpacing: "heading",
+                  lineHeight: "heading",
                 }}
               >
                 {post.frontmatter.description}
@@ -98,7 +101,7 @@ class BlogPostPage extends React.Component {
             >
               <div
                 sx={{
-                  position: ["", "", "", "sticky"],
+                  position: ["", "", "", "", "sticky"],
                   top: 5,
                   mb: [5, 3],
                   mt: 1,
@@ -111,7 +114,7 @@ class BlogPostPage extends React.Component {
                     mb: 4,
                     pr: 4,
                     "&.show": {
-                      display: ["none", "", "", "block"],
+                      display: ["none", "", "", "", "block"],
                     },
                   }}
                 >
@@ -149,7 +152,7 @@ class BlogPostPage extends React.Component {
                     mt: [0, 0, 0, 2]
                   }}
                 >
-                  {post.frontmatter.date}
+                  {moment.utc(post.frontmatter.date).format("MMMM D, YYYY")}
                 </p>
               </div>
             </div>
@@ -260,7 +263,7 @@ export const pageQuery = graphql`
       body
       frontmatter {
         title
-        date(formatString: "MMMM DD, YYYY")
+        date
         description
       }
     }

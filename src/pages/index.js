@@ -30,7 +30,7 @@ export default props => {
 
   const currentBlogs = posts.filter(function(post) {
     const tags = post.node.frontmatter.tags || []
-    return !tags.includes("microblog") && !tags.includes("legacy")
+    return !tags.includes("microblog") && !tags.includes("legacy") && !tags.includes("inbox")
   })
 
   const [colorMode, setColorMode] = useColorMode()
@@ -43,7 +43,7 @@ export default props => {
     const description = node.frontmatter.description || ""
     const date = moment
     .utc(node.frontmatter.date)
-      .format("MMMM DD, YYYY")
+      .format("MMMM D, YYYY")
     const slug = node.fields.slug
     const featuredImage = node.frontmatter.featuredImage || ""
     const imageData = featuredImage
@@ -86,7 +86,11 @@ export default props => {
             },
           }}
         >
-          <div>
+          <div
+            sx={{
+              maxWidth: "660px",
+            }}
+          >
             <h3
               sx={{
                 display: "inline",
@@ -224,6 +228,36 @@ export default props => {
               Archive
             </Button>
           </div>
+          <div>
+            <ul
+	      sx = {{
+		listStyle: "none",
+		pl: 0,
+	      }}
+            >
+	      <li>
+		<a
+		  href = "/feed.xml"
+		  sx = {{
+		    fontFamily: "monospace",
+		    display: "block",
+		    fontSize: 0,
+		    mt: 3,
+                    backgroundImage: "none",
+		  }}
+		>
+		  RSS
+		</a>
+	      </li>
+	      <li>
+                <Link
+		  to = "archive"
+		>
+                  Everything Archive
+                </Link>
+              </li>
+            </ul>
+          </div>
         </TwoCol>
       </div>
     </Layout>
@@ -246,7 +280,7 @@ export const pageQuery = graphql`
             slug
           }
           frontmatter {
-            date(formatString: "MMMM DD, YYYY, hh:mm:ss a")
+            date
             title
             description
             tags

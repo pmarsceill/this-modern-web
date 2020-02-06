@@ -38,7 +38,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const blogPosts = posts.filter(function(post) {
     const tags = post.node.frontmatter.tags || []
-    return !tags.includes("microblog")
+    return !tags.includes("microblog") && !tags.includes("inbox")
   })
 
   const microBlogs = posts.filter(function(post) {

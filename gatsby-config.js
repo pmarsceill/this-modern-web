@@ -38,7 +38,7 @@ module.exports = {
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 768,
+              maxWidth: 1200,
               showCaptions: true,
             },
           },
@@ -66,6 +66,13 @@ module.exports = {
       options: {
         path: `${__dirname}/content/microblog`,
         name: `microblog`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content/inbox`,
+        name: `inbox`,
       },
     },
     {

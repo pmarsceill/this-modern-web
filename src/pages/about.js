@@ -57,7 +57,7 @@ export default props => {
                   ml: "0.2em",
                 }}
               >
-                is a product design manager at GitHub leading teams that design
+                is a product design manager at GitHub designing
                 &amp; build tools used by over 40 million developers.
               </span>
             </h1>
@@ -71,7 +71,7 @@ export default props => {
               sx={{
                 fontFamily: "body",
                 lineHeight: "body",
-                fontSize: [1, "", "", 2],
+                fontSize: [1, 2],
                 color: "medium",
               }}
             >
@@ -120,7 +120,7 @@ export default props => {
               sx={{
                 fontFamily: "body",
                 lineHeight: "body",
-                fontSize: [1, "", "", 2],
+                fontSize: [1, 2],
                 color: "medium",
               }}
             >

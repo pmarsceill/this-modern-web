@@ -25,15 +25,15 @@ const Nav = () => {
     <nav>
       <ul
         sx={{
-          display: ["flex", "", "block"],
+          display: ["flex", "", "", "block"],
           listStyle: "none",
-          my: [5, "", 0],
+          my: [5, "", "", 0],
           pl: 0,
-          pb: [5, "", 0],
+          pb: [5, "", "", 0],
           justifyContent: "space-between",
-          borderBottom: ["1px solid", "", "none"],
+          borderBottom: ["1px solid", "", "", "none"],
           borderColor: "muted",
-          position: ["", "", "sticky"],
+          position: ["", "", "", "sticky"],
           top: 6,
         }}
       >
@@ -42,8 +42,8 @@ const Nav = () => {
             key={index}
             sx={{
               display: "block",
-              mt: [0, "", 2],
-              mb: [0, "", 6],
+              mt: [0, "", "", 2],
+              mb: [0, "", "", 6],
             }}
           >
             <Link

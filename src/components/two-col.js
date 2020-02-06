@@ -12,11 +12,11 @@ export default props => {
       <div
         sx={{
           display: ["block", "", "grid"],
-          gridGap: ["", "", 3, 5, 6],
+          gridGap: ["", "", 3, "", 6],
           gridTemplateColumns: [
             "",
             "",
-            "156px minmax(0, 1fr)",
+            "",
             "172px minmax(0, 1fr)",
           ],
         }}
@@ -29,11 +29,11 @@ export default props => {
       <div
         sx={{
           display: ["block", "", "grid"],
-          gridGap: ["", "", 3, 5, 6],
+          gridGap: ["", "", 3, "", 6],
           gridTemplateColumns: [
             "",
             "",
-            "156px minmax(0, 1fr) 156px",
+            "",
             "172px minmax(0, 1fr) 172px",
           ],
         }}

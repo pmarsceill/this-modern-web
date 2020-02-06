@@ -46,10 +46,11 @@ export default {
   letterSpacings: {
     heading: "-0.03em",
   },
-  fontSizes: [12, 14, 16, 18, 21, 28, 36, 48, 64, 72, 78],
+  contentPadding: [4, 7, 6],
+  fontSizes: [13, 15, 17, 19, 21, 28, 36, 48, 64, 72, 78],
   space: [0, 4, 8, 12, 16, 32, 64, 128, 256, 512],
   sizes: {
-    container: 1168,
+    container: 1268,
     content: 924,
   },
   breakpoints: ["40em", "57em", "64em", "72em"],
@@ -81,7 +82,7 @@ export default {
   styles: {
     root: {
       fontFamily: "serif",
-      fontSize: [2, "", "", 3],
+      fontSize: [2, 3, "", ""],
       lineHeight: "content",
       a: {
         color: "primary",

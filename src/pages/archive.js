@@ -35,7 +35,7 @@ export default props => {
       return (
         <div
           sx={{
-            width: ["", "", "280px"],
+            width: ["", "", "320px"],
             pr: ["", "", "5"],
             flexShrink: "0",
           }}

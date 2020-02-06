@@ -10,9 +10,7 @@ export default props => {
   const { location, title, fullWidth, pageTitle, children } = props
   const rootPath = `${__PATH_PREFIX__}/`
   const bigHeader =
-    location.pathname === rootPath ||
-    location.pathname === "/about" ||
-    location.pathname === "/inbox"
+    location.pathname === rootPath
   let headingTitle
 
   if (pageTitle) {
@@ -43,9 +41,10 @@ export default props => {
       <div
         sx={{
           mt: [4, 6, ""],
-          mb: [5, "", 6, "18vh"],
+          mb: [5, "", 6,],
           pb: 5,
           position: "relative",
+	  height: ["auto", "12vh", "", "25vh"],
         }}
       >
         <h1
@@ -87,8 +86,9 @@ export default props => {
       <div
         sx={{
           mt: [4, 6],
-          mb: [5, "", 6, "18vh"],
+          mb: [5, "", 6 ],
           pb: 5,
+	  height: ["auto", "12vh", "", "25vh"],
           position: "relative",
         }}
       >
@@ -137,7 +137,7 @@ export default props => {
         sx={{
           maxWidth: "container",
           mx: "auto",
-          px: [4, 6, "", 5],
+          px: [4, 6, 7, 5],
         }}
       >
         <Micropub />
@@ -163,7 +163,7 @@ export default props => {
         sx={{
           maxWidth: fullWidth ? "none" : "container",
           mx: "auto",
-          px: [4, 6, "", 5],
+          px: [4, 6, 7, 5],
         }}
       >
         <main
@@ -179,7 +179,7 @@ export default props => {
         sx={{
           maxWidth: "container",
           mx: "auto",
-          px: [4, 6, "", 5],
+          px: [4, 6, 7, 5],
         }}
       >
         <footer
