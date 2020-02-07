@@ -27,10 +27,11 @@ export default props => {
         <div
           sx={{
             display: ["grid"],
-            gridGap: ["", 3, 5],
+            gridGap: ["", 5, 6],
+            gridTemplateColumns: ["", "", "3.5fr 1fr 1fr"],
             gridTemplateAreas: [
               '"intro" "image" "details" "more"',
-              '"intro image image" "details image image" "more more more"',
+              '"intro image image" "details details details" "more more more"',
               '"intro image image" "details image image" "more more x"',
             ],
           }}
@@ -43,11 +44,11 @@ export default props => {
             <h1
               sx={{
                 fontFamily: "heading",
-                fontSize: [5, "", "", 6],
+                fontSize: [5, 6, 6, 6],
                 letterSpacing: "heading",
                 lineHeight: "heading",
                 mt: 0,
-                width: ["", "160%"],
+                width: ["", "150%"],
               }}
             >
               Patrick Marsceill
@@ -67,14 +68,7 @@ export default props => {
               gridArea: "details",
             }}
           >
-            <div
-              sx={{
-                fontFamily: "body",
-                lineHeight: "body",
-                fontSize: [1, 2],
-                color: "medium",
-              }}
-            >
+            <Styled.root>
               <p>
                 At GitHub, I manage the <em>Code to Cloud</em> Product Design team, which focuses on enabling developers build, test, and deploy their code on GitHub. You may have seen our work in products like:
               </p>
@@ -83,17 +77,7 @@ export default props => {
                 <li>GitHub Packages</li>
                 <li>GitHub Pages</li>
               </Styled.ul>
-              <p>
-                Previously, I managed the product design teams that comprise the
-                core workflows that developers use daily including:
-              </p>
-              <Styled.ul sx={{ color: "text" }}>
-                <li>Pull Requests</li>
-                <li>Code Review</li>
-                <li>Repositories</li>
-                <li>Ecosystem powering third-party apps</li>
-              </Styled.ul>
-            </div>
+            </Styled.root>
           </div>
           <div
             sx={{
@@ -124,6 +108,16 @@ export default props => {
                 color: "medium",
               }}
             >
+	      <p>
+		Previously, I managed the product design teams that comprise the
+		core workflows that developers use daily including:
+	      </p>
+	      <Styled.ul sx={{ color: "text" }}>
+		<li>Pull Requests</li>
+		<li>Code Review</li>
+    <li>Repositories</li>
+    <li>Ecosystem powering third-party apps</li>
+  </Styled.ul>
             <p>
               Before joining GitHub in 2015, I led design teams at Happy Cog and Empathy Lab working with Fortune 500 industry leaders, scrappy start-ups,
               and mission-driven non-profits to build digital products for screens of all sizes.

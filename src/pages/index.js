@@ -95,7 +95,7 @@ export default props => {
               sx={{
                 display: "inline",
                 fontFamily: "heading",
-                fontSize: [4, 5, 6],
+                fontSize: [5, "", 6],
                 letterSpacing: "heading",
                 lineHeight: "heading",
               }}
@@ -106,7 +106,7 @@ export default props => {
               sx={{
                 fontFamily: "heading",
                 display: "inline",
-                fontSize: [4, 5, 6],
+                fontSize: [5, "", 6],
                 color: "secondary",
                 fontWeight: "bold",
                 letterSpacing: "heading",
