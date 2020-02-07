@@ -53,7 +53,7 @@ const Nav = () => {
                 color: "secondary",
                 textDecoration: "none",
                 fontFamily: "body",
-                fontSize: [1, "", "", 3],
+                fontSize: [1, "", "", 2],
                 "&.active": {
                   color: "primary",
                 },

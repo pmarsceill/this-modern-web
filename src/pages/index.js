@@ -12,6 +12,8 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Nav from "../components/nav"
 import Button from "../components/button"
+import RssIcon from "../../content/assets/rss.svg"
+import ArchiveIcon from "../../content/assets/activity.svg"
 
 export default props => {
   const { data } = props
@@ -95,7 +97,7 @@ export default props => {
               sx={{
                 display: "inline",
                 fontFamily: "heading",
-                fontSize: [5, "", 6],
+                fontSize: [4, 5],
                 letterSpacing: "heading",
                 lineHeight: "heading",
               }}
@@ -106,7 +108,7 @@ export default props => {
               sx={{
                 fontFamily: "heading",
                 display: "inline",
-                fontSize: [5, "", 6],
+                fontSize: [4, 5],
                 color: "secondary",
                 fontWeight: "bold",
                 letterSpacing: "heading",
@@ -225,35 +227,60 @@ export default props => {
             })}
 
             <Button variant="outline" to="archive" block="true">
-              Archive
+              Everything Archive
             </Button>
           </div>
-          <div>
+          <div
+            sx = {{
+              mt: [6, "", 0]
+            }}
+          >
             <ul
 	      sx = {{
 		listStyle: "none",
 		pl: 0,
+                m: 0,
 	      }}
             >
-	      <li>
+	      <li
+		sx = {{
+		  mt: 2,
+                  mb: 2,
+		}}
+	      >
 		<a
-		  href = "/feed.xml"
+		  href = "/rss.xml"
 		  sx = {{
-		    fontFamily: "monospace",
-		    display: "block",
+		    fontFamily: "body",
 		    fontSize: 0,
-		    mt: 3,
-                    backgroundImage: "none",
+                    color: "secondary",
+                    textDecoration: "none",
+		    display: "flex",
+		    alignItems: "center",
+                    "&:hover": {
+                      color: "accent",
+                    }
 		  }}
 		>
-		  RSS
+		  <RssIcon sx = {{ mr: 1 }} /> RSS
 		</a>
 	      </li>
 	      <li>
                 <Link
 		  to = "archive"
+		  sx = {{
+		    fontFamily: "body",
+		    fontSize: 0,
+		    color: "secondary",
+		    textDecoration: "none",
+                    display: "flex",
+                    alignItems: "center",
+		    "&:hover": {
+		      color: "accent",
+		    }
+		  }}
 		>
-                  Everything Archive
+		  <ArchiveIcon sx = {{ mr: 1 }} /> Everything Archive
                 </Link>
               </li>
             </ul>

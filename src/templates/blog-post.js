@@ -67,7 +67,7 @@ class BlogPostPage extends React.Component {
               <h1
                 sx={{
                   fontFamily: "heading",
-                  fontSize: [6, "", "", 7],
+                  fontSize: [5, 6],
                   display: "inline",
                   color: "primary",
                   letterSpacing: "heading",
@@ -80,7 +80,7 @@ class BlogPostPage extends React.Component {
               <h2
                 sx={{
                   fontFamily: "heading",
-                  fontSize: [6, "", "", 7],
+                  fontSize: [5, 6],
                   fontWeight: "bold",
                   color: "secondary",
                   display: "inline",
@@ -122,7 +122,7 @@ class BlogPostPage extends React.Component {
                     sx={{
                       fontFamily: "heading",
                       fontWeight: "heading",
-                      fontSize: [4],
+                      fontSize: [3],
                       display: ["none", "", "inline"],
                       color: "primary",
                       letterSpacing: "heading",
@@ -135,7 +135,7 @@ class BlogPostPage extends React.Component {
                     sx={{
                       fontFamily: "heading",
                       fontWeight: "heading",
-                      fontSize: [4],
+                      fontSize: [3],
                       display: ["none", "", "inline"],
                       color: "secondary",
                       letterSpacing: "heading",

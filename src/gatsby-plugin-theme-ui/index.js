@@ -4,7 +4,7 @@ export default {
     background: "#f4f4f9",
     text: "#182027",
     primary: "#182027",
-    secondary: "#888ba0",
+    secondary: "#777b94",
     muted: "#dadcea",
     accent: "#ea2020",
     accentMuted: "#ffbdbd",
@@ -19,6 +19,7 @@ export default {
         muted: "#333548",
         medium: "#3f4e5a",
       },
+      
     },
   },
   fonts: {
@@ -41,13 +42,13 @@ export default {
     body: 1.5,
     heading: 1.125,
     title: 0.7,
-    content: 1.7,
+    content: 1.6,
   },
   letterSpacings: {
     heading: "-0.03em",
   },
   contentPadding: [4, 7, 6],
-  fontSizes: [13, 15, 17, 19, 21, 28, 36, 48, 64, 72, 78],
+  fontSizes: [13, 15, 17, 22, 28, 32, 36, 48, 64, 72, 78],
   space: [0, 4, 8, 12, 16, 32, 64, 128, 256, 512],
   sizes: {
     container: 1268,
@@ -82,7 +83,7 @@ export default {
   styles: {
     root: {
       fontFamily: "serif",
-      fontSize: [2, 3, "", ""],
+      fontSize: [2, "19px", "", ""],
       lineHeight: "content",
       a: {
         color: "primary",
@@ -145,7 +146,7 @@ export default {
       fontFamily: "heading",
       letterSpacing: "heading",
       mt: 0,
-      fontSize: 4,
+      fontSize: 3,
     },
     h2: {
       lineHeight: "heading",
@@ -153,7 +154,7 @@ export default {
       letterSpacing: "heading",
       mt: "2em",
       mb: "1em",
-      fontSize: 4,
+      fontSize: 3,
     },
     h3: {
       lineHeight: "heading",
@@ -161,7 +162,7 @@ export default {
       letterSpacing: "heading",
       mt: "2em",
       mb: "1em",
-      fontSize: 4,
+      fontSize: 3,
     },
     h4: {
       lineHeight: "heading",
@@ -169,7 +170,7 @@ export default {
       letterSpacing: "heading",
       mt: "2em",
       mb: "1em",
-      fontSize: 4,
+      fontSize: 3,
     },
     h5: {
       lineHeight: "heading",

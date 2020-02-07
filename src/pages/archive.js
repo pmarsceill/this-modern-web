@@ -19,7 +19,7 @@ export default props => {
   setColorMode("dark")
 
   const posts = data.allMdx.edges
-  const reversePosts = [...new Set(posts)].reverse()
+  const reversePosts = [...new Set(posts)]
 
   function SpreadYears() {
     const years = []
@@ -62,9 +62,62 @@ export default props => {
               node.frontmatter.tags.includes("microblog")
                 ? true
                 : false
+            const inbox =
+              node.frontmatter.tags &&
+              node.frontmatter.tags.includes("inbox")
 
             if (postYear == year) {
-              if (microblog == true) {
+              if (inbox == true) {
+                return (
+		  <article
+		  key={node.fields.slug}
+		  sx={{
+		    mb: ["5", "", "4"],
+		      pb: ["5", "", "4"],
+		      borderBottom: "1px solid",
+		      borderColor: "muted",
+		  }}
+		  >
+
+		    <h3
+		      sx={{
+			fontFamily: "heading",
+			fontSize: [2],
+			letterSpacing: "heading",
+			lineHeight: "heading",
+			fontWeight: "body",
+			m:0,
+		      }}
+		    >
+		      {node.frontmatter.title}
+		    </h3>
+		    <p
+		      sx = {{
+			fontFamily: "heading",
+			fontSize: [2],
+			letterSpacing: "heading",
+			lineHeight: "heading",
+			color: "secondary",
+			fontWeight: "body",
+			m: 0,
+		      }}
+		  >
+		    {node.frontmatter.artist}
+		  </p>
+                      <small
+                        sx={{
+                          fontFamily: "body",
+                          display: "block",
+                          fontSize: [0],
+                          color: "secondary",
+                          mt: 3,
+                        }}
+                      >
+			{moment.utc(node.frontmatter.date).format("MMMM DD")} — <em>{node.frontmatter.status}</em>
+		      </small>
+                  </article>
+                )
+	      } else if (microblog == true) {
                 return (
                   <article
                     key={node.fields.slug}
@@ -140,7 +193,7 @@ export default props => {
                         sx={{
                           display: "inline",
                           fontFamily: "heading",
-                          fontSize: [3, 4],
+                          fontSize: [4],
                           letterSpacing: "heading",
                           lineHeight: "heading",
                         }}
@@ -151,7 +204,7 @@ export default props => {
                         sx={{
                           fontFamily: "heading",
                           display: "inline",
-                          fontSize: [3, 4],
+                          fontSize: [4],
                           color: "secondary",
                           fontWeight: "bold",
                           letterSpacing: "heading",
@@ -199,9 +252,9 @@ export default props => {
           sx={{
             position: "relative",
               minHeight: "100%",
-              overflowX: "auto",
+              overflowX: ["hidden", "", "auto"],
               overflowY: "hidden",
-              display: "flex",
+              display: ["", "", "flex"],
               flexDirection: "column",
           }}
         >
@@ -223,7 +276,7 @@ export default props => {
     <Layout
       location={props.location}
       title={siteTitle}
-      pageTitle={"Archive"}
+      pageTitle={"Everything Archive"}
       fullWidth={true}
     >
       <YearsMatrix />
@@ -251,6 +304,8 @@ export const pageQuery = graphql`
             title
             description
             tags
+            artist
+            status
           }
           body
         }

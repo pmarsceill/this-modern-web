@@ -19,6 +19,7 @@ export default props => {
   const [colorMode, setColorMode] = useColorMode()
 
   setColorMode("light")
+
   return (
     <Layout location={props.location} title={siteTitle}>
       <SEO title="About Patrick Marsceill" />
@@ -27,7 +28,7 @@ export default props => {
         <div
           sx={{
             display: ["grid"],
-            gridGap: ["", 5, 6],
+            columnGap: ["", 5, 6],
             gridTemplateColumns: ["", "", "3.5fr 1fr 1fr"],
             gridTemplateAreas: [
               '"intro" "image" "details" "more"',
@@ -59,25 +60,26 @@ export default props => {
                 }}
               >
                 is a product design manager at GitHub designing
-                &amp; build tools used by over 40 million developers.
+                &amp; build tools used by over forty&nbsp;million developers.
               </span>
             </h1>
           </div>
+
           <div
             sx={{
               gridArea: "details",
             }}
           >
-            <Styled.root>
+	    <Styled.root>
               <p>
-                At GitHub, I manage the <em>Code to Cloud</em> Product Design team, which focuses on enabling developers build, test, and deploy their code on GitHub. You may have seen our work in products like:
+                At GitHub, I manage the <em>Code to Cloud</em> Product Design team, which focuses on enabling developers to build, test, run, publish, and deploy their code on GitHub. If you're a GitHub user, you may have seen our work in these products:
               </p>
               <Styled.ul sx={{ color: "text" }}>
                 <li>GitHub Actions</li>
                 <li>GitHub Packages</li>
                 <li>GitHub Pages</li>
               </Styled.ul>
-            </Styled.root>
+	    </Styled.root>
           </div>
           <div
             sx={{
@@ -100,24 +102,17 @@ export default props => {
               gridArea: "more",
             }}
           >
-            <div
-              sx={{
-                fontFamily: "body",
-                lineHeight: "body",
-                fontSize: [1, 2],
-                color: "medium",
-              }}
-            >
-	      <p>
-		Previously, I managed the product design teams that comprise the
-		core workflows that developers use daily including:
-	      </p>
-	      <Styled.ul sx={{ color: "text" }}>
-		<li>Pull Requests</li>
-		<li>Code Review</li>
-    <li>Repositories</li>
-    <li>Ecosystem powering third-party apps</li>
-  </Styled.ul>
+	  <Styled.root>
+	    <p>
+	      Previously, I managed the product design teams that comprise the
+	      core workflows that developers use daily including:
+	    </p>
+	    <Styled.ul>
+	      <li>Pull Requests</li>
+	      <li>Code Review</li>
+	      <li>Repositories</li>
+	      <li>Ecosystem / API powering third-party apps</li>
+	    </Styled.ul>
             <p>
               Before joining GitHub in 2015, I led design teams at Happy Cog and Empathy Lab working with Fortune 500 industry leaders, scrappy start-ups,
               and mission-driven non-profits to build digital products for screens of all sizes.
@@ -126,8 +121,8 @@ export default props => {
               About this website
             </Styled.h2>
               <p>
-                This website is powered by a custom theme that I wrote for{" "}
-                <Styled.a href="https://gatsbyjs.org">GatsbyJS</Styled.a>, a
+                This website is powered by a custom theme that I wrote for
+                <a href="https://gatsbyjs.org">GatsbyJS</a>, a
                 very nice framework for React. You can find the source code is
                 available on GitHub and hosting is provided by Netlify.
               </p>
@@ -135,16 +130,18 @@ export default props => {
                 The logotype is set in Optician Sans (Open Source on GitHub),
                 the reset of the site uses system-safe fontstacks:
               </p>
-              <Styled.a href="https://gatsbyjs.org">GatsbyJS</Styled.a>
-
               <Styled.ul>
                 <li>
-                  <strong>Headings</strong>
+                  <strong>Headings</strong>:
                 </li>
-                <li>Headings</li>
-                <li>Headings</li>
+		<li>
+		  <strong>Body</strong>:
+		</li>
+		<li>
+		  <strong>Monospace</strong>:
+		</li>
               </Styled.ul>
-            </div>
+            </Styled.root>
           </div>
         </div>
       </TwoCol>

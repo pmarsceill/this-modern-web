@@ -55,6 +55,20 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-react-svg`,
+      options: {
+	rule: {
+	  include: /assets\/.*\.svg/,
+          options: {
+            props: {
+              height: "16px",
+              width: "16px",
+            }
+          }
+	}
+      }
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/content/blog`,

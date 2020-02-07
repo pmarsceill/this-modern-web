@@ -45,16 +45,17 @@ export default props => {
           pb: 5,
           position: "relative",
 	  height: ["auto", "12vh", "", "25vh"],
+	  minHeight: "120px",
         }}
       >
         <h1
           sx={{
             fontFamily: "title",
-            fontSize: [5, 8, "", 9],
+            fontSize: [6, 8, "", 9],
             fontWeight: 400,
             letterSpacing: "-0.07em",
             lineHeight: "title",
-            wordSpacing: ["20em", "0"],
+            pt: 2,
             mt: 0,
             mb: [0, 2],
           }}
@@ -73,7 +74,7 @@ export default props => {
           sx={{
             fontFamily: "body",
             color: "secondary",
-            fontSize: [0, 1, 3],
+            fontSize: [1, 2],
             mt: 0,
           }}
         >
@@ -89,17 +90,18 @@ export default props => {
           mb: [5, "", 6 ],
           pb: 5,
 	  height: ["auto", "12vh", "", "25vh"],
+          minHeight: "120px",
           position: "relative",
         }}
       >
         <span
           sx={{
             fontFamily: "title",
-            fontSize: [5, 6],
+            fontSize: [6],
             fontWeight: 400,
             letterSpacing: "-0.07em",
             lineHeight: "title",
-            wordSpacing: ["20em", "0"],
+	    pt: 2,
             mt: 0,
             mb: 0,
             display: "block",
@@ -163,7 +165,7 @@ export default props => {
         sx={{
           maxWidth: fullWidth ? "none" : "container",
           mx: "auto",
-          px: [4, 6, 7, 5],
+          px: fullWidth ? [4, 6, 4] : [4, 6, 7, 5],
         }}
       >
         <main
