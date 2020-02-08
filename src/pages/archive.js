@@ -35,9 +35,11 @@ export default props => {
       return (
         <div
           sx={{
-            width: ["", "", "320px"],
-            pr: ["", "", "5"],
+            width: ["", "", "334px"],
             flexShrink: "0",
+            "& + div": {
+              pl: [0, 0, 5],
+            }
           }}
           id={"archive-" + year}
         >

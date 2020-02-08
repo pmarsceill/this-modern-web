@@ -19,13 +19,13 @@ export default {
         muted: "#333548",
         medium: "#3f4e5a",
       },
-      
+
     },
   },
   fonts: {
     body: "-apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif",
     heading: "-apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif",
-    monospace: "SFMono-Regular,Consolas,Menlo,Andale,monospace;",
+    monospace: "SFMono-Regular,Consolas,Menlo,Andale,monospace",
     title: "Optician Sans, system-ui, sans-serif",
     serif:
       "Palatino,Palatino Linotype,Palatino LT STD,Book Antiqua,Georgia,serif",
@@ -99,6 +99,28 @@ export default {
         "&:hover": {
           color: "accent",
         },
+      },
+      code: {
+	fontSize: 1,
+	background: "transparent",
+	'&[class*="language-"]': {
+	  fontSize: 1,
+	  background: "transparent",
+	},
+	'*:not(pre) > &[class*="language-"]': {
+	  whiteSpace: "pre-wrap",
+	  wordBreak: "break-word",
+	},
+      },
+      pre: {
+	background: "transparent",
+	border: "1px solid",
+	borderColor: "muted",
+	marginBottom: 4,
+	'&[class*="language-"]': {
+	  background: "transparent",
+	  marginBottom: 4,
+	},
       },
       ".gatsby-resp-image-image": {
         boxShadow: "none !important",
@@ -260,28 +282,6 @@ export default {
         top: "calc(50% - 2px)",
         backgroundColor: "muted",
         content: '""',
-      },
-    },
-    code: {
-      fontSize: 1,
-      background: "transparent",
-      '&[class*="language-"]': {
-        fontSize: 1,
-        background: "transparent",
-      },
-      '*:not(pre) > &[class*="language-"]': {
-        whiteSpace: "pre-wrap",
-        wordBreak: "break-word",
-      },
-    },
-    pre: {
-      background: "transparent",
-      border: "1px solid",
-      borderColor: "muted",
-      marginBottom: 4,
-      '&[class*="language-"]': {
-        background: "transparent",
-        marginBottom: 4,
       },
     },
     p: {

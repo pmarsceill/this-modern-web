@@ -121,7 +121,7 @@ export default props => {
           sx={{
             fontFamily: "body",
             color: "secondary",
-            fontSize: 0,
+            fontSize: 1,
             mt: 0,
             flex: "auto",
           }}
