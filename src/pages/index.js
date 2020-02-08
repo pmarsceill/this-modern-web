@@ -200,7 +200,7 @@ export default props => {
         <TwoCol>
           <Nav />
           <div>
-            <SEO title="Feed | Latest posts" />
+            <SEO title="Patrick Marsceill" />
 
             {currentBlogs.map(({ node }, index) => {
               if (index < 2) {

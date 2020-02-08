@@ -15,6 +15,7 @@ import { InView } from "react-intersection-observer"
 import Img from "gatsby-image"
 import moment from "moment"
 
+
 class BlogPostPage extends React.Component {
   SetColor() {
     const [colorMode, setColorMode] = useColorMode()
@@ -37,11 +38,48 @@ class BlogPostPage extends React.Component {
     })
   }
 
+
   render() {
     const post = this.props.data.mdx
     const siteTitle = this.props.data.site.siteMetadata.title
     const { previous, next } = this.props.pageContext
     const sideTitleClass = this.state.showSideTitle ? " show" : ""
+
+    function TimeWarning() {
+      const currentYear = new Date().getFullYear()
+      const postYear = moment.utc(post.frontmatter.date).format("YYYY")
+
+      if (currentYear - postYear >= 3) {
+        return (
+          <div
+            sx = {{
+              p: 5,
+              border: "1px solid",
+              borderColor: "muted",
+              borderRadius: "6px",
+              fontFamily: "body",
+              fontSize: "body",
+              color: "primary",
+              textAlign: ["", "", "center"],
+              mb: [6, "", 7],
+            }}
+          >
+            <p
+              sx = {{
+                m: 0,
+                lineHeight: "body",
+                maxWidth: "720px",
+                mx: "auto",
+              }}
+            >
+              👋 Hello reader, this blog post has aged {currentYear - postYear} years now since I originally wrote it. That's like {(currentYear - postYear) * 7} internet years, so let's take this content with a big rock of salt.
+            </p>
+          </div>
+        )
+      } else {
+        return ("")
+      }
+    }
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
@@ -53,6 +91,7 @@ class BlogPostPage extends React.Component {
         />
 
         <article>
+          <TimeWarning />
           <header
             sx={{
               mb: [5, "", 6],

@@ -51,13 +51,13 @@ export default props => {
         <h1
           sx={{
             fontFamily: "title",
-            fontSize: [6, 8, "", 9],
+            fontSize: [6, 8, ""],
             fontWeight: 400,
             letterSpacing: "-0.07em",
             lineHeight: "title",
             pt: 2,
             mt: 0,
-            mb: [0, 2],
+            mb: 0,
           }}
         >
           <Link
@@ -74,8 +74,9 @@ export default props => {
           sx={{
             fontFamily: "body",
             color: "secondary",
-            fontSize: [1, 2],
+            fontSize: [0, 1, 2],
             mt: 0,
+            ml: 1,
           }}
         >
           the personal website of Patrick Marsceill
@@ -121,9 +122,9 @@ export default props => {
           sx={{
             fontFamily: "body",
             color: "secondary",
-            fontSize: 1,
+            fontSize: 0,
             mt: 0,
-            flex: "auto",
+            ml: 1,
           }}
         >
           the personal website of Patrick Marsceill
