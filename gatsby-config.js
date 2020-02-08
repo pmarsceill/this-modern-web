@@ -12,18 +12,18 @@ module.exports = {
     },
     menuLinks: [
       {
-        name: 'Feed',
-        link: '/'
+        name: "Feed",
+        link: "/",
       },
       {
-        name: 'About',
-        link: '/about',
+        name: "About",
+        link: "/about",
       },
       {
-        name: 'Inbox',
-        link: '/inbox'
+        name: "Inbox",
+        link: "/inbox",
       },
-    ]
+    ],
   },
   plugins: [
     `gatsby-transformer-sharp`,
@@ -32,7 +32,7 @@ module.exports = {
       resolve: `gatsby-plugin-mdx`,
       options: {
         extensions: [`.mdx`, `.md`],
-        plugins: [`gatsby-remark-unwrap-images`,`gatsby-remark-images`],
+        plugins: [`gatsby-remark-unwrap-images`, `gatsby-remark-images`],
         gatsbyRemarkPlugins: [
           `gatsby-remark-unwrap-images`,
           {
@@ -57,16 +57,16 @@ module.exports = {
     {
       resolve: `gatsby-plugin-react-svg`,
       options: {
-	rule: {
-	  include: /assets\/.*\.svg/,
+        rule: {
+          include: /assets\/.*\.svg/,
           options: {
             props: {
               height: "16px",
               width: "16px",
-            }
-          }
-	}
-      }
+            },
+          },
+        },
+      },
     },
     {
       resolve: `gatsby-source-filesystem`,
@@ -125,12 +125,18 @@ module.exports = {
             normalize: ({ query: { site, allMdx } }) => {
               return allMdx.edges.map(edge => {
                 return Object.assign({}, edge.node.frontmatter, {
-                  title: (edge.node.frontmatter.title == edge.node.frontmatter.date ? undefined : edge.node.frontmatter.title),
+                  title:
+                    edge.node.frontmatter.title == edge.node.frontmatter.date
+                      ? undefined
+                      : edge.node.frontmatter.title,
                   description: edge.node.frontmatter.description,
                   date: edge.node.frontmatter.date,
                   url: site.siteMetadata.siteUrl + edge.node.fields.slug,
                   guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                  html: (edge.node.frontmatter.description ? `<h2>${ edge.node.frontmatter.description}</h2>` + edge.node.html : edge.node.html)
+                  html: edge.node.frontmatter.description
+                    ? `<h2>${edge.node.frontmatter.description}</h2>` +
+                      edge.node.html
+                    : edge.node.html,
                 })
               })
             },
@@ -161,11 +167,21 @@ module.exports = {
             normalize: ({ query: { site, allMdx } }) => {
               return allMdx.edges.map(edge => {
                 return Object.assign({}, edge.node.frontmatter, {
-                  title: (edge.node.frontmatter.title == edge.node.frontmatter.date ? undefined : edge.node.frontmatter.title),
+                  title:
+                    edge.node.frontmatter.title == edge.node.frontmatter.date
+                      ? undefined
+                      : edge.node.frontmatter.title,
                   date: edge.node.frontmatter.date,
                   url: site.siteMetadata.siteUrl + edge.node.fields.slug,
                   guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                  html: (edge.node.frontmatter.tags && edge.node.frontmatter.tags.includes('microblog') ? edge.node.html : `<p>${edge.node.frontmatter.description} — ${edge.node.excerpt} <a href="${site.siteMetadata.siteUrl + edge.node.fields.slug}">thismodernweb.com</a></p>`),
+                  html:
+                    edge.node.frontmatter.tags &&
+                    edge.node.frontmatter.tags.includes("microblog")
+                      ? edge.node.html
+                      : `<p>${edge.node.frontmatter.description} — ${
+                          edge.node.excerpt
+                        } <a href="${site.siteMetadata.siteUrl +
+                          edge.node.fields.slug}">thismodernweb.com</a></p>`,
                 })
               })
             },
@@ -189,7 +205,7 @@ module.exports = {
                 }
               }
             `,
-            name: 'microblog',
+            name: "microblog",
           },
         ],
       },

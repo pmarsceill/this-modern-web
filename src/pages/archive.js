@@ -39,7 +39,7 @@ export default props => {
             flexShrink: "0",
             "& + div": {
               pl: [0, 0, 5],
-            }
+            },
           }}
           id={"archive-" + year}
         >
@@ -65,61 +65,60 @@ export default props => {
                 ? true
                 : false
             const inbox =
-              node.frontmatter.tags &&
-              node.frontmatter.tags.includes("inbox")
+              node.frontmatter.tags && node.frontmatter.tags.includes("inbox")
 
             if (postYear == year) {
               if (inbox == true) {
                 return (
-		  <article
-		  key={node.fields.slug}
-		  sx={{
-		    mb: ["5", "", "4"],
-		      pb: ["5", "", "4"],
-		      borderBottom: "1px solid",
-		      borderColor: "muted",
-		  }}
-		  >
-
-		    <h3
-		      sx={{
-			fontFamily: "heading",
-			fontSize: [2],
-			letterSpacing: "heading",
-			lineHeight: "heading",
-			fontWeight: "body",
-			m:0,
-		      }}
-		    >
-		      {node.frontmatter.title}
-		    </h3>
-		    <p
-		      sx = {{
-			fontFamily: "heading",
-			fontSize: [2],
-			letterSpacing: "heading",
-			lineHeight: "heading",
-			color: "secondary",
-			fontWeight: "body",
-			m: 0,
-		      }}
-		  >
-		    {node.frontmatter.artist}
-		  </p>
-                      <small
-                        sx={{
-                          fontFamily: "body",
-                          display: "block",
-                          fontSize: [0],
-                          color: "secondary",
-                          mt: 3,
-                        }}
-                      >
-			{moment.utc(node.frontmatter.date).format("MMMM DD")} — <em>{node.frontmatter.status}</em>
-		      </small>
+                  <article
+                    key={node.fields.slug}
+                    sx={{
+                      mb: ["5", "", "4"],
+                      pb: ["5", "", "4"],
+                      borderBottom: "1px solid",
+                      borderColor: "muted",
+                    }}
+                  >
+                    <h3
+                      sx={{
+                        fontFamily: "heading",
+                        fontSize: [2],
+                        letterSpacing: "heading",
+                        lineHeight: "heading",
+                        fontWeight: "body",
+                        m: 0,
+                      }}
+                    >
+                      {node.frontmatter.title}
+                    </h3>
+                    <p
+                      sx={{
+                        fontFamily: "heading",
+                        fontSize: [2],
+                        letterSpacing: "heading",
+                        lineHeight: "heading",
+                        color: "secondary",
+                        fontWeight: "body",
+                        m: 0,
+                      }}
+                    >
+                      {node.frontmatter.artist}
+                    </p>
+                    <small
+                      sx={{
+                        fontFamily: "body",
+                        display: "block",
+                        fontSize: [0],
+                        color: "secondary",
+                        mt: 3,
+                      }}
+                    >
+                      {moment.utc(node.frontmatter.date).format("MMMM DD")} —{" "}
+                      <em>{node.frontmatter.status}</em>
+                    </small>
                   </article>
                 )
-	      } else if (microblog == true) {
+              } else if (microblog == true) {
                 return (
                   <article
                     key={node.fields.slug}
@@ -238,11 +237,9 @@ export default props => {
     })
   }
 
-
-
   class YearsMatrix extends React.Component {
     componentDidMount() {
-      const matrix = document.getElementById('yearsMatrix')
+      const matrix = document.getElementById("yearsMatrix")
       const width = matrix.scrollWidth
       matrix.scrollTo(width, 0)
     }
@@ -253,11 +250,11 @@ export default props => {
           id="yearsMatrix"
           sx={{
             position: "relative",
-              minHeight: "100%",
-              overflowX: ["hidden", "", "auto"],
-              overflowY: "hidden",
-              display: ["", "", "flex"],
-              flexDirection: "column",
+            minHeight: "100%",
+            overflowX: ["hidden", "", "auto"],
+            overflowY: "hidden",
+            display: ["", "", "flex"],
+            flexDirection: "column",
           }}
         >
           <div

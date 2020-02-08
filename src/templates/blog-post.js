@@ -15,7 +15,6 @@ import { InView } from "react-intersection-observer"
 import Img from "gatsby-image"
 import moment from "moment"
 
-
 class BlogPostPage extends React.Component {
   SetColor() {
     const [colorMode, setColorMode] = useColorMode()
@@ -38,7 +37,6 @@ class BlogPostPage extends React.Component {
     })
   }
 
-
   render() {
     const post = this.props.data.mdx
     const siteTitle = this.props.data.site.siteMetadata.title
@@ -52,22 +50,33 @@ class BlogPostPage extends React.Component {
       if (currentYear - postYear >= 3) {
         return (
           <Styled.root>
-            <p
-              sx ={{ mt: 0, mb: "1em" }}
-            >
-              👋 <em>Hello reader, this blog post has aged {currentYear - postYear} years now since I originally wrote it in {postYear}. That's like {(currentYear - postYear) * 7} internet years you know, so it's probably quite stale by now and may not reflect my current thinking. I am happy to keep it here for archival purposes, but please <a href="mailto:patrick.marsceill@gmail.com">reach out to me</a> if something feels off or if you're relying on it for any serious purpose. </em>
+            <p sx={{ mt: 0, mb: "1em" }}>
+              👋{" "}
+              <em>
+                Hello reader, this blog post has aged {currentYear - postYear}{" "}
+                years now since I originally wrote it in {postYear}. That's like{" "}
+                {(currentYear - postYear) * 7} internet years you know, so it's
+                probably quite stale by now and may not reflect my current
+                thinking. I am happy to keep it here for archival purposes, but
+                please{" "}
+                <a href="mailto:patrick.marsceill@gmail.com">reach out to me</a>{" "}
+                if something feels off or if you're relying on it for any
+                serious purpose.{" "}
+              </em>
             </p>
-            <p
-              sx ={{ m: 0 }}
-            >
-              <em>Thanks,<br/>Patrick</em>
+            <p sx={{ m: 0 }}>
+              <em>
+                Thanks,
+                <br />
+                Patrick
+              </em>
             </p>
 
             <Styled.hr />
           </Styled.root>
         )
       } else {
-        return ("")
+        return ""
       }
     }
 
@@ -177,7 +186,7 @@ class BlogPostPage extends React.Component {
                   sx={{
                     fontSize: [0],
                     color: "secondary",
-                    mt: [0, 0, 0, 2]
+                    mt: [0, 0, 0, 2],
                   }}
                 >
                   {moment.utc(post.frontmatter.date).format("MMMM D, YYYY")}

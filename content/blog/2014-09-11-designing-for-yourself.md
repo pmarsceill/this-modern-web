@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Designing for Yourself"
-date:   2014-09-11 19:25:00
+title: "Designing for Yourself"
+date: 2014-09-11 19:25:00
 tags: ["legacy"]
 ---
 
@@ -13,13 +13,13 @@ For my personal site’s redesign, I fundamentally changed my personal design pr
 
 To keep myself disciplined, I set a pace of constant ideation, followed by editing (both by myself and peers), and finally iterating in code. Once I had something resembling my site I kept refining it until it felt right. Here is general overview of what that schedule looked like:
 
-* **I kept a Photoshop diary for a few months.** I don't know what inspired me to start doing this, but I found it to be extremely useful. Every week I forced myself to add at least one new element to it, even if it wasn't entirely related to this site design. Just to get something out of my head and in front my eyes, without any judgment. I liken this to a personal, private [Dribbble](http://dribbble.com) account contained in one giant PSD file. While the majority of its contents never got used, somewhere in that messy jumble I had the beginnings of what you are seeing here.
+- **I kept a Photoshop diary for a few months.** I don't know what inspired me to start doing this, but I found it to be extremely useful. Every week I forced myself to add at least one new element to it, even if it wasn't entirely related to this site design. Just to get something out of my head and in front my eyes, without any judgment. I liken this to a personal, private [Dribbble](http://dribbble.com) account contained in one giant PSD file. While the majority of its contents never got used, somewhere in that messy jumble I had the beginnings of what you are seeing here.
 
-* **I edited and edited and edited.** I took everything I liked from that diary and massaged it into a loose layout. I kept refining it in Photoshop over and over until it started to resemble something like fragments of different pages. I sent early versions of the design to other designers and asked for feedback. Finally—and perhaps most importantly—I took time away from the design and came back to it with fresh eyes every few days.
+- **I edited and edited and edited.** I took everything I liked from that diary and massaged it into a loose layout. I kept refining it in Photoshop over and over until it started to resemble something like fragments of different pages. I sent early versions of the design to other designers and asked for feedback. Finally—and perhaps most importantly—I took time away from the design and came back to it with fresh eyes every few days.
 
-* **I set a code deadline.** The design certainly wasn't perfect in the PSD by the time I started coding it, but it didn’t need to be. By getting it into the browser by a certain date, I could make better design decisions and execute them faster. The final grid and type scale were developed entirely in code using general ideas of columns/gutter proportions and loose type sizes from the PSD. At the same time, I had little patterns established from the design comp that I iterated on and re-used throughout the site as a coded it.
+- **I set a code deadline.** The design certainly wasn't perfect in the PSD by the time I started coding it, but it didn’t need to be. By getting it into the browser by a certain date, I could make better design decisions and execute them faster. The final grid and type scale were developed entirely in code using general ideas of columns/gutter proportions and loose type sizes from the PSD. At the same time, I had little patterns established from the design comp that I iterated on and re-used throughout the site as a coded it.
 
-* **I didn't set a launch date.** This really wasn’t a purposeful decision. Just a feeling that if I could live with the design locally and chisel away at it until it felt right, it would evolve in the most organic way possible. I looked at the fully coded site every day for about a month (in my local dev environment), even if just for five minutes at a time. While I was browsing other sites, I would purposefully pull it up to see what the experience was like—judging how natural or jarring it felt. This lead me to discover more details that I wanted to temper and I hammered at them until they felt _done_.
+- **I didn't set a launch date.** This really wasn’t a purposeful decision. Just a feeling that if I could live with the design locally and chisel away at it until it felt right, it would evolve in the most organic way possible. I looked at the fully coded site every day for about a month (in my local dev environment), even if just for five minutes at a time. While I was browsing other sites, I would purposefully pull it up to see what the experience was like—judging how natural or jarring it felt. This lead me to discover more details that I wanted to temper and I hammered at them until they felt _done_.
 
 ![An excerpt of my Photoshop Diary](assets/designing-for-yourself/ps-diary.jpg)
 

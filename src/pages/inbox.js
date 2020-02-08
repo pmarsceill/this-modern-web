@@ -33,94 +33,92 @@ export default props => {
 
     return uniqYears.map((year, index) => {
       const yearlyPosts = []
-      return(
+      return (
         <div>
-	  <Styled.h2
-	    sx = {{
-	      fontSize: 1,
-	      borderBottom: "2px solid",
-	      borderColor: "muted",
-	      pb: 2,
-	      mb: 5,
-	    }}
-	  >
-	    {year}
-	  </Styled.h2>
-	  <div
-	  sx = {{
-	    display: "grid",
-	      gridTemplateColumns: ["1fr 1fr", "1fr 1fr 1fr 1fr"],
-	      gridGap: 5,
-	  }}
-	  >
-	    {inboxItems.map(({ node }, index) => {
-	      const postYear = moment.utc(node.frontmatter.date).format("YYYY")
-	      if (postYear == year) {
-		return (
-		  <div
-		  >
-		    <div
-		      sx = {{
-			display: "flex",
-			flexDirection: "column",
-			height: ["60vw", "25vw"],
-			maxHeight: ["350px"],
-			justifyContent: "flex-end",
-			overflow: "visible",
-			mb: 4,
-		      }}
-		    >
-		      <Img
-			sx = {{
-			}}
-			fluid={node.frontmatter.cover.childImageSharp.fluid}
-		      />
-		    </div>
-		    <Styled.h3
-		      sx = {{
-			m:0
-		      }}
-		    >
-		      {node.frontmatter.title}
-		    </Styled.h3>
-		    <p
-		      sx = {{
-			fontSize: theme => `${theme.styles.h3.fontSize}`,
-			fontFamily: "heading",
-			fontWeight: "heading",
-			color: "secondary",
-			mt: 0,
-			mb: 2,
-		      }}
-		    >
-		      {node.frontmatter.artist}
-		    </p>
-		    <p
-		      sx = {{
-			fontFamily: "body",
-			fontSize: [0],
-			mt: 0,
-			mb: 1,
-			color: "secondary",
-		      }}
-		    >
-		      Added {moment.utc(node.frontmatter.date).format("MMMM")}
-		    </p>
-		    <p
-		      sx = {{
-			fontFamily: "body",
-			fontSize: [0],
-			m: 0,
-			color: "secondary",
-		      }}
-		    >
-		      {node.frontmatter.status}
-		    </p>
-		  </div>
-		)
-	      }
-	    })}
-	  </div>
+          <Styled.h2
+            sx={{
+              fontSize: 1,
+              borderBottom: "2px solid",
+              borderColor: "muted",
+              pb: 2,
+              mb: 5,
+            }}
+          >
+            {year}
+          </Styled.h2>
+          <div
+            sx={{
+              display: "grid",
+              gridTemplateColumns: ["1fr 1fr", "1fr 1fr 1fr 1fr"],
+              gridGap: 5,
+            }}
+          >
+            {inboxItems.map(({ node }, index) => {
+              const postYear = moment.utc(node.frontmatter.date).format("YYYY")
+              if (postYear == year) {
+                return (
+                  <div>
+                    <div
+                      sx={{
+                        display: "flex",
+                        flexDirection: "column",
+                        height: ["60vw", "25vw"],
+                        maxHeight: ["350px"],
+                        justifyContent: "flex-end",
+                        overflow: "visible",
+                        mb: 4,
+                      }}
+                    >
+                      <Img
+                        sx={{}}
+                        fluid={node.frontmatter.cover.childImageSharp.fluid}
+                      />
+                    </div>
+                    <Styled.h3
+                      sx={{
+                        m: 0,
+                      }}
+                    >
+                      {node.frontmatter.title}
+                    </Styled.h3>
+                    <p
+                      sx={{
+                        fontSize: theme => `${theme.styles.h3.fontSize}`,
+                        fontFamily: "heading",
+                        fontWeight: "heading",
+                        color: "secondary",
+                        mt: 0,
+                        mb: 2,
+                      }}
+                    >
+                      {node.frontmatter.artist}
+                    </p>
+                    <p
+                      sx={{
+                        fontFamily: "body",
+                        fontSize: [0],
+                        mt: 0,
+                        mb: 1,
+                        color: "secondary",
+                      }}
+                    >
+                      Added {moment.utc(node.frontmatter.date).format("MMMM")}
+                    </p>
+                    <p
+                      sx={{
+                        fontFamily: "body",
+                        fontSize: [0],
+                        m: 0,
+                        color: "secondary",
+                      }}
+                    >
+                      {node.frontmatter.status}
+                    </p>
+                  </div>
+                )
+              }
+            })}
+          </div>
         </div>
       )
     })
@@ -129,32 +127,32 @@ export default props => {
   return (
     <Layout location={props.location} title={siteTitle}>
       <SEO title="Inbox" />
-      <TwoCol extended = "true" >
+      <TwoCol extended="true">
         <Nav />
         <div>
-	  <h1
-	    sx={{
-	      fontFamily: "heading",
-	      fontSize: [5, "", 6,],
-	      letterSpacing: "heading",
-	      lineHeight: "heading",
-	      mt: 0,
-	      maxWidth: "660px",
+          <h1
+            sx={{
+              fontFamily: "heading",
+              fontSize: [5, "", 6],
+              letterSpacing: "heading",
+              lineHeight: "heading",
+              mt: 0,
+              maxWidth: "660px",
               mb: 6,
-	    }}
-	  >
-	    Inbox
-	    <span
-	      sx={{
-		color: "secondary",
-		ml: "0.2em",
-	      }}
-	    >
-	      — what Iʼm reading, watching, or listening to...
-	    </span>
-	  </h1>
-	  <SpreadYears />
-	 </div>
+            }}
+          >
+            Inbox
+            <span
+              sx={{
+                color: "secondary",
+                ml: "0.2em",
+              }}
+            >
+              — what Iʼm reading, watching, or listening to...
+            </span>
+          </h1>
+          <SpreadYears />
+        </div>
       </TwoCol>
     </Layout>
   )
@@ -171,24 +169,27 @@ export const pageQuery = graphql`
         }
       }
     }
-    allMdx(filter: {frontmatter: {tags: {in: "inbox"}}}, sort: {fields: [frontmatter___date], order: DESC}) {
+    allMdx(
+      filter: { frontmatter: { tags: { in: "inbox" } } }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
       edges {
-	node {
-	  id
-	  frontmatter {
-	    title
+        node {
+          id
+          frontmatter {
+            title
             artist
-	    date
-	    cover {
-	      childImageSharp {
-		fluid(maxWidth: 500) {
-		  ...GatsbyImageSharpFluid
-		}
-	      }
-	    }
-	    status
-	  }
-	}
+            date
+            cover {
+              childImageSharp {
+                fluid(maxWidth: 500) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+            status
+          }
+        }
       }
     }
   }

@@ -13,13 +13,14 @@ Ryan Jahn and I spent a day biking around Austin trying to eat lunch. After mult
 Shoot the vodka, then dump the espresso into the stout and enjoy it at a hefty pace.
 
 ### Credits:
-* _Drink recipe_: Ryan Jahn and Patrick Marsceill
-* _Drink name_: Allison Wagner
-* _Testers_: Who ever was with us at Easy Tiger
-* _Honorable mention_: Our waitress who let us do this
+
+- _Drink recipe_: Ryan Jahn and Patrick Marsceill
+- _Drink name_: Allison Wagner
+- _Testers_: Who ever was with us at Easy Tiger
+- _Honorable mention_: Our waitress who let us do this
 
 ### The Russian Joe
 
-* 1 chilled shot of Russian vodka
-* 1 shot of espresso
-* 1/2 pint of stout
+- 1 chilled shot of Russian vodka
+- 1 shot of espresso
+- 1/2 pint of stout

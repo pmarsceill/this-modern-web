@@ -33,7 +33,7 @@ export default props => {
             gridTemplateAreas: [
               '"intro" "image" "details" "more"',
               '"intro image image" "details details details" "more more more"',
-	      '"intro image image" "details details details" "more more more"',
+              '"intro image image" "details details details" "more more more"',
               '"intro image image" "details image image" "more more x"',
             ],
           }}
@@ -60,8 +60,8 @@ export default props => {
                   ml: "0.2em",
                 }}
               >
-                is a product design manager at GitHub designing
-                &amp; build tools used by over forty&nbsp;million developers.
+                is a product design manager at GitHub designing &amp; build
+                tools used by over forty&nbsp;million developers.
               </span>
             </h1>
           </div>
@@ -71,21 +71,24 @@ export default props => {
               gridArea: "details",
             }}
           >
-	    <Styled.root>
+            <Styled.root>
               <p>
-                At GitHub, I manage the <em>Code to Cloud</em> Product Design team, which enables developers to build, test, run, publish, and deploy their code on GitHub. If you're a GitHub user, you may have seen our work in these products:
+                At GitHub, I manage the <em>Code to Cloud</em> Product Design
+                team, which enables developers to build, test, run, publish, and
+                deploy their code on GitHub. If you're a GitHub user, you may
+                have seen our work in these products:
               </p>
               <Styled.ul sx={{ color: "text" }}>
                 <li>GitHub Actions</li>
                 <li>GitHub Packages</li>
                 <li>GitHub Pages</li>
               </Styled.ul>
-	    </Styled.root>
+            </Styled.root>
           </div>
           <div
             sx={{
               gridArea: "image",
-	      mb: ["", "", 4],
+              mb: ["", "", 4],
             }}
           >
             <img
@@ -104,43 +107,64 @@ export default props => {
               gridArea: "more",
             }}
           >
-	  <Styled.root>
-	    <p>
-	      Previously, I managed the product design teams that comprise the
-	      core workflows that developers use daily including:
-	    </p>
-	    <Styled.ul>
-	      <li>Pull Requests</li>
-	      <li>Code Review</li>
-	      <li>Repositories</li>
-	      <li>Ecosystem / API powering third-party apps</li>
-	    </Styled.ul>
-            <p>
-              Before joining GitHub in 2015, I led design teams at <a href="https://www.happycog.com">Happy Cog</a> and Empathy Lab working with Fortune 500 industry leaders, scrappy start-ups,
-              and mission-driven non-profits to build digital products for screens of all sizes.
-            </p>
-            <Styled.h2>
-              Personal projects
-            </Styled.h2>
-            <Styled.h2>
-              About this website
-            </Styled.h2>
+            <Styled.root>
               <p>
-                This website is powered by a custom theme that I wrote for <a href="https://gatsbyjs.org">GatsbyJS</a>, a very nice framework for React. You can find <a href="https://github.com/pmarsceill/this-modern-web">the source code is available on GitHub</a> and hosting is provided by <a href="https://netlify.com">Netlify</a>.
+                Previously, I managed the product design teams that comprise the
+                core workflows that developers use daily including:
+              </p>
+              <Styled.ul>
+                <li>Pull Requests</li>
+                <li>Code Review</li>
+                <li>Repositories</li>
+                <li>Ecosystem / API powering third-party apps</li>
+              </Styled.ul>
+              <p>
+                Before joining GitHub in 2015, I led design teams at{" "}
+                <a href="https://www.happycog.com">Happy Cog</a> and Empathy Lab
+                working with Fortune 500 industry leaders, scrappy start-ups,
+                and mission-driven non-profits to build digital products for
+                screens of all sizes.
+              </p>
+              <Styled.h2>Personal projects</Styled.h2>
+              <Styled.h2>About this website</Styled.h2>
+              <p>
+                This website is powered by a custom theme that I wrote for{" "}
+                <a href="https://gatsbyjs.org">GatsbyJS</a>, a very nice
+                framework for React. You can find{" "}
+                <a href="https://github.com/pmarsceill/this-modern-web">
+                  the source code is available on GitHub
+                </a>{" "}
+                and hosting is provided by{" "}
+                <a href="https://netlify.com">Netlify</a>.
               </p>
               <p>
-                The logotype is set in Optician Sans (<a href="https://github.com/anewtypeofinterference/Optician-Sans">Open Source on GitHub</a>), the rest of the site uses system-safe font stacks:
+                The logotype is set in Optician Sans (
+                <a href="https://github.com/anewtypeofinterference/Optician-Sans">
+                  Open Source on GitHub
+                </a>
+                ), the rest of the site uses system-safe font stacks:
               </p>
               <Styled.ul>
                 <li>
-		  Headings: <code class="language-text">-apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif</code>
+                  Headings:{" "}
+                  <code class="language-text">
+                    -apple-system, BlinkMacSystemFont, Helvetica, Arial,
+                    sans-serif
+                  </code>
                 </li>
-		<li>
-		  Body content: <code class="language-text">Palatino, Palatino Linotype, Palatino LT STD, Book Antiqua, Georgia,serif</code>
-		</li>
-		<li>
-		  Monospace: <code class="language-text">SFMono-Regular, Consolas, Menlo, Andale,monospace</code>
-		</li>
+                <li>
+                  Body content:{" "}
+                  <code class="language-text">
+                    Palatino, Palatino Linotype, Palatino LT STD, Book Antiqua,
+                    Georgia,serif
+                  </code>
+                </li>
+                <li>
+                  Monospace:{" "}
+                  <code class="language-text">
+                    SFMono-Regular, Consolas, Menlo, Andale,monospace
+                  </code>
+                </li>
               </Styled.ul>
             </Styled.root>
           </div>

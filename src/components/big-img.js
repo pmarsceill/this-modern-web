@@ -1,8 +1,8 @@
 /** @jsx jsx */
-import React from 'react'
+import React from "react"
 import { jsx } from "theme-ui"
 
-const BigImage = ({...props}) => {
+const BigImage = ({ ...props }) => {
   const styles = {
     width: theme => ["", "", `calc(100% + ${theme.space[7]}px)`],
     height: theme => ["", "", `calc(100% + ${theme.space[7]}px)`],
@@ -13,12 +13,7 @@ const BigImage = ({...props}) => {
     color: "secondary",
   }
 
-  return (
-    <div sx = {styles}>
-      {props.children}
-    </div>
-  )
+  return <div sx={styles}>{props.children}</div>
 }
 
 export default BigImage
-

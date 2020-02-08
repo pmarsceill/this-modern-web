@@ -1,6 +1,6 @@
 ---
-date: '2018-03-21T04:14:58.123Z'
-slug: 'grand-designs'
+date: "2018-03-21T04:14:58.123Z"
+slug: "grand-designs"
 tags: ["microblog"]
 ---
 

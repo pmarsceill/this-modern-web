@@ -7,7 +7,7 @@ description: "Roll your own VPN for (almost) free"
 featuredImage: ./assets/diy-internet-privacy/featured.png
 ---
 
-For years Virtual Private Networks have been used by corporations to provide a secure channel to employees for access  to sensitive company data or systems. In simple terms, a VPN server acts as a proxy and all network traffic is routed through it, encapsulated, encrypted and delivered to the end-user. This type of private secure delivery doesn't only have business applications, though.
+For years Virtual Private Networks have been used by corporations to provide a secure channel to employees for access to sensitive company data or systems. In simple terms, a VPN server acts as a proxy and all network traffic is routed through it, encapsulated, encrypted and delivered to the end-user. This type of private secure delivery doesn't only have business applications, though.
 
 Internet privacy [laws have been changing](https://www.aclu.org/issues/privacy-technology/internet-privacy/status-internet-privacy-legislation-state). [A lot](https://www.huffingtonpost.com/entry/republicans-are-about-to-kill-rules-banning-internet-providers-from-sharing-your-web-history-without-your-consent_us_58d9a4cbe4b00f68a5ca2c7c). Internet Service Providers have unprecedented access to record and analyze your online activity, and a VPN can be a good defense against such prying. There is also the added benefit of spoofing your geographic location (IP-based geolocation services would pick up the location of the VPN server that you connect to, not your physical location), which is a great way to stream Netflix while vacationing out of the country.
 
@@ -15,11 +15,11 @@ Having a VPN server laying around for this type of personal use has historically
 
 ## Open Source to the rescue
 
-[Algo VPN](https://blog.trailofbits.com/2016/12/12/meet-algo-the-vpn-that-works/) is an open source VPN server geared toward security and ease-of-use. It comes with IPSec features that make allow you to secure your sessions out-of-the-box.  Here is a quick set up guide and some issues that I ran into while setting it up for the first time.
+[Algo VPN](https://blog.trailofbits.com/2016/12/12/meet-algo-the-vpn-that-works/) is an open source VPN server geared toward security and ease-of-use. It comes with IPSec features that make allow you to secure your sessions out-of-the-box. Here is a quick set up guide and some issues that I ran into while setting it up for the first time.
 
 ### 1. Figure out where you want to host this
 
-I choose Digital Ocean because it was easy, required next to no setup, and costs less than five bucks a month (and comes with a ten dollar referral credit). If you want a setup like mine, use this link to create your account... *Note that you don't need to configure a Droplet or anything yet, this will happen automatically later.*
+I choose Digital Ocean because it was easy, required next to no setup, and costs less than five bucks a month (and comes with a ten dollar referral credit). If you want a setup like mine, use this link to create your account... _Note that you don't need to configure a Droplet or anything yet, this will happen automatically later._
 
 [💁 Sign up for Digital Ocean](https://m.do.co/c/e675b6b6aa8e)
 
@@ -32,6 +32,7 @@ I choose Digital Ocean because it was easy, required next to no setup, and costs
 Extract the `zip` file. This will create a folder called `algo-master`. Rename it to whatever you want and put it somewhere that you'll remember. For the purposes of these instructions, let's rename it `algo-vpn`. The rest of these instructions assume that you're on a Mac, as that is what I used... but there are [Linux and Windows-based docs](https://github.com/trailofbits/algo#deploy-the-algo-server).
 
 ### 3. Configure the server locally
+
 Fire up Terminal and `cd` to your `algo-vpn` folder...
 
 The first thing you want to do is check to see if you have `python` installed...
@@ -61,6 +62,7 @@ Ok, now let's see how my Python versions are setup:
 $ which python
 python: aliased to python3
 ```
+
 ```shell
 $ python --version
 Python 3.6.3
@@ -105,6 +107,7 @@ users:
 ```
 
 ### 4. Setup and deploy to Digital Ocean
+
 This single command will create a Droplet, set it up, and deploy it to your Digital Ocean account:
 
 ```shell
@@ -201,4 +204,3 @@ Voila, they should be connected automatically. Open up network preferences and t
 !["Network settings showing VPN connected on MacOS"](./assets/diy-internet-privacy/network-settings.png)
 
 I turned off the `connect on demand` option because I like to manually connect to VPN when I need to, not automatically connect when not on a trusted network.
-

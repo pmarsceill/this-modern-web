@@ -9,8 +9,7 @@ import Micropub from "../components/micropub"
 export default props => {
   const { location, title, fullWidth, pageTitle, children } = props
   const rootPath = `${__PATH_PREFIX__}/`
-  const bigHeader =
-    location.pathname === rootPath
+  const bigHeader = location.pathname === rootPath
   let headingTitle
 
   if (pageTitle) {
@@ -41,11 +40,11 @@ export default props => {
       <div
         sx={{
           mt: [4, 6, ""],
-          mb: [5, "", 6,],
+          mb: [5, "", 6],
           pb: 5,
           position: "relative",
-	  height: ["auto", "12vh", "", "25vh"],
-	  minHeight: "120px",
+          height: ["auto", "12vh", "", "25vh"],
+          minHeight: "120px",
         }}
       >
         <h1
@@ -88,9 +87,9 @@ export default props => {
       <div
         sx={{
           mt: [4, 6],
-          mb: [5, "", 6 ],
+          mb: [5, "", 6],
           pb: 5,
-	  height: ["auto", "12vh", "", "25vh"],
+          height: ["auto", "12vh", "", "25vh"],
           minHeight: "120px",
           position: "relative",
         }}
@@ -102,7 +101,7 @@ export default props => {
             fontWeight: 400,
             letterSpacing: "-0.07em",
             lineHeight: "title",
-	    pt: 2,
+            pt: 2,
             mt: 0,
             mb: 0,
             display: "block",

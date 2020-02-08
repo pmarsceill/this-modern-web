@@ -4,6 +4,7 @@ title: "How I Setup My Machine for Prototyping"
 date: 2012-11-19 17:27
 tags: ["legacy"]
 ---
+
 A few weeks ago, I wrote <a href="http://cognition.happycog.com/article/its-alive-prototyping-in-the-browser">a post for Cognition</a> explaining my process for creating prototypes and how I arrived there. After being asked for more technical detail around my actual setup, I decided to create this step by step guide.
 
 _Note: This was written for those using a Mac running OSX 10.7 or later._
@@ -12,7 +13,7 @@ _Note: This was written for those using a Mac running OSX 10.7 or later._
 
 You can <a href="http://itunes.apple.com/us/app/xcode/id497799835?ls=1&mt=12" title="Apple Xcode Download">download and install Xcode from Apple's App store</a> after creating a <a href="https://developer.apple.com" target="_blank" title="Apple Developers">Developer Account</a>.
 
-After Xcode is downloaded and installed, there is another step that I always forget about. I mean _always_... And it takes me a good 20 minutes of cursing trying figure out why my compiler is taking a dump.  So here is what you gotta do:  You open up Xcode and select "Preferences..." from the Xcode menu and manually install the "Command Line Tools" by clicking "Downloads" tab, and then the "Install" button next to the item in the list.
+After Xcode is downloaded and installed, there is another step that I always forget about. I mean _always_... And it takes me a good 20 minutes of cursing trying figure out why my compiler is taking a dump. So here is what you gotta do: You open up Xcode and select "Preferences..." from the Xcode menu and manually install the "Command Line Tools" by clicking "Downloads" tab, and then the "Install" button next to the item in the list.
 
 Install Command Line Tools
 
@@ -36,15 +37,18 @@ $ \curl -L https://get.rvm.io | bash -s stable --ruby
 $ which ruby
 /Users/patrickmarsceill/.rvm/rubies/ruby-1.9.3-p327/bin/ruby
 ```
-The important thing to note here is the `/.rvm/rubies/ruby-1.9.3-p327`.  Your version numbers may be different, and thats ok but the path should be `/.rvm/rubies/ruby-x.x.x-pxxx`.  If you don't see something like this, you should switch to the newly installed version:
+
+The important thing to note here is the `/.rvm/rubies/ruby-1.9.3-p327`. Your version numbers may be different, and thats ok but the path should be `/.rvm/rubies/ruby-x.x.x-pxxx`. If you don't see something like this, you should switch to the newly installed version:
+
 ```bash
 $ rvm use 1.9.3
 ```
-This just tells your machine to switch to Ruby 1.9.3 installed by RVM.  You may have a different version number installed by RVM, in which case you would run `rvm use 1.9.2` or `rvm use 1.9.4`.
+
+This just tells your machine to switch to Ruby 1.9.3 installed by RVM. You may have a different version number installed by RVM, in which case you would run `rvm use 1.9.2` or `rvm use 1.9.4`.
 
 ### Step 3 &mdash; Install Git
 
-The easiest way to install Git on an OSX machine is to <a href="http://git-scm.com/download/mac">download and install the Universal .dmg file from git-scm.com</a>.  There are other ways to do this from the command line, if you are a Homebrew user like me you can use:
+The easiest way to install Git on an OSX machine is to <a href="http://git-scm.com/download/mac">download and install the Universal .dmg file from git-scm.com</a>. There are other ways to do this from the command line, if you are a Homebrew user like me you can use:
 
 ```bash
 $ brew install git
@@ -54,7 +58,7 @@ $ brew install git
 
 /images/blog/prototype-setup/active-projects.png Active Projects Folder
 
-Create and/or open the folder where you might want to house all your prototyping projects. I like to use a folder called "_active" where all my current projects live.
+Create and/or open the folder where you might want to house all your prototyping projects. I like to use a folder called "\_active" where all my current projects live.
 
 Switch back over to terminal and CD (change directories) by typing `cd` and then a space, _do not press "Enter" yet_:
 
@@ -62,7 +66,7 @@ Switch back over to terminal and CD (change directories) by typing `cd` and then
 $ cd
 ```
 
-Then drag the folder icon (in this case it's called "_Active") immediately following the space after `cd`.  Like magic, the full path to this location will appear after the `cd`:
+Then drag the folder icon (in this case it's called "\_Active") immediately following the space after `cd`. Like magic, the full path to this location will appear after the `cd`:
 
 ```bash
 $ cd /Users/patrickmarsceill/Dropbox/_Active
@@ -80,7 +84,7 @@ _From your current location in Terminal run:_
 $ git clone git@github.com:pmarsceill/StrapOn.git
 ```
 
-This will pull down a directory called "StrapOn" that you can use as a starter for your projects.  A more detailed tutorial is in the works, but to get started `cd` into the "StrapOn" directory:
+This will pull down a directory called "StrapOn" that you can use as a starter for your projects. A more detailed tutorial is in the works, but to get started `cd` into the "StrapOn" directory:
 
 ```bash
 $ cd StrapOn
@@ -121,6 +125,7 @@ Voila, StrapOn has started a local server on your machine that you can use for d
 This also includes starts an auto-compiler for SASS, and all the built-in templating engine included in the Serve gem. Both of which will be explained in my next post about developing with StrapOn.
 
 ### Downloads
-* [Command Line Tools (Included in Xcode)](https://itunes.apple.com/us/app/xcode/id497799835?ls=1&mt=12)
-* [Ruby Version Manager (RVM)](https://rvm.io/)
-* [Git](http://git-scm.com/download/mac)
+
+- [Command Line Tools (Included in Xcode)](https://itunes.apple.com/us/app/xcode/id497799835?ls=1&mt=12)
+- [Ruby Version Manager (RVM)](https://rvm.io/)
+- [Git](http://git-scm.com/download/mac)

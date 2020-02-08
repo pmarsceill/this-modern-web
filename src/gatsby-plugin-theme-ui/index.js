@@ -19,7 +19,6 @@ export default {
         muted: "#333548",
         medium: "#3f4e5a",
       },
-
     },
   },
   fonts: {
@@ -101,26 +100,26 @@ export default {
         },
       },
       code: {
-	fontSize: 1,
-	background: "transparent",
-	'&[class*="language-"]': {
-	  fontSize: 1,
-	  background: "transparent",
-	},
-	'*:not(pre) > &[class*="language-"]': {
-	  whiteSpace: "pre-wrap",
-	  wordBreak: "break-word",
-	},
+        fontSize: 1,
+        background: "transparent",
+        '&[class*="language-"]': {
+          fontSize: 1,
+          background: "transparent",
+        },
+        '*:not(pre) > &[class*="language-"]': {
+          whiteSpace: "pre-wrap",
+          wordBreak: "break-word",
+        },
       },
       pre: {
-	background: "transparent",
-	border: "1px solid",
-	borderColor: "muted",
-	marginBottom: 4,
-	'&[class*="language-"]': {
-	  background: "transparent",
-	  marginBottom: 4,
-	},
+        background: "transparent",
+        border: "1px solid",
+        borderColor: "muted",
+        marginBottom: 4,
+        '&[class*="language-"]': {
+          background: "transparent",
+          marginBottom: 4,
+        },
       },
       ".gatsby-resp-image-image": {
         boxShadow: "none !important",
@@ -293,8 +292,8 @@ export default {
         my: "1em",
         "&:first-of-type": {
           mt: 0,
-        }
-      }
-    }
-  }
+        },
+      },
+    },
+  },
 }
