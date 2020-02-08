@@ -219,14 +219,12 @@ export default {
       borderColor: "muted",
       fontStyle: "italic",
     },
-    li: {
-      mb: "0.25em",
-    },
     ul: {
       listStyle: "none",
       pl: 0,
       li: {
         position: "relative",
+        mb: "0.25em",
         pl: ["1.3em", 0],
         "::before": {
           position: "absolute",
@@ -246,10 +244,16 @@ export default {
       dt: {
         fontWeight: "bold",
       },
+      dd: {
+        mb: "0.25em",
+      },
     },
     ol: {
       listStyle: "none",
       counterReset: "step-counter",
+      li: {
+        mb: "0.25em",
+      },
       pl: 0,
       "> li": {
         position: "relative",

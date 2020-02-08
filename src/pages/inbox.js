@@ -28,6 +28,7 @@ export default props => {
       const year = moment.utc(node.frontmatter.date).format("YYYY")
       years.push(year)
     })
+
     const uniqYears = [...new Set(years)]
 
     return uniqYears.map((year, index) => {
@@ -66,7 +67,7 @@ export default props => {
 			maxHeight: ["350px"],
 			justifyContent: "flex-end",
 			overflow: "visible",
-			mb: 3,
+			mb: 4,
 		      }}
 		    >
 		      <Img
@@ -77,9 +78,7 @@ export default props => {
 		    </div>
 		    <Styled.h3
 		      sx = {{
-			mb: 1,
-			mt: 0,
-
+			m:0
 		      }}
 		    >
 		      {node.frontmatter.title}

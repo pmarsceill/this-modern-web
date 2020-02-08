@@ -51,30 +51,20 @@ class BlogPostPage extends React.Component {
 
       if (currentYear - postYear >= 3) {
         return (
-          <div
-            sx = {{
-              p: 5,
-              border: "1px solid",
-              borderColor: "muted",
-              borderRadius: "6px",
-              fontFamily: "body",
-              fontSize: "body",
-              color: "primary",
-              textAlign: ["", "", "center"],
-              mb: [6, "", 7],
-            }}
-          >
+          <Styled.root>
             <p
-              sx = {{
-                m: 0,
-                lineHeight: "body",
-                maxWidth: "720px",
-                mx: "auto",
-              }}
+              sx ={{ mt: 0, mb: "1em" }}
             >
-              👋 Hello reader, this blog post has aged {currentYear - postYear} years now since I originally wrote it. That's like {(currentYear - postYear) * 7} internet years, so let's take this content with a big rock of salt.
+              👋 <em>Hello reader, this blog post has aged {currentYear - postYear} years now since I originally wrote it in {postYear}. That's like {(currentYear - postYear) * 7} internet years you know, so it's probably quite stale by now and may not reflect my current thinking. I am happy to keep it here for archival purposes, but please <a href="mailto:patrick.marsceill@gmail.com">reach out to me</a> if something feels off or if you're relying on it for any serious purpose. </em>
             </p>
-          </div>
+            <p
+              sx ={{ m: 0 }}
+            >
+              <em>Thanks,<br/>Patrick</em>
+            </p>
+
+            <Styled.hr />
+          </Styled.root>
         )
       } else {
         return ("")
@@ -91,7 +81,6 @@ class BlogPostPage extends React.Component {
         />
 
         <article>
-          <TimeWarning />
           <header
             sx={{
               mb: [5, "", 6],
@@ -202,6 +191,7 @@ class BlogPostPage extends React.Component {
               className="postBody"
             >
               <Styled.root>
+                <TimeWarning />
                 <MDXRenderer>{post.body}</MDXRenderer>
               </Styled.root>
             </section>

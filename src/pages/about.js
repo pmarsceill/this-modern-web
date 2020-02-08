@@ -136,10 +136,10 @@ export default props => {
 		  Headings: <code class="language-text">-apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif</code>
                 </li>
 		<li>
-		  Body content: <code class="language-text">Palatino,Palatino Linotype,Palatino LT STD,Book Antiqua,Georgia,serif</code>
+		  Body content: <code class="language-text">Palatino, Palatino Linotype, Palatino LT STD, Book Antiqua, Georgia,serif</code>
 		</li>
 		<li>
-		  Monospace:<code class="language-text">SFMono-Regular,Consolas,Menlo,Andale,monospace</code>
+		  Monospace: <code class="language-text">SFMono-Regular, Consolas, Menlo, Andale,monospace</code>
 		</li>
               </Styled.ul>
             </Styled.root>
