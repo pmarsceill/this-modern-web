@@ -177,7 +177,7 @@ module.exports = {
                   html:
                     edge.node.frontmatter.tags &&
                     edge.node.frontmatter.tags.includes("microblog")
-                      ? edge.node.html
+                      ? edge.node.html.replace(/<style.*?<\/style>/g, '')
                       : `<p>${edge.node.frontmatter.description} — ${
                           edge.node.excerpt
                         } <a href="${site.siteMetadata.siteUrl +
