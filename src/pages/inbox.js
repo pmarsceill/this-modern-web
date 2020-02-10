@@ -86,6 +86,8 @@ export default props => {
                         fontSize: theme => `${theme.styles.h3.fontSize}`,
                         fontFamily: "heading",
                         fontWeight: "heading",
+                        lineHeight: "heading",
+                        letterSpacing: "heading",
                         color: "secondary",
                         mt: 0,
                         mb: 2,
