@@ -178,10 +178,9 @@ module.exports = {
                     edge.node.frontmatter.tags &&
                     edge.node.frontmatter.tags.includes("microblog")
                       ? edge.node.html.replace(/<style.*?<\/style>/g, '')
-                      : `<p>${edge.node.frontmatter.description + " - " || ""} ${
-                          edge.node.excerpt
-                        } <a href="${site.siteMetadata.siteUrl +
-                          edge.node.fields.slug}">thismodernweb.com</a></p>`,
+                      : edge.node.description
+                        ? `<p>${edge.node.frontmatter.description} "-" ${edge.node.excerpt} <a href="${site.siteMetadata.siteUrl + edge.node.fields.slug}">thismodernweb.com</a></p>`
+                        : `<p>${edge.node.excerpt}</p> <a href="${site.siteMetadata.siteUrl + edge.node.fields.slug}">thismodernweb.com</a></p>`,
                 })
               })
             },
