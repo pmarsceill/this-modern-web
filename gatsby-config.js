@@ -170,17 +170,48 @@ module.exports = {
                   title:
                     edge.node.frontmatter.title == edge.node.frontmatter.date
                       ? undefined
+                      : edge.node.frontmatter.artist
+                      ? undefined
                       : edge.node.frontmatter.title,
                   date: edge.node.frontmatter.date,
-                  url: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                  guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                  url: edge.node.frontmatter.artist
+                    ? site.siteMetadata.siteUrl +
+                      `/inbox` +
+                      `#` +
+                      edge.node.fields.slug.replace(/\//g, "")
+                    : edge.node.frontmatter.tags &&
+                      edge.node.frontmatter.tags.includes("microblog")
+                    ? site.siteMetadata.siteUrl +
+                      `/archive` +
+                      `#` +
+                      edge.node.fields.slug.replace(/\//g, "")
+                    : site.siteMetadata.siteUrl + edge.node.fields.slug,
+                  guid: edge.node.frontmatter.artist
+                    ? site.siteMetadata.siteUrl +
+                      `/inbox` +
+                      `#` +
+                      edge.node.fields.slug.replace(/\//g, "")
+                    : edge.node.frontmatter.tags &&
+                      edge.node.frontmatter.tags.includes("microblog")
+                    ? site.siteMetadata.siteUrl +
+                      `/archive` +
+                      `#` +
+                      edge.node.fields.slug.replace(/\//g, "")
+                    : site.siteMetadata.siteUrl + edge.node.fields.slug,
                   html:
                     edge.node.frontmatter.tags &&
                     edge.node.frontmatter.tags.includes("microblog")
-                      ? edge.node.html.replace(/<style.*?<\/style>/g, '')
+                      ? edge.node.html.replace(/<style.*?<\/style>/g, "")
                       : edge.node.description
-                        ? `<p>${edge.node.frontmatter.description} "-" ${edge.node.excerpt} <a href="${site.siteMetadata.siteUrl + edge.node.fields.slug}">thismodernweb.com</a></p>`
-                        : `<p>${edge.node.excerpt}</p> <a href="${site.siteMetadata.siteUrl + edge.node.fields.slug}">thismodernweb.com</a></p>`,
+                      ? `<p>${edge.node.frontmatter.description} "-" ${
+                          edge.node.excerpt
+                        } <a href="${site.siteMetadata.siteUrl +
+                          edge.node.fields.slug}">thismodernweb.com</a></p>`
+                      : edge.node.frontmatter.artist
+                      ? `<p>${edge.node.frontmatter.title} by ${edge.node.frontmatter.artist} ${edge.node.frontmatter.status}`
+                      : `<p>${edge.node.excerpt}</p> <a href="${site
+                          .siteMetadata.siteUrl +
+                          edge.node.fields.slug}">thismodernweb.com</a></p>`,
                 })
               })
             },
@@ -195,6 +226,8 @@ module.exports = {
                       fields { slug }
                       frontmatter {
                         title
+                        artist
+                        status
                         description
                         date
                         tags

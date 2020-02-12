@@ -34,9 +34,11 @@ export default props => {
     return uniqYears.map((year, index) => {
       const yearlyPosts = []
       return (
-        <div sx = {{
-          mb: 6,
-        }}>
+        <div
+          sx={{
+            mb: 6,
+          }}
+        >
           <Styled.h2
             sx={{
               fontSize: 1,

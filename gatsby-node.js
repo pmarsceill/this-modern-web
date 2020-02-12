@@ -106,10 +106,21 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       value,
     })
 
-    createNodeField({
-      name: `slug`,
-      node,
-      value: `${year}/${month}/${day}/${title}`,
-    })
+    if (
+      node.frontmatter.tags.includes("microblog") ||
+      node.frontmatter.tags.includes("inbox")
+    ) {
+      createNodeField({
+        name: `slug`,
+        node,
+        value: `${year}-${month}-${day}-${title}`,
+      })
+    } else {
+      createNodeField({
+        name: `slug`,
+        node,
+        value: `${year}/${month}/${day}/${title}`,
+      })
+    }
   }
 }
