@@ -164,18 +164,17 @@ module.exports = {
                     edge.node.frontmatter.tags.includes("microblog")
                       ? edge.node.html.replace(/<style.*?<\/style>/g, "")
                       : edge.node.description
-                      ? `<h2>${edge.node.frontmatter.description}</h2>` +
-                        edge.node.html.replace(/<style.*?<\/style>/g, "")
-                      : edge.node.frontmatter.artist
-                      ? `<p>${edge.node.frontmatter.title} by ${
-                          edge.node.frontmatter.artist
-                        } - ${edge.node.frontmatter.status} on ${
-                          edge.node.frontmatter.date
-                        } <a href="${site.siteMetadata.siteUrl +
-                          edge.node.fields.slug}">thismodernweb.com</a></p>`
-                      : `<p>${edge.node.excerpt}</p> <a href="${site
-                          .siteMetadata.siteUrl +
-                          edge.node.fields.slug}">thismodernweb.com</a></p>`,
+                        ? `<h2>${edge.node.frontmatter.description}</h2>` +
+                          edge.node.html.replace(/<style.*?<\/style>/g, "")
+                        : edge.node.frontmatter.artist
+                          ? `<p>${edge.node.frontmatter.title} by ${
+                              edge.node.frontmatter.artist
+                            } - ${edge.node.frontmatter.status} on ${
+                              edge.node.frontmatter.date
+                            }
+                            <a href="${site.siteMetadata.siteUrl +
+                                `/inbox` + `#` + edge.node.fields.slug.replace(/\//g, "")}">thismodernweb.com</a></p>`
+                          : edge.node.html.replace(/<style.*?<\/style>/g, ""),
                 })
               })
             },
@@ -252,7 +251,7 @@ module.exports = {
                         } - ${edge.node.frontmatter.status} on ${
                           edge.node.frontmatter.date
                         } <a href="${site.siteMetadata.siteUrl +
-                          edge.node.fields.slug}">thismodernweb.com</a></p>`
+                            `/inbox` + `#` + edge.node.fields.slug.replace(/\//g, "")}">thismodernweb.com</a></p>`
                       : `<p>${edge.node.excerpt}</p> <a href="${site
                           .siteMetadata.siteUrl +
                           edge.node.fields.slug}">thismodernweb.com</a></p>`,
