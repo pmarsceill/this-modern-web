@@ -140,9 +140,9 @@ export default props => {
   function microBlogLayout(node) {
     const body = node.body || node.fields.title || node.fields.slug
     const timeAgo = moment.utc(node.frontmatter.date).fromNow()
-    const permalink = `#${node.id}`
-    const id = node.id
-    const slug = node.fields.slug
+    const slug = node.fields.slug.replace(/\//g, "")
+    const permalink = `/archive#${slug}`
+
     return (
       <article
         key={slug}
@@ -152,7 +152,7 @@ export default props => {
           borderBottom: "1px solid",
           borderColor: "muted",
         }}
-        id={id}
+        id={slug}
       >
         <div
           sx={{

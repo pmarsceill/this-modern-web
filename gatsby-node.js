@@ -61,15 +61,6 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     })
   })
-
-  microBlogs.forEach((post, index) => {
-    createRedirect({
-      fromPath: post.node.fields.slug,
-      toPath: `/` + `#` + post.node.id,
-      isPermanent: true,
-      redirectInBrowser: true,
-    })
-  })
 }
 
 exports.onCreateNode = ({ node, actions, getNode }) => {

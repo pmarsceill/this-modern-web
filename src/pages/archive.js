@@ -119,6 +119,7 @@ export default props => {
                   </article>
                 )
               } else if (microblog == true) {
+                const permalink = `#${node.fields.slug.replace(/\//g, "")}`
                 return (
                   <article
                     key={node.fields.slug}
@@ -128,6 +129,7 @@ export default props => {
                       borderBottom: "1px solid",
                       borderColor: "muted",
                     }}
+                    id={node.fields.slug.replace(/\//g, "")}
                   >
                     <div
                       sx={{
@@ -157,15 +159,15 @@ export default props => {
                         mt: 3,
                       }}
                     >
-                      <Link
-                        to={node.fields.slug}
+                      <a
+                        href={permalink}
                         sx={{
                           textDecoration: "none",
                           color: "secondary",
                         }}
                       >
                         {moment.utc(node.frontmatter.date).format("MMMM DD")}
-                      </Link>
+                      </a>
                     </small>
                   </article>
                 )

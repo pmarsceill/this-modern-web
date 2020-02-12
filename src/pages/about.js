@@ -126,6 +126,39 @@ export default props => {
                 screens of all sizes.
               </p>
               <Styled.h2>Personal projects</Styled.h2>
+              <p>
+                I've loved the internet since I first logged on as a pre-teen in
+                the early 90's. Since the beginning I've been fascinated by
+                creating for this medium. I've designed built a bunch of
+                personal side projects, some have stood the test of time and
+                some have been abandoned for more insteresting persuits. Here's
+                a select few that I'm most proud of:
+              </p>
+              <Styled.ul>
+                <li>
+                  <a href="https://pmarsceill.github.io/just-the-docs">
+                    Just the Docs
+                  </a>{" "}
+                  - Jekyll theme for documentation with built-in search out of
+                  the box.
+                </li>
+                <li>
+                  <a href="https://awaremac.com/">Aware</a> - A simple menubar
+                  app for OSX and macOS that tracks how long you've been
+                  actively using your computer.
+                </li>
+                <li>
+                  GeoCities.dev - <em>coming soon...</em>
+                </li>
+                <li>
+                  <a href="https://web.archive.org/web/20150305170045/https://tablab.io/">
+                    Tab Lab
+                  </a>{" "}
+                  - <em>(archived link, project shut down)</em>. Publish guitar
+                  tablature and music notation with an abstract markdown-like
+                  language.
+                </li>
+              </Styled.ul>
               <Styled.h2>About this website</Styled.h2>
               <p>
                 This website is powered by a custom theme that I wrote for{" "}

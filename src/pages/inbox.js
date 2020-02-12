@@ -61,7 +61,7 @@ export default props => {
               const postYear = moment.utc(node.frontmatter.date).format("YYYY")
               if (postYear == year) {
                 return (
-                  <div>
+                  <div id={node.fields.slug.replace(/\//g, "")}>
                     <div
                       sx={{
                         display: "flex",
@@ -182,6 +182,9 @@ export const pageQuery = graphql`
       edges {
         node {
           id
+          fields {
+            slug
+          }
           frontmatter {
             title
             artist
