@@ -53,15 +53,15 @@ export default props => {
                 width: ["", "150%"],
               }}
             >
-              Patrick Marsceill
+              Patrick Marsceill is a product design manager at GitHub
               <span
                 sx={{
                   color: "secondary",
                   ml: "0.2em",
                 }}
               >
-                is a product design manager at GitHub designing &amp; build
-                tools used by over forty&nbsp;million developers.
+                designing &amp; building
+                tools used by over 40 million developers.
               </span>
             </h1>
           </div>
