@@ -139,25 +139,25 @@ module.exports = {
                   url: edge.node.frontmatter.artist
                     ? site.siteMetadata.siteUrl +
                       `/inbox` +
-                      `#` +
+                      `/#` +
                       edge.node.fields.slug.replace(/\//g, "")
                     : edge.node.frontmatter.tags &&
                       edge.node.frontmatter.tags.includes("microblog")
                     ? site.siteMetadata.siteUrl +
                       `/archive` +
-                      `#` +
+                      `/#` +
                       edge.node.fields.slug.replace(/\//g, "")
                     : site.siteMetadata.siteUrl + edge.node.fields.slug,
                   guid: edge.node.frontmatter.artist
                     ? site.siteMetadata.siteUrl +
                       `/inbox` +
-                      `#` +
+                      `/#` +
                       edge.node.fields.slug.replace(/\//g, "")
                     : edge.node.frontmatter.tags &&
                       edge.node.frontmatter.tags.includes("microblog")
                     ? site.siteMetadata.siteUrl +
                       `/archive` +
-                      `#` +
+                      `/#` +
                       edge.node.fields.slug.replace(/\//g, "")
                     : site.siteMetadata.siteUrl + edge.node.fields.slug,
                   html:
@@ -165,21 +165,20 @@ module.exports = {
                     edge.node.frontmatter.tags.includes("microblog")
                       ? edge.node.html.replace(/<style.*?<\/style>/g, "")
                       : edge.node.description
-                      ? `<h2>${edge.node.frontmatter.description}</h2>` +
-                        edge.node.html.replace(/<style.*?<\/style>/g, "")
+                      ? `<p>${edge.node.frontmatter.description} "-" ${
+                          edge.node.excerpt
+                        } <a href="${site.siteMetadata.siteUrl +
+                          edge.node.fields.slug}">thismodernweb.com</a></p>`
                       : edge.node.frontmatter.artist
                       ? `<p>${edge.node.frontmatter.title} by ${
                           edge.node.frontmatter.artist
-                        } - ${edge.node.frontmatter.status} on ${
+                        } - <a href="${site.siteMetadata.siteUrl +
+                          `/inbox` +
+                          `/#` +
+                          edge.node.fields.slug.replace(/\//g, "")}">
+                              ${edge.node.frontmatter.status} on ${
                           edge.node.frontmatter.date
-                        }
-                            <a href="${site.siteMetadata.siteUrl +
-                              `/inbox` +
-                              `#` +
-                              edge.node.fields.slug.replace(
-                                /\//g,
-                                ""
-                              )}">thismodernweb.com</a></p>`
+                        }</a></p>`
                       : edge.node.html.replace(/<style.*?<\/style>/g, ""),
                 })
               })
@@ -197,6 +196,8 @@ module.exports = {
                       frontmatter {
                         title
                         description
+                        artist
+                        status
                         date
                         tags
                       }
@@ -221,25 +222,25 @@ module.exports = {
                   url: edge.node.frontmatter.artist
                     ? site.siteMetadata.siteUrl +
                       `/inbox` +
-                      `#` +
+                      `/#` +
                       edge.node.fields.slug.replace(/\//g, "")
                     : edge.node.frontmatter.tags &&
                       edge.node.frontmatter.tags.includes("microblog")
                     ? site.siteMetadata.siteUrl +
                       `/archive` +
-                      `#` +
+                      `/#` +
                       edge.node.fields.slug.replace(/\//g, "")
                     : site.siteMetadata.siteUrl + edge.node.fields.slug,
                   guid: edge.node.frontmatter.artist
                     ? site.siteMetadata.siteUrl +
                       `/inbox` +
-                      `#` +
+                      `/#` +
                       edge.node.fields.slug.replace(/\//g, "")
                     : edge.node.frontmatter.tags &&
                       edge.node.frontmatter.tags.includes("microblog")
                     ? site.siteMetadata.siteUrl +
                       `/archive` +
-                      `#` +
+                      `/#` +
                       edge.node.fields.slug.replace(/\//g, "")
                     : site.siteMetadata.siteUrl + edge.node.fields.slug,
                   html:
@@ -254,15 +255,13 @@ module.exports = {
                       : edge.node.frontmatter.artist
                       ? `<p>${edge.node.frontmatter.title} by ${
                           edge.node.frontmatter.artist
-                        } - ${edge.node.frontmatter.status} on ${
-                          edge.node.frontmatter.date
-                        } <a href="${site.siteMetadata.siteUrl +
+                        } - <a href="${site.siteMetadata.siteUrl +
                           `/inbox` +
-                          `#` +
-                          edge.node.fields.slug.replace(
-                            /\//g,
-                            ""
-                          )}">thismodernweb.com</a></p>`
+                          `/#` +
+                          edge.node.fields.slug.replace(/\//g, "")}">
+                          ${edge.node.frontmatter.status} on ${
+                          edge.node.frontmatter.date
+                        }</a></p>`
                       : `<p>${edge.node.excerpt}</p> <a href="${site
                           .siteMetadata.siteUrl +
                           edge.node.fields.slug}">thismodernweb.com</a></p>`,
