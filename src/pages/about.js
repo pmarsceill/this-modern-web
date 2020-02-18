@@ -61,7 +61,7 @@ export default props => {
                 }}
               >
                 designing &amp; building
-                tools used by over 40 million developers.
+                products for over forty million developers.
               </span>
             </h1>
           </div>
@@ -148,15 +148,15 @@ export default props => {
                   actively using your computer.
                 </li>
                 <li>
-                  GeoCities.dev - <em>coming soon...</em>
-                </li>
-                <li>
                   <a href="https://web.archive.org/web/20150305170045/https://tablab.io/">
                     Tab Lab
                   </a>{" "}
                   - <em>(archived link, project shut down)</em>. Publish guitar
                   tablature and music notation with an abstract markdown-like
                   language.
+                </li>
+                <li>
+                  GeoCities.dev - <em>coming soon...</em>
                 </li>
               </Styled.ul>
               <Styled.h2>About this website</Styled.h2>
@@ -189,13 +189,13 @@ export default props => {
                   Body content:{" "}
                   <code class="language-text">
                     Palatino, Palatino Linotype, Palatino LT STD, Book Antiqua,
-                    Georgia,serif
+                    Georgia, serif
                   </code>
                 </li>
                 <li>
                   Monospace:{" "}
                   <code class="language-text">
-                    SFMono-Regular, Consolas, Menlo, Andale,monospace
+                    SFMono-Regular, Consolas, Menlo, Andale, monospace
                   </code>
                 </li>
               </Styled.ul>
