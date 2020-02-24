@@ -43,7 +43,7 @@ export default props => {
 
   setColorMode("dark")
 
-  function currentBlogLayout(node) {
+  function currentBlogLayout(node, index) {
     const title = node.frontmatter.title || node.fields.slug
     const tags = node.frontmatter.tags || []
     const description = node.frontmatter.description || ""
@@ -51,6 +51,7 @@ export default props => {
     const slug = node.fields.slug
     const featuredImage = node.frontmatter.featuredImage || ""
     const imageData = featuredImage ? featuredImage.childImageSharp.fluid : ""
+    const excerpt = node.excerpt
 
     const image = imageData ? (
       <Img
@@ -58,7 +59,7 @@ export default props => {
         sx={{
           borderRadius: "6px",
           ml: [3, 4, 5],
-          width: ["100px", "140px", "160px", "180px"],
+          width: ["100px", "140px", "160px", "160px", "180px"],
           backgroundColor: "muted",
         }}
         alt=""
@@ -66,6 +67,8 @@ export default props => {
     ) : (
       ""
     )
+
+    const first = index === 0
 
     return (
       <article
@@ -97,7 +100,7 @@ export default props => {
               sx={{
                 display: "inline",
                 fontFamily: "heading",
-                fontSize: [4, 5],
+                fontSize: first ? [4, 5, 7] : [4, 5],
                 letterSpacing: "heading",
                 lineHeight: "heading",
               }}
@@ -108,7 +111,7 @@ export default props => {
               sx={{
                 fontFamily: "heading",
                 display: "inline",
-                fontSize: [4, 5],
+                fontSize: first ? [4, 5, 7] : [4, 5],
                 color: "secondary",
                 fontWeight: "bold",
                 letterSpacing: "heading",
@@ -119,6 +122,17 @@ export default props => {
             >
               {description}
             </p>
+            {
+              (function() {
+                if (first == true) {
+                  return (
+                    <p>{excerpt}</p>
+                  )
+                } else {
+                  return
+                }
+              })
+            }
             <small
               sx={{
                 fontFamily: "body",
@@ -204,7 +218,7 @@ export default props => {
 
             {currentBlogs.map(({ node }, index) => {
               if (index < 2) {
-                return currentBlogLayout(node)
+                return currentBlogLayout(node, index)
               }
             })}
 

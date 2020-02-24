@@ -28,8 +28,8 @@ export default props => {
         <div
           sx={{
             display: ["grid"],
-            columnGap: ["", 5, 6],
-            gridTemplateColumns: ["", "", "3.5fr 1fr 1fr"],
+            columnGap: ["", "", 5, 6],
+            gridTemplateColumns: ["", "2fr 1fr 1fr", "", "3.25fr 1fr 1fr"],
             gridTemplateAreas: [
               '"intro" "image" "details" "more"',
               '"intro image image" "details details details" "more more more"',
@@ -46,7 +46,7 @@ export default props => {
             <h1
               sx={{
                 fontFamily: "heading",
-                fontSize: [5, 6, 6, 6],
+                fontSize: [5, 6, 7],
                 letterSpacing: "heading",
                 lineHeight: "heading",
                 mt: 0,
@@ -61,7 +61,7 @@ export default props => {
                 }}
               >
                 designing &amp; building
-                products for over forty million developers.
+                for developers around the planet.
               </span>
             </h1>
           </div>
@@ -73,8 +73,8 @@ export default props => {
           >
             <Styled.root>
               <p>
-                At GitHub, I manage the <em>Code to Cloud</em> Product Design
-                team, which enables developers to build, test, run, publish, and
+                At <a href="https://github.com">GitHub</a>, I manage the <em>Code to Cloud</em> Product Design
+                team, which is responsible for giving developers tools to build, test, run, publish, and
                 deploy their code on GitHub. If you're a GitHub user, you may
                 have seen our work in these products:
               </p>
@@ -109,15 +109,8 @@ export default props => {
           >
             <Styled.root>
               <p>
-                Previously, I managed the product design teams that comprise the
-                core workflows that developers use daily including:
+                In my time at GitHub, I've worked on almost every part of the product. I've managed teams or lead design efforts on many core features like <em>pull requests</em>, <em>code review</em>, <em>security</em>, <em>ecosystem / api</em>, <em>marketing / top-of-funnel</em>, and <em>new user experience</em>.
               </p>
-              <Styled.ul>
-                <li>Pull Requests</li>
-                <li>Code Review</li>
-                <li>Repositories</li>
-                <li>Ecosystem / API powering third-party apps</li>
-              </Styled.ul>
               <p>
                 Before joining GitHub in 2015, I led design teams at{" "}
                 <a href="https://www.happycog.com">Happy Cog</a> and Empathy Lab
@@ -128,10 +121,10 @@ export default props => {
               <Styled.h2>Personal projects</Styled.h2>
               <p>
                 I've loved the internet since I first logged on as a pre-teen in
-                the early 90's. Since the beginning I've been fascinated by
-                creating for this medium. I've designed built a bunch of
-                personal side projects, some have stood the test of time and
-                some have been abandoned for more insteresting persuits. Here's
+                the early 90's. Since the beginning I've been fascinated with the ability to
+                create for this medium. I love making stuff! I've designed + built many
+                personal side projects over the years, some have stood the test of time and
+                others have been abandoned for more insteresting persuits. Here's
                 a select few that I'm most proud of:
               </p>
               <Styled.ul>
@@ -161,7 +154,7 @@ export default props => {
               </Styled.ul>
               <Styled.h2>About this website</Styled.h2>
               <p>
-                This website is powered by a custom theme that I wrote for{" "}
+                This website is powered by a custom theme that I designed and built for {" "}
                 <a href="https://gatsbyjs.org">GatsbyJS</a>, a very nice
                 framework for React. You can find{" "}
                 <a href="https://github.com/pmarsceill/this-modern-web">

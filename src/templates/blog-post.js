@@ -104,7 +104,7 @@ class BlogPostPage extends React.Component {
               <h1
                 sx={{
                   fontFamily: "heading",
-                  fontSize: [5, 6],
+                  fontSize: [5, 6, 7],
                   display: "inline",
                   color: "primary",
                   letterSpacing: "heading",
@@ -117,7 +117,7 @@ class BlogPostPage extends React.Component {
               <h2
                 sx={{
                   fontFamily: "heading",
-                  fontSize: [5, 6],
+                  fontSize: [5, 6, 7],
                   fontWeight: "bold",
                   color: "secondary",
                   display: "inline",

@@ -139,7 +139,7 @@ export default props => {
           <h1
             sx={{
               fontFamily: "heading",
-              fontSize: [5, "", 6],
+              fontSize: [5, 6, 7],
               letterSpacing: "heading",
               lineHeight: "heading",
               mt: 0,
