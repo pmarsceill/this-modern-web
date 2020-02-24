@@ -2,16 +2,18 @@
 import { jsx } from "theme-ui"
 import { Link } from "gatsby"
 
-const Button = ({ variant = "primary", block = "false", ...props }) => {
+const Button = ({ variant = "primary", block = "false", size="inherit", ...props }) => {
   const styles = {
     appearance: "none",
     display: block == "true" ? "block" : "inline-block",
     textAlign: "center",
     lineHeight: "inherit",
     textDecoration: "none",
-    fontSize: "inherit",
+    fontSize: size,
     fontWeight: "bold",
+    letterSpacing: "-0.02em",
     fontFamily: "body",
+    backgroundImage: "none !important",
     m: 0,
     px: 3,
     py: 2,
