@@ -47,7 +47,7 @@ export default {
     heading: "-0.03em",
   },
   contentPadding: [4, 7, 6],
-  fontSizes: [13, 15, 17, 22, 28, 32, 36, 48, 64, 72, 78],
+  fontSizes: [13, 15, 17, 22, 28, 32, 36, 42, 64, 72, 78],
   space: [0, 4, 8, 12, 16, 32, 64, 128, 256, 512],
   sizes: {
     container: 1268,
@@ -213,7 +213,7 @@ export default {
     },
     blockquote: {
       ml: 0,
-      pl: 4,
+      pl: "calc(1.2em - 2px)",
       borderLeft: "2px solid",
       borderColor: "muted",
       fontStyle: "italic",
@@ -223,8 +223,8 @@ export default {
       pl: 0,
       li: {
         position: "relative",
-        mb: "0.25em",
-        pl: ["1.3em", 0],
+        mb: "0.33em",
+        pl: ["1.2em", 0],
         "::before": {
           position: "absolute",
           left: [0, "-1em"],
@@ -259,13 +259,14 @@ export default {
         pl: ["1.6em", 0],
         "&::before": {
           position: "absolute",
-          top: "0.15em",
+          top: ["0.3em", "0.45em"],
           left: [0, "-1.6em"],
           color: "secondary",
           content: "counter(step-counter)",
           "counter-increment": "step-counter",
           fontSize: 1,
           fontFamily: "body",
+          lineHeight: 1,
         },
       },
       ol: {
