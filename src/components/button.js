@@ -2,7 +2,12 @@
 import { jsx } from "theme-ui"
 import { Link } from "gatsby"
 
-const Button = ({ variant = "primary", block = "false", size="inherit", ...props }) => {
+const Button = ({
+  variant = "primary",
+  block = "false",
+  size = "inherit",
+  ...props
+}) => {
   const styles = {
     appearance: "none",
     display: block == "true" ? "block" : "inline-block",

@@ -122,17 +122,13 @@ export default props => {
             >
               {description}
             </p>
-            {
-              (function() {
-                if (first == true) {
-                  return (
-                    <p>{excerpt}</p>
-                  )
-                } else {
-                  return
-                }
-              })
-            }
+            {function() {
+              if (first == true) {
+                return <p>{excerpt}</p>
+              } else {
+                return
+              }
+            }}
             <small
               sx={{
                 fontFamily: "body",

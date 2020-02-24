@@ -60,8 +60,7 @@ export default props => {
                   ml: "0.2em",
                 }}
               >
-                designing &amp; building
-                for developers around the planet.
+                designing &amp; building for developers around the planet.
               </span>
             </h1>
           </div>
@@ -73,8 +72,9 @@ export default props => {
           >
             <Styled.root>
               <p>
-                At <a href="https://github.com">GitHub</a>, I manage the <em>Code to Cloud</em> Product Design
-                team, which is responsible for giving developers tools to build, test, run, publish, and
+                At <a href="https://github.com">GitHub</a>, I manage the{" "}
+                <em>Code to Cloud</em> Product Design team, which is responsible
+                for giving developers tools to build, test, run, publish, and
                 deploy their code on GitHub. If you're a GitHub user, you may
                 have seen our work in these products:
               </p>
@@ -109,7 +109,12 @@ export default props => {
           >
             <Styled.root>
               <p>
-                In my time at GitHub, I've worked on almost every part of the product. I've managed teams or lead design efforts on many core features like <em>pull requests</em>, <em>code review</em>, <em>security</em>, <em>ecosystem / api</em>, <em>marketing / top-of-funnel</em>, and <em>new user experience</em>.
+                In my time at GitHub, I've worked on almost every part of the
+                product. I've managed teams or lead design efforts on many core
+                features like <em>pull requests</em>, <em>code review</em>,{" "}
+                <em>security</em>, <em>ecosystem / api</em>,{" "}
+                <em>marketing / top-of-funnel</em>, and{" "}
+                <em>new user experience</em>.
               </p>
               <p>
                 Before joining GitHub in 2015, I led design teams at{" "}
@@ -121,11 +126,12 @@ export default props => {
               <Styled.h2>Personal projects</Styled.h2>
               <p>
                 I've loved the internet since I first logged on as a pre-teen in
-                the early 90's. Since the beginning I've been fascinated with the ability to
-                create for this medium. I love making stuff! I've designed + built many
-                personal side projects over the years, some have stood the test of time and
-                others have been abandoned for more insteresting persuits. Here's
-                a select few that I'm most proud of:
+                the early 90's. Since the beginning I've been fascinated with
+                the ability to create for this medium. I love making stuff! I've
+                designed + built many personal side projects over the years,
+                some have stood the test of time and others have been abandoned
+                for more insteresting persuits. Here's a select few that I'm
+                most proud of:
               </p>
               <Styled.ul>
                 <li>
@@ -154,9 +160,9 @@ export default props => {
               </Styled.ul>
               <Styled.h2>About this website</Styled.h2>
               <p>
-                This website is powered by a custom theme that I designed and built for {" "}
-                <a href="https://gatsbyjs.org">GatsbyJS</a>, a very nice
-                framework for React. You can find{" "}
+                This website is powered by a custom theme that I designed and
+                built for <a href="https://gatsbyjs.org">GatsbyJS</a>, a very
+                nice framework for React. You can find{" "}
                 <a href="https://github.com/pmarsceill/this-modern-web">
                   the source code is available on GitHub
                 </a>{" "}
