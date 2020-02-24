@@ -73,10 +73,10 @@ export default props => {
             <Styled.root>
               <p>
                 At <a href="https://github.com">GitHub</a>, I manage the{" "}
-                <em>Code to Cloud</em> Product Design team, which is responsible
+                <em>Code to Cloud</em> Product Design team which is responsible
                 for giving developers tools to build, test, run, publish, and
-                deploy their code on GitHub. If you're a GitHub user, you may
-                have seen our work in these products:
+                deploy their code. If you're a GitHub user, you may have seen
+                our work in these products:
               </p>
               <Styled.ul sx={{ color: "text" }}>
                 <li>GitHub Actions</li>
