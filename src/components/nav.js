@@ -44,19 +44,20 @@ const Nav = () => {
               display: "block",
               mt: [0, "", "", 2],
               mb: [0, "", "", 6],
+              color: "secondary",
             }}
           >
             <Link
               to={link.link}
-              activeClassName="active"
+              activeClassName = "active"
               sx={{
-                color: "secondary",
+                color: "inherit",
                 textDecoration: "none",
                 fontFamily: "body",
                 fontSize: [1, "", "", 2],
-                "&.active": {
-                  color: "primary",
-                },
+                "&.active" : {
+                  color: "primary"
+                }
               }}
             >
               <span
