@@ -5,7 +5,6 @@ import { jsx } from "theme-ui"
 
 export default props => {
   const { children, extended } = props
-  console.log("extended: " + extended)
 
   if (extended == "true") {
     return (
