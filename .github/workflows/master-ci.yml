@@ -1,4 +1,4 @@
-name: CI
+name: Master branch CI/CD
 
 on:
   push:
@@ -28,3 +28,12 @@ jobs:
         prettier_options: --write \"**/*.{js,jsx,json,md}\"
         # Branch which the changes are merged to
         branch: master
+    - name: Publish to GH Pages
+      uses: enriikke/gatsby-gh-pages-action@v2.1.1
+      with:
+        # A personal access token needed to push your site after it has been built.
+        access-token: ${{secrets.publish-gh-pages}}
+        # The branch expected by GitHub to have the static files needed for your site.
+        deploy-branch: master
+        # Additional arguments that get passed to `gatsby build`.
+        # gatsby-args: # optional, default is 
