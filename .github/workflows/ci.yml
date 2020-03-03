@@ -1,11 +1,10 @@
-name: Master branch CI/CD
+name: CI
 
-on:
-  push:
-    branches: [master]
+on: pull_request
     
 jobs:
   build:
+    name: Build, Test, and format
     runs-on: ubuntu-latest
 
     steps:
@@ -16,9 +15,6 @@ jobs:
         node-version: '12.x'
     - run: npm install
     - run: npm run build --if-present
-    - run: npm test
-      env:
-        CI: true
     - name: Prettier Action
       uses: creyD/prettier_action@v2.0
       with:
@@ -27,15 +23,6 @@ jobs:
         # Options for the 'prettier' command
         prettier_options: --write \"**/*.{js,jsx,json,md}\"
         # Branch which the changes are merged to
-        branch: master
+        branch: ${{ github.head_ref }}
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    - name: Publish to GH Pages
-      uses: enriikke/gatsby-gh-pages-action@v2.1.1
-      with:
-        # A personal access token needed to push your site after it has been built.
-        access-token: ${{ secrets.GITHUB_TOKEN }}
-        # The branch expected by GitHub to have the static files needed for your site.
-        deploy-branch: master
-        # Additional arguments that get passed to `gatsby build`.
-        # gatsby-args: # optional, default is 
