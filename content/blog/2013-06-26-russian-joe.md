@@ -8,7 +8,7 @@ I was looking at some old photos on Flickr and came across this. It's from 2013'
 
 Ryan Jahn and I spent a day biking around Austin trying to eat lunch. After multiple unsuccessful attempts, we gave up and focused our collective energy on something that would get us through the rest of the day / night. The Russian Joe was born out of lack of energy, need for sustinance, and the desire to get in some day drinking.
 
-![4 Russian Joes ready for launch](http://farm8.staticflickr.com/7373/9135600825_6d52df6494_c.jpg)
+![4 Russian Joes ready for launch](https://farm8.staticflickr.com/7373/9135600825_6d52df6494_c.jpg)
 
 Shoot the vodka, then dump the espresso into the stout and enjoy it at a hefty pace.
 

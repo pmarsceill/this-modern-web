@@ -21,7 +21,7 @@ jobs:
         # Commit message
         commit_message: 🎨Prettier
         # Options for the 'prettier' command
-        prettier_options: --write \"**/*.{js,jsx,json,md}\"
+        prettier_options: --write "**/*.{js,jsx,json,md}"
         # Branch which the changes are merged to
         branch: ${{ github.head_ref }}
       env:

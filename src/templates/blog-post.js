@@ -54,7 +54,7 @@ class BlogPostPage extends React.Component {
               👋{" "}
               <em>
                 Hello reader, this blog post has aged {currentYear - postYear}{" "}
-                years now since I originally wrote it in {postYear}. That's like{" "}
+                years since I originally wrote it in {postYear}. That's about{" "}
                 {(currentYear - postYear) * 7} internet years you know, so it's
                 probably quite stale by now and may not reflect my current
                 thinking. I am happy to keep it here for archival purposes, but
@@ -148,6 +148,7 @@ class BlogPostPage extends React.Component {
                   className={sideTitleClass}
                   sx={{
                     display: "none",
+                    lineHeight: "heading",
                     mb: 4,
                     pr: 4,
                     "&.show": {
@@ -163,7 +164,6 @@ class BlogPostPage extends React.Component {
                       display: ["none", "", "inline"],
                       color: "primary",
                       letterSpacing: "heading",
-                      mr: 2,
                     }}
                   >
                     {post.frontmatter.title}
@@ -176,7 +176,8 @@ class BlogPostPage extends React.Component {
                       display: ["none", "", "inline"],
                       color: "secondary",
                       letterSpacing: "heading",
-                      mr: 2,
+                      hyphens: "auto",
+                      ml: 1,
                     }}
                   >
                     {post.frontmatter.description}

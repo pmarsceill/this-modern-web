@@ -3,14 +3,50 @@ import { Link } from "gatsby"
 
 /** @jsx jsx */
 import { jsx } from "theme-ui"
-import { Global } from "@emotion/core"
+import { Global, css } from "@emotion/core"
 import Micropub from "../components/micropub"
+import OpticianSans from "../../static/fonts/Optician-Sans.woff"
+import OpticianSans2 from "../../static/fonts/Optician-Sans.woff2"
+import FreightTextPro from "../../static/fonts/Freight-Text-Pro-Book.woff"
+import FreightTextPro2 from "../../static/fonts/Freight-Text-Pro-Book.woff2"
+import FreightTextProItalic from "../../static/fonts/Freight-Text-Pro-Book-Italic.woff"
+import FreightTextProItalic2 from "../../static/fonts/Freight-Text-Pro-Book-Italic.woff2"
 
 export default props => {
   const { location, title, fullWidth, pageTitle, children } = props
   const rootPath = `${__PATH_PREFIX__}/`
   const bigHeader = location.pathname === rootPath
   let headingTitle
+
+  const styles = css`
+    @font-face {
+      font-family: "Optician Sans";
+      src: url(${OpticianSans}) format("woff"),
+        url(${OpticianSans2}) format("woff2");
+      font-weight: normal;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: "Freight Text Pro";
+      src: url(${FreightTextPro}) format("woff"),
+        url(${FreightTextPro2}) format("woff2");
+      font-weight: normal;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: "Freight Text Pro";
+      src: url(${FreightTextProItalic}) format("woff"),
+        url(${FreightTextProItalic2}) format("woff2");
+      font-weight: normal;
+      font-style: italic;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+    }
+  `
 
   if (pageTitle) {
     headingTitle = (
@@ -19,10 +55,10 @@ export default props => {
           position: ["", "", "absolute"],
           right: "0",
           top: "0",
-          fontFamily: "heading",
+          fontFamily: "serif",
           fontSize: [4, 5],
-          fontWeight: "heading",
-          letterSpacing: "heading",
+          fontWeight: "normal",
+          fontStyle: "italic",
           lineHeight: "heading",
           my: 0,
           mt: [5, "", 0],
@@ -71,7 +107,7 @@ export default props => {
         </h1>
         <p
           sx={{
-            fontFamily: "body",
+            fontFamily: "serif",
             color: "secondary",
             fontSize: [0, 1, 2],
             mt: 0,
@@ -119,7 +155,7 @@ export default props => {
         </span>
         <p
           sx={{
-            fontFamily: "body",
+            fontFamily: "serif",
             color: "secondary",
             fontSize: 0,
             mt: 0,
@@ -143,22 +179,7 @@ export default props => {
         }}
       >
         <Micropub />
-        <Global
-          styles={theme => ({
-            "@font-face": {
-              fontFamily: "Optician Sans",
-              src:
-                "url('/fonts/Optician-Sans.woff2') format('woff2'), url('/fonts/Optician-Sans.woff') format('woff')",
-              fontWeight: 400,
-            },
-            "*": {
-              boxSizing: "border-box",
-            },
-            body: {
-              margin: 0,
-            },
-          })}
-        />
+        <Global styles={styles} />
         <header>{header}</header>
       </div>
       <div
