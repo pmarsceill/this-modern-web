@@ -9,6 +9,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Use Node.js 12.x
       uses: actions/setup-node@v1
       with:
@@ -20,5 +22,4 @@ jobs:
       with:
         commit_message: 🎨 Prettier
         branch: ${{ github.head_ref }}
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
