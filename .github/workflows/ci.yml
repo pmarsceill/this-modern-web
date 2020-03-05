@@ -15,6 +15,11 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: '12.x'
+    - name: Extract branch name
+      shell: bash
+      run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+      id: extract_branch
+  
     - run: npm install
     - run: npm run build
     - run: npm run format
@@ -23,8 +28,8 @@ jobs:
         echo "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY.git"
         git config --global user.email $GITHUB_ACTOR@users.noreply.github.com
         git config --global user.name $GITHUB_ACTOR
-        echo "branch is $GITHUB_HEAD_REF"
-        git checkout -b $GITHUB_HEAD_REF
+        echo "branch is ${{ steps.extract_branch.outputs.branch }}"
+        git checkout -b ${{ steps.extract_branch.outputs.branch }}
         git add .
         git commit -m "🎨 Prettier"
         git push --set-upstream "https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" $GITHUB_HEAD_REF
