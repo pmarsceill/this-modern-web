@@ -60,7 +60,7 @@ export default props => {
                   ml: "0.2em",
                 }}
               >
-                designing &amp; building for developers around the planet.
+                You've found his home on the internet —
               </span>
             </h1>
           </div>
@@ -71,18 +71,8 @@ export default props => {
             }}
           >
             <Styled.root>
-              <p>
-                At <a href="https://github.com">GitHub</a>, I manage the{" "}
-                <em>Code to Cloud</em> Product Design team which is responsible
-                for giving developers tools to build, test, run, publish, and
-                deploy their code. If you're a GitHub user, you may have seen
-                our work in these products:
-              </p>
-              <Styled.ul sx={{ color: "text" }}>
-                <li>GitHub Actions</li>
-                <li>GitHub Packages</li>
-                <li>GitHub Pages</li>
-              </Styled.ul>
+              <p>My earliest post here was in 2012, so I guess you could say that is when I established this thing. Back then though, it was under my own namesake over at <em>patrickmarsceill.com</em> (which now redirects over here). I recently <Link to="/2020/02/17/new-site-who-dis/">wrote a post</Link> with some context as to the name change and a bit about what I'm trying to do here. I never really kept up a regular writing schedule, but these days I try to get something new up at least twice a week.</p>
+              <p>I tend to write about design + tech, my own life, and occasionally music and film. If you're curious about what I'm currently watching, listening to, or reading check out the <Link to="/inbox">Inbox</Link>.</p>
             </Styled.root>
           </div>
           <div
@@ -108,6 +98,47 @@ export default props => {
             }}
           >
             <Styled.root>
+              <Styled.h2>Personal projects</Styled.h2>
+              <p>
+                I've loved the internet since I first logged on as a pre-teen in
+                the early 90's. Since the beginning I've been fascinated with
+                the ability to create for this medium.  Over the years, I have
+                designed + built many personal side projects,
+                some have stood the test of time and others have been abandoned
+                for more insteresting persuits. Here's a select few that I'm
+                most proud of:
+              </p>
+              <Styled.ul>
+                <li>
+                  <a href="https://pmarsceill.github.io/just-the-docs">
+                  Just the Docs
+                </a>{" "}
+                - A "best in class" Jekyll theme for documentation with built-in search.
+              </li>
+              <li>
+                <a href="https://awaremac.com/">Aware</a> - A simple menubar
+                app for OSX and macOS that tracks how long you've been
+                actively using your computer.
+              </li>
+              <li>
+                <a href="https://web.archive.org/web/20150305170045/https://tablab.io/">
+                  Tab Lab
+                </a>{" "}
+                - <em>(archived link, project shut down)</em>. Publish guitar
+                tablature and music notation with an abstract markdown-like
+                language.
+              </li>
+              <li>
+                GeoCities.dev - <em>coming soon...</em>
+              </li>
+              </Styled.ul>
+              <Styled.h2>My Work</Styled.h2>
+              <p>
+                I manage the <em>Code to Cloud</em> Product Design team at GitHub which is responsible
+                for giving developers tools to build, test, run, publish, and
+                deploy their code to the world. If you're a GitHub user, you may have seen
+                our work on <em>GitHub Actions, GitHub Packages, and GitHub Pages</em>.
+              </p>
               <p>
                 In my time at GitHub, I've worked on almost every part of the
                 product. I've managed teams or lead design efforts on many core
@@ -123,41 +154,6 @@ export default props => {
                 and mission-driven non-profits to build digital products for
                 screens of all sizes.
               </p>
-              <Styled.h2>Personal projects</Styled.h2>
-              <p>
-                I've loved the internet since I first logged on as a pre-teen in
-                the early 90's. Since the beginning I've been fascinated with
-                the ability to create for this medium. I love making stuff! I've
-                designed + built many personal side projects over the years,
-                some have stood the test of time and others have been abandoned
-                for more insteresting persuits. Here's a select few that I'm
-                most proud of:
-              </p>
-              <Styled.ul>
-                <li>
-                  <a href="https://pmarsceill.github.io/just-the-docs">
-                    Just the Docs
-                  </a>{" "}
-                  - Jekyll theme for documentation with built-in search out of
-                  the box.
-                </li>
-                <li>
-                  <a href="https://awaremac.com/">Aware</a> - A simple menubar
-                  app for OSX and macOS that tracks how long you've been
-                  actively using your computer.
-                </li>
-                <li>
-                  <a href="https://web.archive.org/web/20150305170045/https://tablab.io/">
-                    Tab Lab
-                  </a>{" "}
-                  - <em>(archived link, project shut down)</em>. Publish guitar
-                  tablature and music notation with an abstract markdown-like
-                  language.
-                </li>
-                <li>
-                  GeoCities.dev - <em>coming soon...</em>
-                </li>
-              </Styled.ul>
               <Styled.h2>About this website</Styled.h2>
               <p>
                 This website is powered by a custom theme that I designed and
@@ -174,7 +170,7 @@ export default props => {
                 <a href="https://github.com/anewtypeofinterference/Optician-Sans">
                   Open Source on GitHub
                 </a>
-                ), the rest of the site uses system-safe font stacks:
+                ), the body copy is set in Freight Text Pro and the rest of the site uses system-safe font stacks:
               </p>
               <Styled.ul>
                 <li>
@@ -182,13 +178,6 @@ export default props => {
                   <code class="language-text">
                     -apple-system, BlinkMacSystemFont, Helvetica, Arial,
                     sans-serif
-                  </code>
-                </li>
-                <li>
-                  Body content:{" "}
-                  <code class="language-text">
-                    Palatino, Palatino Linotype, Palatino LT STD, Book Antiqua,
-                    Georgia, serif
                   </code>
                 </li>
                 <li>
