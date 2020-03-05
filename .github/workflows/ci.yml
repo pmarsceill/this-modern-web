@@ -16,10 +16,8 @@ jobs:
     - run: npm install
     - run: npm run build
     - run: npm run format
-    - uses: stefanzweifel/git-auto-commit-action@v2.1.0
+    - uses: stefanzweifel/git-auto-commit-action@v4.0
       with:
-        commit_author_email: pmarsceill@github.com
-        commit_author_name: Patrick Marsceill
         commit_message: 🎨 Prettier
         branch: ${{ github.head_ref }}
       env:
