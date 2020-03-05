@@ -277,10 +277,20 @@ export default props => {
     <Layout
       location={props.location}
       title={siteTitle}
-      pageTitle={"Everything Archive"}
+      pageTitle={"Everything* Archive"}
       fullWidth={true}
     >
       <YearsMatrix />
+
+      <div
+        sx={{
+          maxWidth: "container",
+            mx: "auto",
+            px: [4, 6, 7, 5],
+        }}
+      >
+        <p sx={{ fontSize: 0, fontFamily: "serif", color: "secondaty"}}>*Not really everything</p>
+      </div>
     </Layout>
   )
 }
