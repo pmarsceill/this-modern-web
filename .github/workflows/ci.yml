@@ -18,7 +18,7 @@ jobs:
     - run: npm install
     - run: npm run build
     - run: npm run format
-    - name: Commit and push notes scaffold to branch
+    - name: Commit Prettier updates
       run: |
         echo "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY.git"
         git config --global user.email $GITHUB_ACTOR@users.noreply.github.com
