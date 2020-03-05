@@ -32,4 +32,4 @@ jobs:
         git checkout ${{ steps.extract_branch.outputs.branch }}
         git add .
         git commit -m "🎨 Prettier"
-        git push --set-upstream "https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" ${{ steps.extract_branch.outputs.branch }}
+        git push --force --set-upstream "https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" ${{ steps.extract_branch.outputs.branch }}
