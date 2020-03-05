@@ -18,6 +18,13 @@ jobs:
     - run: npm install
     - run: npm run build
     - run: npm run format
-    - uses: stefanzweifel/git-auto-commit-action@v4.0.0
-      with:
-        commit_message: 🎨 Prettier
+    - name: Commit and push notes scaffold to branch
+      run: |
+        echo "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY.git"
+        git config --global user.email $GITHUB_ACTOR@users.noreply.github.com
+        git config --global user.name $GITHUB_ACTOR
+        echo "branch is $GITHUB_HEAD_REF"
+        git checkout -b $GITHUB_HEAD_REF
+        git add .
+        git commit -m "🎨 Prettier"
+        git push --set-upstream "https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" $GITHUB_HEAD_REF
