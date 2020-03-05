@@ -151,14 +151,15 @@ export default props => {
               <Styled.h2>My Work</Styled.h2>
               <p>
                 I manage the <em>Code to Cloud</em> Product Design team at
-                GitHub which is responsible for giving developers tools to
-                build, test, run, publish, and deploy their code to the world.
-                If you're a GitHub user, you may have seen our work on{" "}
-                <em>GitHub Actions, GitHub Packages, and GitHub Pages</em>.
+                GitHub. We're responsible for making tools that allow developers
+                to build, test, run, publish, deploy, and scale their projects.
+                If you're a GitHub user, you may have seen our work in{" "}
+                <em>GitHub Actions</em>, <em>GitHub Packages</em>, and{" "}
+                <em>GitHub Pages</em>.
               </p>
               <p>
-                In my time at GitHub, I've worked on almost every part of the
-                product. I've managed teams or lead design efforts on many core
+                In my time at GitHub, I have worked on almost every part of the
+                product. I've managed teams or led design efforts on many core
                 features like <em>pull requests</em>, <em>code review</em>,{" "}
                 <em>security</em>, <em>ecosystem / api</em>,{" "}
                 <em>marketing / top-of-funnel</em>, and{" "}
