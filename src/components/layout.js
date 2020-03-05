@@ -21,19 +21,22 @@ export default props => {
   const styles = css`
     @font-face {
       font-family: "Optician Sans";
-      src: url(${OpticianSans}) format("woff"), url(${OpticianSans2}) format("woff2");
+      src: url(${OpticianSans}) format("woff"),
+        url(${OpticianSans2}) format("woff2");
       font-weight: normal;
       font-style: normal;
     }
     @font-face {
       font-family: "Freight Text Pro";
-      src: url(${FreightTextPro}) format("woff"), url(${FreightTextPro2}) format("woff2");
+      src: url(${FreightTextPro}) format("woff"),
+        url(${FreightTextPro2}) format("woff2");
       font-weight: normal;
       font-style: normal;
     }
     @font-face {
       font-family: "Freight Text Pro";
-      src: url(${FreightTextProItalic}) format("woff"), url(${FreightTextProItalic2}) format("woff2");
+      src: url(${FreightTextProItalic}) format("woff"),
+        url(${FreightTextProItalic2}) format("woff2");
       font-weight: normal;
       font-style: italic;
     }
@@ -176,9 +179,7 @@ export default props => {
         }}
       >
         <Micropub />
-        <Global
-          styles={styles}
-        />
+        <Global styles={styles} />
         <header>{header}</header>
       </div>
       <div
