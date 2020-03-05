@@ -52,10 +52,10 @@ export default props => {
           position: ["", "", "absolute"],
           right: "0",
           top: "0",
-          fontFamily: "heading",
+          fontFamily: "serif",
           fontSize: [4, 5],
-          fontWeight: "heading",
-          letterSpacing: "heading",
+          fontWeight: "normal",
+          fontStyle: "italic",
           lineHeight: "heading",
           my: 0,
           mt: [5, "", 0],
@@ -104,7 +104,7 @@ export default props => {
         </h1>
         <p
           sx={{
-            fontFamily: "body",
+            fontFamily: "serif",
             color: "secondary",
             fontSize: [0, 1, 2],
             mt: 0,
@@ -152,7 +152,7 @@ export default props => {
         </span>
         <p
           sx={{
-            fontFamily: "body",
+            fontFamily: "serif",
             color: "secondary",
             fontSize: 0,
             mt: 0,

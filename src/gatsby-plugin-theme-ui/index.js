@@ -27,7 +27,7 @@ export default {
     monospace: "SFMono-Regular,Consolas,Menlo,Andale,monospace",
     title: "Optician Sans, system-ui, sans-serif",
     serif:
-      "Palatino,Palatino Linotype,Palatino LT STD,Book Antiqua,Georgia,serif",
+      "Freight Text Pro,Palatino,Palatino Linotype,Palatino LT STD,Book Antiqua,Georgia,serif",
   },
   backgroundImages: {
     link: "linear-gradient(#eeebee 0%, #eeebee 100%)",
@@ -39,9 +39,9 @@ export default {
   },
   lineHeights: {
     body: 1.5,
-    heading: 1.125,
+    heading: 1.1,
     title: 0.7,
-    content: 1.6,
+    content: 1.5,
   },
   letterSpacings: {
     heading: "-0.03em",
@@ -82,7 +82,7 @@ export default {
   styles: {
     root: {
       fontFamily: "serif",
-      fontSize: [2, "19px", "", ""],
+      fontSize: ["19px", "", "21px"],
       lineHeight: "content",
       a: {
         color: "primary",
@@ -93,7 +93,7 @@ export default {
         backgroundImage: theme =>
           `linear-gradient(${theme.colors.accentMuted} 0%, ${theme.colors.accentMuted} 100%)`,
         backgroundRepeat: "repeat-x",
-        backgroundPosition: "0 100%",
+        backgroundPosition: "0 92%",
         backgroundSize: "1px 1px",
         "&:hover": {
           color: "accent",
@@ -156,7 +156,7 @@ export default {
       backgroundImage: theme =>
         `linear-gradient(${theme.colors.accentMuted} 0%, ${theme.colors.accentMuted} 100%)`,
       backgroundRepeat: "repeat-x",
-      backgroundPosition: "0 100%",
+      backgroundPosition: "0 92%",
       backgroundSize: "1px 1px",
       "&:hover": {
         color: "accent",
@@ -259,8 +259,8 @@ export default {
         pl: ["1.6em", 0],
         "&::before": {
           position: "absolute",
-          top: ["0.3em", "0.45em"],
-          left: [0, "-1.6em"],
+          top: ["0.52em", "", "0.6em"],
+          left: ["0.25em", "-1.6em"],
           color: "secondary",
           content: "counter(step-counter)",
           "counter-increment": "step-counter",
