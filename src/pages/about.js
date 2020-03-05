@@ -23,7 +23,7 @@ export default props => {
   return (
     <Layout location={props.location} title={siteTitle}>
       <SEO title="About Patrick Marsceill" />
-      <TwoCol extended="true">
+      <TwoCol extended="true" title="true">
         <Nav />
         <div
           sx={{

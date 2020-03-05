@@ -259,7 +259,7 @@ export default {
         pl: ["1.6em", 0],
         "&::before": {
           position: "absolute",
-          top: ["0.52em", "", "0.6em"],
+          top: ["0.5em", "", "0.6em"],
           left: ["0.25em", "-1.6em"],
           color: "secondary",
           content: "counter(step-counter)",
