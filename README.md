@@ -2,7 +2,7 @@
 
 ### https://thismodernweb.com
 
-_The personal website of Patrick Marsceill_     
+_The personal website of Patrick Marsceill_
 
 ---
 
