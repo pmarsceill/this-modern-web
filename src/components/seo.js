@@ -26,7 +26,7 @@ function SEO({ description, lang, meta, title, post, ogImage }) {
     `
   )
 
-  const defaults = site.siteMetadata;
+  const defaults = site.siteMetadata
   const metaDescription = description || defaults.description
   const image = ogImage || defaults.image
 
