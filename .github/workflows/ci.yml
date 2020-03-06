@@ -9,8 +9,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # Using this so the this instead of GITHUB_TOKEN so that this workflow can trigger another
+      with:
+        token: ${{ secrets.PAT }} 
     - name: Use Node.js 12.x
       uses: actions/setup-node@v1
       with:
@@ -31,7 +32,7 @@ jobs:
         echo "branch is ${{ steps.extract_branch.outputs.branch }}"
         git checkout ${{ steps.extract_branch.outputs.branch }}
         git add .
-    - name: Is this up to date?
+    - name: Are there any changes?
       shell: bash
       run: echo "##[set-output name=status]$(git status -s)"
       id: is_dirty
