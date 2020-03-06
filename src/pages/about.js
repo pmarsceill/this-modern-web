@@ -116,11 +116,14 @@ export default props => {
               <Styled.h2>Personal projects</Styled.h2>
               <p>
                 I've loved the internet since I first logged on as a pre-teen in
-                the early 90's. From the start I was hooked with
-                the ability to create for this medium. Over the years, I have
-                designed + built many personal side projects — the remnants of my 
-                first (from 2001) still live on at <a href="https://web.archive.org/web/20011028025427/http://pat.rocks.it/">archive.org</a>.
-                Here are a few others that I'm most proud of:
+                the early 90's. From the start I was hooked with the ability to
+                create for this medium. Over the years, I have designed + built
+                many personal side projects — the remnants of my first (from
+                2001) still live on at{" "}
+                <a href="https://web.archive.org/web/20011028025427/http://pat.rocks.it/">
+                  archive.org
+                </a>
+                . Here are a few others that I'm most proud of:
               </p>
               <Styled.ul>
                 <li>
