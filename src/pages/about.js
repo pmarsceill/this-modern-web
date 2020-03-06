@@ -85,7 +85,7 @@ export default props => {
               <p>
                 I tend to write about design + tech, my own life, and
                 occasionally music and film. If you're curious about what I'm
-                currently watching, listening to, or reading check out the{" "}
+                currently watching, listening to, or reading, check out the{" "}
                 <Link to="/inbox">Inbox</Link>.
               </p>
             </Styled.root>
