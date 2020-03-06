@@ -28,7 +28,16 @@ function SEO({ description, lang, meta, title, post, ogImage }) {
 
   const defaults = site.siteMetadata;
   const metaDescription = description || defaults.description
-  const image = ogImage || defaults.image
+  const currentBaseUrl = typeof window !== 'undefined' ? window.location.href : '';
+  // const image = currentBaseUrl ? new URL(currentBaseUrl, defaults.image) : false
+  const initImage = defaults.image
+  const join = (base, path) => {
+    return base.charAt(base.length-1) === '/'
+      ? (base.slice(0, -1) + path)
+      : (base + path)
+  }
+
+  const image = join(currentBaseUrl, initImage)
 
   return (
     <Helmet
@@ -61,6 +70,14 @@ function SEO({ description, lang, meta, title, post, ogImage }) {
         {
           property: `og:image`,
           content: image,
+        },
+        {
+          property: `og:image:width`,
+          content: `1200`,
+        },
+        {
+          property: `og:image:height`,
+          content: `1200`,
         },
         {
           name: `twitter:card`,
