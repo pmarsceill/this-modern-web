@@ -26,7 +26,7 @@ function SEO({ description, lang, meta, title, post, ogImage }) {
     `
   )
 
-  const defaults = site.siteMetadata;
+  const defaults = site.siteMetadata
   const metaDescription = description || defaults.description
   const currentBaseUrl = typeof window !== 'undefined' ? window.location.href : '';
   // const image = currentBaseUrl ? new URL(currentBaseUrl, defaults.image) : false
