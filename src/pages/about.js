@@ -116,7 +116,7 @@ export default props => {
               <Styled.h2>Personal projects</Styled.h2>
               <p>
                 I've loved the internet since I first logged on as a pre-teen in
-                the early 90's. From the start I was hooked with the ability to
+                the early 90's. From the start, I was hooked on the ability to
                 create for this medium. Over the years, I have designed + built
                 many personal side projects — the remnants of my first (from
                 2001) still live on at{" "}
