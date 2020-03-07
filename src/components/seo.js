@@ -19,7 +19,7 @@ function SEO({ description, lang, meta, title, post }) {
             title
             description
             author
-            image
+            ogImage
           }
         }
       }
@@ -30,8 +30,7 @@ function SEO({ description, lang, meta, title, post }) {
   const metaDescription = description || defaults.description
   const currentBaseUrl =
     typeof window !== "undefined" ? window.location.href : ""
-  // const image = currentBaseUrl ? new URL(currentBaseUrl, defaults.image) : false
-  const initImage = defaults.image
+  const initImage = defaults.ogImage
   const join = (base, path) => {
     return base.charAt(base.length - 1) === "/"
       ? base.slice(0, -1) + path
