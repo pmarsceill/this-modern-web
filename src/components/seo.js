@@ -28,13 +28,14 @@ function SEO({ description, lang, meta, title, post }) {
 
   const defaults = site.siteMetadata
   const metaDescription = description || defaults.description
-  const currentBaseUrl = typeof window !== 'undefined' ? window.location.href : '';
+  const currentBaseUrl =
+    typeof window !== "undefined" ? window.location.href : ""
   // const image = currentBaseUrl ? new URL(currentBaseUrl, defaults.image) : false
   const initImage = defaults.image
   const join = (base, path) => {
-    return base.charAt(base.length-1) === '/'
-      ? (base.slice(0, -1) + path)
-      : (base + path)
+    return base.charAt(base.length - 1) === "/"
+      ? base.slice(0, -1) + path
+      : base + path
   }
 
   const image = join(currentBaseUrl, initImage)
