@@ -5,7 +5,6 @@ module.exports = {
     description: `The personal website of Patrick Marsceill`,
     siteUrl: `https://thismodernweb.com`,
     ogImage: `/tmw-og.png`,
-    image: new URL(siteUrl, ogImage),
     social: {
       twitter: `pmarsceill`,
       github: `pmarsceill`,
