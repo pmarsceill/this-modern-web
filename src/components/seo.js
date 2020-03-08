@@ -10,7 +10,7 @@ import PropTypes from "prop-types"
 import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
-function SEO({ description, lang, meta, title }) {
+function SEO({ description, lang, meta, title, post }) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -19,13 +19,18 @@ function SEO({ description, lang, meta, title }) {
             title
             description
             author
+            image
+            siteUrl
           }
         }
       }
     `
   )
 
-  const metaDescription = description || site.siteMetadata.description
+  const defaults = site.siteMetadata
+  const metaDescription = description || defaults.description
+  const ogImage = defaults.image
+  const image = new URL(ogImage, defaults.siteUrl)
 
   return (
     <Helmet
@@ -33,11 +38,15 @@ function SEO({ description, lang, meta, title }) {
         lang,
       }}
       title={title}
-      titleTemplate={`%s — ${site.siteMetadata.title}`}
+      titleTemplate={`%s — ${defaults.title}`}
       meta={[
         {
           name: `description`,
           content: metaDescription,
+        },
+        {
+          property: `image`,
+          content: image,
         },
         {
           property: `og:title`,
@@ -50,6 +59,18 @@ function SEO({ description, lang, meta, title }) {
         {
           property: `og:type`,
           content: `website`,
+        },
+        {
+          property: `og:image`,
+          content: image,
+        },
+        {
+          property: `og:image:width`,
+          content: `1200`,
+        },
+        {
+          property: `og:image:height`,
+          content: `1200`,
         },
         {
           name: `twitter:card`,
@@ -66,6 +87,10 @@ function SEO({ description, lang, meta, title }) {
         {
           name: `twitter:description`,
           content: metaDescription,
+        },
+        {
+          name: `twitter:image`,
+          content: image,
         },
       ].concat(meta)}
     />

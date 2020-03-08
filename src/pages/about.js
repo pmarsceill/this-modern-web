@@ -85,7 +85,7 @@ export default props => {
               <p>
                 I tend to write about design + tech, my own life, and
                 occasionally music and film. If you're curious about what I'm
-                currently watching, listening to, or reading check out the{" "}
+                currently watching, listening to, or reading, check out the{" "}
                 <Link to="/inbox">Inbox</Link>.
               </p>
             </Styled.root>
@@ -116,12 +116,14 @@ export default props => {
               <Styled.h2>Personal projects</Styled.h2>
               <p>
                 I've loved the internet since I first logged on as a pre-teen in
-                the early 90's. Since the beginning I've been fascinated with
-                the ability to create for this medium. Over the years, I have
-                designed + built many personal side projects, some have stood
-                the test of time and others have been abandoned for more
-                insteresting persuits. Here's a select few that I'm most proud
-                of:
+                the early 90's. From the start, I was hooked on the ability to
+                create for this medium. Over the years, I have designed + built
+                many personal side projects — the remnants of my first (from
+                2001) still live on at{" "}
+                <a href="https://web.archive.org/web/20011028025427/http://pat.rocks.it/">
+                  archive.org
+                </a>
+                . Here are a few others that I'm most proud of:
               </p>
               <Styled.ul>
                 <li>
