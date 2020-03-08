@@ -19,7 +19,8 @@ function SEO({ description, lang, meta, title, post }) {
             title
             description
             author
-            ogImage
+            image
+            siteUrl
           }
         }
       }
@@ -28,16 +29,8 @@ function SEO({ description, lang, meta, title, post }) {
 
   const defaults = site.siteMetadata
   const metaDescription = description || defaults.description
-  const currentBaseUrl =
-    typeof window !== "undefined" ? window.location.href : ""
-  const initImage = defaults.ogImage
-  const join = (base, path) => {
-    return base.charAt(base.length - 1) === "/"
-      ? base.slice(0, -1) + path
-      : base + path
-  }
-
-  const image = join(currentBaseUrl, initImage)
+  const ogImage = defaults.image
+  const image = new URL(defaults.siteUrl, ogImage)
 
   return (
     <Helmet

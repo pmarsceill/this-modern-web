@@ -4,7 +4,7 @@ module.exports = {
     author: `Patrick Marsceill`,
     description: `The personal website of Patrick Marsceill`,
     siteUrl: `https://thismodernweb.com`,
-    ogImage: `/tmw-og.png`,
+    image: `/tmw-og.png`,
     social: {
       twitter: `pmarsceill`,
       github: `pmarsceill`,
