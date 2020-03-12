@@ -1,28 +1,43 @@
 ---
-title: "A web designer learns SwiftUI"
-description: "My first impressions starting out"
+title: "This web designer gets his wings"
+description: "My intial impressions of SwiftUI"
 date: 2020-03-06T00:11:33-0500
 tags: ["journal", "SwiftUI", "Learning"]
 featuredImage: ./assets/swift-for-web-designers/swift_logo.png
 ---
 
-My entire life as a designer thus far has been spent working in one medium. I'm very excited to make this a false statement. SwiftUI seems like as good a challenge as any to get into designing and building native apps.
+import BigImage from "../../src/components/big-img"
+
+Building web pages was my first experience publically shipping design. Since the beginning, I constructed my design and development worldview largely around the medium of HTML and CSS. I designed with the web's constraints in mind, using tools tailored to it. Stepping outside of this and serving a new set of constrains feels strange and sometimes a little counter-intuitive to what I know, but it's also refreshing and allows me to stretch in other ways.
+
+In recent years, designing and building for the web has taken a few steps closer toward application development (for better or worse) with the advent of modern frameworks like React. These encourage a more app-centric approach to UI development through components and different ways of encapsulating logic and presentation layers. In the end though, the web is still — and probably always will be — markup, styles, and JavaScript served over a network to a browser that knows how to decode them all into a UI. This allows people learning how to build for the web to be productive very quickly because what you write is what you get and there isn't "build" step required before you can see the fruits of your labor. With the release of SwiftUI, Apple has attempted to replicate a web developer's ease-of-entry with a live preview mechanism and an abstracted language for constructing UI. This was enough to pique my interest and I began playing with SwiftUI through Design+Code's SwiftUI class. Here are my initial impressions.
+
 
 ## Tooling
 
-Let me start out by saying that XCode is an [IDE (integrated development environment)](https://en.wikipedia.org/wiki/Integrated_development_environment) and most modern web development tools are not. VSCode comes close-er but it's really not the same thing. It has a editor, documentation, compiler, virtualization and a rendering engine all-in-one -- with the settings for each. It feels big in every concievable way to someone who isn't used to working in this world. In this new version of XCode (version 11.3.1), they've added another component called _Canvas_ that works exlusively with SwiftUI. Canvas is the real-time preview (+ inspector) piece that makes writing SwiftUI so compelling. With Swift (classic) and ObjectiveC apps, every time code was updated, you were required to manually build and preview the app in a seperate process. With SwiftUI, it updates as-you-type(ish) which will be familiar to folks used to live-reload in their web browsers.
+Let me start out by saying that XCode is an [IDE (integrated development environment)](https://en.wikipedia.org/wiki/Integrated_development_environment) and most modern web development tools are not. VSCode comes close-er but it's really not the same thing. XCode has a editor, documentation, compiler, virtualization and a rendering engine all-in-one -- with all the settings to boot. It feels big in every concievable way to someone who isn't used to working with this type of tool. In this new version of XCode (version 11.3.1), they've added another component called _Canvas_ that works exclusively with SwiftUI. Canvas is the real-time preview (+ inspector) piece that makes writing SwiftUI so compelling. With Swift _classic_ and ObjectiveC apps, every time code was updated, you were required to manually build and preview the app in a seperate process. With SwiftUI + Canvas, it updates as-you-type(ish) which will be familiar those used to live-reload in their web browsers while developing web pages.
 
-The Apple team has done a decent-enough job _not_ making this version of XCode feel overly complex, but coming from the light-weight world of Vim, VSCode, Atom, and Sublime Text, I do feel like sometimes I'm driving a tank. That's not a criticism either, and one thing I appreciate about the approach to integrating Canvas into XCode was how it is very reminiscent of the early versions of Framer. For those that don't rememberCoffee script on the left, live preview (with device chrome) on the right
+The Apple team has done a decent-enough job _not_ making this version of XCode overly complex to use, but coming from the light-weight world of Vim, VSCode, Atom, and Sublime Text, I do feel like sometimes I'm driving a tank, and a very delicate one at that. One thing I appreciate about the approach in integrating Canvas into XCode was how it is very reminiscent of the early versions of Framer Studio. For those that don't remember, this was the precursary product that came before Framer X: CoffeeScript on the left, live preview (with device chrome) on the right:
 
-Let's be honest though, this is a tool for making applications, not webpages and it can only be so simple. Performance-wise, it feels sluggish; syntax highlighting flickers on and off as I type, auto-indentation jumps around, the thing feels delicate and sometimes doing the same action / input will yield different results. SwiftUI _is_ in beta so I'm not expecting everything to be fully production-ready.
+<BigImage>
+
+![UI from the defunct Framer Studio*](./assets/swift-for-web-designers/framer.png)
+
+</BigImage>
+
+<BigImage>
+
+![UI from XCode 11.3.1 with Canvas](./assets/swift-for-web-designers/swift-ui.png)
+
+</BigImage>
+
+It certainly _feels_ like there was some inspiration there.
+
+The biggest difference is that the XCode experience is sluggish and sometimes unreliable -- it is still in beta though, so let's hope this gets worked on.
 
 ## Writing Swift/SwiftUI
 
 I took an ObjectiveC class about five years ago and it wasn't even close to this easy to pick-up and just make stuff. In fact, I think it was only on day two of the four day class that I actually had anything _real_. This is where being a web developer is awesome, by its very nature you can make a production-ready webpage in seconds with Notepad or TextEdit. Once you see exactly how what you're doing changes the outcome, thats when making stuff gets _fun_.
 
 I credit two things for this shift. First, diving into React and component-based web apps have trained my mind to expect more complexity these days. Second, Apple has done a great job of abstracting the things that will give you the momentum to _keep going_ and make them seem simple. "Hello world" is a thing of the past, now it's more like "hello beautiful UI complete with animations and dark-mode built-in".
-
-
-
-
 
