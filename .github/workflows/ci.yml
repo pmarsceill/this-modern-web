@@ -37,7 +37,7 @@ jobs:
       run: echo "##[set-output name=status]$(git status -s)"
       id: is_dirty
     - name: Commit files
-      if: ${{ steps.is_dirty.outputs.status }}
+      if: steps.is_dirty.outputs.status
       run: |
         echo ${{ steps.is_dirty.outputs.status }}
         git commit -m "🎨 Prettier"
