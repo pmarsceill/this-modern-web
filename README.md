@@ -4,6 +4,8 @@
 
 _The personal website of Patrick Marsceill_
 
+![CI](https://github.com/pmarsceill/this-modern-web/workflows/CI/badge.svg)
+
 ---
 
 Made with [GatsbyJS](https://gatsbyjs.org), so [all the standard Gatsby CLI stuff applies](https://www.gatsbyjs.org/docs/gatsby-cli).
