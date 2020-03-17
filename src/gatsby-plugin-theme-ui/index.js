@@ -121,7 +121,7 @@ export default {
           code: {
             whiteSpace: "pre !important",
             fontSize: 0,
-          }
+          },
         },
       },
       ".gatsby-resp-image-image": {
@@ -172,7 +172,7 @@ export default {
         code: {
           whiteSpace: "pre !important",
           fontSize: 0,
-        }
+        },
       },
     },
     a: {
