@@ -150,7 +150,7 @@ export default {
         code: {
           whiteSpace: "pre",
           fontSize: 0,
-        }
+        },
       },
     },
     a: {
