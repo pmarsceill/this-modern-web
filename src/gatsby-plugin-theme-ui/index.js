@@ -100,15 +100,12 @@ export default {
         },
       },
       code: {
-        fontSize: 1,
-        background: "transparent",
-        '&[class*="language-"]': {
-          fontSize: 1,
+        ':not(pre) > &[class*="language-"], &': {
           background: "transparent",
-        },
-        '*:not(pre) > &[class*="language-"]': {
           whiteSpace: "pre-wrap",
-          wordBreak: "break-word",
+          wordBreak: "normal",
+          background: "transparent",
+          fontSize: 1,
         },
       },
       pre: {
@@ -116,9 +113,15 @@ export default {
         border: "1px solid",
         borderColor: "muted",
         marginBottom: 4,
+        lineHeight: "1",
+
         '&[class*="language-"]': {
           background: "transparent",
           marginBottom: 4,
+          code: {
+            whiteSpace: "pre !important",
+            fontSize: 0,
+          },
         },
       },
       ".gatsby-resp-image-image": {
@@ -144,6 +147,31 @@ export default {
           textAlign: "center",
           color: "secondary",
           lineHeight: "heading",
+        },
+      },
+    },
+    code: {
+      ':not(pre) > &[class*="language-"], &': {
+        background: "transparent !important",
+        whiteSpace: "pre-wrap !important",
+        wordBreak: "normal !important",
+        background: "transparent !important",
+        fontSize: 1,
+      },
+    },
+    pre: {
+      background: "transparent",
+      border: "1px solid",
+      borderColor: "muted",
+      marginBottom: 4,
+      lineHeight: "1",
+
+      '&[class*="language-"]': {
+        background: "transparent",
+        marginBottom: 4,
+        code: {
+          whiteSpace: "pre !important",
+          fontSize: 0,
         },
       },
     },
