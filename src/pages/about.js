@@ -196,16 +196,16 @@ export default props => {
               <Styled.ul>
                 <li>
                   Headings:{" "}
-                  <code class="language-text">
+                  <Styled.code className="language-text">
                     -apple-system, BlinkMacSystemFont, Helvetica, Arial,
                     sans-serif
-                  </code>
+                  </Styled.code>
                 </li>
                 <li>
                   Monospace:{" "}
-                  <code class="language-text">
+                  <Styled.code className="language-text">
                     SFMono-Regular, Consolas, Menlo, Andale, monospace
-                  </code>
+                  </Styled.code>
                 </li>
               </Styled.ul>
             </Styled.root>
