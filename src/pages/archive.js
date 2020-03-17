@@ -281,18 +281,6 @@ export default props => {
       fullWidth={true}
     >
       <YearsMatrix />
-
-      <div
-        sx={{
-          maxWidth: "container",
-          mx: "auto",
-          px: [4, 6, 7, 5],
-        }}
-      >
-        <p sx={{ fontSize: 0, fontFamily: "serif", color: "secondaty" }}>
-          *Not really everything
-        </p>
-      </div>
     </Layout>
   )
 }
