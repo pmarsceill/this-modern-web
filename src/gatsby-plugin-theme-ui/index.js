@@ -128,8 +128,8 @@ export default {
     code: {
       background: "transparent",
       '&[class*="language-"]': {
-        whiteSpace: "pre-wrap",
-        wordBreak: "break-word",
+        whiteSpace: "pre",
+        wordBreak: "normal",
         background: "transparent",
         fontSize: 1,
       },
