@@ -206,7 +206,9 @@ export default props => {
             {currentBlogs.map(({ node }, index) => {
               const slug = node.fields.slug
               if (index < 2) {
-                return <CurrentBlogLayout node={node} index={index} key={slug} />
+                return (
+                  <CurrentBlogLayout node={node} index={index} key={slug} />
+                )
               }
             })}
 
@@ -237,7 +239,6 @@ export default props => {
             <Button variant="outline" to="archive" block="true">
               Everything Archive
             </Button>
-
           </div>
           <AncillaryNav />
         </TwoCol>

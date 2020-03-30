@@ -63,10 +63,7 @@ export default props => {
               const slug = node.fields.slug
               if (postYear == year) {
                 return (
-                  <div
-                    key = {slug}
-                    id={slug.replace(/\//g, "")}
-                  >
+                  <div key={slug} id={slug.replace(/\//g, "")}>
                     <div
                       sx={{
                         display: "flex",

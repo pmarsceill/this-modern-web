@@ -50,7 +50,7 @@ class MicroBlogPage extends React.Component {
             sx={{
               color: "secondary",
               mt: [5, "", "", 2],
-              mb: [4, "", "", 0]
+              mb: [4, "", "", 0],
             }}
           >
             <Link
