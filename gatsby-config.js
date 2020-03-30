@@ -142,22 +142,10 @@ module.exports = {
                       `/inbox` +
                       `/#` +
                       edge.node.fields.slug.replace(/\//g, "")
-                    : edge.node.frontmatter.tags &&
-                      edge.node.frontmatter.tags.includes("microblog")
-                    ? site.siteMetadata.siteUrl +
-                      `/archive` +
-                      `/#` +
-                      edge.node.fields.slug.replace(/\//g, "")
                     : site.siteMetadata.siteUrl + edge.node.fields.slug,
                   guid: edge.node.frontmatter.artist
                     ? site.siteMetadata.siteUrl +
                       `/inbox` +
-                      `/#` +
-                      edge.node.fields.slug.replace(/\//g, "")
-                    : edge.node.frontmatter.tags &&
-                      edge.node.frontmatter.tags.includes("microblog")
-                    ? site.siteMetadata.siteUrl +
-                      `/archive` +
                       `/#` +
                       edge.node.fields.slug.replace(/\//g, "")
                     : site.siteMetadata.siteUrl + edge.node.fields.slug,
@@ -177,8 +165,18 @@ module.exports = {
                           `/inbox` +
                           `/#` +
                           edge.node.fields.slug.replace(/\//g, "")}">
-                              ${edge.node.frontmatter.status} on ${
-                          edge.node.frontmatter.date
+                          ${edge.node.frontmatter.status} on ${
+                          new Date(edge.node.frontmatter.date).getMonth()
+                        }/${
+                          new Date(edge.node.frontmatter.date).getDate()
+                        }/${
+                          new Date(edge.node.frontmatter.date).getFullYear()
+                        } at ${
+                          new Date(edge.node.frontmatter.date).getHours()
+                        }:${
+                          new Date(edge.node.frontmatter.date).getMinutes()
+                        }:${
+                          new Date(edge.node.frontmatter.date).getSeconds()
                         }</a></p>`
                       : edge.node.html.replace(/<style.*?<\/style>/g, ""),
                 })
