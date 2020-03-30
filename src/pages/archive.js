@@ -46,7 +46,7 @@ export default props => {
         const monthlyPosts = []
         return (
           <div
-            sx = {{
+            sx={{
               width: ["", "", "334px"],
               flexShrink: "0",
               mr: [0, 0, 4],
@@ -57,12 +57,12 @@ export default props => {
 
               "&:last-child": {
                 mr: [0, 0, 6],
-              }
+              },
             }}
           >
             <h3
-            sx={{
-              fontFamily: "heading",
+              sx={{
+                fontFamily: "heading",
                 letterSpacing: "heading",
                 fontSize: "1",
                 color: "secondary",
@@ -71,11 +71,10 @@ export default props => {
                 py: "3",
                 mb: [5, "", 4],
                 fontWeight: "normal",
-            }}
+              }}
             >
               {month}
             </h3>
-
 
             {posts.map(({ node }, index) => {
               const postYear = moment.utc(node.frontmatter.date).format("YYYY")
@@ -88,173 +87,172 @@ export default props => {
               const inbox =
                 node.frontmatter.tags && node.frontmatter.tags.includes("inbox")
 
-                if (postYear == year && postMonth == month) {
-                  if (inbox == true) {
-                    return (
-                      <article
-                        key={node.fields.slug}
+              if (postYear == year && postMonth == month) {
+                if (inbox == true) {
+                  return (
+                    <article
+                      key={node.fields.slug}
+                      sx={{
+                        mb: ["5", "", "4"],
+                        pb: ["5", "", "4"],
+                        borderBottom: "1px solid",
+                        borderColor: "muted",
+                      }}
+                    >
+                      <h3
                         sx={{
-                          mb: ["5", "", "4"],
-                          pb: ["5", "", "4"],
-                          borderBottom: "1px solid",
-                          borderColor: "muted",
-                          }}
-                        >
-                          <h3
-                            sx={{
-                              fontFamily: "heading",
-                              fontSize: [2],
-                              letterSpacing: "heading",
-                              lineHeight: "heading",
-                              fontWeight: "body",
-                              m: 0,
-                            }}
-                          >
-                            {node.frontmatter.title}
-                          </h3>
-                          <p
-                            sx={{
-                              fontFamily: "heading",
-                              fontSize: [2],
-                              letterSpacing: "heading",
-                              lineHeight: "heading",
-                              color: "secondary",
-                              fontWeight: "body",
-                              m: 0,
-                            }}
-                          >
-                            {node.frontmatter.artist}
-                          </p>
-                          <small
-                            sx={{
-                              fontFamily: "body",
-                              display: "block",
-                              fontSize: [0],
-                              color: "secondary",
-                              mt: 3,
-                            }}
-                          >
-                            {moment.utc(node.frontmatter.date).format("MMMM DD")} —{" "}
-                            <em>{node.frontmatter.status}</em>
-                          </small>
-                        </article>
-                      )
-                    } else if (microblog == true) {
-                      return (
-                        <article
-                          key={node.fields.slug}
-                          sx={{
-                            mb: ["5", "", "4"],
-                            pb: ["5", "", "4"],
-                            borderBottom: "1px solid",
-                            borderColor: "muted",
-                          }}
-                          id={node.fields.slug.replace(/\//g, "")}
-                        >
+                          fontFamily: "heading",
+                          fontSize: [2],
+                          letterSpacing: "heading",
+                          lineHeight: "heading",
+                          fontWeight: "body",
+                          m: 0,
+                        }}
+                      >
+                        {node.frontmatter.title}
+                      </h3>
+                      <p
+                        sx={{
+                          fontFamily: "heading",
+                          fontSize: [2],
+                          letterSpacing: "heading",
+                          lineHeight: "heading",
+                          color: "secondary",
+                          fontWeight: "body",
+                          m: 0,
+                        }}
+                      >
+                        {node.frontmatter.artist}
+                      </p>
+                      <small
+                        sx={{
+                          fontFamily: "body",
+                          display: "block",
+                          fontSize: [0],
+                          color: "secondary",
+                          mt: 3,
+                        }}
+                      >
+                        {moment.utc(node.frontmatter.date).format("MMMM DD")} —{" "}
+                        <em>{node.frontmatter.status}</em>
+                      </small>
+                    </article>
+                  )
+                } else if (microblog == true) {
+                  return (
+                    <article
+                      key={node.fields.slug}
+                      sx={{
+                        mb: ["5", "", "4"],
+                        pb: ["5", "", "4"],
+                        borderBottom: "1px solid",
+                        borderColor: "muted",
+                      }}
+                      id={node.fields.slug.replace(/\//g, "")}
+                    >
+                      <div
+                        sx={{
+                          color: "primary",
+                          textDecoration: "none",
+                          fontSize: "body",
+                        }}
+                      >
+                        <Styled.root>
                           <div
                             sx={{
-                              color: "primary",
-                              textDecoration: "none",
-                              fontSize: "body",
+                              fontFamily: "monospace",
+                              fontSize: [0, "", "", "", ""],
+                              lineHeight: "body",
                             }}
                           >
-                            <Styled.root>
-                              <div
-                                sx={{
-                                  fontFamily: "monospace",
-                                  fontSize: [0, "", "", "", ""],
-                                  lineHeight: "body",
-                                }}
-                              >
-                                <MDXRenderer>{node.body}</MDXRenderer>
-                              </div>
-                            </Styled.root>
+                            <MDXRenderer>{node.body}</MDXRenderer>
                           </div>
+                        </Styled.root>
+                      </div>
 
-                          <small
-                            sx={{
-                              fontFamily: "body",
-                              display: "block",
-                              fontSize: 0,
-                              mt: 3,
-                            }}
-                          >
-                            <Link
-                              to={node.fields.slug}
-                              sx={{
-                                textDecoration: "none",
-                                color: "secondary",
-                              }}
-                            >
-                              {moment.utc(node.frontmatter.date).format("MMMM DD")}
-                            </Link>
-                          </small>
-                        </article>
-                      )
-                    } else {
-                      return (
-                        <article
-                          key={node.fields.slug}
+                      <small
+                        sx={{
+                          fontFamily: "body",
+                          display: "block",
+                          fontSize: 0,
+                          mt: 3,
+                        }}
+                      >
+                        <Link
+                          to={node.fields.slug}
                           sx={{
-                            mb: ["5", "", "4"],
-                            pb: ["5", "", "4"],
-                            borderBottom: "1px solid",
-                            borderColor: "muted",
+                            textDecoration: "none",
+                            color: "secondary",
                           }}
                         >
-                          <Link
-                            to={node.fields.slug}
-                            sx={{
-                              color: "primary",
-                              textDecoration: "none",
-                              "&:hover": {
-                                color: "accent",
-                            },
+                          {moment.utc(node.frontmatter.date).format("MMMM DD")}
+                        </Link>
+                      </small>
+                    </article>
+                  )
+                } else {
+                  return (
+                    <article
+                      key={node.fields.slug}
+                      sx={{
+                        mb: ["5", "", "4"],
+                        pb: ["5", "", "4"],
+                        borderBottom: "1px solid",
+                        borderColor: "muted",
+                      }}
+                    >
+                      <Link
+                        to={node.fields.slug}
+                        sx={{
+                          color: "primary",
+                          textDecoration: "none",
+                          "&:hover": {
+                            color: "accent",
+                          },
+                        }}
+                      >
+                        <h3
+                          sx={{
+                            display: "inline",
+                            fontFamily: "heading",
+                            fontSize: [4],
+                            letterSpacing: "heading",
+                            lineHeight: "heading",
                           }}
-                          >
-                            <h3
-                              sx={{
-                                display: "inline",
-                                fontFamily: "heading",
-                                fontSize: [4],
-                                letterSpacing: "heading",
-                              lineHeight: "heading",
-                              }}
-                          >
-                              {node.frontmatter.title}
-                          </h3>
-                          <p
-                              sx={{
-                                fontFamily: "heading",
-                                display: "inline",
-                                fontSize: [4],
-                                color: "secondary",
-                              fontWeight: "bold",
-                                letterSpacing: "heading",
-                              lineHeight: "heading",
-                                ml: 2,
-                              }}
-                            >
-                            {node.frontmatter.description}
-                          </p>
-                          <small
-                            sx={{
-                              fontFamily: "body",
-                              display: "block",
-                                fontSize: [0],
-                                color: "secondary",
-                                mt: 3,
-                              }}
-                          >
-                            {moment.utc(node.frontmatter.date).format("MMMM DD")}
-                          </small>
-                          </Link>
-                      </article>
-                    )
-                  }
+                        >
+                          {node.frontmatter.title}
+                        </h3>
+                        <p
+                          sx={{
+                            fontFamily: "heading",
+                            display: "inline",
+                            fontSize: [4],
+                            color: "secondary",
+                            fontWeight: "bold",
+                            letterSpacing: "heading",
+                            lineHeight: "heading",
+                            ml: 2,
+                          }}
+                        >
+                          {node.frontmatter.description}
+                        </p>
+                        <small
+                          sx={{
+                            fontFamily: "body",
+                            display: "block",
+                            fontSize: [0],
+                            color: "secondary",
+                            mt: 3,
+                          }}
+                        >
+                          {moment.utc(node.frontmatter.date).format("MMMM DD")}
+                        </small>
+                      </Link>
+                    </article>
+                  )
                 }
+              }
             })}
-
           </div>
         )
       })
@@ -286,18 +284,13 @@ export default props => {
             {year}
           </h2>
           <div
-            sx ={{
-
-
+            sx={{
               display: "flex",
               flexDirection: ["column-reverse", "", "row"],
-
             }}
           >
             <SpreadMonths year={year} />
           </div>
-
-
         </div>
       )
     })
