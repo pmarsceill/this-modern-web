@@ -119,7 +119,6 @@ export default props => {
                   </article>
                 )
               } else if (microblog == true) {
-                const permalink = `#${node.fields.slug.replace(/\//g, "")}`
                 return (
                   <article
                     key={node.fields.slug}
@@ -159,15 +158,15 @@ export default props => {
                         mt: 3,
                       }}
                     >
-                      <a
-                        href={permalink}
+                      <Link
+                        to={node.fields.slug}
                         sx={{
                           textDecoration: "none",
                           color: "secondary",
                         }}
                       >
                         {moment.utc(node.frontmatter.date).format("MMMM DD")}
-                      </a>
+                      </Link>
                     </small>
                   </article>
                 )
