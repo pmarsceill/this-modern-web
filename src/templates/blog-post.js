@@ -6,6 +6,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import TwoCol from "../components/two-col"
 import PostPagination from "../components/post-pagination"
+import AncillaryNav from "../components/ancillary-nav"
 
 /** @jsx jsx */
 import { jsx } from "theme-ui"
@@ -206,6 +207,9 @@ class BlogPostPage extends React.Component {
                 <MDXRenderer>{post.body}</MDXRenderer>
               </Styled.root>
             </section>
+            <aside>
+              <AncillaryNav />
+            </aside>
           </TwoCol>
           <Styled.root>
             <footer

@@ -48,9 +48,9 @@ class MicroBlogPage extends React.Component {
         <TwoCol>
           <div
             sx={{
-              mt: [0, "", "", 2],
-              mb: [0, "", "", 6],
               color: "secondary",
+              mt: [5, "", "", 2],
+              mb: [4, "", "", 0]
             }}
           >
             <Link
@@ -65,7 +65,7 @@ class MicroBlogPage extends React.Component {
                 },
               }}
             >
-              ← Feed
+              ⤴︎ Feed
             </Link>
           </div>
           <article

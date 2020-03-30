@@ -6,11 +6,13 @@ import { jsx } from "theme-ui"
 import moment from "moment"
 
 const PostPagination = props => {
+  const nextDate = props.next ? moment.utc(props.next.frontmatter.date) : ""
+  const previousDate = props.previous ? moment.utc(props.previous.frontmatter.date) : ""
   const nextTimeAgo = props.next
-    ? moment.utc(props.next.frontmatter.date).fromNow()
+    ? moment(nextDate).local().format("MMMM D, YYYY ∙ HH:mm A")
     : ""
   const previousTimeAgo = props.previous
-    ? moment.utc(props.previous.frontmatter.date).fromNow()
+    ? moment(previousDate).local().format("MMMM D, YYYY ∙ HH:mm A")
     : ""
   const nextTitle = props.next ? props.next.frontmatter.title : ""
   const previousTitle = props.previous ? props.previous.frontmatter.title : ""

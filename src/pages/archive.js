@@ -321,6 +321,7 @@ export default props => {
             overflowY: "hidden",
             display: ["", "", "flex"],
             flexDirection: "column",
+            cursor: "all-scroll",
           }}
         >
           <div

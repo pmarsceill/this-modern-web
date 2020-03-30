@@ -47,10 +47,10 @@ export default props => {
     const tags = props.node.frontmatter.tags || []
     const description = props.node.frontmatter.description || ""
     const date = moment.utc(props.node.frontmatter.date).format("MMMM D, YYYY")
-    const slug = props.node.fields.slug
     const featuredImage = props.node.frontmatter.featuredImage || ""
     const imageData = featuredImage ? featuredImage.childImageSharp.fluid : ""
     const excerpt = props.node.excerpt
+    const slug = props.node.fields.slug
 
     const image = imageData ? (
       <Img
@@ -121,13 +121,6 @@ export default props => {
             >
               {description}
             </p>
-            {function() {
-              if (first == true) {
-                return <p>{excerpt}</p>
-              } else {
-                return
-              }
-            }}
             <small
               sx={{
                 fontFamily: "body",
@@ -154,7 +147,6 @@ export default props => {
 
     return (
       <article
-        key={slug}
         sx={{
           mb: "5",
           pb: "5",
@@ -212,32 +204,40 @@ export default props => {
             <SEO title="Patrick Marsceill" />
 
             {currentBlogs.map(({ node }, index) => {
+              const slug = node.fields.slug
               if (index < 2) {
-                return <CurrentBlogLayout node={node} index={index} />
+                return <CurrentBlogLayout node={node} index={index} key={slug} />
               }
             })}
 
             {microBlogs.map(({ node }, index) => {
+              const slug = node.fields.slug
+
               if (index < 4) {
-                return <MicroBlogLayout node={node} />
+                return <MicroBlogLayout node={node} key={slug} />
               }
             })}
 
             {currentBlogs.map(({ node }, index) => {
+              const slug = node.fields.slug
+
               if (index >= 2 && index <= 4) {
-                return <CurrentBlogLayout node={node} />
+                return <CurrentBlogLayout node={node} key={slug} />
               }
             })}
 
             {microBlogs.map(({ node }, index) => {
+              const slug = node.fields.slug
+
               if (index >= 4) {
-                return <MicroBlogLayout node={node} />
+                return <MicroBlogLayout node={node} key={slug} />
               }
             })}
 
             <Button variant="outline" to="archive" block="true">
               Everything Archive
             </Button>
+
           </div>
           <AncillaryNav />
         </TwoCol>
