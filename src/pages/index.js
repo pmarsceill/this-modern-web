@@ -147,7 +147,8 @@ export default props => {
   }
 
   function MicroBlogLayout(props) {
-    const body = props.node.body || props.node.fields.title || props.node.fields.slug
+    const body =
+      props.node.body || props.node.fields.title || props.node.fields.slug
     const timeAgo = moment.utc(props.node.frontmatter.date).fromNow()
     const slug = props.node.fields.slug
 
@@ -212,33 +213,25 @@ export default props => {
 
             {currentBlogs.map(({ node }, index) => {
               if (index < 2) {
-                return (
-                  <CurrentBlogLayout node={node} index={index} />
-                )
+                return <CurrentBlogLayout node={node} index={index} />
               }
             })}
 
             {microBlogs.map(({ node }, index) => {
               if (index < 4) {
-                return (
-                  <MicroBlogLayout node={node} />
-                )
+                return <MicroBlogLayout node={node} />
               }
             })}
 
             {currentBlogs.map(({ node }, index) => {
               if (index >= 2 && index <= 4) {
-                return (
-                  <CurrentBlogLayout node={node} />
-                )
+                return <CurrentBlogLayout node={node} />
               }
             })}
 
             {microBlogs.map(({ node }, index) => {
               if (index >= 4) {
-                return (
-                  <MicroBlogLayout node={node} />
-                )
+                return <MicroBlogLayout node={node} />
               }
             })}
 

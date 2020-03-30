@@ -107,9 +107,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       value,
     })
 
-    if (
-      node.frontmatter.tags.includes("inbox")
-    ) {
+    if (node.frontmatter.tags.includes("inbox")) {
       createNodeField({
         name: `slug`,
         node,

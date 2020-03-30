@@ -29,7 +29,9 @@ class MicroBlogPage extends React.Component {
     const post = this.props.data.mdx
     const siteTitle = this.props.data.site.siteMetadata.title
     const date = moment.utc(post.frontmatter.date)
-    const localTime = moment(date).local().format("MMMM D, YYYY ∙ HH:mm A")
+    const localTime = moment(date)
+      .local()
+      .format("MMMM D, YYYY ∙ HH:mm A")
     const { previous, next } = this.props.pageContext
     const pageTitle = `Patrick Marsceill: ${post.excerpt}`
 
@@ -41,84 +43,82 @@ class MicroBlogPage extends React.Component {
       >
         <this.SetColor />
 
-        <SEO
-          title={pageTitle}
-        />
+        <SEO title={pageTitle} />
 
-      <TwoCol>
-        <div
-          sx={{
-            mt: [0, "", "", 2],
-            mb: [0, "", "", 6],
-            color: "secondary",
-          }}
-        >
-          <Link
-            to="/"
-            sx={{
-              color: "inherit",
-              textDecoration: "none",
-              fontFamily: "body",
-              fontSize: [1, "", "", 2],
-              "&.active": {
-                color: "primary",
-              },
-            }}
-          >
-            ← Feed
-          </Link>
-        </div>
-        <article
-          sx = {{
-            fontFamily: "monospace",
-            fontSize: [1, "", "", "", ""],
-            lineHeight: "body",
-            minHeight: ["", "", "25vh"]
-          }}
-        >
+        <TwoCol>
           <div
-            className="postBody"
             sx={{
               mt: [0, "", "", 2],
+              mb: [0, "", "", 6],
+              color: "secondary",
             }}
           >
-            <MDXRenderer>{post.body}</MDXRenderer>
+            <Link
+              to="/"
+              sx={{
+                color: "inherit",
+                textDecoration: "none",
+                fontFamily: "body",
+                fontSize: [1, "", "", 2],
+                "&.active": {
+                  color: "primary",
+                },
+              }}
+            >
+              ← Feed
+            </Link>
           </div>
-          <small
+          <article
             sx={{
               fontFamily: "monospace",
-              display: "block",
-              fontSize: 0,
-              mt: 3,
-              }}
-            >
-            <span
+              fontSize: [1, "", "", "", ""],
+              lineHeight: "body",
+              minHeight: ["", "", "25vh"],
+            }}
+          >
+            <div
+              className="postBody"
               sx={{
-                textDecoration: "none",
-                color: "secondary",
+                mt: [0, "", "", 2],
               }}
             >
-              ⌘ {localTime}
-            </span>
-          </small>
-        </article>
-        <AncillaryNav />
-      </TwoCol>
-      <Styled.root>
-      <div
-      sx={{
-        fontFamily: "monospace",
-          fontSize: 0,
-          lineHeight: "body",
-          borderTop: "1px solid",
-          borderColor: "muted",
+              <MDXRenderer>{post.body}</MDXRenderer>
+            </div>
+            <small
+              sx={{
+                fontFamily: "monospace",
+                display: "block",
+                fontSize: 0,
+                mt: 3,
+              }}
+            >
+              <span
+                sx={{
+                  textDecoration: "none",
+                  color: "secondary",
+                }}
+              >
+                ⌘ {localTime}
+              </span>
+            </small>
+          </article>
+          <AncillaryNav />
+        </TwoCol>
+        <Styled.root>
+          <div
+            sx={{
+              fontFamily: "monospace",
+              fontSize: 0,
+              lineHeight: "body",
+              borderTop: "1px solid",
+              borderColor: "muted",
               marginTop: 6,
             }}
-            >
-              <PostPagination previous={previous} next={next} />
-            </div>
-          </Styled.root>
-    </Layout>
+          >
+            <PostPagination previous={previous} next={next} />
+          </div>
+        </Styled.root>
+      </Layout>
     )
   }
 }

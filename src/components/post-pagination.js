@@ -5,14 +5,17 @@ import { useStaticQuery, Link, graphql } from "gatsby"
 import { jsx } from "theme-ui"
 import moment from "moment"
 
-const PostPagination = (props) => {
+const PostPagination = props => {
+  const nextTimeAgo = props.next
+    ? moment.utc(props.next.frontmatter.date).fromNow()
+    : ""
+  const previousTimeAgo = props.previous
+    ? moment.utc(props.previous.frontmatter.date).fromNow()
+    : ""
+  const nextTitle = props.next ? props.next.frontmatter.title : ""
+  const previousTitle = props.previous ? props.previous.frontmatter.title : ""
 
-  const nextTimeAgo =  (props.next ? moment.utc(props.next.frontmatter.date).fromNow() : "")
-  const previousTimeAgo = (props.previous ? moment.utc(props.previous.frontmatter.date).fromNow() : "")
-  const nextTitle = (props.next ? props.next.frontmatter.title : "")
-  const previousTitle = (props.previous ? props.previous.frontmatter.title : "")
-
-  function NextLabel () {
+  function NextLabel() {
     if (nextTitle == "" || props.next.frontmatter.date == nextTitle) {
       return nextTimeAgo
     } else {
@@ -21,13 +24,15 @@ const PostPagination = (props) => {
   }
 
   function PreviousLabel() {
-    if (previousTitle == "" || props.previous.frontmatter.date == previousTitle) {
+    if (
+      previousTitle == "" ||
+      props.previous.frontmatter.date == previousTitle
+    ) {
       return previousTimeAgo
     } else {
       return previousTitle
     }
   }
-
 
   return (
     <nav
