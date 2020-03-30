@@ -5,6 +5,8 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage, createRedirect } = actions
 
   const blogPost = path.resolve(`./src/templates/blog-post.js`)
+  const microBlog = path.resolve(`./src/templates/micro-blog.js`)
+
   const result = await graphql(
     `
       {
@@ -20,6 +22,7 @@ exports.createPages = async ({ graphql, actions }) => {
               }
               frontmatter {
                 title
+                date
                 tags
               }
             }
@@ -36,30 +39,37 @@ exports.createPages = async ({ graphql, actions }) => {
   // Create blog posts pages.
   const posts = result.data.allMdx.edges
 
-  const blogPosts = posts.filter(function(post) {
+  const allBlogs = posts.filter(function(post) {
     const tags = post.node.frontmatter.tags || []
-    return !tags.includes("microblog") && !tags.includes("inbox")
+    return !tags.includes("inbox")
   })
 
-  const microBlogs = posts.filter(function(post) {
-    const tags = post.node.frontmatter.tags || []
-    return tags.includes("microblog")
-  })
-
-  blogPosts.forEach((post, index) => {
+  allBlogs.forEach((post, index) => {
     const previous =
-      index === blogPosts.length - 1 ? null : blogPosts[index + 1].node
-    const next = index === 0 ? null : blogPosts[index - 1].node
+      index === allBlogs.length - 1 ? null : allBlogs[index + 1].node
+    const next = index === 0 ? null : allBlogs[index - 1].node
 
-    createPage({
-      path: post.node.fields.slug,
-      component: blogPost,
-      context: {
-        slug: post.node.fields.slug,
-        previous,
-        next,
-      },
-    })
+    if (post.node.frontmatter.tags.includes("microblog")) {
+      createPage({
+        path: post.node.fields.slug,
+        component: microBlog,
+        context: {
+          slug: post.node.fields.slug,
+          previous,
+          next,
+        },
+      })
+    } else {
+      createPage({
+        path: post.node.fields.slug,
+        component: blogPost,
+        context: {
+          slug: post.node.fields.slug,
+          previous,
+          next,
+        },
+      })
+    }
   })
 }
 
@@ -98,7 +108,6 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     })
 
     if (
-      node.frontmatter.tags.includes("microblog") ||
       node.frontmatter.tags.includes("inbox")
     ) {
       createNodeField({
