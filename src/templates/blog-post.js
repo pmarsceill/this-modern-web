@@ -5,6 +5,8 @@ import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import TwoCol from "../components/two-col"
+import PostPagination from "../components/post-pagination"
+import AncillaryNav from "../components/ancillary-nav"
 
 /** @jsx jsx */
 import { jsx } from "theme-ui"
@@ -205,6 +207,9 @@ class BlogPostPage extends React.Component {
                 <MDXRenderer>{post.body}</MDXRenderer>
               </Styled.root>
             </section>
+            <aside>
+              <AncillaryNav />
+            </aside>
           </TwoCol>
           <Styled.root>
             <footer
@@ -217,67 +222,7 @@ class BlogPostPage extends React.Component {
                 marginTop: 6,
               }}
             >
-              <nav
-                sx={{
-                  mt: 5,
-                }}
-              >
-                <ul
-                  sx={{
-                    display: "grid",
-                    listStyle: "none",
-                    pl: 0,
-                    m: 0,
-                    width: "100%",
-                    gridTemplateColumns: ["1fr 1fr"],
-                  }}
-                >
-                  <li>
-                    <span
-                      sx={{
-                        fontSize: 0,
-                        color: "secondary",
-                        display: "block",
-                      }}
-                    >
-                      previously
-                    </span>
-                    {(previous && (
-                      <Link to={previous.fields.slug} rel="prev">
-                        ← {previous.frontmatter.title}
-                      </Link>
-                    )) || (
-                      <Link to="/" rel="prev">
-                        ← Feed
-                      </Link>
-                    )}
-                  </li>
-                  <li
-                    sx={{
-                      textAlign: "right",
-                    }}
-                  >
-                    <span
-                      sx={{
-                        fontSize: 0,
-                        color: "secondary",
-                        display: "block",
-                      }}
-                    >
-                      next
-                    </span>
-                    {(next && (
-                      <Link to={next.fields.slug} rel="next">
-                        {next.frontmatter.title} →
-                      </Link>
-                    )) || (
-                      <Link to="/" rel="next">
-                        Feed →
-                      </Link>
-                    )}
-                  </li>
-                </ul>
-              </nav>
+              <PostPagination previous={previous} next={next} />
             </footer>
           </Styled.root>
         </article>

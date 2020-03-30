@@ -11,9 +11,8 @@ import TwoCol from "../components/two-col"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Nav from "../components/nav"
+import AncillaryNav from "../components/ancillary-nav"
 import Button from "../components/button"
-import RssIcon from "../../content/assets/rss.svg"
-import ArchiveIcon from "../../content/assets/activity.svg"
 
 export default props => {
   const { data } = props
@@ -43,15 +42,15 @@ export default props => {
 
   setColorMode("dark")
 
-  function currentBlogLayout(node, index) {
-    const title = node.frontmatter.title || node.fields.slug
-    const tags = node.frontmatter.tags || []
-    const description = node.frontmatter.description || ""
-    const date = moment.utc(node.frontmatter.date).format("MMMM D, YYYY")
-    const slug = node.fields.slug
-    const featuredImage = node.frontmatter.featuredImage || ""
+  function CurrentBlogLayout(props) {
+    const title = props.node.frontmatter.title || props.node.fields.slug
+    const tags = props.node.frontmatter.tags || []
+    const description = props.node.frontmatter.description || ""
+    const date = moment.utc(props.node.frontmatter.date).format("MMMM D, YYYY")
+    const featuredImage = props.node.frontmatter.featuredImage || ""
     const imageData = featuredImage ? featuredImage.childImageSharp.fluid : ""
-    const excerpt = node.excerpt
+    const excerpt = props.node.excerpt
+    const slug = props.node.fields.slug
 
     const image = imageData ? (
       <Img
@@ -68,7 +67,7 @@ export default props => {
       ""
     )
 
-    const first = index === 0
+    const first = props.index === 0
 
     return (
       <article
@@ -122,13 +121,6 @@ export default props => {
             >
               {description}
             </p>
-            {function() {
-              if (first == true) {
-                return <p>{excerpt}</p>
-              } else {
-                return
-              }
-            }}
             <small
               sx={{
                 fontFamily: "body",
@@ -147,15 +139,14 @@ export default props => {
     )
   }
 
-  function microBlogLayout(node) {
-    const body = node.body || node.fields.title || node.fields.slug
-    const timeAgo = moment.utc(node.frontmatter.date).fromNow()
-    const slug = node.fields.slug.replace(/\//g, "")
-    const permalink = `/archive#${slug}`
+  function MicroBlogLayout(props) {
+    const body =
+      props.node.body || props.node.fields.title || props.node.fields.slug
+    const timeAgo = moment.utc(props.node.frontmatter.date).fromNow()
+    const slug = props.node.fields.slug
 
     return (
       <article
-        key={slug}
         sx={{
           mb: "5",
           pb: "5",
@@ -190,15 +181,15 @@ export default props => {
             mt: 3,
           }}
         >
-          <a
-            href={permalink}
+          <Link
+            to={slug}
             sx={{
               textDecoration: "none",
               color: "secondary",
             }}
           >
             ⌘ {timeAgo}
-          </a>
+          </Link>
         </small>
       </article>
     )
@@ -213,26 +204,35 @@ export default props => {
             <SEO title="Patrick Marsceill" />
 
             {currentBlogs.map(({ node }, index) => {
+              const slug = node.fields.slug
               if (index < 2) {
-                return currentBlogLayout(node, index)
+                return (
+                  <CurrentBlogLayout node={node} index={index} key={slug} />
+                )
               }
             })}
 
             {microBlogs.map(({ node }, index) => {
+              const slug = node.fields.slug
+
               if (index < 4) {
-                return microBlogLayout(node)
+                return <MicroBlogLayout node={node} key={slug} />
               }
             })}
 
             {currentBlogs.map(({ node }, index) => {
+              const slug = node.fields.slug
+
               if (index >= 2 && index <= 4) {
-                return currentBlogLayout(node)
+                return <CurrentBlogLayout node={node} key={slug} />
               }
             })}
 
             {microBlogs.map(({ node }, index) => {
+              const slug = node.fields.slug
+
               if (index >= 4) {
-                return microBlogLayout(node)
+                return <MicroBlogLayout node={node} key={slug} />
               }
             })}
 
@@ -240,61 +240,7 @@ export default props => {
               Everything Archive
             </Button>
           </div>
-          <div
-            sx={{
-              mt: [6, "", 0],
-            }}
-          >
-            <ul
-              sx={{
-                listStyle: "none",
-                pl: 0,
-                m: 0,
-              }}
-            >
-              <li
-                sx={{
-                  mt: 2,
-                  mb: 2,
-                }}
-              >
-                <a
-                  href="/rss.xml"
-                  sx={{
-                    fontFamily: "body",
-                    fontSize: 0,
-                    color: "secondary",
-                    textDecoration: "none",
-                    display: "flex",
-                    alignItems: "center",
-                    "&:hover": {
-                      color: "accent",
-                    },
-                  }}
-                >
-                  <RssIcon sx={{ mr: 1 }} /> RSS
-                </a>
-              </li>
-              <li>
-                <Link
-                  to="archive"
-                  sx={{
-                    fontFamily: "body",
-                    fontSize: 0,
-                    color: "secondary",
-                    textDecoration: "none",
-                    display: "flex",
-                    alignItems: "center",
-                    "&:hover": {
-                      color: "accent",
-                    },
-                  }}
-                >
-                  <ArchiveIcon sx={{ mr: 1 }} /> Everything Archive
-                </Link>
-              </li>
-            </ul>
-          </div>
+          <AncillaryNav />
         </TwoCol>
       </div>
     </Layout>

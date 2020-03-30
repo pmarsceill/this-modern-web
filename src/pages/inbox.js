@@ -35,6 +35,7 @@ export default props => {
       const yearlyPosts = []
       return (
         <div
+          key={year}
           sx={{
             mb: 6,
           }}
@@ -59,9 +60,10 @@ export default props => {
           >
             {inboxItems.map(({ node }, index) => {
               const postYear = moment.utc(node.frontmatter.date).format("YYYY")
+              const slug = node.fields.slug
               if (postYear == year) {
                 return (
-                  <div id={node.fields.slug.replace(/\//g, "")}>
+                  <div key={slug} id={slug.replace(/\//g, "")}>
                     <div
                       sx={{
                         display: "flex",

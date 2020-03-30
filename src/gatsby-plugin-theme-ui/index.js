@@ -235,10 +235,6 @@ export default {
       mt: "2em",
       mb: "1em",
     },
-    p: {
-      mt: 0,
-      mb: 4,
-    },
     blockquote: {
       ml: 0,
       pl: "calc(1.2em - 2px)",
