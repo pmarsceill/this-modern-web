@@ -192,7 +192,7 @@ export default props => {
         <main
           sx={{
             mb: 6,
-            minHeight: ["", "", "calc(100vh - 389px)"],
+            minHeight: ["", "", "calc(75vh - 272px)"],
           }}
         >
           {children}
