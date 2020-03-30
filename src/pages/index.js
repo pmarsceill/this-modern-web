@@ -11,9 +11,8 @@ import TwoCol from "../components/two-col"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Nav from "../components/nav"
+import AncillaryNav from "../components/ancillary-nav"
 import Button from "../components/button"
-import RssIcon from "../../content/assets/rss.svg"
-import ArchiveIcon from "../../content/assets/activity.svg"
 
 export default props => {
   const { data } = props
@@ -190,15 +189,15 @@ export default props => {
             mt: 3,
           }}
         >
-          <a
-            href={permalink}
+          <Link
+            to={slug}
             sx={{
               textDecoration: "none",
               color: "secondary",
             }}
           >
             ⌘ {timeAgo}
-          </a>
+          </Link>
         </small>
       </article>
     )
