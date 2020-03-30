@@ -186,7 +186,7 @@ export default props => {
         sx={{
           maxWidth: fullWidth ? "none" : "container",
           mx: "auto",
-          px: fullWidth ? [4, 6, 4] : [4, 6, 7, 5],
+          px: fullWidth ? [4, 6, 0] : [4, 6, 7, 5],
         }}
       >
         <main
