@@ -72,13 +72,13 @@ export default props => {
           >
             <Styled.root>
               <p>
-                My earliest post here was in 2012, so I guess you could say that
-                is when I established this thing. Back then though, it was under
+                My earliest post here was in 2012, so you could say that
+                is the year that I established this site. Back then though, it was under
                 my own namesake over at <em>patrickmarsceill.com</em> (which now
                 redirects over here). I recently{" "}
                 <Link to="/2020/02/17/new-site-who-dis/">wrote a post</Link>{" "}
-                with some context as to the name change and a bit about what I'm
-                trying to do here. I never really kept up a regular writing
+                with some context as to the name change and more about what I'm
+                trying to do here. In the past, I never kept up a regular writing
                 schedule, but these days I try to get something new up at least
                 twice a week.
               </p>
@@ -119,7 +119,7 @@ export default props => {
                 the early 90's. From the start, I was hooked on the ability to
                 create for this medium. Over the years, I have designed + built
                 many personal side projects — the remnants of my first (from
-                2001) still live on at{" "}
+                2001) still lives on at{" "}
                 <a href="https://web.archive.org/web/20011028025427/http://pat.rocks.it/">
                   archive.org
                 </a>
@@ -154,14 +154,14 @@ export default props => {
               <p>
                 I manage the <em>Code to Cloud</em> Product Design team at
                 GitHub. We're responsible for making tools that allow developers
-                to build, test, run, publish, deploy, and scale their projects.
-                If you're a GitHub user, you may have seen our work in{" "}
+                to build, test, run, publish, deploy, and scale their work.
+                If you're a GitHub user, you may have seen our efforts in{" "}
                 <em>GitHub Actions</em>, <em>GitHub Packages</em>, and{" "}
                 <em>GitHub Pages</em>.
               </p>
               <p>
                 In my time at GitHub, I have worked on almost every part of the
-                product. I've managed teams or led design efforts on many core
+                product. I have managed teams or led design efforts on many core
                 features like <em>pull requests</em>, <em>code review</em>,{" "}
                 <em>security</em>, <em>ecosystem / api</em>,{" "}
                 <em>marketing / top-of-funnel</em>, and{" "}
