@@ -72,15 +72,15 @@ export default props => {
           >
             <Styled.root>
               <p>
-                My earliest post here was in 2012, so you could say that
-                is the year that I established this site. Back then though, it was under
-                my own namesake over at <em>patrickmarsceill.com</em> (which now
-                redirects over here). I recently{" "}
+                My earliest post here was in 2012, so you could say that is the
+                year that I established this site. Back then though, it was
+                under my own namesake over at <em>patrickmarsceill.com</em>{" "}
+                (which now redirects over here). I recently{" "}
                 <Link to="/2020/02/17/new-site-who-dis/">wrote a post</Link>{" "}
                 with some context as to the name change and more about what I'm
-                trying to do here. In the past, I never kept up a regular writing
-                schedule, but these days I try to get something new up at least
-                twice a week.
+                trying to do here. In the past, I never kept up a regular
+                writing schedule, but these days I try to get something new up
+                at least twice a week.
               </p>
               <p>
                 I tend to write about design + tech, my own life, and
@@ -154,8 +154,8 @@ export default props => {
               <p>
                 I manage the <em>Code to Cloud</em> Product Design team at
                 GitHub. We're responsible for making tools that allow developers
-                to build, test, run, publish, deploy, and scale their work.
-                If you're a GitHub user, you may have seen our efforts in{" "}
+                to build, test, run, publish, deploy, and scale their work. If
+                you're a GitHub user, you may have seen our efforts in{" "}
                 <em>GitHub Actions</em>, <em>GitHub Packages</em>, and{" "}
                 <em>GitHub Pages</em>.
               </p>
