@@ -9,6 +9,7 @@ featuredImage: ./assets/siri-shortcuts/siri-shortcuts-logo.png
 import BigImage from "../../src/components/big-img"
 import ImageRow from "../../src/components/img-row"
 import SmallImage from "../../src/components/small-img"
+import Video from "../../src/components/video"
 
 I love spending short chunks of time programming things that are _just for me_. It's a satisfying indulgence, like cooking an intricate dinner for one or building a scale model of your own house that is  only on display for you. Lately, [Siri Shortcuts](https://developer.apple.com/siri/) have filled this need quite well because I find them accessible, intuitive enough to quickly get productive, and malleable enough to solve "real problems".
 
@@ -26,13 +27,13 @@ Before getting into examples of how to set up your device with handy dev-centric
 
 iOS 13 brought a new Shortcuts app to our devices. This app is the engine that allows us to create specific workflows using individual tasks, called actions, from many individual apps and connect them together into one string of events called a shortcut. These shortcuts are accessible from OS-level context menus (primarily the _share sheet_), kicked off manually from the home screen, or automatically run at a certain time interval.
 
-While Shortcuts can be used to accomplish any number of tasks (like getting walking directions to the nearest coffee shop), they are especially valuable to me in transforming my iOS devices into an automated development tools. Let's dig in to some common use cases.
+While Shortcuts can be used to accomplish any number of tasks (like getting walking directions to the nearest coffee shop), they are especially valuable to me in transforming my iOS devices into automated development tools. Let's dig in to some common use-cases.
 
 ## Running a simple curl command
 
-My initial use-case was fairly niche; I wanted to build a shortcut that used the camera on my iPhone to take a photo of an album cover, identify what it was, and then add that album to a Spotify playlist. It's handy when shopping for vinyl or cataloging my existing vinyl collection and creating a digital version.
+My initial motivation was fairly niche; I wanted to build a shortcut that used the camera on my iPhone to take a photo of an album cover, identify what it was, and then add that album to a Spotify playlist. It's handy when shopping for vinyl or cataloging my existing record collection and creating a digital version on Spotify.
 
-After researching several ways to hit this API, I found that the simplest way was to use the _Get contents of `<url>`_ action to send curl commands to the Google Vision API endpoint for image identification. This action is built into Shortcuts itself (not tied to any particular app) and has many uses. It can hit API endpoints, grab an RSS feed, download and parse the contents of a webpage, or grab any data that is backed by a URL. As I learned, it is also very handy for making a single curl command and getting a response back. Doing a more complicated API integration may be better served using another app with Shortcuts support (like Scriptable, more on this later) to handle more advanced back-and-forth and parsing of an API response.
+I found that the simplest way to identify the contents of a photo was to use Google Vision. Specifically, the image annotation API. After researching several ways to hit this API from my phone, I stumbled upon the _Get contents of `<url>`_ action could be used to send curl commands. This made hitting the Google Vision API with an encoded version of the photo that I just took feel too easy. This specific action is built into Shortcuts itself (not tied to any particular app) and has many uses. It can hit API endpoints, grab an RSS feed, download and parse the contents of a webpage, or grab any data that is backed by a URL. As I learned, it is also very handy for making a single curl command and getting a response back. A more complicated API integration may be better served using another app with Shortcuts support (like Scriptable, more on this later) to handle more advanced back-and-forth and parsing of an API response.
 
 <SmallImage>
 
@@ -40,7 +41,7 @@ After researching several ways to hit this API, I found that the simplest way wa
 
 </SmallImage>
 
-Another use for this action that I am eager to play with is to [trigger a GitHub Action](https://help.github.com/en/actions/configuring-and-managing-workflows/configuring-a-workflow#triggering-a-workflow-with-events) using the [`repository_dispatch`](https://developer.github.com/v3/repos/#create-a-repository-dispatch-event) event via curl that is kicked off from a shortcut. There are a ton of possibilities with this flexible action allowing your device to interface with any number of services with public web APIs.
+Another use for this action that I am eager to play with is [triggering a GitHub Action workflow run](https://help.github.com/en/actions/configuring-and-managing-workflows/configuring-a-workflow#triggering-a-workflow-with-events) using the [`repository_dispatch`](https://developer.github.com/v3/repos/#create-a-repository-dispatch-event) event via curl that is kicked off from a shortcut. There are a ton of possibilities with this flexible action allowing your device to interface with any number of services fronted by public web APIs.
 
 ## Writing content to a static site (Gatsby, Next.js, Jekyll, etc..)
 
@@ -92,5 +93,9 @@ As mentioned earlier in this post, this allows for the potential to create relat
 
 While the GitHub app has no editor and is focused on triaging issues, pull requests, and other notifications; it does allow you to "share" to Working Copy if you have it installed, which has a fairly nice text editor built in. This doesn't actually use Shortcuts specifically, but it does use a similar action in the share sheet within the GitHub app.
 
+<SmallImage>
 
+<Video src="./assets/siri-shortcuts/working-copy-to-gh.mp4" alt="Video showing sharing between GitHub iOS app and Working Copy iOS app" />
+
+</SmallImage>
 
