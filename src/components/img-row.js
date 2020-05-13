@@ -20,7 +20,7 @@ const ImageRow = ({ ...props }) => {
       my: 5,
       pt: 5,
       px: 3,
-    }
+    },
   }
 
   return <div sx={styles}>{props.children}</div>
