@@ -202,10 +202,10 @@ class BlogPostPage extends React.Component {
               }}
             >
               <Styled.root
-                sx = {{
+                sx={{
                   "> p:first-child": {
                     mt: 0,
-                  }
+                  },
                 }}
               >
                 <TimeWarning />

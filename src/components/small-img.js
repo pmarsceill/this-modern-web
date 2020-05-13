@@ -8,7 +8,7 @@ const SmallImage = ({ ...props }) => {
     height: theme => ["", `auto`],
     fontSize: [1],
     my: 2,
-    mx: 'auto',
+    mx: "auto",
     color: "secondary",
   }
 
