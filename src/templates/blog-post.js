@@ -200,9 +200,14 @@ class BlogPostPage extends React.Component {
               sx={{
                 pt: ["", 4, 0, 0],
               }}
-              className="postBody"
             >
-              <Styled.root>
+              <Styled.root
+                sx = {{
+                  "> p:first-child": {
+                    mt: 0,
+                  }
+                }}
+              >
                 <TimeWarning />
                 <MDXRenderer>{post.body}</MDXRenderer>
               </Styled.root>

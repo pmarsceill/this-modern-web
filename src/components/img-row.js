@@ -16,6 +16,11 @@ const ImageRow = ({ ...props }) => {
     "> * + *": {
       ml: theme => [`${theme.space[2]}px !important`],
     },
+    "> *:not(img), > *:not(figure)": {
+      my: 5,
+      pt: 5,
+      px: 3,
+    }
   }
 
   return <div sx={styles}>{props.children}</div>

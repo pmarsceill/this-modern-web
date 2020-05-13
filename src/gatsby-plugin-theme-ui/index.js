@@ -313,12 +313,7 @@ export default {
       },
     },
     p: {
-      ".postBody &": {
-        my: "1em",
-        "&:first-of-type": {
-          mt: 0,
-        },
-      },
+      my: "1em",
     },
   },
 }
