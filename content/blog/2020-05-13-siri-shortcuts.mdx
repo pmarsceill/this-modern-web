@@ -1,7 +1,7 @@
 ---
 title: "Hacking from your iOS device"
 description: "Developing with Siri Shortcuts and more"
-date: 2020-04-08T16:26:45-0400
+date: 2020-05-13T14:35:24-0400
 tags: ["journal", "Siri Shortcuts", "Static sites"]
 featuredImage: ./assets/siri-shortcuts/siri-shortcuts-logo.png
 ---
@@ -30,7 +30,7 @@ While Shortcuts can be used to accomplish any number of tasks (like getting walk
 
 ## Running a simple curl command
 
-My initial use-case was fairly niche; I wanted to build a shortcut that used the camera on my iPhone to take a photo of an album cover, identify what it was, and then add that album to a Spotify playlist. It's handy when shopping for vinyl or cataloging my existing vinyl collection and creating a digital version. 
+My initial use-case was fairly niche; I wanted to build a shortcut that used the camera on my iPhone to take a photo of an album cover, identify what it was, and then add that album to a Spotify playlist. It's handy when shopping for vinyl or cataloging my existing vinyl collection and creating a digital version.
 
 After researching several ways to hit this API, I found that the simplest way was to use the _Get contents of `<url>`_ action to send curl commands to the Google Vision API endpoint for image identification. This action is built into Shortcuts itself (not tied to any particular app) and has many uses. It can hit API endpoints, grab an RSS feed, download and parse the contents of a webpage, or grab any data that is backed by a URL. As I learned, it is also very handy for making a single curl command and getting a response back. Doing a more complicated API integration may be better served using another app with Shortcuts support (like Scriptable, more on this later) to handle more advanced back-and-forth and parsing of an API response.
 
