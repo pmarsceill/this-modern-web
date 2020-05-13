@@ -77,9 +77,10 @@ class MicroBlogPage extends React.Component {
             }}
           >
             <div
-              className="postBody"
               sx={{
-                mt: [0, "", "", 2],
+                "> p:first-child": {
+                  mt: 2,
+                },
               }}
             >
               <MDXRenderer>{post.body}</MDXRenderer>
