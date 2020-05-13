@@ -2,9 +2,7 @@
 import React from "react"
 import { jsx } from "theme-ui"
 
-const Video = ({
-  ...props
-}) => {
+const Video = ({ ...props }) => {
   const src = props.src
 
   if (props.alt) {
@@ -12,25 +10,29 @@ const Video = ({
 
     return (
       <figure className="gatsby-resp-image-figure">
-        <video autoplay="true" controls loop
+        <video
+          autoplay="true"
+          controls
+          loop
           sx={{
             width: "100%",
             height: "auto",
             borderRadius: "6px",
           }}
         >
-        <source src={src} type="video/mp4"/>
-        Your browser does not support this video type.
+          <source src={src} type="video/mp4" />
+          Your browser does not support this video type.
         </video>
-        <figcaption className="gatsby-resp-image-figcaption">
-          {alt}
-        </figcaption>
+        <figcaption className="gatsby-resp-image-figcaption">{alt}</figcaption>
       </figure>
     )
   }
 
   return (
-    <video autoplay="true" controls loop
+    <video
+      autoplay="true"
+      controls
+      loop
       sx={{
         width: "100%",
         height: "auto",
@@ -38,7 +40,7 @@ const Video = ({
         my: 5,
       }}
     >
-      <source src={src} type="video/mp4"/>
+      <source src={src} type="video/mp4" />
       Your browser does not support this video type.
     </video>
   )
