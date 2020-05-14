@@ -53,7 +53,7 @@ export default props => {
             lineHeight: "heading",
             my: 0,
             mt: [5, "", 0],
-        }}
+          }}
         >
           {pageTitle}
         </h1>

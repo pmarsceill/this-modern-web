@@ -35,10 +35,7 @@ class MicroBlogPage extends React.Component {
     const pageTitle = `Patrick Marsceill: ${post.excerpt}`
 
     return (
-      <Layout
-        location={this.props.location}
-        pageTitle={"Microblog"}
-      >
+      <Layout location={this.props.location} pageTitle={"Microblog"}>
         <this.SetColor />
 
         <SEO title={pageTitle} />

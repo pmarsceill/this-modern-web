@@ -132,7 +132,7 @@ export default props => {
   }
 
   return (
-    <Layout location={props.location} >
+    <Layout location={props.location}>
       <SEO title="Inbox" />
       <TwoCol extended="true">
         <Nav />
