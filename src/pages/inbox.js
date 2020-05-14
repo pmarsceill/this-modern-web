@@ -15,7 +15,6 @@ import TwoCol from "../components/two-col"
 
 export default props => {
   const { data } = props
-  const siteTitle = data.site.siteMetadata.title
   const [colorMode, setColorMode] = useColorMode()
   const inboxItems = data.allMdx.edges
 
@@ -133,7 +132,7 @@ export default props => {
   }
 
   return (
-    <Layout location={props.location} title={siteTitle}>
+    <Layout location={props.location}>
       <SEO title="Inbox" />
       <TwoCol extended="true">
         <Nav />

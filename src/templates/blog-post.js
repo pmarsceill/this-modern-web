@@ -41,7 +41,6 @@ class BlogPostPage extends React.Component {
 
   render() {
     const post = this.props.data.mdx
-    const siteTitle = this.props.data.site.siteMetadata.title
     const { previous, next } = this.props.pageContext
     const sideTitleClass = this.state.showSideTitle ? " show" : ""
 
@@ -83,7 +82,7 @@ class BlogPostPage extends React.Component {
     }
 
     return (
-      <Layout location={this.props.location} title={siteTitle}>
+      <Layout location={this.props.location}>
         <this.SetColor />
 
         <SEO

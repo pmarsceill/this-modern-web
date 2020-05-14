@@ -25,7 +25,6 @@ export default {
     body: "-apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif",
     heading: "-apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif",
     monospace: "SFMono-Regular,Consolas,Menlo,Andale,monospace",
-    title: "Optician Sans, system-ui, sans-serif",
     serif:
       "Freight Text Pro,Palatino,Palatino Linotype,Palatino LT STD,Book Antiqua,Georgia,serif",
   },
