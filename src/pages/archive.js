@@ -13,7 +13,6 @@ import SEO from "../components/seo"
 
 export default props => {
   const { data } = props
-  const siteTitle = data.site.siteMetadata.title
   const [colorMode, setColorMode] = useColorMode()
 
   setColorMode("dark")
@@ -334,7 +333,6 @@ export default props => {
   return (
     <Layout
       location={props.location}
-      title={siteTitle}
       pageTitle={"Everything* Archive"}
       fullWidth={true}
     >

@@ -16,7 +16,6 @@ import Button from "../components/button"
 
 export default props => {
   const { data } = props
-  const siteTitle = data.site.siteMetadata.title
   const posts = data.allMdx.edges
 
   const microBlogs = posts.filter(function(post) {
@@ -196,7 +195,7 @@ export default props => {
   }
 
   return (
-    <Layout location={props.location} title={siteTitle}>
+    <Layout location={props.location}>
       <div>
         <TwoCol>
           <Nav />

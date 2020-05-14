@@ -27,7 +27,6 @@ class MicroBlogPage extends React.Component {
 
   render() {
     const post = this.props.data.mdx
-    const siteTitle = this.props.data.site.siteMetadata.title
     const date = moment.utc(post.frontmatter.date)
     const localTime = moment(date)
       .local()
@@ -38,7 +37,6 @@ class MicroBlogPage extends React.Component {
     return (
       <Layout
         location={this.props.location}
-        title={siteTitle}
         pageTitle={"Microblog"}
       >
         <this.SetColor />

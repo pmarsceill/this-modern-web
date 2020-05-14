@@ -15,13 +15,12 @@ import aboutGif from "../../content/assets/patrick-marsceill.gif"
 
 export default props => {
   const { data } = props
-  const siteTitle = data.site.siteMetadata.title
   const [colorMode, setColorMode] = useColorMode()
 
   setColorMode("light")
 
   return (
-    <Layout location={props.location} title={siteTitle}>
+    <Layout location={props.location}>
       <SEO title="About Patrick Marsceill" />
       <TwoCol extended="true" title="true">
         <Nav />
