@@ -14,7 +14,6 @@ export default props => {
   const { location, title, fullWidth, pageTitle, children } = props
   const rootPath = `${__PATH_PREFIX__}/`
   const bigHeader = location.pathname === rootPath
-  let headingTitle
 
   const styles = css`
     @font-face {
@@ -39,25 +38,29 @@ export default props => {
     }
   `
 
-  if (pageTitle) {
-    headingTitle = (
-      <h1
-        sx={{
-          position: ["", "", "absolute"],
-          right: "0",
-          top: "0",
-          fontFamily: "serif",
-          fontSize: [4, 5],
-          fontWeight: "normal",
-          fontStyle: "italic",
-          lineHeight: "heading",
-          my: 0,
-          mt: [5, "", 0],
+  function PageTitle() {
+    if (pageTitle) {
+      return (
+        <h1
+          sx={{
+            position: ["", "", "absolute"],
+            right: "0",
+            top: "0",
+            fontFamily: "serif",
+            fontSize: [4, 5],
+            fontWeight: "normal",
+            fontStyle: "italic",
+            lineHeight: "heading",
+            my: 0,
+            mt: [5, "", 0],
         }}
-      >
-        {pageTitle}
-      </h1>
-    )
+        >
+          {pageTitle}
+        </h1>
+      )
+    } else {
+      return null
+    }
   }
 
   function HeadingLevel({...props}) {
@@ -142,6 +145,7 @@ export default props => {
       >
         the personal website of Patrick Marsceill
       </p>
+      <PageTitle />
     </div>
   )
 
