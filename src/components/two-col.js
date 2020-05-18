@@ -11,7 +11,7 @@ export default props => {
       <div
         sx={{
           display: ["block", "", "grid"],
-          gridGap: ["", "", 3, "", 6],
+          gridGap: ["", "", 5, "", 6],
           gridTemplateColumns: [
             "",
             "",
