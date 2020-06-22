@@ -45,6 +45,9 @@ export default {
   letterSpacings: {
     heading: "-0.03em",
   },
+  borderRadius: {
+    default: '12px',
+  },
   contentPadding: [4, 7, 6],
   fontSizes: [13, 15, 17, 22, 28, 32, 36, 42, 64, 72, 78],
   space: [0, 4, 8, 12, 16, 32, 64, 128, 256, 512],

@@ -101,7 +101,7 @@ export default props => {
               sx={{
                 width: "100%",
                 mt: [4, 6, ""],
-                borderRadius: "12px",
+                borderRadius: "default",
               }}
             />
           </div>
