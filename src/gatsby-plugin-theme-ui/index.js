@@ -46,7 +46,7 @@ export default {
     heading: "-0.03em",
   },
   borderRadius: {
-    default: '12px',
+    default: "12px",
   },
   contentPadding: [4, 7, 6],
   fontSizes: [13, 15, 17, 22, 28, 32, 36, 42, 64, 72, 78],
