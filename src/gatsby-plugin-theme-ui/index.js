@@ -128,7 +128,7 @@ export default {
       },
       ".gatsby-resp-image-wrapper": {
         overflow: "hidden",
-        borderRadius: "6px",
+        borderRadius: "12px",
       },
       ".gatsby-resp-image-link": {
         backgroundImage: "none",

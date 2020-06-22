@@ -17,7 +17,7 @@ const Video = ({ ...props }) => {
           sx={{
             width: "100%",
             height: "auto",
-            borderRadius: "6px",
+            borderRadius: "12px",
           }}
         >
           <source src={src} type="video/mp4" />
@@ -36,7 +36,7 @@ const Video = ({ ...props }) => {
       sx={{
         width: "100%",
         height: "auto",
-        borderRadius: "6px",
+        borderRadius: "12px",
         my: 5,
       }}
     >
