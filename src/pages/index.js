@@ -55,7 +55,7 @@ export default props => {
       <Img
         fluid={imageData}
         sx={{
-          borderRadius: "6px",
+          borderRadius: "default",
           ml: [3, 4, 5],
           width: ["100px", "140px", "160px", "160px", "180px"],
           backgroundColor: "muted",
