@@ -60,7 +60,7 @@ class BlogPostPage extends React.Component {
                 probably quite stale by now and may not reflect my current
                 thinking. I am happy to keep it here for archival purposes, but
                 please{" "}
-                <a href="mailto:patrick.marsceill@gmail.com">reach out to me</a>{" "}
+                <a href="mailto:patrick@thismodernweb.com">reach out to me</a>{" "}
                 if something feels off or if you're relying on it for any
                 serious purpose.{" "}
               </em>
