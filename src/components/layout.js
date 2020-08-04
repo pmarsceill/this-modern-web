@@ -257,7 +257,7 @@ export default props => {
               }}
             >
               <a
-                href="mailto:patrick.marsceill@gmail.com"
+                href="mailto:patrick@thismodernweb.com"
                 sx={{
                   display: "inline-block",
                   color: "primary",
