@@ -4,7 +4,7 @@ title: 'Hacking the font Stack'
 description: 'Explorations in a modern native fonts on the web'
 date: 2016-11-28 17:18
 tags: ['native-type']
-featuredImage: ./assets/hacking-font-stack/hacking-font-stack.png
+featuredImage: /assets/hacking-font-stack/hacking-font-stack.png
 ---
 
 import BigImage from "../../src/components/big-img"
@@ -12,7 +12,7 @@ import ImageRow from "../../src/components/img-row"
 
 <BigImage>
 
-![](./assets/hacking-font-stack/hacking-font-stack.png)
+![](/assets/hacking-font-stack/hacking-font-stack.png)
 
 </BigImage>
 
@@ -61,9 +61,9 @@ On the Apple side of things, we're using a font intended for a Japanese characte
 
 <ImageRow>
 
-![Hiragino Mincho Pro (Latin characters) on macOS](./assets/hacking-font-stack/apple-hiragino-mincho-pro.png)
-![Cambria on Windows](./assets/hacking-font-stack/windows-cambria.png)
-![Roboto Serif on Android / ChromeOS](./assets/hacking-font-stack/android-roboto-serif.png)
+![Hiragino Mincho Pro (Latin characters) on macOS](/assets/hacking-font-stack/apple-hiragino-mincho-pro.png)
+![Cambria on Windows](/assets/hacking-font-stack/windows-cambria.png)
+![Roboto Serif on Android / ChromeOS](/assets/hacking-font-stack/android-roboto-serif.png)
 
 </ImageRow>
 
@@ -91,9 +91,9 @@ If you want to stay strictly with neo-grotesque typefaces, you could pull out `S
 
 <ImageRow>
 
-![San Francisco on macOS / iOS](./assets/hacking-font-stack/apple-san-francisco.png)
-![Segoe UI on Windows](./assets/hacking-font-stack/windows-segoe-ui.png)
-![Roboto on Android / ChromeOS](./assets/hacking-font-stack/android-roboto.png)
+![San Francisco on macOS / iOS](/assets/hacking-font-stack/apple-san-francisco.png)
+![Segoe UI on Windows](/assets/hacking-font-stack/windows-segoe-ui.png)
+![Roboto on Android / ChromeOS](/assets/hacking-font-stack/android-roboto.png)
 
 </ImageRow>
 
@@ -116,9 +116,9 @@ body {
 
 <ImageRow>
 
-![Gill Sans on macOS / iOS](./assets/hacking-font-stack/apple-gill-sans.png)
-![Segoe UI on Windows](./assets/hacking-font-stack/windows-segoe-ui.png)
-![Roboto on Android / ChromeOS](./assets/hacking-font-stack/android-roboto.png)
+![Gill Sans on macOS / iOS](/assets/hacking-font-stack/apple-gill-sans.png)
+![Segoe UI on Windows](/assets/hacking-font-stack/windows-segoe-ui.png)
+![Roboto on Android / ChromeOS](/assets/hacking-font-stack/android-roboto.png)
 
 </ImageRow>
 
@@ -147,9 +147,9 @@ Here we are only using `Palatino Linotype` for display sized headings on Windows
 
 <ImageRow>
 
-![Athelas on macOS / iOS](./assets/hacking-font-stack/apple-athelas.png)
-![Palentino Linotype and Times New Roman on Windows](./assets/hacking-font-stack/windows-palentino-linotype-times-new-roman.png)
-![Roboto Serif on Android / ChromeOS](./assets/hacking-font-stack/android-roboto-serif.png)
+![Athelas on macOS / iOS](/assets/hacking-font-stack/apple-athelas.png)
+![Palentino Linotype and Times New Roman on Windows](/assets/hacking-font-stack/windows-palentino-linotype-times-new-roman.png)
+![Roboto Serif on Android / ChromeOS](/assets/hacking-font-stack/android-roboto-serif.png)
 
 </ImageRow>
 

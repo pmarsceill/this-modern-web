@@ -15,7 +15,7 @@ I was 26 years old in 2010. In almost all of my free time I was playing in bands
 
 <BigImage>
 
-![Sun Airway - Nocturne of Exploded Crystal Chandelier (Dead Oceans, 2010)](./assets/what-i-did-in-the-2010s/sa-nocturne.jpg)
+![Sun Airway - Nocturne of Exploded Crystal Chandelier (Dead Oceans, 2010)](/assets/what-i-did-in-the-2010s/sa-nocturne.jpg)
 
 </BigImage>
 
@@ -31,7 +31,7 @@ The ironic thing about this genre pretension is that the guitar-based rock music
 
 <BigImage>
 
-![One of the many break-downs we experienced in Blood Feathers' touring RV. August 2010.](./assets/what-i-did-in-the-2010s/rv.jpg)
+![One of the many break-downs we experienced in Blood Feathers' touring RV. August 2010.](/assets/what-i-did-in-the-2010s/rv.jpg)
 
 </BigImage>
 
@@ -43,7 +43,7 @@ On October 12, 2013, I got married in the most-fun wedding that I've ever attend
 
 <BigImage>
 
-![Outside our Venice hotel. Pretty good for an iPhone 5.](./assets/what-i-did-in-the-2010s/venice.jpg)
+![Outside our Venice hotel. Pretty good for an iPhone 5.](/assets/what-i-did-in-the-2010s/venice.jpg)
 
 </BigImage>
 

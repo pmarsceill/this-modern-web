@@ -1,9 +1,9 @@
 ---
-title: "Hacking from your iOS device"
-description: "Developing with Siri Shortcuts and more"
+title: 'Hacking from your iOS device'
+description: 'Developing with Siri Shortcuts and more'
 date: 2020-05-13T16:44:45-0400
-tags: ["journal", "Siri Shortcuts", "Static sites"]
-featuredImage: ./assets/siri-shortcuts/siri-shortcuts-logo.png
+tags: ['journal', 'Siri Shortcuts', 'Static sites']
+featuredImage: /assets/siri-shortcuts/siri-shortcuts-logo.png
 ---
 
 import BigImage from "../../src/components/big-img"
@@ -21,7 +21,7 @@ Before getting into examples of how to set up your device with handy dev-centric
 
 <SmallImage>
 
-![Shortcuts app, "Edit" view on iOS 13](./assets/siri-shortcuts/shortcuts-app.png)
+![Shortcuts app, "Edit" view on iOS 13](/assets/siri-shortcuts/shortcuts-app.png)
 
 </SmallImage>
 
@@ -37,7 +37,7 @@ I found that the simplest way to identify the contents of a photo was to use Goo
 
 <SmallImage>
 
-![Get contents of ... action in Siri Shortcuts](./assets/siri-shortcuts/get-contents-url.png)
+![Get contents of ... action in Siri Shortcuts](/assets/siri-shortcuts/get-contents-url.png)
 
 </SmallImage>
 
@@ -45,12 +45,11 @@ Another use for this action that I am eager to play with is [triggering a GitHub
 
 ## Writing content to a static site (Gatsby, Next.js, Jekyll, etc..)
 
-I use this workflow the most of any in my toolkit. It recently came up in conversation with Brian Lovin  (fellow GitHubber) after reading [his post about how he architected a way to add links to his Bookmarks page](https://brianlovin.com/overthought/cookies-authenticate-next-js-apollo-graphql-requests) via adding authentication to NextJS + GraphQL.
+I use this workflow the most of any in my toolkit. It recently came up in conversation with Brian Lovin (fellow GitHubber) after reading [his post about how he architected a way to add links to his Bookmarks page](https://brianlovin.com/overthought/cookies-authenticate-next-js-apollo-graphql-requests) via adding authentication to NextJS + GraphQL.
 
 This workflow solves the same problem, but instead of creating authentication, it uses a Git + GitHub centric workflow to add content to a (static) website in a secure way. I use it to post content to my [Inbox](/inbox) simply by searching for the cover art on Google and "sharing" it to my workflow which handles the rest. The basic steps look like this:
 
-![Visualization of the Add to Inbox shortcut](./assets/siri-shortcuts/add-to-inbox-illo.png)
-
+![Visualization of the Add to Inbox shortcut](/assets/siri-shortcuts/add-to-inbox-illo.png)
 
 1. I search Google for the cover art to the book, film, album, tv show that I'm consuming.
 2. I use the native "share" button in iOS and my shortcut lives on the share sheet.
@@ -68,7 +67,7 @@ This workflow solves the same problem, but instead of creating authentication, i
 
 <SmallImage>
 
-![My "Add to Inbox" shortcut for adding content to my website](./assets/siri-shortcuts/add-to-inbox.png)
+![My "Add to Inbox" shortcut for adding content to my website](/assets/siri-shortcuts/add-to-inbox.png)
 
 </SmallImage>
 
@@ -82,12 +81,11 @@ This shortcut was inspired by [this tweet from Rafa](https://twitter.com/rafahar
 
 <SmallImage>
 
-!["Is Slack Down?" Script in Scriptable](./assets/siri-shortcuts/scriptable.png)
+!["Is Slack Down?" Script in Scriptable](/assets/siri-shortcuts/scriptable.png)
 
 </SmallImage>
 
 As mentioned earlier in this post, this allows for the potential to create relatively complex integrations with any services with web APIs. Specifically for development, GitHub's API is a great candidate for something like this.
-
 
 ## Other tips for writing code on your Phone
 
@@ -95,7 +93,6 @@ While the GitHub app has no editor and is focused on triaging issues, pull reque
 
 <SmallImage>
 
-<Video src="./assets/siri-shortcuts/working-copy-to-gh.mp4" alt="Video showing sharing between GitHub iOS app and Working Copy iOS app" />
+<Video src="/assets/siri-shortcuts/working-copy-to-gh.mp4" alt="Video showing sharing between GitHub iOS app and Working Copy iOS app" />
 
 </SmallImage>
-

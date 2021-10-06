@@ -3,14 +3,14 @@ title: 'Design GitHub, the product'
 date: 2017-03-28 11:34
 tags: ['journal', 'GitHub', 'hiring', 'product-design']
 description: 'Shape the future of software development'
-featuredImage: ./assets/design-github/design-github.png
+featuredImage: /assets/design-github/design-github.png
 ---
 
 import BigImage from "../../src/components/big-img"
 
 <BigImage>
 
-![](./assets/design-github/design-github.png)
+![](/assets/design-github/design-github.png)
 
 </BigImage>
 

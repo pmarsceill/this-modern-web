@@ -1,9 +1,9 @@
 ---
-title: "This web designer gets his wings"
-description: "My first impressions of SwiftUI"
+title: 'This web designer gets his wings'
+description: 'My first impressions of SwiftUI'
 date: 2020-03-13T02:59:33-0500
-tags: ["journal", "SwiftUI", "Learning"]
-featuredImage: ./assets/swift-for-web-designers/swift_logo.png
+tags: ['journal', 'SwiftUI', 'Learning']
+featuredImage: /assets/swift-for-web-designers/swift_logo.png
 ---
 
 import BigImage from "../../src/components/big-img"
@@ -19,19 +19,19 @@ The Apple team has done a lot of things right in _not_ making this version of Xc
 
 Despite some of the bulkiness and current fragility, I do really appreciate having the niceties of a full IDE at my fingertips. Take the _Library_, as an example: it's a universal command palette that you can pull up while you're writing code to search for specific parts of the Swift/SwiftUI API to use inline. I love that it has the docs _right there_ and selecting an item inserts it right where I want it with placeholders for all the properties.
 
-![Library view in Xcode 11.3.1](./assets/swift-for-web-designers/library.png)
+![Library view in Xcode 11.3.1](/assets/swift-for-web-designers/library.png)
 
 Another thing that I appreciate is the approach in integrating Canvas into Xcode and how it is very reminiscent of the early versions of Framer Studio. For those that don't remember, this was the precursory product that came before Framer X: CoffeeScript on the left, live preview (with device chrome) on the right:
 
 <BigImage>
 
-![UI from the defunct Framer Studio*](./assets/swift-for-web-designers/framer.png)
+![UI from the defunct Framer Studio*](/assets/swift-for-web-designers/framer.png)
 
 </BigImage>
 
 <BigImage>
 
-![UI from Xcode 11.3.1 with Canvas](./assets/swift-for-web-designers/swift-ui.png)
+![UI from Xcode 11.3.1 with Canvas](/assets/swift-for-web-designers/swift-ui.png)
 
 </BigImage>
 
@@ -90,9 +90,8 @@ This will render the following in both dark and light mode, using the color sets
 
 <ImageRow>
 
-
-![Preview of the SwiftUI code example in light mode](./assets/swift-for-web-designers/card-light.png)
-![Preview of the SwiftUI code example in dark mode](./assets/swift-for-web-designers/card-dark.png)
+![Preview of the SwiftUI code example in light mode](/assets/swift-for-web-designers/card-light.png)
+![Preview of the SwiftUI code example in dark mode](/assets/swift-for-web-designers/card-dark.png)
 
 </ImageRow>
 
