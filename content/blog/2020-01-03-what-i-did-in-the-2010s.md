@@ -1,0 +1,70 @@
+---
+title: 'Some things I did in the 2010s'
+description: 'Music, family, and a career'
+date: 2020-01-03T23:40:23-0500
+tags: ['journal', 'retrospective', '2010s']
+---
+
+import BigImage from "../../src/components/big-img"
+
+The decade began much like the years leading up to it; the US economy was crawling out of the recession, Obama was two years into his first term, Steve Jobs was still somehow making public appearances, and my adult life was really just beginning to take shape. It's cathartic to take a chunk of time like ten years and play back your memories in fast-forward trying to catch the good parts to watch in slow motion. Memories are faulty and my sense of time is only getting worse, so recapping the last ten years morphed into an exercise in my own personal anthropology. Digging through my Photos library, old emails, and archived Dropbox folders helped me piece together the holes in time, especially in the early 2010s when digital life _wasn't_ on the cloud by default.
+
+---
+
+I was 26 years old in 2010. In almost all of my free time I was playing in bands — it was awesome. I was in two at the time: _Sun Airway_ (which began as an electronic duo and had been recently signed to [Dead Oceans](https://deadoceans.com)) and _Blood Feathers_ (a down-home six-piece rock n' roll band). These two groups couldn't have been more different in sound, personnel, and personality which worked in my favor as I never found myself bored. There were multiple US tours with both bands that kicked off in 2010, the longest of which was Sun Airway's first tour to support our debut album _Nocturne of Exploded Crystal Chandelier_ ([coming in at a whopping 7.8 on Pitchfork](https://pitchfork.com/reviews/albums/14780-nocturne-of-exploded-crystal-chandelier/)).
+
+<BigImage>
+
+![Sun Airway - Nocturne of Exploded Crystal Chandelier (Dead Oceans, 2010)](./assets/what-i-did-in-the-2010s/sa-nocturne.jpg)
+
+</BigImage>
+
+Last year (in 2019), [Pitchfork published an interesting retrospective](https://pitchfork.com/features/article/2010s-chillwave-best-coast-washed-out-neon-indian/) of the genre that Sun Airway was ultimately pegged as: _chillwave_.
+
+> This purposeful placelessness—a slight-of-hand attempt at creating mystique—also speaks to chillwave’s escapist tendencies. When Philadelphia duo Sun Airway, one of the few group efforts in early chillwave’s largely solitary confines, emerged with their own slightly emo-tinged sound, the airline-esque moniker made perfect sense: Chillwave existed as the ultimate vessel to leave your surroundings—and, in an authorial sense, yourself—behind.
+
+I couldn't help but have a laugh at Brandon Cox's (Deerhunter, Atlas Sound) 2011 remark:
+
+> I hope nobody associates me with fucking chillwave.
+
+The ironic thing about this genre pretension is that the guitar-based rock music that _Blood Feathers_ was making at the time was kinda out-of-favor in many taste-making circles in the beginning of "the 10's". Music blogs had so much influence in discovering and hyping bands (unlike today's world of streaming services) and many were trying to break bands that fit into this new internet-era aesthetic of hazy sample-based warbly-cassette-tape nostalgia. This only encouraged us in _Blood Feathers_ to unapologetically lean even further in the other direction. We ultimately put out two records during my time with the band (_Goodness Gracious_ in 2009 & _Tingle Tangle Wanda_ in 2014) and took a sketchy-as-fuck RV across the South in the dead of Summer.
+
+<BigImage>
+
+![One of the many break-downs we experienced in Blood Feathers' touring RV. August 2010.](./assets/what-i-did-in-the-2010s/rv.jpg)
+
+</BigImage>
+
+I really loved being on both of those groups and look back on this time as some of the best of my life and certainly the most musically prolific. As fate took us all in different directions, the desire to dedicate this much of my life to music — which is an almost impossible lifestyle — faded. By 2013, _Sun Airway_ was chugging on without me, toured Europe, and put out two more records. _Blood Feathers_ split up by the end of that year and the song writing partnership that held the band together dissolved. My own sense of purpose shifted from trying to make it as a musician to building a life with my partner and to have a meaningful career.
+
+---
+
+On October 12, 2013, I got married in the most-fun wedding that I've ever attended (still haven't beat it). The next day, as newlyweds, we caught a ride to lovely Newark airport and embarked on our incredible honeymoon to Europe. We toured through Venice, the South of France, Basque Country, and Paris. To say we ate and drank our way through this trip would be an understatement. One of my favorite memories from this trip was going to a small wine bar in Venice where they hand-sliced Mortadella behind the bar. Every day we'd go there around four for a drink and a slice and every day there was a roving gang of street dogs that would come in around the same time. The bar tender greeted them as regulars and tossed them scraps of ham. Satisfied enough the dogs would trot out the door and go about the the rest of their evening, hitting up every cafe in the neighborhood to get fed. What a life.
+
+<BigImage>
+
+![Outside our Venice hotel. Pretty good for an iPhone 5.](./assets/what-i-did-in-the-2010s/venice.jpg)
+
+</BigImage>
+
+Flying into Italy and taking a train across France and Spain also taught me that the rail system in Europe is fucking amazing. Spending so much time on the road a musician, I had the privilege to see almost every major city in the US, and this is something that I think more people should experience. If only it was as easy as hoping on a train... that was fast... and had good food and decent wine.
+
+---
+
+Roughly a month before we got engaged in 2012 (about a year and a half before our wedding), I started working at Happy Cog studios in Philadelphia. Having spent the previous five years cutting my teeth at a fast-growing but way more corporate agency in the suburbs (a forty-five minute commute on a good day), this was an exciting change. This opportunity seemed to align much more with how I wanted to work: smaller and more meaningful projects where quality was regarded as important as revenue. Perhaps most valuable though, was the team I got to work with — super talented, opinionated, and genuinely fun people to spend eight hours a day with. At Happy Cog I made some of the best professional relationships of my career (which would eventually lead me to GitHub), learned a ton about design, web development, and was plugged in to a network of folks who literally made the internet that loved. Relationships aside, I also learned a lot about success and failure at Happy Cog, what I liked and disliked about design (and the industry in general), and what ultimately made me dread coming into work.
+
+A year and a half into my tenure, there were signs that the company itself was beginning to struggle; people were fired, there were layoffs, eventually our Austin office closed without much notice. I stuck through it in hopes that things would get better, but ultimately I just felt burnt out. By the end of the my third year I stopped feeling a connection to the work. I struggled to feel purpose investing my time in solving problems for clients when I knew the solutions would ultimately be at the fate of whatever level of corporate dysfunction they possessed.
+
+I like to imagine that this is when I went through my career adolescence and discovered who I was and what I valued in my work. When I made the decision to leave Happy Cog, I knew that the years I spent doing client/agency work served me well, but there wasn't much drive left there. Ultimately, I craved the opportunity to work on problems that I felt true ownership over, shared a sense of investment, and had some iterative process in solving. Around the same time, I also gained a deeper fascination with developer tools and the communities around them. To scratch my own itch, I designed and built my the first end-to-end side project, [Tab Lab](/2015/02/06/tab-lab/). This little taste of working on a product that I felt passionate about got me hooked, so when I had the chance to interview at GitHub in the summer of 2015, I jumped at it.
+
+---
+
+My daughter was born in May of 2015 and everything changed. Not only did I want to spend more time at home, I gained the benefit of leaving the pretty strict nine-to-five-ish work schedule in favor of a flexible remote one. This was a huge factor in my choosing to work at GitHub. Being around for all the moments in the early years of my daughter's life alone outweighed any uncertainties I had about the decision. Working remotely isn't for everyone though, and I did struggle with some aspects initially. I no longer had to commute so most of my day was spent in a chair at my desk. Finding ways to get out of the house became a must — for me this meant going to the gym regularly and getting my body moving. I seriously took up running and haven't regretted a second of it.
+
+The next few years seemed to happen at warp speed. Time gets really distorted after you have kids. I imagine that the lack of sleep, the series of temporary routines that constantly get disrupted, and the speed at which kids' brains and bodies develop, swirl around and affect how our minds perceive time passing. Having settled into parental life, our daughter grew from an infant to toddler to a kid and started going to pre-school in our neighborhood. She gained her own life, best friends, interests, tastes, and opinions. In all of this (and I know it's cliché to say this) being a parent dwarfs all other aspects in my life in almost every way that I can think of, especially once the develop a true sense of self.
+
+---
+
+Early on at GitHub, I found an incredibly empowering and energizing sense of autonomy. I was pushing code to production (GitHub.com) in my first month as a designer and I had never felt a sense of sheer power like that before. It really did feel like a drug. Within my first quarter, I joined a newly formed team that completely redesigned and rebuilt the top of the funnel of our flagship products. I loved putting stuff out into the world and seeing the internet light up praising or trashing it. Work then was ergonomic in a way that I had never experienced. GitHub used the best workflow that I had seen to implement and deploy products. The spikes of dopamine that you get from making stuff at that scale is hard to beat and I could see how it becomes addictive.
+
+I decided to pursue management during my second year at GitHub. It was a big adjustment and a different sense of reward, one that I'm still figuring out. Instead of getting the high from designing, building, and shipping products, I had to find what would become my hook into management. It turns out, that takes years (just like learning how to be a designer). In the last few years, I've found it in building my team and empowering them to be impactful with what they produce. This takes many forms; helping the team shape products, being a good listener, working on longer-term vision with my Product counter parts, helping my team identify areas for personal career growth. Still though, nothing beats the feeling of waking up on a ship day.

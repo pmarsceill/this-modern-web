@@ -1,0 +1,26 @@
+---
+layout: post
+title: 'Designing for Yourself'
+date: 2014-09-11 19:25
+tags: ['legacy']
+---
+
+Redesigning my personal website has historically been a stressful process riddled with self-doubt. Designing for yourself is hard. It's hard for individuals, it's hard for companies, and it's usually the project that will lose out to more pressing priorities. In past iterations of my personal site, I primarily focused on _just getting it to work_ so I could move on. Rather than spending the time to discover and enhance the details that might have elevated the experience, I raced through it to get something launched. For this version, I was very conscious of taking the time to allow these details to flourish through patience and iteration.
+
+In other mediums that I work with, like recorded music, the time spent leading up to an idea often reveals itself to be one of the most active and rewarding parts of my creative process. There is no formula for it, the only constant is time. Time to think, time to re-think, time to create, time to destroy, and time to think again. I find the same is true when designing. Most designers, like musicians, develop stronger intuitions as they gain experience. This intuition not only shapes the work itself, but it also determines when a piece of work can be deemed finished. It’s easy to forget this when working on the web due to its nature of being such a flexible format. Where recordings have the constraint of being finite and unchangeable, websites do not. Is a website ever finished? It’s certainly easier to justify “fixing it later” in the absence of this constraint, but I’ve found this can become a crutch if not consciously kept in check.
+
+For my personal site’s redesign, I fundamentally changed my personal design process to avoid relying on this crutch. This gave me an opportunity to get back to why I started in this profession in the first place, my love of creating things. I kept things loose at first, emphasizing creating smaller ideas over the entire site’s execution. Surprisingly, the biggest challenge that I faced wasn't in the design or development of the site, rather trusting that things would either naturally come together or be edited out as part of the process.
+
+To keep myself disciplined, I set a pace of constant ideation, followed by editing (both by myself and peers), and finally iterating in code. Once I had something resembling my site I kept refining it until it felt right. Here is general overview of what that schedule looked like:
+
+- **I kept a Photoshop diary for a few months.** I don't know what inspired me to start doing this, but I found it to be extremely useful. Every week I forced myself to add at least one new element to it, even if it wasn't entirely related to this site design. Just to get something out of my head and in front my eyes, without any judgment. I liken this to a personal, private [Dribbble](http://dribbble.com) account contained in one giant PSD file. While the majority of its contents never got used, somewhere in that messy jumble I had the beginnings of what you are seeing here.
+
+- **I edited and edited and edited.** I took everything I liked from that diary and massaged it into a loose layout. I kept refining it in Photoshop over and over until it started to resemble something like fragments of different pages. I sent early versions of the design to other designers and asked for feedback. Finally—and perhaps most importantly—I took time away from the design and came back to it with fresh eyes every few days.
+
+- **I set a code deadline.** The design certainly wasn't perfect in the PSD by the time I started coding it, but it didn’t need to be. By getting it into the browser by a certain date, I could make better design decisions and execute them faster. The final grid and type scale were developed entirely in code using general ideas of columns/gutter proportions and loose type sizes from the PSD. At the same time, I had little patterns established from the design comp that I iterated on and re-used throughout the site as a coded it.
+
+- **I didn't set a launch date.** This really wasn’t a purposeful decision. Just a feeling that if I could live with the design locally and chisel away at it until it felt right, it would evolve in the most organic way possible. I looked at the fully coded site every day for about a month (in my local dev environment), even if just for five minutes at a time. While I was browsing other sites, I would purposefully pull it up to see what the experience was like—judging how natural or jarring it felt. This lead me to discover more details that I wanted to temper and I hammered at them until they felt _done_.
+
+![An excerpt of my Photoshop Diary](assets/designing-for-yourself/ps-diary.jpg)
+
+Out of this thing comes a desire to try to break some of the rigidity that I impose on myself for both personal and professional projects. Designing for yourself is an exercise in confidence and trust in your own intuitions. It's a challenge in restraint and a willingness to allow change to happen as consequence of growth. It's a reminder to foster the formation of ideas, constantly evolve their execution, but allow their core to remain true.
