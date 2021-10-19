@@ -8,6 +8,9 @@ type PostType = {
   tags?: [string]
   content: string
   date: string
+  frontmatter: {
+    [key: string]: any
+  }
 }
 
 export default PostType
