@@ -50,7 +50,10 @@ export function getPostBySlug(slug: string) {
   }
 }
 
-export function getAllPosts(sort = 'desc' || 'asc' || undefined) {
+export function getAllPosts(
+  sort = 'desc' || 'asc' || undefined,
+  limit?: number
+) {
   const microSlugs = fs.readdirSync(microPostsDirectory)
   const postSlugs = fs.readdirSync(postsDirectory)
 
@@ -65,7 +68,34 @@ export function getAllPosts(sort = 'desc' || 'asc' || undefined) {
     }
   })
 
+  if (limit) {
+    return postsByDate.slice(0, limit)
+  }
+
   return postsByDate
+}
+
+export function getPostsByType(type = 'current' || 'microblog' || 'legacy') {
+  const posts = getAllPosts('desc')
+
+  if (type === 'current') {
+    const currentBlogPosts = posts.filter((post) => {
+      return !post.tags.includes('legacy') && !post.tags.includes('microblog')
+    })
+    return currentBlogPosts
+  } else if (type === 'microblog') {
+    const microBlogPosts = posts.filter((post) => {
+      return post.tags.includes('microblog')
+    })
+    return microBlogPosts
+  } else if (type === 'legacy') {
+    const legacyBlogPosts = posts.filter((post) => {
+      return post.tags.includes('legacy')
+    })
+    return legacyBlogPosts
+  } else {
+    return null
+  }
 }
 
 export function getNextPost(slug: string) {

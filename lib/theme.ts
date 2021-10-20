@@ -1,3 +1,5 @@
+import { Theme } from '@theme-ui/css'
+
 const theme = {
   config: {
     initialColorMode: 'light',
@@ -325,4 +327,4 @@ const theme = {
   },
 }
 
-export default theme
+export default theme as Theme

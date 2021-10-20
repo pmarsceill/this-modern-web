@@ -9,7 +9,7 @@ type Props = {
   posts: PostType[]
 }
 
-const Archive = ({ posts }: Props) => {
+const Archive: NextPage<Props> = ({ posts }) => {
   return (
     <div>
       <h1>Archive</h1>
