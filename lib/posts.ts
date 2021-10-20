@@ -5,7 +5,6 @@ import fs from 'fs'
 import { join } from 'path'
 import matter from 'gray-matter'
 
-// Add markdown files in `src/content/blog`
 const postsDirectory = join(process.cwd(), 'content', 'blog')
 const microPostsDirectory = join(process.cwd(), 'content', 'microblog')
 

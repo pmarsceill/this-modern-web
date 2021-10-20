@@ -1,5 +1,5 @@
 import { AppProps } from 'next/dist/shared/lib/router/router'
-import GlobalStyles from '../components/global-styles'
+import GlobalStyles from '../components/global/global-styles'
 import { ThemeProvider } from 'theme-ui'
 import theme from '../lib/theme'
 

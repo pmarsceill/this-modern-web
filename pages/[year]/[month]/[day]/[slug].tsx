@@ -21,7 +21,12 @@ type PostProps = {
   previousPost: PostType
 }
 
-const Post = ({ post, content, nextPost, previousPost }: PostProps) => {
+const Post: NextPage<PostProps> = ({
+  post,
+  content,
+  nextPost,
+  previousPost,
+}) => {
   if (post.tags?.includes('microblog')) {
     return (
       <>

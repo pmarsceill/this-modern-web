@@ -50,9 +50,7 @@ const theme = {
   letterSpacings: {
     heading: '-0.03em',
   },
-  borderRadius: {
-    default: '12px',
-  },
+  borderRadius: [0, 12],
   contentPadding: [4, 7, 6],
   fontSizes: [13, 15, 17, 22, 28, 32, 36, 42, 64, 72, 78],
   space: [0, 4, 8, 12, 16, 32, 64, 128, 256, 512],
@@ -88,21 +86,13 @@ const theme = {
   },
   styles: {
     // MDX styles
-    // a: {
-    //   color: 'primary',
-    //   textDecoration: 'none',
-    //   overflow: 'hidden',
-    //   textOverflow: 'ellipses',
-    //   whitespace: 'nowrap',
-    //   backgroundImage: (theme: any) =>
-    //     `linear-gradient(${theme.colors.accentMuted} 0%, ${theme.colors.accentMuted} 100%)`,
-    //   backgroundRepeat: 'repeat-x',
-    //   backgroundPosition: '0 92%',
-    //   backgroundSize: '1px 1px',
-    //   '&:hover': {
-    //     color: 'accent',
-    //   },
-    // },
+    a: {
+      backgroundImage: (theme: any) =>
+        `linear-gradient(${theme.colors.accentMuted} 0%, ${theme.colors.accentMuted} 100%)`,
+      backgroundRepeat: 'repeat-x',
+      backgroundPosition: '0 92%',
+      backgroundSize: '1px 1px',
+    },
     h1: {
       lineHeight: 'heading',
       fontFamily: 'heading',
@@ -239,14 +229,14 @@ const theme = {
         overflow: 'hidden',
         textOverflow: 'ellipses',
         whitespace: 'nowrap',
-        backgroundImage: (theme: any) =>
-          `linear-gradient(${theme.colors.accentMuted} 0%, ${theme.colors.accentMuted} 100%)`,
-        backgroundRepeat: 'repeat-x',
-        backgroundPosition: '0 92%',
-        backgroundSize: '1px 1px',
+
         '&:hover': {
           color: 'accent',
         },
+      },
+      'h1, h2, h3, h4, h5, ol, ul, p, button, input, textarea, hr': {
+        m: 0,
+        p: 0,
       },
       //   code: {
       //     ':not(pre) > &[class*="language-"], &': {
