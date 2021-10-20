@@ -1,6 +1,5 @@
 /** @jsxImportSource theme-ui */
 
-// import Link from 'next/link'
 import NavLink from './nav-link'
 
 const Nav = () => {
@@ -23,6 +22,7 @@ const Nav = () => {
 
   const navLinkCounterStyles = {
     fontFamily: 'monospace',
+    fontSize: 1,
     mr: [2, '', '', 2],
   }
 

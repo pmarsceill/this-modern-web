@@ -3,6 +3,7 @@
 import type { GetStaticProps, NextPage } from 'next'
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'
 
+import AncillaryNav from '../components/ancillary-nav'
 import { Button } from '@theme-ui/components'
 import GlobalLayout from '../components/global/global-layout'
 import Image from 'next/image'
@@ -149,7 +150,7 @@ const MicroBlog = ({ post, mdxContent }: MicroBlogProps) => {
 const Home: NextPage<Props> = ({ currentPosts, microBlogs }) => {
   return (
     <GlobalLayout>
-      <TwoColLayout>
+      <TwoColLayout isExtended>
         <Nav />
         <div>
           {currentPosts.map(
@@ -186,6 +187,7 @@ const Home: NextPage<Props> = ({ currentPosts, microBlogs }) => {
             <Button>Everything Archive</Button>
           </Link>
         </div>
+        <AncillaryNav />
       </TwoColLayout>
     </GlobalLayout>
   )
