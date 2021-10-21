@@ -7,8 +7,6 @@ description: 'Roll your own VPN for (almost) free'
 featuredImage: /assets/diy-internet-privacy/featured.png
 ---
 
-import Button from "../../src/components/button"
-
 For years Virtual Private Networks have been used by corporations to provide a secure channel to employees for access to sensitive company data or systems. In simple terms, a VPN server acts as a proxy and all network traffic is routed through it, encapsulated, encrypted and delivered to the end-user. This type of private secure delivery doesn't only have business applications, though.
 
 Internet privacy [laws have been changing](https://www.aclu.org/issues/privacy-technology/internet-privacy/status-internet-privacy-legislation-state). [A lot](https://www.huffingtonpost.com/entry/republicans-are-about-to-kill-rules-banning-internet-providers-from-sharing-your-web-history-without-your-consent_us_58d9a4cbe4b00f68a5ca2c7c). Internet Service Providers have unprecedented access to record and analyze your online activity, and a VPN can be a good defense against such prying. There is also the added benefit of spoofing your geographic location (IP-based geolocation services would pick up the location of the VPN server that you connect to, not your physical location), which is a great way to stream Netflix while vacationing out of the country.
@@ -23,13 +21,13 @@ Having a VPN server laying around for this type of personal use has historically
 
 I choose Digital Ocean because it was easy, required next to no setup, and costs less than five bucks a month (and comes with a ten dollar referral credit). If you want a setup like mine, use this link to create your account... _Note that you don't need to configure a Droplet or anything yet, this will happen automatically later._
 
-<Button href="https://m.do.co/c/e675b6b6aa8e" variant="outline" size="1">💁 Sign up for Digital Ocean</Button>
+<Button href="https://m.do.co/c/e675b6b6aa8e" variant="outline" size="1" as="a">💁 Sign up for Digital Ocean</Button>
 
 ### 2. Download the VPN server source locally
 
 [Algo's source is hosted on GitHub](https://github.com/trailofbits/algo), you can download a `zip` file of the source:
 
-<Button href="https://github.com/trailofbits/algo/archive/master.zip" variant="outline" size="1">⬇ Algo VPN source (.zip)</Button>
+<Button href="https://github.com/trailofbits/algo/archive/master.zip" variant="outline" size="1" as="a">⬇ Algo VPN source (.zip)</Button>
 
 Extract the `zip` file. This will create a folder called `algo-master`. Rename it to whatever you want and put it somewhere that you'll remember. For the purposes of these instructions, let's rename it `algo-vpn`. The rest of these instructions assume that you're on a Mac, as that is what I used... but there are [Linux and Windows-based docs](https://github.com/trailofbits/algo#deploy-the-algo-server).
 
@@ -101,7 +99,7 @@ $ python2 -m virtualenv --python=`which python2` env && source env/bin/activate 
 
 Once you're done installing the dependencies, you can set up your VPN user accounts by editing `config.cfg` to add some usernames to the list (replace `dan` and `jack` with your usernames):
 
-```cfg
+```
 # Add as many users as you want for your VPN server here.
 # Credentials will be generated for each one.
 users:

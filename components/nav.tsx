@@ -5,7 +5,6 @@ import NavLink from './nav-link'
 const Nav = () => {
   const navItemStyles = {
     display: 'block',
-    mt: [0, '', '', 2],
     mb: [0, '', '', 6],
     color: 'secondary',
   }

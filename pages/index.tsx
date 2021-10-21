@@ -4,7 +4,7 @@ import type { GetStaticProps, NextPage } from 'next'
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'
 
 import AncillaryNav from '../components/ancillary-nav'
-import { Button } from '@theme-ui/components'
+import Button from '../components/button'
 import GlobalLayout from '../components/global/global-layout'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -90,11 +90,17 @@ const CurrentPost = ({ post, isFirst }: PostProps) => {
             <div
               sx={{
                 position: 'relative',
-                width: '180px',
-                height: '180px',
+                flexShrink: 0,
+                width: isFirst
+                  ? ['100px', '140px', '180px']
+                  : ['100px', '140px'],
+                height: isFirst
+                  ? ['100px', '140px', '180px']
+                  : ['100px', '140px'],
                 backgroundColor: 'muted',
                 borderRadius: '12px',
                 overflow: 'hidden',
+                ml: [3, 4],
               }}
             >
               <Image
@@ -125,7 +131,9 @@ const MicroBlog = ({ post, mdxContent }: MicroBlogProps) => {
       }}
       id={post.slug}
     >
-      <div sx={{ fontFamily: 'monospace', fontSize: [1], lineHeight: 'body' }}>
+      <div
+        sx={{ fontFamily: 'monospace', fontSize: [1], lineHeight: 'content' }}
+      >
         {mdxContent ? <MDXRemote {...mdxContent} /> : fallBackBody}
       </div>
       <Link
@@ -161,7 +169,7 @@ const Home: NextPage<Props> = ({ currentPosts, microBlogs }) => {
           )}
           {microBlogs.map(
             (microBlog, i) =>
-              i < 5 && (
+              i < 4 && (
                 <MicroBlog
                   post={microBlog.post}
                   key={microBlog.post.date}
@@ -175,7 +183,7 @@ const Home: NextPage<Props> = ({ currentPosts, microBlogs }) => {
           )}
           {microBlogs.map(
             (microBlog, i) =>
-              i >= 5 && (
+              i >= 4 && (
                 <MicroBlog
                   post={microBlog.post}
                   key={microBlog.post.date}
@@ -184,7 +192,9 @@ const Home: NextPage<Props> = ({ currentPosts, microBlogs }) => {
               )
           )}
           <Link href="/archive" passHref>
-            <Button>Everything Archive</Button>
+            <Button as="a" block variant="outline" sx={{ fontSize: 2 }}>
+              Everything Archive
+            </Button>
           </Link>
         </div>
         <AncillaryNav />

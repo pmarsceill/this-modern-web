@@ -42,9 +42,8 @@ const theme = {
     bold: 700,
   },
   lineHeights: {
-    body: 1.5,
+    body: 1.2,
     heading: 1.1,
-    title: 0.7,
     content: 1.5,
   },
   letterSpacings: {
@@ -220,9 +219,9 @@ const theme = {
     },
     root: {
       // HTML element styles
+      lineHeight: 'body',
       fontFamily: 'serif',
       fontSize: ['19px', '', '21px'],
-      lineHeight: 'content',
       a: {
         color: 'primary',
         textDecoration: 'none',
@@ -237,6 +236,9 @@ const theme = {
       'h1, h2, h3, h4, h5, ol, ul, p, button, input, textarea, hr': {
         m: 0,
         p: 0,
+      },
+      '.prose': {
+        lineHeight: 'content',
       },
       //   code: {
       //     ':not(pre) > &[class*="language-"], &': {

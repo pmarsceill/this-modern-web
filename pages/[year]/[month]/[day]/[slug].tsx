@@ -9,10 +9,19 @@ import {
   getPreviousPost,
 } from '../../../../lib/posts'
 
+import AncillaryNav from '../../../../components/ancillary-nav'
+import Button from '../../../../components/button'
+import GlobalLayout from '../../../../components/global/global-layout'
+import ImageRow from '../../../../components/image-row'
 import { Link } from '@theme-ui/components'
 import { NextPage } from 'next'
+import PostNav from '../../../../components/post-nav'
 import PostType from '../../../../types/post'
+import { Themed } from '@theme-ui/mdx'
+import TwoColLayout from '../../../../components/two-col-layout'
+import mdxPrism from 'mdx-prism'
 import { serialize } from 'next-mdx-remote/serialize'
+import { useState } from 'react'
 
 type PostProps = {
   post: PostType
@@ -21,12 +30,52 @@ type PostProps = {
   previousPost: PostType
 }
 
+type TimeWarningProps = {
+  currentYear: number
+  postYear: number
+}
+
+const components = { Button: Button, ImageRow: ImageRow }
+
+const TimeWarning = ({ postYear, currentYear }: TimeWarningProps) => {
+  return (
+    <>
+      <p sx={{ mt: 0, mb: '1em' }}>
+        👋{' '}
+        <em>
+          Hello reader, this blog post has aged {currentYear - postYear} years
+          since I originally wrote it in {postYear}. That&apos;s about{' '}
+          {(currentYear - postYear) * 7} &ldquo;internet years&rdquo; you know,
+          so it&apos;s probably quite stale by now and may not reflect my
+          current thinking. I am happy to keep it here for archival purposes,
+          but please{' '}
+          <a href="mailto:patrick@thismodernweb.com">reach out to me</a> if
+          something feels off or if you&apos;re relying on it for any serious
+          purpose.{' '}
+        </em>
+      </p>
+      <p sx={{ m: 0 }}>
+        <em>
+          Thanks,
+          <br />
+          Patrick
+        </em>
+      </p>
+      <Themed.hr />
+    </>
+  )
+}
+
 const Post: NextPage<PostProps> = ({
   post,
   content,
   nextPost,
   previousPost,
 }) => {
+  const [showSideTitle, setShowSideTitle] = useState(false)
+  const currentYear = new Date().getFullYear()
+  const postYear = parseInt(post.year)
+
   if (post.tags?.includes('microblog')) {
     return (
       <>
@@ -35,27 +84,67 @@ const Post: NextPage<PostProps> = ({
     )
   } else {
     return (
-      <>
-        {post.title ? <h1 sx={{ color: 'primary' }}>{post.title}</h1> : null}
-        {post.description ? <span>{post.description}</span> : null}
-        <time>{format(parseISO(post.date), 'PPP')}</time>
-        <MDXRemote {...content} />
-
-        {previousPost ? (
-          <Link
-            href={`/${previousPost.year}/${previousPost.month}/${previousPost.day}/${previousPost.slug}`}
+      <GlobalLayout>
+        <article>
+          <header
+            sx={{
+              mb: [5, '', 6],
+              maxWidth: ['420px', '100%', '720px'],
+              pr: ['', 5, 0, 0],
+            }}
           >
-            {previousPost.title || previousPost.date}
-          </Link>
-        ) : null}
-        {nextPost ? (
-          <Link
-            href={`/${nextPost.year}/${nextPost.month}/${nextPost.day}/${nextPost.slug}`}
-          >
-            {nextPost.title || nextPost.date}
-          </Link>
-        ) : null}
-      </>
+            {post.title ? (
+              <h1
+                sx={{
+                  fontFamily: 'heading',
+                  fontSize: [5, 6, 7],
+                  display: 'inline',
+                  color: 'primary',
+                  letterSpacing: 'heading',
+                  lineHeight: 'heading',
+                  mr: 2,
+                }}
+              >
+                {post.title}
+              </h1>
+            ) : null}
+            {post.description ? (
+              <h2
+                sx={{
+                  fontFamily: 'heading',
+                  fontSize: [5, 6, 7],
+                  fontWeight: 'bold',
+                  color: 'secondary',
+                  display: 'inline',
+                  letterSpacing: 'heading',
+                  lineHeight: 'heading',
+                }}
+              >
+                {post.description}
+              </h2>
+            ) : null}
+          </header>
+          <TwoColLayout isExtended>
+            <time sx={{ fontSize: 0, color: 'secondary' }}>
+              {format(parseISO(post.date), 'PPP')}
+            </time>
+            <section sx={{ pt: ['', 4, 0, 0] }}>
+              <div sx={{ '> p:first-child': { mt: 0 } }} className="prose">
+                {currentYear - postYear >= 3 && (
+                  <TimeWarning currentYear={currentYear} postYear={postYear} />
+                )}
+                <MDXRemote {...content} components={components} />
+              </div>
+            </section>
+            <aside>
+              <AncillaryNav />
+            </aside>
+          </TwoColLayout>
+          <footer sx={{ mt: 6, borderTop: '1px solid', borderColor: 'muted' }}>
+            <PostNav next={nextPost} previous={previousPost} />
+          </footer>
+        </article>
+      </GlobalLayout>
     )
   }
 }
@@ -70,10 +159,10 @@ export async function getStaticProps({ params }: Params) {
   )
   const mdxSource = await serialize(post.content, {
     // Optionally pass remark/rehype plugins
-    // mdxOptions: {
-    //   remarkPlugins: [require('remark-code-titles')],
-    //   rehypePlugins: [mdxPrism, rehypeSlug, rehypeAutolinkHeadings],
-    // },
+    mdxOptions: {
+      //   remarkPlugins: [require('remark-code-titles')],
+      rehypePlugins: [mdxPrism],
+    },
     scope: post.frontmatter,
   })
 

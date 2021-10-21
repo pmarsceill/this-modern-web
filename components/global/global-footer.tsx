@@ -9,10 +9,12 @@ const GlobalFooter = () => {
         fontFamily: 'body',
         fontSize: [1],
         color: 'secondary',
-        pb: 4,
+        py: 6,
       }}
     >
-      &copy; 2012-{new Date().getFullYear()} Patrick Marsceill.
+      <div sx={{ mb: 2 }}>
+        &copy; 2012-{new Date().getFullYear()} Patrick Marsceill.
+      </div>
       <ul
         sx={{
           listStyle: 'none',
@@ -26,7 +28,7 @@ const GlobalFooter = () => {
             mr: 4,
           }}
         >
-          <Link href={'#top'}>
+          <Link href={'#top'} passHref>
             <a
               sx={{
                 display: 'inline-block',
