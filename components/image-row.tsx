@@ -1,21 +1,22 @@
 /** @jsxImportSource theme-ui */
 
 type Props = {
-  children: React.ReactNode
+  children: [HTMLImageElement]
 }
 
 const ImageRow = ({ children }: Props) => {
   return (
     <div
       sx={{
-        width: ['', '', 'calc(100% + 64px)'],
-        height: ['', '', 'calc(100% + 64px)'],
-        marginLeft: ['', '', '-32px !important'],
-        marginRight: ['', '', '-32px !important'],
+        position: 'relative',
         display: ['', 'flex'],
+        ml: ['', -6],
+        mr: ['', -6],
         '> *': {
           flexGrow: 1,
           width: ['', '200px'],
+          m: 0,
+          p: 0,
         },
         '> * + *': {
           ml: 2,

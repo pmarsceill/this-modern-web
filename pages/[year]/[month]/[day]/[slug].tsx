@@ -13,12 +13,14 @@ import AncillaryNav from '../../../../components/ancillary-nav'
 import Button from '../../../../components/button'
 import GlobalLayout from '../../../../components/global/global-layout'
 import ImageRow from '../../../../components/image-row'
-import { Link } from '@theme-ui/components'
+import MdxImage from '../../../../components/mdx-image'
 import { NextPage } from 'next'
 import PostNav from '../../../../components/post-nav'
 import PostType from '../../../../types/post'
 import { Themed } from '@theme-ui/mdx'
 import TwoColLayout from '../../../../components/two-col-layout'
+import Video from '../../../../components/video'
+import imageMetadata from '../../../../lib/image-metadata'
 import mdxPrism from 'mdx-prism'
 import { serialize } from 'next-mdx-remote/serialize'
 import { useState } from 'react'
@@ -35,7 +37,12 @@ type TimeWarningProps = {
   postYear: number
 }
 
-const components = { Button: Button, ImageRow: ImageRow }
+const components = {
+  Button: Button,
+  ImageRow: ImageRow,
+  img: MdxImage,
+  Video: Video,
+}
 
 const TimeWarning = ({ postYear, currentYear }: TimeWarningProps) => {
   return (
@@ -125,11 +132,20 @@ const Post: NextPage<PostProps> = ({
             ) : null}
           </header>
           <TwoColLayout isExtended>
-            <time sx={{ fontSize: 0, color: 'secondary' }}>
-              {format(parseISO(post.date), 'PPP')}
-            </time>
+            <div>
+              <time
+                sx={{
+                  fontSize: 0,
+                  color: 'secondary',
+                  fontFamily: 'body',
+                  mt: 1,
+                }}
+              >
+                {format(parseISO(post.date), 'PPP')}
+              </time>
+            </div>
             <section sx={{ pt: ['', 4, 0, 0] }}>
-              <div sx={{ '> p:first-child': { mt: 0 } }} className="prose">
+              <div sx={{ '> p:first-of-type': { mt: 0 } }} className="prose">
                 {currentYear - postYear >= 3 && (
                   <TimeWarning currentYear={currentYear} postYear={postYear} />
                 )}
@@ -161,7 +177,7 @@ export async function getStaticProps({ params }: Params) {
     // Optionally pass remark/rehype plugins
     mdxOptions: {
       //   remarkPlugins: [require('remark-code-titles')],
-      rehypePlugins: [mdxPrism],
+      rehypePlugins: [mdxPrism, imageMetadata],
     },
     scope: post.frontmatter,
   })

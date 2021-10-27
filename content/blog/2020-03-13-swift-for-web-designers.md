@@ -6,9 +6,6 @@ tags: ['journal', 'SwiftUI', 'Learning']
 featuredImage: /assets/swift-for-web-designers/swift_logo.png
 ---
 
-import BigImage from "../../src/components/big-img"
-import ImageRow from "../../src/components/img-row"
-
 In recent years, designing and building for the web has taken a few steps closer toward application development (for better or worse) with the advent of modern frameworks like React. These encourage a more app-centric approach to UI development through components and different ways of encapsulating logic and presentation layers. In the end though, the web still is — and probably always will be: markup, styles, and JavaScript served over a network to a browser that turns it into a UI. This protocol allows web developers to be productive very early-on in their journey because what you "write" is what you "get" and unlike compiled languages like Swift, there is no required build step before you can see the fruits of your labor. With the release of SwiftUI though, Apple has attempted to replicate a web developer's ease-of-entry with a live preview mechanism and an abstracted language for constructing interfaces. This was enough to pique my interest and over the last month, I began playing with SwiftUI through [Design+Code's SwiftUI](https://designcode.io/swiftui-course) course. Here are my initial impressions...
 
 ## Tooling
@@ -89,10 +86,8 @@ VStack {
 This will render the following in both dark and light mode, using the color sets that I defined in the asset catalog (which is like a special folder in your project where you keep all your images and color properties for theming).
 
 <ImageRow>
-
-![Preview of the SwiftUI code example in light mode](/assets/swift-for-web-designers/card-light.png)
-![Preview of the SwiftUI code example in dark mode](/assets/swift-for-web-designers/card-dark.png)
-
+    <img src="/assets/swift-for-web-designers/card-light.png" alt="Preview of the SwiftUI code example in light mode" layout="fill" objectFit="contain" />
+    <img src="/assets/swift-for-web-designers/card-dark.png" alt="Preview of the SwiftUI code example in dark mode" layout="fill" objectFit="contain" />
 </ImageRow>
 
 Despite its quirks and unfamiliarity, I am already a fan of SwiftUI. Intentionally or not, Apple is now courting folks like me who grew up building on web tech stacks. Because in many ways SwiftUI feels like the tools I am already using, I can absolutely see myself building out the UI (and more) of an entire app with this in a matter of weeks. Who knows, maybe I'll get something in the App Store this year?

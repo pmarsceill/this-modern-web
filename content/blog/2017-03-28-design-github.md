@@ -6,8 +6,6 @@ description: 'Shape the future of software development'
 featuredImage: /assets/design-github/design-github.png
 ---
 
-import BigImage from "../../src/components/big-img"
-
 <BigImage>
 
 ![](/assets/design-github/design-github.png)

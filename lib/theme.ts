@@ -185,11 +185,11 @@ const theme = {
         pl: ['1.6em', 0],
         '&::before': {
           position: 'absolute',
-          top: ['0.5em', '', '0.6em'],
+          top: ['0.5em', '', '0.68em'],
           left: ['0.25em', '-1.6em'],
           color: 'secondary',
           content: 'counter(step-counter)',
-          'counter-increment': 'step-counter',
+          counterIncrement: 'step-counter',
           fontSize: 1,
           fontFamily: 'body',
           lineHeight: 1,
@@ -217,6 +217,41 @@ const theme = {
     p: {
       my: '1em',
     },
+    img: {
+      width: '100%',
+      height: 'auto',
+    },
+    pre: {
+      background: 'transparent',
+      border: '1px solid',
+      borderColor: 'muted',
+      marginBottom: 4,
+      lineHeight: '1',
+      p: 3,
+      borderRadius: '4px',
+      overflowX: 'auto',
+
+      code: {
+        whiteSpace: 'pre',
+      },
+
+      '.comment,.prolog,.doctype,.cdata,.punctuation,.operator,.entity,.url': {
+        color: 'gray',
+      },
+      '.comment': {
+        fontStyle: 'italic',
+      },
+      '.property, .tag, .boolean, .number, .constant, .symbol, .deleted, .function, .class-name, .regex, .important, .variable':
+        {
+          color: 'accent',
+        },
+      '.atrule, .attr-value, .keyword': {
+        color: 'primary',
+      },
+      '.selector, .attr-name, .string, .char, .builtin, .inserted': {
+        color: 'secondary',
+      },
+    },
     root: {
       // HTML element styles
       lineHeight: 'body',
@@ -239,6 +274,23 @@ const theme = {
       },
       '.prose': {
         lineHeight: 'content',
+      },
+      '.big-image': {
+        position: 'relative',
+        ml: -6,
+        mr: -6,
+        width: 'calc(100% + 128px) !important',
+      },
+      '.small-image': {
+        mx: 'auto',
+        maxWidth: '420px',
+      },
+      code: {
+        fontFamily: 'monospace',
+        background: 'transparent',
+        whiteSpace: 'pre-wrap',
+        wordBreak: 'normal',
+        fontSize: 1,
       },
       //   code: {
       //     ':not(pre) > &[class*="language-"], &': {

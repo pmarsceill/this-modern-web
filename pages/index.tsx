@@ -106,7 +106,9 @@ const CurrentPost = ({ post, isFirst }: PostProps) => {
               <Image
                 src={post.frontmatter.featuredImage}
                 alt={post.title}
-                layout="fill"
+                layout="responsive"
+                width="180px"
+                height="180px"
                 objectFit="cover"
                 objectPosition="right center"
               />

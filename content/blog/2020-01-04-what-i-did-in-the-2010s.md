@@ -5,19 +5,13 @@ date: 2020-01-03T23:40:23-0500
 tags: ['journal', 'retrospective', '2010s']
 ---
 
-import BigImage from "../../src/components/big-img"
-
 The decade began much like the years leading up to it; the US economy was crawling out of the recession, Obama was two years into his first term, Steve Jobs was still somehow making public appearances, and my adult life was really just beginning to take shape. It's cathartic to take a chunk of time like ten years and play back your memories in fast-forward trying to catch the good parts to watch in slow motion. Memories are faulty and my sense of time is only getting worse, so recapping the last ten years morphed into an exercise in my own personal anthropology. Digging through my Photos library, old emails, and archived Dropbox folders helped me piece together the holes in time, especially in the early 2010s when digital life _wasn't_ on the cloud by default.
 
 ---
 
 I was 26 years old in 2010. In almost all of my free time I was playing in bands — it was awesome. I was in two at the time: _Sun Airway_ (which began as an electronic duo and had been recently signed to [Dead Oceans](https://deadoceans.com)) and _Blood Feathers_ (a down-home six-piece rock n' roll band). These two groups couldn't have been more different in sound, personnel, and personality which worked in my favor as I never found myself bored. There were multiple US tours with both bands that kicked off in 2010, the longest of which was Sun Airway's first tour to support our debut album _Nocturne of Exploded Crystal Chandelier_ ([coming in at a whopping 7.8 on Pitchfork](https://pitchfork.com/reviews/albums/14780-nocturne-of-exploded-crystal-chandelier/)).
 
-<BigImage>
-
-![Sun Airway - Nocturne of Exploded Crystal Chandelier (Dead Oceans, 2010)](/assets/what-i-did-in-the-2010s/sa-nocturne.jpg)
-
-</BigImage>
+<!-- <img src="/assets/what-i-did-in-the-2010s/sa-nocturne.jpg" alt="Sun Airway - Nocturne of Exploded Crystal Chandelier (Dead Oceans, 2010)" className="big-image" /> -->
 
 Last year (in 2019), [Pitchfork published an interesting retrospective](https://pitchfork.com/features/article/2010s-chillwave-best-coast-washed-out-neon-indian/) of the genre that Sun Airway was ultimately pegged as: _chillwave_.
 
@@ -29,11 +23,7 @@ I couldn't help but have a laugh at Brandon Cox's (Deerhunter, Atlas Sound) 2011
 
 The ironic thing about this genre pretension is that the guitar-based rock music that _Blood Feathers_ was making at the time was kinda out-of-favor in many taste-making circles in the beginning of "the 10's". Music blogs had so much influence in discovering and hyping bands (unlike today's world of streaming services) and many were trying to break bands that fit into this new internet-era aesthetic of hazy sample-based warbly-cassette-tape nostalgia. This only encouraged us in _Blood Feathers_ to unapologetically lean even further in the other direction. We ultimately put out two records during my time with the band (_Goodness Gracious_ in 2009 & _Tingle Tangle Wanda_ in 2014) and took a sketchy-as-fuck RV across the South in the dead of Summer.
 
-<BigImage>
-
 ![One of the many break-downs we experienced in Blood Feathers' touring RV. August 2010.](/assets/what-i-did-in-the-2010s/rv.jpg)
-
-</BigImage>
 
 I really loved being on both of those groups and look back on this time as some of the best of my life and certainly the most musically prolific. As fate took us all in different directions, the desire to dedicate this much of my life to music — which is an almost impossible lifestyle — faded. By 2013, _Sun Airway_ was chugging on without me, toured Europe, and put out two more records. _Blood Feathers_ split up by the end of that year and the song writing partnership that held the band together dissolved. My own sense of purpose shifted from trying to make it as a musician to building a life with my partner and to have a meaningful career.
 
@@ -41,11 +31,7 @@ I really loved being on both of those groups and look back on this time as some 
 
 On October 12, 2013, I got married in the most-fun wedding that I've ever attended (still haven't beat it). The next day, as newlyweds, we caught a ride to lovely Newark airport and embarked on our incredible honeymoon to Europe. We toured through Venice, the South of France, Basque Country, and Paris. To say we ate and drank our way through this trip would be an understatement. One of my favorite memories from this trip was going to a small wine bar in Venice where they hand-sliced Mortadella behind the bar. Every day we'd go there around four for a drink and a slice and every day there was a roving gang of street dogs that would come in around the same time. The bar tender greeted them as regulars and tossed them scraps of ham. Satisfied enough the dogs would trot out the door and go about the the rest of their evening, hitting up every cafe in the neighborhood to get fed. What a life.
 
-<BigImage>
-
 ![Outside our Venice hotel. Pretty good for an iPhone 5.](/assets/what-i-did-in-the-2010s/venice.jpg)
-
-</BigImage>
 
 Flying into Italy and taking a train across France and Spain also taught me that the rail system in Europe is fucking amazing. Spending so much time on the road a musician, I had the privilege to see almost every major city in the US, and this is something that I think more people should experience. If only it was as easy as hoping on a train... that was fast... and had good food and decent wine.
 

@@ -19,11 +19,7 @@ Siri Shortcuts aren't new, but as more developer-centric apps begin using the [S
 
 Before getting into examples of how to set up your device with handy dev-centric Shortcuts, let's review exactly what they are and some of the core concepts around them.
 
-<SmallImage>
-
-![Shortcuts app, "Edit" view on iOS 13](/assets/siri-shortcuts/shortcuts-app.png)
-
-</SmallImage>
+![Shortcuts app, 'Edit' view on iOS 13](/assets/siri-shortcuts/shortcuts-app-small.png)
 
 iOS 13 brought a new Shortcuts app to our devices. This app is the engine that allows us to create specific workflows using individual tasks, called actions, from many individual apps and connect them together into one string of events called a shortcut. These shortcuts are accessible from OS-level context menus (primarily the _share sheet_), kicked off manually from the home screen, or automatically run at a certain time interval.
 
@@ -35,11 +31,7 @@ My initial motivation was fairly niche; I wanted to build a shortcut that used t
 
 I found that the simplest way to identify the contents of a photo was to use Google Vision. Specifically, the image annotation API. After researching several ways to hit this API from my phone, I stumbled upon the _Get contents of `<url>`_ action could be used to send curl commands. This made hitting the Google Vision API with an encoded version of the photo that I just took feel too easy. This specific action is built into Shortcuts itself (not tied to any particular app) and has many uses. It can hit API endpoints, grab an RSS feed, download and parse the contents of a webpage, or grab any data that is backed by a URL. As I learned, it is also very handy for making a single curl command and getting a response back. A more complicated API integration may be better served using another app with Shortcuts support (like Scriptable, more on this later) to handle more advanced back-and-forth and parsing of an API response.
 
-<SmallImage>
-
-![Get contents of ... action in Siri Shortcuts](/assets/siri-shortcuts/get-contents-url.png)
-
-</SmallImage>
+![Get contents of ... action in Siri Shortcuts](/assets/siri-shortcuts/get-contents-url-small.png)
 
 Another use for this action that I am eager to play with is [triggering a GitHub Action workflow run](https://help.github.com/en/actions/configuring-and-managing-workflows/configuring-a-workflow#triggering-a-workflow-with-events) using the [`repository_dispatch`](https://developer.github.com/v3/repos/#create-a-repository-dispatch-event) event via curl that is kicked off from a shortcut. There are a ton of possibilities with this flexible action allowing your device to interface with any number of services fronted by public web APIs.
 
@@ -65,11 +57,7 @@ This workflow solves the same problem, but instead of creating authentication, i
 12. My shortcut commits all the changes and pushes them to the remote.
 13. My shortcut opens my repository in the GitHub app.
 
-<SmallImage>
-
-![My "Add to Inbox" shortcut for adding content to my website](/assets/siri-shortcuts/add-to-inbox.png)
-
-</SmallImage>
+![My 'Add to Inbox' shortcut for adding content to my website](/assets/siri-shortcuts/add-to-inbox-ui-small.png)
 
 From here, I usually open the repository in Safari to actually create the Pull Request from the recently pushed branch (as of writing this there is no way to do this in the GitHub iOS app yet). I then wait for GitHub Actions to build and Netlify to do my preview deploy and _viola_ -- I'm ready to merge 👌.
 
@@ -79,11 +67,7 @@ This shortcut was inspired by [this tweet from Rafa](https://twitter.com/rafahar
 
 [Scriptable](https://scriptable.app) is an automation app (much like Shortcuts), but it runs on JavaScript instead of a visual block editor. It fully supports ES6, all scripts are stored on your phone, and can be executed from the Scriptable app, Siri/Shortcuts, or the share sheet. If you write JavaScript, this can unlock another level of functionality to Shortcuts giving you native JavaScript APIs to bake in.
 
-<SmallImage>
-
-!["Is Slack Down?" Script in Scriptable](/assets/siri-shortcuts/scriptable.png)
-
-</SmallImage>
+!['Is Slack Down?' Script in Scriptable](/assets/siri-shortcuts/scriptable-small.png)
 
 As mentioned earlier in this post, this allows for the potential to create relatively complex integrations with any services with web APIs. Specifically for development, GitHub's API is a great candidate for something like this.
 
@@ -91,8 +75,4 @@ As mentioned earlier in this post, this allows for the potential to create relat
 
 While the GitHub app has no editor and is focused on triaging issues, pull requests, and other notifications; it does allow you to "share" to Working Copy if you have it installed, which has a fairly nice text editor built in. This doesn't actually use Shortcuts specifically, but it does use a similar action in the share sheet within the GitHub app.
 
-<SmallImage>
-
-<Video src="/assets/siri-shortcuts/working-copy-to-gh.mp4" alt="Video showing sharing between GitHub iOS app and Working Copy iOS app" />
-
-</SmallImage>
+<Video src="/assets/siri-shortcuts/working-copy-to-gh.mp4" alt="Video showing sharing between GitHub iOS app and Working Copy iOS app" className="small-image" controls loop />
