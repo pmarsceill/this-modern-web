@@ -5,6 +5,7 @@ tags: ['journal', 'IPSec', 'VPN', 'DIY']
 date: 2018-03-27 14:38
 description: 'Roll your own VPN for (almost) free'
 featuredImage: /assets/diy-internet-privacy/featured.png
+colorMode: 'dark'
 ---
 
 For years Virtual Private Networks have been used by corporations to provide a secure channel to employees for access to sensitive company data or systems. In simple terms, a VPN server acts as a proxy and all network traffic is routed through it, encapsulated, encrypted and delivered to the end-user. This type of private secure delivery doesn't only have business applications, though.

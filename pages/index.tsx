@@ -2,6 +2,7 @@
 
 import type { GetStaticProps, NextPage } from 'next'
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'
+import { formatDistance, parseISO } from 'date-fns'
 
 import AncillaryNav from '../components/ancillary-nav'
 import Button from '../components/button'
@@ -13,6 +14,7 @@ import PostType from '../types/post'
 import TwoColLayout from '../components/two-col-layout'
 import { getPostsByType } from '../lib/posts'
 import { serialize } from 'next-mdx-remote/serialize'
+import { useColorMode } from 'theme-ui'
 
 type Props = {
   currentPosts: PostType[]
@@ -30,6 +32,9 @@ type PostProps = {
 }
 
 const CurrentPost = ({ post, isFirst }: PostProps) => {
+  const [colorMode, setColorMode] = useColorMode()
+  setColorMode('dark')
+
   return (
     <article
       sx={{ mb: 5, pb: 5, borderBottom: '1px solid', borderColor: 'muted' }}
@@ -122,6 +127,9 @@ const CurrentPost = ({ post, isFirst }: PostProps) => {
 
 const MicroBlog = ({ post, mdxContent }: MicroBlogProps) => {
   const fallBackBody = post.title || post.slug
+  const formattedDate = formatDistance(parseISO(post.date), new Date(), {
+    addSuffix: true,
+  })
 
   return (
     <article
@@ -150,7 +158,7 @@ const MicroBlog = ({ post, mdxContent }: MicroBlogProps) => {
             fontFamily: 'monospace',
           }}
         >
-          ⌘ <time>{post.date}</time>
+          ⌘ <time>{formattedDate}</time>
         </a>
       </Link>
     </article>

@@ -11,6 +11,7 @@ type PostType = {
   frontmatter: {
     [key: string]: any
   }
+  colorMode?: string
 }
 
 export default PostType

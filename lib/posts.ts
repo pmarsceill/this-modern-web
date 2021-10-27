@@ -34,6 +34,7 @@ export function getPostBySlug(slug: string) {
   const postYear = format(parseISO(date), 'yyyy')
   const postMonth = format(parseISO(date), 'MM')
   const postDay = format(parseISO(date), 'dd')
+  const colorMode = data.colorMode || 'light'
 
   return {
     slug: realSlug,
@@ -46,6 +47,7 @@ export function getPostBySlug(slug: string) {
     date: date,
     tags,
     frontmatter: data,
+    colorMode,
   }
 }
 

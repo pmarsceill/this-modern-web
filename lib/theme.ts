@@ -83,14 +83,39 @@ const theme = {
       },
     },
   },
-  styles: {
-    // MDX styles
-    a: {
+  anchor: {
+    default: {
+      color: 'primary',
+      textDecoration: 'none',
+      overflow: 'hidden',
+      textOverflow: 'ellipses',
+      whitespace: 'nowrap',
+
+      '&:hover': {
+        color: 'accent',
+      },
+    },
+    prose: {
+      color: 'primary',
+      textDecoration: 'none',
+      overflow: 'hidden',
+      textOverflow: 'ellipses',
+      whitespace: 'nowrap',
+
+      '&:hover': {
+        color: 'accent',
+      },
       backgroundImage: (theme: any) =>
         `linear-gradient(${theme.colors.accentMuted} 0%, ${theme.colors.accentMuted} 100%)`,
       backgroundRepeat: 'repeat-x',
       backgroundPosition: '0 92%',
       backgroundSize: '1px 1px',
+    },
+  },
+  styles: {
+    // MDX styles
+    a: {
+      variant: 'anchor.prose',
     },
     h1: {
       lineHeight: 'heading',
@@ -258,15 +283,7 @@ const theme = {
       fontFamily: 'serif',
       fontSize: ['19px', '', '21px'],
       a: {
-        color: 'primary',
-        textDecoration: 'none',
-        overflow: 'hidden',
-        textOverflow: 'ellipses',
-        whitespace: 'nowrap',
-
-        '&:hover': {
-          color: 'accent',
-        },
+        variant: 'anchor.default',
       },
       'h1, h2, h3, h4, h5, ol, ul, p, button, input, textarea, hr': {
         m: 0,
@@ -274,6 +291,12 @@ const theme = {
       },
       '.prose': {
         lineHeight: 'content',
+        a: {
+          variant: 'anchor.prose',
+        },
+        p: {
+          my: '1em',
+        },
       },
       '.large-image': {
         position: 'relative',

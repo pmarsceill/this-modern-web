@@ -4,6 +4,7 @@ description: 'A new decade, a new site, and a new name'
 date: 2020-02-17T15:29:38-0500
 tags: ['journal', 'new site', 'This Modern Web']
 featuredImage: /assets/new-site-who-dis/tmw.png
+colorMode: 'dark'
 ---
 
 Every year or so I get the itch to start redesigning my personal site with the intention of writing more, showcasing more work, and generally creating more things to put on the internet. About six months ago, I started gathering ideas for what exactly I wanted the next iteration of my personal site to be, how I wanted it to be presented, and what _I_ wanted to get out the process.

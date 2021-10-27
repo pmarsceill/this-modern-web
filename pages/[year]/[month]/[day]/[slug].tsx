@@ -27,6 +27,7 @@ import imageMetadata from '../../../../lib/image-metadata'
 import mdxPrism from 'mdx-prism'
 import remarkUnwrapImages from 'remark-unwrap-images'
 import { serialize } from 'next-mdx-remote/serialize'
+import { useColorMode } from '@theme-ui/color-modes'
 import { useState } from 'react'
 
 type PostProps = {
@@ -85,6 +86,11 @@ const Post: NextPage<PostProps> = ({
   nextPost,
   previousPost,
 }) => {
+  const [colorMode, setColorMode] = useColorMode()
+  const postColorMode = post.colorMode || 'light'
+
+  setColorMode(postColorMode)
+
   const [showSideTitle, setShowSideTitle] = useState(false)
   const currentYear = new Date().getFullYear()
   const postYear = parseInt(post.year)

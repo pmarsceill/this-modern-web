@@ -4,6 +4,7 @@ description: 'Developing with Siri Shortcuts and more'
 date: 2020-05-13T16:44:45-0400
 tags: ['journal', 'Siri Shortcuts', 'Static sites']
 featuredImage: /assets/siri-shortcuts/siri-shortcuts-logo.png
+colorMode: light
 ---
 
 I love spending short chunks of time programming things that are _just for me_. It's a satisfying indulgence, like cooking an intricate dinner for one or building a scale model of your own house. Lately, [Siri Shortcuts](https://developer.apple.com/siri/) have filled this need quite well because I find them accessible, intuitive enough to quickly get productive, and malleable enough to solve "real problems".
