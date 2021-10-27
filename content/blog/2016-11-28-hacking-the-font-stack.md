@@ -7,7 +7,11 @@ tags: ['native-type']
 featuredImage: /assets/hacking-font-stack/hacking-font-stack.png
 ---
 
-<img src="/assets/hacking-font-stack/hacking-font-stack.png" className="big-image" />
+<LargeImage>
+
+![](/assets/hacking-font-stack/hacking-font-stack.png)
+
+</LargeImage>
 
 When the `@font-face` directive (which allows the use of non-system font files on webpages) made its [official debut][423c2466] in the CSS3 fonts module, Flash was still a big part of the web. Compared to CSS at the time, Flash allowed for seemingly limitless possibilities in layout, typography, animations and consistency across platforms. It was extremely attractive to adopt with its relatively shallow learning curve and gave designers a more visual way to put content on the web.
 
@@ -53,9 +57,11 @@ On the Apple side of things, we're using a font intended for a Japanese characte
 - Falls back to - _local serif_
 
 <ImageRow>
-  <img src="/assets/hacking-font-stack/apple-hiragino-mincho-pro.png" alt="Hiragino Mincho Pro (Latin characters) on macOS" />
-  <img src="/assets/hacking-font-stack/windows-cambria.png" alt="Cambria on Windows" />
-  <img src="/assets/hacking-font-stack/android-roboto-serif.png" alt="Roboto Serif on Android / ChromeOS" />
+
+![Hiragino Mincho Pro (Latin characters) on macOS](/assets/hacking-font-stack/apple-hiragino-mincho-pro.png)
+![Cambria on Windows](/assets/hacking-font-stack/windows-cambria.png)
+![Roboto Serif on Android / ChromeOS](/assets/hacking-font-stack/android-roboto-serif.png)
+
 </ImageRow>
 
 ## 2. The Helvetica / Arial alternative
@@ -81,9 +87,11 @@ You might have seen this type of stack used on Medium, GitHub, and Facebook rece
 If you want to stay strictly with neo-grotesque typefaces, you could pull out `Segoe UI` font to allow Windows to render the fall back (Arial). Segoe UI is one of the only default fonts on Windows that has a light weight option, which makes it useful in many display sized contexts.
 
 <ImageRow>
-  <img alt="San Francisco on macOS / iOS" src="/assets/hacking-font-stack/apple-san-francisco.png" />
-  <img alt="Segoe UI on Windows" src="/assets/hacking-font-stack/apple-san-francisco.png" />
-  <img alt="Roboto on Android / ChromeOS" src="/assets/hacking-font-stack/android-roboto.png" />
+
+![San Francisco on macOS / iOS](/assets/hacking-font-stack/apple-san-francisco.png)
+![Segoe UI on Windows](/assets/hacking-font-stack/apple-san-francisco.png)
+![Roboto on Android / ChromeOS](/assets/hacking-font-stack/android-roboto.png)
+
 </ImageRow>
 
 ## 3. The humanist sans

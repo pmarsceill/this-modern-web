@@ -20,17 +20,17 @@ Despite some of the bulkiness and current fragility, I do really appreciate havi
 
 Another thing that I appreciate is the approach in integrating Canvas into Xcode and how it is very reminiscent of the early versions of Framer Studio. For those that don't remember, this was the precursory product that came before Framer X: CoffeeScript on the left, live preview (with device chrome) on the right:
 
-<BigImage>
+<LargeImage>
 
 ![UI from the defunct Framer Studio*](/assets/swift-for-web-designers/framer.png)
 
-</BigImage>
+</LargeImage>
 
-<BigImage>
+<LargeImage>
 
 ![UI from Xcode 11.3.1 with Canvas](/assets/swift-for-web-designers/swift-ui.png)
 
-</BigImage>
+</LargeImage>
 
 It certainly _feels_ like there was some inspiration there. It's also interesting to see how technology seemingly continues to pull development and design closer together. Framer Studio was a tool often used to prototype native app interactions, and now with the same level of code abstraction one can actually write the real UI for a native app -- animation, interaction, and even integrated into a data model. I'm actually quite surprised that it took Apple this long to create this sort of thing, but I have no idea how long SwiftUI has been in the works.
 
@@ -86,8 +86,10 @@ VStack {
 This will render the following in both dark and light mode, using the color sets that I defined in the asset catalog (which is like a special folder in your project where you keep all your images and color properties for theming).
 
 <ImageRow>
-    <img src="/assets/swift-for-web-designers/card-light.png" alt="Preview of the SwiftUI code example in light mode" layout="fill" objectFit="contain" />
-    <img src="/assets/swift-for-web-designers/card-dark.png" alt="Preview of the SwiftUI code example in dark mode" layout="fill" objectFit="contain" />
+
+![Preview of the SwiftUI code example in light mode](/assets/swift-for-web-designers/card-light.png)
+![Preview of the SwiftUI code example in dark mode](/assets/swift-for-web-designers/card-dark.png)
+
 </ImageRow>
 
 Despite its quirks and unfamiliarity, I am already a fan of SwiftUI. Intentionally or not, Apple is now courting folks like me who grew up building on web tech stacks. Because in many ways SwiftUI feels like the tools I am already using, I can absolutely see myself building out the UI (and more) of an entire app with this in a matter of weeks. Who knows, maybe I'll get something in the App Store this year?

@@ -6,11 +6,11 @@ description: 'Shape the future of software development'
 featuredImage: /assets/design-github/design-github.png
 ---
 
-<BigImage>
+<LargeImage>
 
 ![](/assets/design-github/design-github.png)
 
-</BigImage>
+</LargeImage>
 
 _Are you designer who enjoys building products and wants to work on a highly visible one? I'm looking to a [hire code-conscious product designer][e7d0e273] to join my team at [GitHub][05966cd1]._
 

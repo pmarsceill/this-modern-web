@@ -19,6 +19,7 @@ interface ImageNode extends Node {
     height?: number
     width?: number
     placeholder?: string
+    remote?: boolean
   }
 }
 
@@ -46,10 +47,6 @@ function filterImageNode(node: ImageNode): boolean {
  * Adds the image's `height` and `width` to it's properties.
  */
 async function addMetadata(node: ImageNode): Promise<void> {
-  // const res = await sizeOf(
-  //   path.join(process.cwd(), 'public', node.properties.src)
-  // )
-
   const sharpImage = sharp(
     path.join(process.cwd(), 'public', node.properties.src)
   )
@@ -74,6 +71,10 @@ async function addMetadata(node: ImageNode): Promise<void> {
   node.properties.placeholder = imgBase64
 }
 
+async function addRemoteMetadata(node: ImageNode): Promise<void> {
+  node.properties.remote = true
+}
+
 /**
  * This is a Rehype plugin that finds image `<img>` elements and adds the height and width to the properties.
  * Read more about Next.js image: https://nextjs.org/docs/api-reference/next/image#layout
@@ -81,15 +82,22 @@ async function addMetadata(node: ImageNode): Promise<void> {
 export default function imageMetadata(this: Processor) {
   return async function transformer(tree: Node, file: VFile): Promise<Node> {
     const imgNodes: ImageNode[] = []
+    const remoteImages: ImageNode[] = []
 
     visit(tree, 'element', (node: Node<Data>) => {
       if (isImageNode(node) && filterImageNode(node)) {
         imgNodes.push(node)
+      } else if (isImageNode(node) && !filterImageNode(node)) {
+        remoteImages.push(node)
       }
     })
 
     for (const node of imgNodes) {
       await addMetadata(node)
+    }
+
+    for (const node of remoteImages) {
+      await addRemoteMetadata(node)
     }
 
     return tree

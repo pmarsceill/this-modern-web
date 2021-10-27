@@ -5810,6 +5810,16 @@ remark-stringify@^10.0.0:
     mdast-util-to-markdown "^1.0.0"
     unified "^10.0.0"
 
+remark-unwrap-images@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/remark-unwrap-images/-/remark-unwrap-images-3.0.0.tgz#23b7d9e1f66e1154a87edb52c3ced0bde6da15ce"
+  integrity sha512-lB8z7ZIHFHpSm3MAaAIfd0kt9gmXpI0p5pipzYiWmfurWYULVVCrfnqCD9bHPsZttQxbDL+eKN6cp6LPPfCAog==
+  dependencies:
+    "@types/mdast" "^3.0.0"
+    hast-util-whitespace "^2.0.0"
+    unified "^10.0.0"
+    unist-util-visit "^4.0.0"
+
 remark@^14.0.1:
   version "14.0.1"
   resolved "https://registry.npmjs.org/remark/-/remark-14.0.1.tgz"

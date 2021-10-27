@@ -2,6 +2,9 @@ const withMDX = require('@next/mdx')({ extension: /\.(md|mdx)?$/ })
 
 module.exports = withMDX({
   pageExtensions: ['js', 'ts', 'jsx', 'tsx', 'md', 'mdx'],
+  images: {
+    domains: ['farm8.staticflickr.com'],
+  },
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,

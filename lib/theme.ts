@@ -275,7 +275,7 @@ const theme = {
       '.prose': {
         lineHeight: 'content',
       },
-      '.big-image': {
+      '.large-image': {
         position: 'relative',
         ml: -6,
         mr: -6,

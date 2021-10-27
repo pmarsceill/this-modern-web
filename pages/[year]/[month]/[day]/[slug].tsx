@@ -1,6 +1,11 @@
 /** @jsxImportSource theme-ui */
 
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'
+import MdxImage, {
+  ImageRow,
+  LargeImage,
+  SmallImage,
+} from '../../../../components/mdx-image'
 import { format, parseISO } from 'date-fns'
 import {
   getAllPosts,
@@ -12,8 +17,6 @@ import {
 import AncillaryNav from '../../../../components/ancillary-nav'
 import Button from '../../../../components/button'
 import GlobalLayout from '../../../../components/global/global-layout'
-import ImageRow from '../../../../components/image-row'
-import MdxImage from '../../../../components/mdx-image'
 import { NextPage } from 'next'
 import PostNav from '../../../../components/post-nav'
 import PostType from '../../../../types/post'
@@ -22,6 +25,7 @@ import TwoColLayout from '../../../../components/two-col-layout'
 import Video from '../../../../components/video'
 import imageMetadata from '../../../../lib/image-metadata'
 import mdxPrism from 'mdx-prism'
+import remarkUnwrapImages from 'remark-unwrap-images'
 import { serialize } from 'next-mdx-remote/serialize'
 import { useState } from 'react'
 
@@ -40,6 +44,8 @@ type TimeWarningProps = {
 const components = {
   Button: Button,
   ImageRow: ImageRow,
+  SmallImage: SmallImage,
+  LargeImage: LargeImage,
   img: MdxImage,
   Video: Video,
 }
@@ -176,7 +182,7 @@ export async function getStaticProps({ params }: Params) {
   const mdxSource = await serialize(post.content, {
     // Optionally pass remark/rehype plugins
     mdxOptions: {
-      //   remarkPlugins: [require('remark-code-titles')],
+      remarkPlugins: [remarkUnwrapImages],
       rehypePlugins: [mdxPrism, imageMetadata],
     },
     scope: post.frontmatter,
