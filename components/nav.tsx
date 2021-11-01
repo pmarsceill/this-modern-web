@@ -1,15 +1,16 @@
 /** @jsxImportSource theme-ui */
 
 import NavLink from './nav-link'
+import { ThemeUIStyleObject } from '@theme-ui/css'
 
 const Nav = () => {
-  const navItemStyles = {
+  const navItemStyles: ThemeUIStyleObject = {
     display: 'block',
     mb: [0, '', '', 6],
     color: 'secondary',
   }
 
-  const navLinkStyles = {
+  const navLinkStyles: ThemeUIStyleObject = {
     color: 'inherit',
     textDecoration: 'none',
     fontFamily: 'body',
@@ -19,10 +20,10 @@ const Nav = () => {
     },
   }
 
-  const navLinkCounterStyles = {
+  const navLinkCounterStyles: ThemeUIStyleObject = {
     fontFamily: 'monospace',
     fontSize: 1,
-    mr: [2, '', '', 2],
+    mr: [1, '', '', 2],
   }
 
   return (

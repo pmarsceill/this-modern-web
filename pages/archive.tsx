@@ -2,18 +2,23 @@
 
 import { GetStaticProps, NextPage } from 'next'
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'
+import { createRef, useEffect } from 'react'
 import { format, parseISO } from 'date-fns'
-import { getAllPosts, getPostsByType } from '../lib/posts'
 
+import Button from '../components/button'
 import GlobalLayout from '../components/global/global-layout'
 import Link from 'next/link'
 import PostType from '../types/post'
+import { alpha } from '@theme-ui/color'
+import { getPostsByType } from '../lib/posts'
 import { serialize } from 'next-mdx-remote/serialize'
+import smoothscroll from 'smoothscroll-polyfill'
 
 type PostsByMonthPerYearProps = {
   currentPosts: PostType[]
   legacyPosts: PostType[]
   microBlogs: PostWithContentType[]
+  scrollRef: React.RefObject<HTMLDivElement>
 }
 
 interface PostWithContentType extends PostType {
@@ -26,10 +31,38 @@ type Props = {
   microBlogs: PostWithContentType[]
 }
 
+const scrollContainer = createRef<HTMLDivElement>()
+
+const scroll = (direction: 'left' | 'right' | 'today') => {
+  console.log('scroll', direction)
+  if (scrollContainer.current) {
+    if (direction === 'left') {
+      scrollContainer.current.scrollBy({
+        top: 0,
+        left: -300,
+        behavior: 'smooth',
+      })
+    } else if (direction === 'right') {
+      scrollContainer.current.scrollBy({
+        top: 0,
+        left: +300,
+        behavior: 'smooth',
+      })
+    } else if (direction === 'today') {
+      scrollContainer.current.scrollTo({
+        top: 0,
+        left: +999999,
+        behavior: 'smooth',
+      })
+    }
+  }
+}
+
 const PostsByMonthsPerYear = ({
   currentPosts,
   legacyPosts,
   microBlogs,
+  scrollRef,
 }: PostsByMonthPerYearProps) => {
   const postsByYear: any[] = []
 
@@ -57,7 +90,18 @@ const PostsByMonthsPerYear = ({
   })
 
   return (
-    <div sx={{ display: ['', '', 'flex'], overflowX: 'scroll' }}>
+    <div
+      sx={{
+        display: 'flex',
+        flexDirection: ['column-reverse', 'column-reverse', 'row'],
+        overflowX: 'scroll',
+        scrollSnapType: ['', '', 'x mandatory'],
+        scrollBehavior: 'smooth',
+        borderBottom: ['', '', '1px solid'],
+        borderColor: ['', '', 'muted'],
+      }}
+      ref={scrollRef}
+    >
       {postsByYear.map((months, year) => (
         <div key={year} sx={{ mx: ['', '', '4'] }}>
           <h2
@@ -67,19 +111,26 @@ const PostsByMonthsPerYear = ({
               fontSize: '1',
               color: 'secondary',
               mb: [5, '', 4],
-              mx: ['', '', 3],
+              px: ['', '', 3],
             }}
           >
             {year}
           </h2>
-          <ul sx={{ listStyle: 'none', display: ['', '', 'flex'] }}>
+          <ul
+            sx={{
+              listStyle: 'none',
+              display: 'flex',
+              flexDirection: ['column-reverse', 'column-reverse', 'row'],
+            }}
+          >
             {months.reverse().map((month: string) => (
               <li
                 key={year + month}
                 sx={{
                   width: ['', '', '320px'],
                   flexShrink: 0,
-                  mx: ['', '', 3],
+                  px: ['', '', 3],
+                  scrollSnapAlign: ['', '', 'start'],
                 }}
               >
                 <h3
@@ -198,31 +249,78 @@ const Archive: NextPage<Props> = ({
   legacyPosts,
   microBlogs,
 }) => {
+  useEffect(() => {
+    scroll('today')
+    smoothscroll.polyfill()
+  }, [])
+
   return (
     <GlobalLayout fullWidth>
       <div
         sx={{
-          maxWidth: 'container',
-          mx: 'auto',
-          px: ['', '', 7, 5],
+          position: ['static', 'static', 'sticky'],
+          top: 0,
+          py: 3,
+          background: alpha('background', 0.5),
+          backgroundBlendMode: 'overlay',
+          backdropFilter: 'blur(6px)',
+          zIndex: 3,
+          mb: [5, '', 6],
         }}
       >
-        <h1
+        <div
           sx={{
-            fontFamily: 'heading',
-            fontSize: [5, 6, 7],
-            letterSpacing: 'heading',
-            lineHeight: 'heading',
-            mb: [5, '', 6],
+            maxWidth: 'container',
+            mx: 'auto',
+            px: ['', '', 7, 5],
+            display: 'flex',
           }}
         >
-          Everything archive
-        </h1>
+          <h1
+            sx={{
+              fontSize: [6, 7],
+              letterSpacing: 'heading',
+              lineHeight: 'heading',
+              flex: 'auto',
+              fontWeight: 'normal',
+              fontStyle: 'italic',
+            }}
+          >
+            Everything archive
+          </h1>
+          <div
+            sx={{
+              display: ['none', 'none', 'flex'],
+              flexItems: 'center',
+              flexGrow: 0,
+            }}
+          >
+            <Button
+              variant="outline"
+              onClick={() => {
+                scroll('left')
+              }}
+              sx={{ mr: 2, flexGrow: 0 }}
+            >
+              ←
+            </Button>
+            <Button
+              variant="outline"
+              onClick={() => {
+                scroll('right')
+              }}
+              sx={{ flexGrow: 0 }}
+            >
+              →
+            </Button>
+          </div>
+        </div>
       </div>
       <PostsByMonthsPerYear
         currentPosts={currentPosts}
         legacyPosts={legacyPosts}
         microBlogs={microBlogs}
+        scrollRef={scrollContainer}
       />
     </GlobalLayout>
   )

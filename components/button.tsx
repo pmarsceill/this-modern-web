@@ -2,15 +2,19 @@
 
 import { ThemeUIStyleObject } from '@theme-ui/css'
 
-type Props = {
+type ButtonTypes = HTMLAnchorElement | HTMLButtonElement
+interface Props<T extends ButtonTypes>
+  extends React.ButtonHTMLAttributes<T>,
+    React.AnchorHTMLAttributes<T> {
   variant?: string
   block?: boolean
   size?: string
   as?: 'button' | 'a'
-  children: React.ReactNode
+  children?: React.ReactNode
   sx?: ThemeUIStyleObject
+  type?: 'submit' | 'reset' | 'button'
 }
-const Button = ({
+const Button = <T extends ButtonTypes>({
   variant = 'primary',
   block = false,
   size = 'inherit',
@@ -18,7 +22,7 @@ const Button = ({
   sx,
   children,
   ...props
-}: Props) => {
+}: Props<T>) => {
   const styles: ThemeUIStyleObject = {
     appearance: 'none',
     display: block ? 'block' : 'inline-block',
@@ -41,13 +45,19 @@ const Button = ({
 
   if (as === 'a') {
     return (
-      <a {...props} sx={{ ...styles, ...sx }}>
+      <a
+        {...(props as React.AnchorHTMLAttributes<HTMLAnchorElement>)}
+        sx={{ ...styles, ...sx }}
+      >
         {children}
       </a>
     )
   } else {
     return (
-      <button {...props} sx={{ ...styles, ...sx }}>
+      <button
+        {...(props as React.ButtonHTMLAttributes<HTMLButtonElement>)}
+        sx={{ ...styles, ...sx }}
+      >
         {children}
       </button>
     )
