@@ -255,6 +255,7 @@ const theme = {
       p: 3,
       borderRadius: '4px',
       overflowX: 'auto',
+      maxWidth: '100%',
 
       code: {
         whiteSpace: 'pre',

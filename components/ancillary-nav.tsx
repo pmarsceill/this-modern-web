@@ -21,7 +21,7 @@ const AncillaryNav = () => {
         <li
           sx={{
             mb: 2,
-            mt: 1,
+            mt: 2,
           }}
         >
           <a
@@ -38,7 +38,13 @@ const AncillaryNav = () => {
               },
             }}
           >
-            <RssIcon sx={{ mr: 1 }} /> RSS
+            <RssIcon
+              sx={{ mr: 1 }}
+              width={16}
+              height={16}
+              viewBox="0 0 24 24"
+            />
+            <span sx={{ whiteSpace: 'nowrap' }}>RSS</span>
           </a>
         </li>
         <li>
@@ -56,7 +62,13 @@ const AncillaryNav = () => {
                 },
               }}
             >
-              <ArchiveIcon sx={{ mr: 1 }} /> Everything Archive
+              <ArchiveIcon
+                sx={{ mr: 1 }}
+                width={16}
+                height={16}
+                viewBox="0 0 24 24"
+              />
+              <span sx={{ whiteSpace: 'nowrap' }}>Everything Archive</span>
             </a>
           </Link>
         </li>

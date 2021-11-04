@@ -13,6 +13,7 @@ import { alpha } from '@theme-ui/color'
 import { getPostsByType } from '../lib/posts'
 import { serialize } from 'next-mdx-remote/serialize'
 import smoothscroll from 'smoothscroll-polyfill'
+import { useColorMode } from 'theme-ui'
 
 type PostsByMonthPerYearProps = {
   currentPosts: PostType[]
@@ -249,6 +250,9 @@ const Archive: NextPage<Props> = ({
   legacyPosts,
   microBlogs,
 }) => {
+  const [colorMode, setColorMode] = useColorMode()
+  setColorMode('dark')
+
   useEffect(() => {
     scroll('today')
     smoothscroll.polyfill()
@@ -261,9 +265,9 @@ const Archive: NextPage<Props> = ({
           position: ['static', 'static', 'sticky'],
           top: 0,
           py: 3,
-          background: alpha('background', 0.5),
+          background: () => `${alpha('background', 0.55)}`,
           backgroundBlendMode: 'overlay',
-          backdropFilter: 'blur(6px)',
+          backdropFilter: 'blur(10px)',
           zIndex: 3,
           mb: [5, '', 6],
         }}
@@ -300,7 +304,7 @@ const Archive: NextPage<Props> = ({
               onClick={() => {
                 scroll('left')
               }}
-              sx={{ mr: 2, flexGrow: 0 }}
+              sx={{ mr: 2, flexGrow: 0, cursor: 'pointer' }}
             >
               ←
             </Button>
@@ -309,7 +313,7 @@ const Archive: NextPage<Props> = ({
               onClick={() => {
                 scroll('right')
               }}
-              sx={{ flexGrow: 0 }}
+              sx={{ flexGrow: 0, cursor: 'pointer' }}
             >
               →
             </Button>

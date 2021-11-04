@@ -156,7 +156,11 @@ const Post: NextPage<PostProps> = ({
                 {format(parseISO(post.date), 'PPP')}
               </time>
             </div>
-            <section sx={{ pt: ['', 4, 0, 0] }}>
+            <section
+              sx={{
+                pt: [4, '', '', 0],
+              }}
+            >
               <div sx={{ '> p:first-of-type': { mt: 0 } }} className="prose">
                 {currentYear - postYear >= 3 && (
                   <TimeWarning currentYear={currentYear} postYear={postYear} />

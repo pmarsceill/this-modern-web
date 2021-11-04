@@ -12,8 +12,8 @@ const TwoColLayout = ({ isExtended, children }: Props) => {
   return (
     <div
       sx={{
-        display: ['block', '', 'grid'],
-        gridGap: ['', '', 5, '', 6],
+        display: ['block', '', '', 'grid'],
+        gridGap: ['', '', '', 5, 6],
         gridTemplateColumns: [
           '',
           '',
