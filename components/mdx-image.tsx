@@ -3,14 +3,17 @@
 import NextImage from 'next/image'
 
 type Props = {
-  src: string
+  src: string | StaticImageData
   alt?: string
   className?: string
   title?: string
   height: number
   width: number
-  placeholder?: string
+  placeholder?: 'blur' | 'empty'
+  placeholderData?: string
   remote?: boolean
+  shadow?: boolean
+  rounded?: boolean
 }
 
 type SmallImageProps = {
@@ -34,9 +37,12 @@ const MdxImage = ({
   width,
   className,
   placeholder,
+  placeholderData,
+  shadow,
+  rounded,
   remote,
 }: Props) => {
-  let classNameList = className
+  const classNameList = className
 
   if (alt || title) {
     return (
@@ -51,20 +57,29 @@ const MdxImage = ({
           height: remote ? '468px' : undefined,
         }}
       >
-        <NextImage
-          src={src}
-          alt={title ? alt : ''}
+        <div
           sx={{
-            p: 0,
-            m: 0,
+            boxShadow: shadow ? 'default' : undefined,
+            borderRadius: rounded ? 1 : undefined,
+            overflow: 'hidden',
           }}
-          layout={!remote ? 'responsive' : 'fill'}
-          width={width}
-          height={height}
-          placeholder={placeholder ? 'blur' : undefined}
-          blurDataURL={placeholder}
-          objectFit={remote ? 'cover' : undefined}
-        />
+        >
+          <NextImage
+            src={src}
+            alt={title ? alt : ''}
+            sx={{
+              p: 0,
+              m: 0,
+              boxShadow: shadow ? 'default' : undefined,
+            }}
+            layout={!remote ? 'responsive' : 'fill'}
+            width={width}
+            height={height}
+            placeholder={placeholderData ? 'blur' : placeholder}
+            blurDataURL={placeholderData ? placeholderData : undefined}
+            objectFit={remote ? 'cover' : undefined}
+          />
+        </div>
         <figcaption
           sx={{
             fontSize: 1,

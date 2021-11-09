@@ -42,7 +42,7 @@ const Nav = () => {
           top: 6,
         }}
       >
-        <li sx={{ ...navItemStyles }}>
+        <li sx={{ ...navItemStyles, mt: 4 }}>
           <NavLink href="/" passHref>
             <a sx={navLinkStyles}>
               <span sx={navLinkCounterStyles}>1.0</span> Feed

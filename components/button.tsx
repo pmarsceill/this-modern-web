@@ -38,7 +38,7 @@ const Button = <T extends ButtonTypes>({
     px: 3,
     py: 2,
     border: 0,
-    borderRadius: 4,
+    borderRadius: 2,
     // pass variant prop to sx
     variant: `buttons.${variant}`,
   }

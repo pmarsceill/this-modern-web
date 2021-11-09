@@ -56,8 +56,22 @@ const recentlyPlayed = async (_: any, res: any) => {
 
   const { items } = await response.json()
 
+  // Filter out duplicates tracks
+  function uniqBy(a: [], key: any) {
+    let seen = new Set()
+    return a.filter((item) => {
+      let k = key(item)
+      return seen.has(k) ? false : seen.add(k)
+    })
+  }
+
+  const uniqueItems = uniqBy(
+    items,
+    (item: any) => item.track.id
+  ) as RecentlyPlayedType[]
+
   return res.status(200).json({
-    tracks: items.map(({ track, played_at }: RecentlyPlayedType) => ({
+    tracks: uniqueItems.map(({ track, played_at }: RecentlyPlayedType) => ({
       track: {
         name: track.name,
         id: track.id,

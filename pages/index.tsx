@@ -10,6 +10,7 @@ import GlobalLayout from '../components/global/global-layout'
 import Image from 'next/image'
 import Link from 'next/link'
 import Nav from '../components/nav'
+import { NextSeo } from 'next-seo'
 import PostType from '../types/post'
 import TwoColLayout from '../components/two-col-layout'
 import { getPostsByType } from '../lib/posts'
@@ -103,7 +104,7 @@ const CurrentPost = ({ post, isFirst }: PostProps) => {
                   ? ['100px', '140px', '180px']
                   : ['100px', '140px'],
                 backgroundColor: 'muted',
-                borderRadius: '12px',
+                borderRadius: 3,
                 overflow: 'hidden',
                 ml: [3, 4],
               }}
@@ -112,8 +113,8 @@ const CurrentPost = ({ post, isFirst }: PostProps) => {
                 src={post.frontmatter.featuredImage}
                 alt={post.title}
                 layout="responsive"
-                width="180px"
-                height="180px"
+                width={180}
+                height={180}
                 objectFit="cover"
                 objectPosition="right center"
               />
@@ -168,6 +169,7 @@ const MicroBlog = ({ post, mdxContent }: MicroBlogProps) => {
 const Home: NextPage<Props> = ({ currentPosts, microBlogs }) => {
   return (
     <GlobalLayout>
+      <NextSeo title="This Modern Web — Patrick Marsceill" />
       <TwoColLayout isExtended>
         <Nav />
         <div>

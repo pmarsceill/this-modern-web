@@ -18,6 +18,7 @@ import AncillaryNav from '../../../../components/ancillary-nav'
 import Button from '../../../../components/button'
 import GlobalLayout from '../../../../components/global/global-layout'
 import { NextPage } from 'next'
+import { NextSeo } from 'next-seo'
 import PostNav from '../../../../components/post-nav'
 import PostType from '../../../../types/post'
 import { Themed } from '@theme-ui/mdx'
@@ -26,6 +27,7 @@ import Video from '../../../../components/video'
 import imageMetadata from '../../../../lib/image-metadata'
 import mdxPrism from 'mdx-prism'
 import remarkUnwrapImages from 'remark-unwrap-images'
+import removeMd from 'remove-markdown'
 import { serialize } from 'next-mdx-remote/serialize'
 import { useColorMode } from '@theme-ui/color-modes'
 import { useState } from 'react'
@@ -87,23 +89,106 @@ const Post: NextPage<PostProps> = ({
   previousPost,
 }) => {
   const [colorMode, setColorMode] = useColorMode()
-  const postColorMode = post.colorMode || 'light'
-
-  setColorMode(postColorMode)
 
   const [showSideTitle, setShowSideTitle] = useState(false)
   const currentYear = new Date().getFullYear()
   const postYear = parseInt(post.year)
+  const contentString = removeMd(post.content)
+  const exerpt = contentString.substring(0, Math.min(contentString.length, 160))
 
   if (post.tags?.includes('microblog')) {
-    return (
-      <>
-        <MDXRemote {...content} />
-      </>
-    )
-  } else {
+    const postColorMode = 'dark'
+    setColorMode(postColorMode)
     return (
       <GlobalLayout>
+        <NextSeo
+          title={`Patrick Marsceill: ${exerpt}`}
+          description={`posted on ${format(parseISO(post.date), 'PPP')}`}
+          openGraph={{
+            title: post.title,
+            description: post.description,
+          }}
+        />
+        <article>
+          <TwoColLayout isExtended>
+            <div>
+              <time
+                sx={{
+                  fontSize: 0,
+                  color: 'secondary',
+                  fontFamily: 'body',
+                  mt: 1,
+                  mb: 3,
+                  display: 'block',
+                }}
+              >
+                {format(parseISO(post.date), 'PP')}
+                <span
+                  sx={{
+                    display: ['', '', '', 'block'],
+                    fontFamily: 'monospace',
+                    ml: [1, '', '', 0],
+                  }}
+                >
+                  {format(parseISO(post.date), 'p')}
+                </span>
+              </time>
+            </div>
+            <div
+              sx={{
+                backgroundColor: 'inset',
+                px: 6,
+                py: 5,
+                borderRadius: 3,
+                fontFamily: 'monospace',
+                fontSize: 1,
+              }}
+              className="prose"
+            >
+              <MDXRemote {...content} />
+            </div>
+            <AncillaryNav />
+          </TwoColLayout>
+          <footer sx={{ mt: 6, borderTop: '1px solid', borderColor: 'muted' }}>
+            <PostNav next={nextPost} previous={previousPost} />
+          </footer>
+        </article>
+      </GlobalLayout>
+    )
+  } else {
+    const postColorMode = post.colorMode || 'light'
+    setColorMode(postColorMode)
+    return (
+      <GlobalLayout>
+        {post.frontmatter.featuredImage ? (
+          <NextSeo
+            title={`${post.title} — This Modern Web`}
+            description={
+              post.description || 'the personal website of Patrick Marsceill'
+            }
+            openGraph={{
+              title: post.title,
+              description: post.description,
+              images: [
+                {
+                  url: `https://thismodernweb.com${post.frontmatter.featuredImage}`,
+                  alt: post.title,
+                },
+              ],
+            }}
+          />
+        ) : (
+          <NextSeo
+            title={`${post.title} — This Modern Web`}
+            description={
+              post.description || 'the personal website of Patrick Marsceill'
+            }
+            openGraph={{
+              title: post.title,
+              description: post.description,
+            }}
+          />
+        )}
         <article>
           <header
             sx={{

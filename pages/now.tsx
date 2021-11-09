@@ -1,6 +1,8 @@
 /** @jsxImportSource theme-ui */
 
-import AncillaryNav from '../components/ancillary-nav'
+import MdxImage, { LargeImage } from '../components/mdx-image'
+import { parse, parseISO } from 'date-fns'
+
 import GlobalLayout from '../components/global/global-layout'
 import Image from 'next/image'
 import Nav from '../components/nav'
@@ -9,20 +11,83 @@ import { Themed } from '@theme-ui/mdx'
 import TrackType from '../types/track'
 import TwoColLayout from '../components/two-col-layout'
 import format from 'date-fns/format'
-import { parseISO } from 'date-fns'
+import ghProjectsBeta from '../public/assets/now/gh-projects-beta.png'
 import useSWR from 'swr'
 
-const RecentlyPlayedTracks = () => {
+const NowWorkingOn = () => {
+  return (
+    <>
+      <Themed.p>
+        In December of 2020, after five years of managing teams of product
+        designers, I reevaluated what I wanted to get out of my work. I&apos;ve
+        always been most driven by making things and after spending this last
+        chunk of my career managing other designers I found myself very far away
+        from what I&apos;m most passionate about. I decided it was time to go
+        back to being an individual contributor. It was a little scary, I admit,
+        but absolutely the right choice for me. I changed teams, changed titles,
+        and shifted to another area of GitHub that needed help.
+      </Themed.p>
+      <Themed.p>
+        The first assignment I was handed as Staff Designer at GitHub was to
+        reimagine our project managment tools and what they could be. From
+        December until October of 2021, I worked with a team of product
+        managers, designers, engineers, and researchers, to build what is now
+        the{' '}
+        <a href="https://github.com/features/issues">
+          GitHub Issues &amp; Projects beta
+        </a>
+        .
+      </Themed.p>
+      <MdxImage
+        src={ghProjectsBeta}
+        width={1366}
+        height={834}
+        alt="GitHub Projects Beta UI showing a table view grouped by iterations"
+        placeholder="blur"
+        shadow
+        rounded
+      />
+      <Themed.p>
+        Today, my role on this team is to lead the design direction and
+        execution across our planning and tracking products. I spend a good
+        amount of my time synthesizing the output of our research team, weekly
+        executive leadership meetings, early customer feedback, and internal
+        usage data to create actionable design decisions. The product design
+        team works extensively to create Figma prototypes, we write a large
+        portion of the front-end UI in our React codebase, and work with the
+        Design Systems team to extend and create patterns in our React component
+        library.
+      </Themed.p>
+    </>
+  )
+}
+
+const NowHome = () => {
+  return (
+    <>
+      <Themed.p>
+        We moved from Philadelphia, PA to Hudson, NY four days before Christmas
+        Eve in 2020.
+      </Themed.p>
+    </>
+  )
+}
+
+const NowPlaying = () => {
   const fetcher = (url: string) => fetch(url).then((r) => r.json())
   const { data, error } = useSWR('/api/spotify-recently-played', fetcher)
 
-  if (error) return <div>Failed to load recently played tracks.</div>
+  if (error)
+    return (
+      <div>
+        <em>Failed to load recently played tracks.</em>
+      </div>
+    )
 
   const tracks = data?.tracks
 
   return (
     <>
-      <h2>Recently played on Spotify</h2>
       <div
         sx={{
           display: 'grid',
@@ -40,12 +105,12 @@ const RecentlyPlayedTracks = () => {
             const track = item.track as TrackType
 
             return (
-              <div key={track.id}>
+              <div key={track.id} sx={{ mb: ['', 4, 6] }}>
                 <div
                   sx={{
                     display: 'flex',
                     flexDirection: 'column',
-                    height: ['60vw', '', '', '20vw'],
+                    height: ['60vw', '25vw', '', '223px'],
                     maxHeight: ['300px'],
                     justifyContent: 'flex-end',
                     overflow: 'visible',
@@ -53,11 +118,10 @@ const RecentlyPlayedTracks = () => {
                 >
                   <div
                     sx={{
-                      borderRadius: '2px',
+                      borderRadius: 1,
                       overflow: 'hidden',
                       bg: 'muted',
-                      boxShadow:
-                        '0 1px 2px rgba(0,0,0,0.07), 0 2px 4px rgba(0,0,0,0.07), 0 4px 8px rgba(0,0,0,0.07), 0 8px 16px rgba(0,0,0,0.07),0 16px 32px rgba(0,0,0,0.07), 0 32px 64px rgba(0,0,0,0.07)',
+                      boxShadow: 'default',
                     }}
                   >
                     <Image
@@ -96,15 +160,33 @@ const RecentlyPlayedTracks = () => {
   )
 }
 
-const CurrentlyPlayingTrack = () => {
+const NowPlayingLive = () => {
   const fetcher = (url: string) => fetch(url).then((r) => r.json())
+
+  // TODO Hook up API credentials so this doesn't 402
   const { data, error } = useSWR('/api/spotify-currently-playing', fetcher)
 
-  if (error) return <div>Failed to load currently playing. {error}</div>
+  if (error) return <div>Failed to load currently playing.</div>
 
   return (
     <>
-      <h2>Now playing on Spotify</h2>
+      <Themed.h2>Now playing on Spotify</Themed.h2>
+    </>
+  )
+}
+
+const NowReading = () => {
+  const fetcher = (url: string) => fetch(url).then((r) => r.json())
+  const { data, error } = useSWR('/api/oku', fetcher)
+
+  if (error) return <div>Failed to load recently read books.</div>
+
+  const books = data?.books
+
+  // TODO figure out a more reliable source for book cover images. Open Library isn't good enough.
+  return (
+    <>
+      <h2>Recently read books</h2>
       <div
         sx={{
           display: 'grid',
@@ -117,85 +199,60 @@ const CurrentlyPlayingTrack = () => {
           gridGap: 5,
         }}
       >
-        {/* {data &&
-          data.map((item) => {
-            const track = item
-
-            return (
-              <div key={track.id}>
-                <div
-                  sx={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    height: ['60vw', '', '', '20vw'],
-                    maxHeight: ['300px'],
-                    justifyContent: 'flex-end',
-                    overflow: 'visible',
-                  }}
-                >
+        {books &&
+          books.map(
+            (book: {
+              title: string
+              author: string
+              coverImageUrl: string
+              coverImageMetadata: { width: number; height: number }
+              readDate: string
+            }) => {
+              const date = parse(
+                book.readDate,
+                'EEE, dd LLL y 00:00:00 +0000',
+                new Date()
+              )
+              console.log('date', date)
+              return (
+                <div key={book.title}>
                   <div
                     sx={{
-                      borderRadius: '2px',
+                      position: 'relative',
+                      height: '320px',
+                      borderRadius: 1,
                       overflow: 'hidden',
-                      boxShadow:
-                        '0 1px 2px rgba(0,0,0,0.07), 0 2px 4px rgba(0,0,0,0.07), 0 4px 8px rgba(0,0,0,0.07), 0 8px 16px rgba(0,0,0,0.07),0 16px 32px rgba(0,0,0,0.07), 0 32px 64px rgba(0,0,0,0.07)',
+                      bg: 'muted',
+                      boxShadow: 'default',
                     }}
                   >
                     <Image
-                      src={track.album.images[0].url}
+                      src={book.coverImageUrl}
                       alt=""
                       objectFit="cover"
-                      layout="responsive"
-                      width={300}
-                      height={300}
+                      layout="fill"
+                      objectPosition="center"
                     />
                   </div>
+                  <Themed.h3 sx={{ mt: 3, mb: 2 }}>
+                    {book.title}{' '}
+                    <span sx={{ color: 'secondary' }}> by {book.author}</span>
+                  </Themed.h3>
+                  <p
+                    sx={{
+                      mt: 0,
+                      fontSize: 0,
+                      color: 'secondary',
+                      fontFamily: 'body',
+                    }}
+                  >
+                    Read {format(date, 'PP')}
+                  </p>
                 </div>
-                <Themed.h3 sx={{ mt: 3, mb: 2 }}>
-                  {track.name} by{' '}
-                  <span sx={{ color: 'secondary' }}>
-                    {track.artists.map((artist) => artist.name).join(', ')}
-                  </span>
-                </Themed.h3>
-                <p
-                  sx={{
-                    mt: 0,
-                    fontSize: 0,
-                    color: 'secondary',
-                    fontFamily: 'body',
-                  }}
-                >
-                  Played {format(parseISO(track.played_at), 'PPpp')}
-                </p>
-              </div>
-            )
-          })} */}
-        <div>{data && <pre>{JSON.stringify(data, null, 2)}</pre>}</div>
+              )
+            }
+          )}
       </div>
-    </>
-  )
-}
-
-const RecentlyReadBooks = () => {
-  const fetcher = (url: string) => fetch(url).then((r) => r.json())
-  const { data, error } = useSWR('/api/oku', fetcher)
-
-  const books = data?.books
-
-  return (
-    <>
-      <h2>Recently read books</h2>
-      {books &&
-        books.map((book: { title: string; author: string }, index: number) => {
-          const isFirst = index === 0
-
-          return (
-            <div key={book.title}>
-              {book.title} by {book.author}
-            </div>
-          )
-        })}
-      {/* <div>{data && <pre>{JSON.stringify(data, null, 2)}</pre>}</div> */}
     </>
   )
 }
@@ -206,10 +263,43 @@ const Now: NextPage = () => {
       <TwoColLayout>
         <Nav />
         <div>
-          <h1>Now</h1>
-          <CurrentlyPlayingTrack />
-          <RecentlyReadBooks />
-          <RecentlyPlayedTracks />
+          <h1
+            sx={{
+              fontFamily: 'heading',
+              fontSize: [5, 6, 7],
+              letterSpacing: 'heading',
+              lineHeight: 'heading',
+            }}
+          >
+            Now
+          </h1>
+          <div
+            sx={{
+              maxWidth: '759px',
+            }}
+            className="prose"
+          >
+            <Themed.p>
+              <em>Updated Novermber 7, 2021 from Hudson, NY</em>
+            </Themed.p>
+            <Themed.h2>
+              <span sx={{ color: 'secondary' }}>3.1 —</span> working on
+            </Themed.h2>
+            <NowWorkingOn />
+            <Themed.h2>
+              <span sx={{ color: 'secondary' }}>3.2 —</span> home
+            </Themed.h2>
+            <NowHome />
+          </div>
+          <div className="prose">
+            <Themed.h2>
+              <span sx={{ color: 'secondary' }}>3.3 —</span> playing
+            </Themed.h2>
+            <Themed.p>
+              The latest plays from my Spotify account, automatically updated...
+            </Themed.p>{' '}
+            <NowPlaying />
+          </div>
         </div>
       </TwoColLayout>
     </GlobalLayout>

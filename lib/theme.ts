@@ -1,3 +1,5 @@
+import { darken, getColor } from '@theme-ui/color'
+
 import { Theme } from '@theme-ui/css'
 
 const theme = {
@@ -11,6 +13,7 @@ const theme = {
     primary: '#182027',
     secondary: '#777b94',
     muted: '#dadcea',
+    inset: 'muted',
     accent: '#ea2020',
     accentMuted: '#ef8585',
     modes: {
@@ -23,6 +26,7 @@ const theme = {
         accentMuted: '#79e4e4',
         muted: '#333548',
         medium: '#3f4e5a',
+        inset: darken('background', 0.015),
       },
     },
   },
@@ -42,14 +46,18 @@ const theme = {
     bold: 700,
   },
   lineHeights: {
-    body: 1.2,
-    heading: 1.1,
+    body: 1.4,
+    heading: 1.15,
     content: 1.5,
   },
   letterSpacings: {
     heading: '-0.03em',
   },
-  borderRadius: [0, 12],
+  shadows: {
+    default:
+      '0 1px 2px rgba(0,0,0,0.07), 0 2px 4px rgba(0,0,0,0.07), 0 4px 8px rgba(0,0,0,0.07), 0 8px 16px rgba(0,0,0,0.07),0 16px 32px rgba(0,0,0,0.07), 0 32px 64px rgba(0,0,0,0.07)',
+  },
+  radii: [0, 4, 8, 12],
   contentPadding: [4, 7, 6],
   fontSizes: [13, 15, 17, 22, 28, 32, 36, 42, 64, 72, 78],
   space: [0, 4, 8, 12, 16, 32, 64, 128, 256, 512],
@@ -75,11 +83,11 @@ const theme = {
     },
     outline: {
       bg: 'transparent',
-      boxShadow: (theme: any) => `0 0 0 1px ${theme.colors.secondary}`,
+      boxShadow: (theme: Theme) => `0 0 0 1px ${theme.colors?.secondary}`,
       color: 'primary',
       '&:hover': {
         color: 'accent',
-        boxShadow: (theme: any) => `0 0 0 1px ${theme.colors.accent}`,
+        boxShadow: (theme: Theme) => `0 0 0 1px ${theme.colors?.accent}`,
       },
     },
   },
@@ -105,8 +113,8 @@ const theme = {
       '&:hover': {
         color: 'accent',
       },
-      backgroundImage: (theme: any) =>
-        `linear-gradient(${theme.colors.accentMuted} 0%, ${theme.colors.accentMuted} 100%)`,
+      backgroundImage: (theme: Theme) =>
+        `linear-gradient(${theme.colors?.accentMuted} 0%, ${theme.colors?.accentMuted} 100%)`,
       backgroundRepeat: 'repeat-x',
       backgroundPosition: '0 92%',
       backgroundSize: '1px 1px',
@@ -231,9 +239,10 @@ const theme = {
       position: 'relative',
       '&::after': {
         position: 'absolute',
-        width: (theme: any) => `${theme.space[7]}px`,
+        width: (theme: Theme) => `${theme.space && theme.space[7]}px`,
         height: '2px',
-        left: (theme: any) => `calc(50% - ${theme.space[7] / 2}px)`,
+        left: (theme: Theme) =>
+          `calc(50% - ${theme.space && theme.space[7]}px)`,
         top: 'calc(50% - 2px)',
         backgroundColor: 'muted',
         content: '""',
@@ -316,81 +325,6 @@ const theme = {
         wordBreak: 'normal',
         fontSize: 1,
       },
-      //   code: {
-      //     ':not(pre) > &[class*="language-"], &': {
-      //       background: 'transparent',
-      //       whiteSpace: 'pre-wrap',
-      //       wordBreak: 'normal',
-      //       background: 'transparent',
-      //       fontSize: 1,
-      //     },
-      //   },
-      //   pre: {
-      //     background: 'transparent',
-      //     border: '1px solid',
-      //     borderColor: 'muted',
-      //     marginBottom: 4,
-      //     lineHeight: '1',
-
-      //     '&[class*="language-"]': {
-      //       background: 'transparent',
-      //       marginBottom: 4,
-      //       code: {
-      //         whiteSpace: 'pre !important',
-      //         fontSize: 0,
-      //       },
-      //     },
-      //   },
-      //   '.gatsby-resp-image-image': {
-      //     boxShadow: 'none !important',
-      //   },
-      //   '.gatsby-resp-image-wrapper': {
-      //     overflow: 'hidden',
-      //     borderRadius: '12px',
-      //   },
-      //   '.gatsby-resp-image-link': {
-      //     backgroundImage: 'none',
-      //   },
-      //   '.gatsby-resp-image-figure': {
-      //     mx: 0,
-      //     my: 5,
-      //     pt: 5,
-
-      //     '.gatsby-resp-image-figcaption': {
-      //       fontSize: 1,
-      //       fontStyle: 'italic',
-      //       px: 3,
-      //       py: 4,
-      //       textAlign: 'center',
-      //       color: 'secondary',
-      //       lineHeight: 'heading',
-      //     },
-      //   },
-      // },
-      // code: {
-      //   ':not(pre) > &[class*="language-"], &': {
-      //     background: 'transparent !important',
-      //     whiteSpace: 'pre-wrap !important',
-      //     wordBreak: 'normal !important',
-      //     background: 'transparent !important',
-      //     fontSize: 1,
-      //   },
-      // },
-      // pre: {
-      //   background: 'transparent',
-      //   border: '1px solid',
-      //   borderColor: 'muted',
-      //   marginBottom: 4,
-      //   lineHeight: '1',
-
-      //   '&[class*="language-"]': {
-      //     background: 'transparent',
-      //     marginBottom: 4,
-      //     code: {
-      //       whiteSpace: 'pre !important',
-      //       fontSize: 0,
-      //     },
-      //   },
     },
   },
 }
