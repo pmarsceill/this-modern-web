@@ -2,7 +2,7 @@ import { AppProps } from 'next/dist/shared/lib/router/router'
 import { DefaultSeo } from 'next-seo'
 import GlobalStyles from '../components/global/global-styles'
 import { ThemeProvider } from 'theme-ui'
-import theme from '../lib/theme'
+import { theme } from '../lib/theme'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (

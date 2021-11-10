@@ -1,9 +1,9 @@
 import { Theme } from '@theme-ui/css'
 import { darken } from '@theme-ui/color'
 
-const theme = {
+export const theme: Theme = {
   config: {
-    initialColorMode: 'light',
+    initialColorModeName: 'dark',
     useColorSchemeMediaQuery: false,
   },
   colors: {
@@ -25,7 +25,7 @@ const theme = {
         accentMuted: '#79e4e4',
         muted: '#333548',
         medium: '#3f4e5a',
-        inset: darken('background', 0.015),
+        inset: `${darken('background', 0.015)}`,
       },
     },
   },
@@ -35,9 +35,6 @@ const theme = {
     monospace: 'SFMono-Regular,Consolas,Menlo,Andale,monospace',
     serif:
       'Freight Text Pro,-apple-system-ui-serif, ui-serif,Palatino,Palatino Linotype,Palatino LT STD,Book Antiqua,Georgia,serif',
-  },
-  backgroundImages: {
-    link: 'linear-gradient(#eeebee 0%, #eeebee 100%)',
   },
   fontWeights: {
     body: 400,
@@ -57,7 +54,6 @@ const theme = {
       '0 1px 2px rgba(0,0,0,0.07), 0 2px 4px rgba(0,0,0,0.07), 0 4px 8px rgba(0,0,0,0.07), 0 8px 16px rgba(0,0,0,0.07),0 16px 32px rgba(0,0,0,0.07), 0 32px 64px rgba(0,0,0,0.07)',
   },
   radii: [0, 4, 8, 12],
-  contentPadding: [4, 7, 6],
   fontSizes: [13, 15, 17, 22, 28, 32, 36, 42, 64, 72, 78],
   space: [0, 4, 8, 12, 16, 32, 64, 128, 256, 512],
   sizes: {
@@ -90,39 +86,41 @@ const theme = {
       },
     },
   },
-  anchor: {
-    default: {
-      color: 'primary',
-      textDecoration: 'none',
-      overflow: 'hidden',
-      textOverflow: 'ellipses',
-      whitespace: 'nowrap',
+  text: {
+    anchor: {
+      default: {
+        color: 'primary',
+        textDecoration: 'none',
+        overflow: 'hidden',
+        textOverflow: 'ellipses',
+        whitespace: 'nowrap',
 
-      '&:hover': {
-        color: 'accent',
+        '&:hover': {
+          color: 'accent',
+        },
       },
-    },
-    prose: {
-      color: 'primary',
-      textDecoration: 'none',
-      overflow: 'hidden',
-      textOverflow: 'ellipses',
-      whitespace: 'nowrap',
+      prose: {
+        color: 'primary',
+        textDecoration: 'none',
+        overflow: 'hidden',
+        textOverflow: 'ellipses',
+        whitespace: 'nowrap',
 
-      '&:hover': {
-        color: 'accent',
+        '&:hover': {
+          color: 'accent',
+        },
+        backgroundImage: (theme: Theme) =>
+          `linear-gradient(${theme.colors?.accentMuted} 0%, ${theme.colors?.accentMuted} 100%)`,
+        backgroundRepeat: 'repeat-x',
+        backgroundPosition: '0 92%',
+        backgroundSize: '1px 1px',
       },
-      backgroundImage: (theme: Theme) =>
-        `linear-gradient(${theme.colors?.accentMuted} 0%, ${theme.colors?.accentMuted} 100%)`,
-      backgroundRepeat: 'repeat-x',
-      backgroundPosition: '0 92%',
-      backgroundSize: '1px 1px',
     },
   },
   styles: {
     // MDX styles
     a: {
-      variant: 'anchor.prose',
+      variant: 'text.anchor.prose',
     },
     h1: {
       lineHeight: 'heading',
@@ -292,7 +290,7 @@ const theme = {
       fontFamily: 'serif',
       fontSize: ['19px', '', '21px'],
       a: {
-        variant: 'anchor.default',
+        variant: 'text.anchor.default',
       },
       'h1, h2, h3, h4, h5, ol, ul, p, button, input, textarea, hr': {
         m: 0,
@@ -301,7 +299,7 @@ const theme = {
       '.prose': {
         lineHeight: 'content',
         a: {
-          variant: 'anchor.prose',
+          variant: 'text.anchor.prose',
         },
         p: {
           my: '1em',
@@ -327,5 +325,3 @@ const theme = {
     },
   },
 }
-
-export default theme as unknown as Theme
