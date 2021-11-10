@@ -8464,10 +8464,10 @@ remark-stringify@^10.0.0:
     mdast-util-to-markdown "^1.0.0"
     unified "^10.0.0"
 
-remark-unwrap-images@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.npmjs.org/remark-unwrap-images/-/remark-unwrap-images-3.0.0.tgz"
-  integrity sha512-lB8z7ZIHFHpSm3MAaAIfd0kt9gmXpI0p5pipzYiWmfurWYULVVCrfnqCD9bHPsZttQxbDL+eKN6cp6LPPfCAog==
+remark-unwrap-images@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/remark-unwrap-images/-/remark-unwrap-images-3.0.1.tgz#22a547baa8fa1e2c66c7d087ebd9cf829a74a255"
+  integrity sha512-5VUY0n+J9lPTPfkct5S3/SbutryBjp8J/4mbgtlkDrOk3h8jde0hyqdYUJOoJKherZezS08tjd6i4+nnQ+wl5w==
   dependencies:
     "@types/mdast" "^3.0.0"
     hast-util-whitespace "^2.0.0"
