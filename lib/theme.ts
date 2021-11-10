@@ -328,4 +328,4 @@ const theme = {
   },
 }
 
-export default theme
+export default theme as unknown as Theme
