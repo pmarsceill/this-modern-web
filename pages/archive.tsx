@@ -8,6 +8,7 @@ import { format, parseISO } from 'date-fns'
 import Button from '../components/button'
 import GlobalLayout from '../components/global/global-layout'
 import Link from 'next/link'
+import { NextSeo } from 'next-seo'
 import PostType from '../types/post'
 import { alpha } from '@theme-ui/color'
 import { getPostsByType } from '../lib/posts'
@@ -260,6 +261,7 @@ const Archive: NextPage<Props> = ({
 
   return (
     <GlobalLayout fullWidth>
+      <NextSeo title="Everything Archive — This Modern Web" />
       <div
         sx={{
           position: ['static', 'static', 'sticky'],
