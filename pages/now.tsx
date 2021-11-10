@@ -7,6 +7,7 @@ import Image from 'next/image'
 import MdxImage from '../components/mdx-image'
 import Nav from '../components/nav'
 import { NextPage } from 'next'
+import { NextSeo } from 'next-seo'
 import { Themed } from '@theme-ui/mdx'
 import TrackType from '../types/track'
 import TwoColLayout from '../components/two-col-layout'
@@ -273,6 +274,7 @@ const NowReading = () => {
 const Now: NextPage = () => {
   return (
     <GlobalLayout>
+      <NextSeo title="Now — This Modern Web" />
       <TwoColLayout>
         <Nav />
         <div>
