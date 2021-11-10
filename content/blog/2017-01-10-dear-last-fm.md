@@ -1,11 +1,17 @@
 ---
-layout: "post"
-title: "Dear Last.fm,"
-description: "It’s been awhile. Seven years, actually"
-tags: ["journal", "music", "streaming-services", "Spotify", "Last.fm"]
-date: "2017-01-10 15:30"
-featuredImage: ./assets/dear-last-fm/dear-last-fm.png
+layout: 'post'
+title: 'Dear Last.fm,'
+description: 'It’s been awhile. Seven years, actually'
+tags: ['journal', 'music', 'streaming-services', 'Spotify', 'Last.fm']
+date: 2017-01-10 15:30
+featuredImage: /assets/dear-last-fm/dear-last-fm.png
 ---
+
+<LargeImage>
+
+![](/assets/dear-last-fm/dear-last-fm.png)
+
+</LargeImage>
 
 Spotify (the streaming service that I use) is dropping the ball pretty hard when it comes to personal listening stats and communal listening features. So much so, that I believe that Last.fm could fill this void, while connecting users across multiple streaming services together.
 

@@ -1,7 +1,7 @@
 ---
-title: "The Russian Joe"
+title: 'The Russian Joe'
 date: 2013-06-26 12:34
-tags: ["legacy"]
+tags: ['legacy']
 ---
 
 I was looking at some old photos on Flickr and came across this. It's from 2013's SXSW Interactive, at Easy Tiger, just before a sizable group of people consumed the combination of beverages spread out on the table.

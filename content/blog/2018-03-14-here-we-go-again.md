@@ -1,9 +1,9 @@
 ---
-layout: "post"
-title: "Here we go again"
-tags: ["journal", "decentralized-web", "Micro.blog", "indieweb", "micropub"]
-date: "2018-03-14 01:00"
-description: "Is the future of the web a network of independent sites?"
+layout: 'post'
+title: 'Here we go again'
+tags: ['journal', 'decentralized-web', 'Micro.blog', 'indieweb', 'micropub']
+date: 2018-03-14 01:00
+description: 'Is the future of the web a network of independent sites?'
 ---
 
 > There seems to be a weak undercurrent of old and young bloggers like us that feel sentimental or curious and want to bring back blogging. Blogging won’t save the world. But, hell, after two weeks now, we can confirm: it feels great to be back on the blogging line.

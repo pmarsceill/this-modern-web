@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "The Difference Between Money and Power"
+title: 'The Difference Between Money and Power'
 date: 2013-02-27 12:10
-tags: ["legacy"]
+tags: ['legacy']
 ---
 
 <blockquote>
