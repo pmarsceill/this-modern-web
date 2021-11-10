@@ -10,8 +10,8 @@ type Props = {
   height: number
   width: number
   placeholder?: 'blur' | 'empty'
-  placeholderData?: string
-  remote?: boolean
+  'placeholder-data'?: string
+  'is-remote'?: boolean | string
   shadow?: boolean
   rounded?: boolean
 }
@@ -37,10 +37,10 @@ const MdxImage = ({
   width,
   className,
   placeholder,
-  placeholderData,
+  'placeholder-data': placeholderData,
   shadow,
   rounded,
-  remote,
+  'is-remote': isRemote,
 }: Props) => {
   const classNameList = className
 
@@ -53,8 +53,8 @@ const MdxImage = ({
           p: 0,
           my: 6,
           mx: 0,
-          width: remote ? '100%' : undefined,
-          height: remote ? '468px' : undefined,
+          width: isRemote ? '100%' : undefined,
+          height: isRemote ? '468px' : undefined,
         }}
       >
         <div
@@ -72,12 +72,12 @@ const MdxImage = ({
               m: 0,
               boxShadow: shadow ? 'default' : undefined,
             }}
-            layout={!remote ? 'responsive' : 'fill'}
+            layout={!isRemote ? 'responsive' : 'fill'}
             width={width}
             height={height}
             placeholder={placeholderData ? 'blur' : placeholder}
             blurDataURL={placeholderData ? placeholderData : undefined}
-            objectFit={remote ? 'cover' : undefined}
+            objectFit={isRemote ? 'cover' : undefined}
           />
         </div>
         <figcaption
@@ -87,9 +87,9 @@ const MdxImage = ({
             color: 'secondary',
             textAlign: 'center',
             mt: 2,
-            position: remote ? 'absolute' : undefined,
-            bottom: remote ? -5 : undefined,
-            width: remote ? '100%' : undefined,
+            position: isRemote ? 'absolute' : undefined,
+            bottom: isRemote ? -5 : undefined,
+            width: isRemote ? '100%' : undefined,
           }}
         >
           {title || alt}

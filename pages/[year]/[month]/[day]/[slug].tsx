@@ -53,6 +53,14 @@ const components = {
   Video: Video,
 }
 
+export const rssComponents = {
+  Button: Button,
+  ImageRow: ImageRow,
+  SmallImage: SmallImage,
+  LargeImage: LargeImage,
+  Video: Video,
+}
+
 const TimeWarning = ({ postYear, currentYear }: TimeWarningProps) => {
   return (
     <>

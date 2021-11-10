@@ -13,8 +13,8 @@ type PostNavProps = {
 const PostNav = ({ previous, next }: PostNavProps) => {
   const previousHref = `/${previous?.year}/${previous?.month}/${previous?.day}/${previous?.slug}`
   const nextHref = `/${next?.year}/${next?.month}/${next?.day}/${next?.slug}`
-  const hasPreviousTitle = previous?.date !== previous?.title
-  const hasNextTitle = next?.date !== next?.title
+  const hasPreviousTitle = previous?.title && previous?.date !== previous?.title
+  const hasNextTitle = next?.title && next?.date !== next?.title
 
   return (
     <nav sx={{ mt: 5 }}>

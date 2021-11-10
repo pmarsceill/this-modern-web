@@ -18,8 +18,8 @@ interface ImageNode extends Node {
     src: string
     height?: number
     width?: number
-    placeholderData?: string
-    remote?: boolean
+    'placeholder-data'?: string
+    'is-remote'?: string
   }
 }
 
@@ -68,11 +68,11 @@ async function addMetadata(node: ImageNode): Promise<void> {
 
   node.properties.width = metadata.width
   node.properties.height = metadata.height
-  node.properties.placeholderData = imgBase64
+  node.properties['placeholder-data'] = imgBase64
 }
 
 async function addRemoteMetadata(node: ImageNode): Promise<void> {
-  node.properties.remote = true
+  node.properties['is-remote'] = 'true'
 }
 
 /**

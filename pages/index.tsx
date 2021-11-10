@@ -2,7 +2,7 @@
 
 import type { GetStaticProps, NextPage } from 'next'
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'
-import { formatDistance, parseISO } from 'date-fns'
+import { format, formatDistance, parseISO } from 'date-fns'
 import { getAllPosts, getPostsByType } from '../lib/posts'
 
 import AncillaryNav from '../components/ancillary-nav'
@@ -17,6 +17,10 @@ import PostType from '../types/post'
 import ReactDOMServer from 'react-dom/server'
 import TwoColLayout from '../components/two-col-layout'
 import generateRSSFeed from '../lib/rss-generator'
+import imageMetadata from '../lib/image-metadata'
+import mdxPrism from 'mdx-prism'
+import remarkUnwrapImages from 'remark-unwrap-images'
+import { rssComponents } from '../pages/[year]/[month]/[day]/[slug]'
 import { serialize } from 'next-mdx-remote/serialize'
 import { useColorMode } from 'theme-ui'
 
@@ -92,7 +96,7 @@ const CurrentPost = ({ post, isFirst }: PostProps) => {
                 mt: 3,
               }}
             >
-              {post.date}
+              {format(parseISO(post.date), 'PP')}
             </time>
           </div>
           {post.frontmatter.featuredImage && (
@@ -228,14 +232,24 @@ export const getStaticProps: GetStaticProps = async () => {
     return { post: { ...post }, mdxContent: mdxContent }
   })
 
-  const allPostsWithContent = allPosts.map((post) => {
-    const mdx = <MDXProvider>{post.content}</MDXProvider>
+  const allPostsWithContent = allPosts.map(async (post) => {
+    const mdxContent = await serialize(post.content, {
+      // Optionally pass remark/rehype plugins
+      mdxOptions: {
+        remarkPlugins: [remarkUnwrapImages],
+        rehypePlugins: [mdxPrism, imageMetadata],
+      },
+      scope: post.frontmatter,
+    })
+    const mdx = <MDXRemote components={rssComponents} {...mdxContent} />
     const html = ReactDOMServer.renderToStaticMarkup(mdx)
     return { post: { ...post }, html }
   })
 
   const microBlogsWithContentResolved = await Promise.all(microBlogsWithContent)
-  generateRSSFeed(allPostsWithContent)
+  const allPostsWithContentResolved = await Promise.all(allPostsWithContent)
+
+  generateRSSFeed(allPostsWithContentResolved)
 
   return {
     props: { currentPosts, microBlogs: microBlogsWithContentResolved },

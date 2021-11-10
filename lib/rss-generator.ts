@@ -1,4 +1,5 @@
 import { Feed } from 'feed'
+import { MDXRemote } from 'next-mdx-remote'
 import PostType from '../types/post'
 import ReactDOMServer from 'react-dom/server'
 import fs from 'fs'
@@ -8,14 +9,12 @@ const generateRSSFeed = (posts: { post: PostType; html: string }[]) => {
   const baseUrl = 'https://thismodernweb.com'
   const author = {
     name: 'Patrick Marsceill',
-    email: 'patrick@thismodernweb.com',
-    link: 'https://twitter.com/pmarsceill',
   }
 
   // Construct a new Feed object
   const feed = new Feed({
-    title: 'All posts',
-    description: 'All posts from thismodernweb.com',
+    title: 'This Modern Web',
+    description: 'The personal website of Patrick Marsceill',
     id: baseUrl,
     link: baseUrl,
     language: 'en',
@@ -27,7 +26,7 @@ const generateRSSFeed = (posts: { post: PostType; html: string }[]) => {
   })
 
   // Add each article to the feed
-  posts.forEach((item) => {
+  posts.forEach(async (item) => {
     const { title, date, description, year, month, day, slug } = item.post
     const url = `${baseUrl}/${year}/${month}/${day}/${slug}`
     const html = item.html
@@ -44,7 +43,7 @@ const generateRSSFeed = (posts: { post: PostType; html: string }[]) => {
   })
 
   // Write the RSS output to a public file
-  fs.writeFileSync('public/rss.xml', feed.rss2())
+  fs.writeFileSync(`public/rss.xml`, feed.rss2())
 }
 
 export default generateRSSFeed
