@@ -107,7 +107,10 @@ const GlobalHeader = () => {
         />
         <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-        <meta name="msapplication-TileColor" content="#ffffff" />
+        <meta
+          name="msapplication-TileColor"
+          content={`${theme.colors?.background}`}
+        />
         <meta name="msapplication-TileImage" content="/favicon-144x144.png" />
         <meta name="msapplication-config" content="/browserconfig.xml" />
         <link rel="manifest" href="/manifest.json" />
