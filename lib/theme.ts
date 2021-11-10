@@ -1,9 +1,8 @@
 import { Theme } from '@theme-ui/css'
-import { darken } from '@theme-ui/color'
 
 export const theme: Theme = {
   config: {
-    initialColorModeName: 'dark',
+    initialColorModeName: 'light',
     useColorSchemeMediaQuery: false,
   },
   colors: {
@@ -12,7 +11,7 @@ export const theme: Theme = {
     primary: '#182027',
     secondary: '#777b94',
     muted: '#dadcea',
-    inset: 'muted',
+    inset: '#fff',
     accent: '#ea2020',
     accentMuted: '#ef8585',
     modes: {
@@ -25,7 +24,7 @@ export const theme: Theme = {
         accentMuted: '#79e4e4',
         muted: '#333548',
         medium: '#3f4e5a',
-        inset: `${darken('background', 0.015)}`,
+        inset: '#171a1f',
       },
     },
   },
