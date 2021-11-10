@@ -3,6 +3,8 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import { ReactNode } from 'react'
+import { theme } from '../../lib/theme'
+import { useColorMode } from '@theme-ui/color-modes'
 import { useRouter } from 'next/dist/client/router'
 
 type SiteTitleProps = {
@@ -44,6 +46,8 @@ const GlobalHeader = () => {
   const router = useRouter()
 
   const isHome = router.pathname === '/'
+
+  const [colorMode] = useColorMode()
 
   return (
     <>
@@ -107,7 +111,14 @@ const GlobalHeader = () => {
         <meta name="msapplication-TileImage" content="/favicon-144x144.png" />
         <meta name="msapplication-config" content="/browserconfig.xml" />
         <link rel="manifest" href="/manifest.json" />
-        <meta name="theme-color" content="#ffffff" />
+        {colorMode === 'dark' ? (
+          <meta
+            name="theme-color"
+            content={`${theme.colors?.modes?.dark?.background}`}
+          />
+        ) : (
+          <meta name="theme-color" content={`${theme.colors?.background}`} />
+        )}
       </Head>
       <div
         sx={{
