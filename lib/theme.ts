@@ -1,6 +1,5 @@
-import { darken, getColor } from '@theme-ui/color'
-
 import { Theme } from '@theme-ui/css'
+import { darken } from '@theme-ui/color'
 
 const theme = {
   config: {
@@ -329,4 +328,4 @@ const theme = {
   },
 }
 
-export default theme as Theme
+export default theme
