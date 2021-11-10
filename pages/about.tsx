@@ -7,6 +7,7 @@ import GlobalLayout from '../components/global/global-layout'
 import Image from 'next/image'
 import Link from 'next/link'
 import Nav from '../components/nav'
+import { NextSeo } from 'next-seo'
 import TwoColLayout from '../components/two-col-layout'
 import { useColorMode } from 'theme-ui'
 
@@ -18,6 +19,7 @@ const About = () => {
 
   return (
     <GlobalLayout>
+      <NextSeo title="About Patrick Marsceill — This Modern Web" />
       <TwoColLayout>
         <Nav />
         <div
