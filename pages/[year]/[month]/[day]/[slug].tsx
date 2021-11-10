@@ -112,6 +112,7 @@ const Post: NextPage<PostProps> = ({
         <article>
           <TwoColLayout isExtended>
             <div>
+              <span sx={{ display: 'block', fontSize: 2 }}>⌘</span>
               <time
                 sx={{
                   fontSize: 0,

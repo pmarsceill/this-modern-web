@@ -1,10 +1,10 @@
 /** @jsxImportSource theme-ui */
 
-import MdxImage, { LargeImage } from '../components/mdx-image'
 import { parse, parseISO } from 'date-fns'
 
 import GlobalLayout from '../components/global/global-layout'
 import Image from 'next/image'
+import MdxImage from '../components/mdx-image'
 import Nav from '../components/nav'
 import { NextPage } from 'next'
 import { Themed } from '@theme-ui/mdx'
@@ -12,6 +12,7 @@ import TrackType from '../types/track'
 import TwoColLayout from '../components/two-col-layout'
 import format from 'date-fns/format'
 import ghProjectsBeta from '../public/assets/now/gh-projects-beta.png'
+import homeImage from '../public/assets/now/home.jpg'
 import useSWR from 'swr'
 
 const NowWorkingOn = () => {
@@ -66,9 +67,21 @@ const NowHome = () => {
   return (
     <>
       <Themed.p>
-        We moved from Philadelphia, PA to Hudson, NY four days before Christmas
-        Eve in 2020.
+        The house of my dreams was built in 1830 and sits proudly a few miles
+        from the Hudson river in Upstate New York. After seeing it pop up
+        through a random Zillow search in late August of 2020, my family visited
+        it a few times, and then we couldn&apos;t stop thinking about it. Two
+        days before Christmas eve in 2020, we were living here.
       </Themed.p>
+      <MdxImage
+        src={homeImage}
+        width={3893}
+        height={2190}
+        alt="Our house in Upstate New York"
+        placeholder="blur"
+        shadow
+        rounded
+      />
     </>
   )
 }

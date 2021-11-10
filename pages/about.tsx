@@ -169,7 +169,8 @@ const About = () => {
                 Creative Commons Attribution-NonCommercial 4.0 International
                 License
               </a>
-              . This website is hosted on Vercel.
+              . This website is hosted on{' '}
+              <a href="https://vercel.com">Vercel</a>.
             </Themed.p>
             <Themed.p>
               The logotype is set in <em>Optician Sans</em> (

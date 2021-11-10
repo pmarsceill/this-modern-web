@@ -3,17 +3,20 @@
 import type { GetStaticProps, NextPage } from 'next'
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'
 import { formatDistance, parseISO } from 'date-fns'
+import { getAllPosts, getPostsByType } from '../lib/posts'
 
 import AncillaryNav from '../components/ancillary-nav'
 import Button from '../components/button'
 import GlobalLayout from '../components/global/global-layout'
 import Image from 'next/image'
 import Link from 'next/link'
+import { MDXProvider } from '@theme-ui/mdx'
 import Nav from '../components/nav'
 import { NextSeo } from 'next-seo'
 import PostType from '../types/post'
+import ReactDOMServer from 'react-dom/server'
 import TwoColLayout from '../components/two-col-layout'
-import { getPostsByType } from '../lib/posts'
+import generateRSSFeed from '../lib/rss-generator'
 import { serialize } from 'next-mdx-remote/serialize'
 import { useColorMode } from 'theme-ui'
 
@@ -218,13 +221,21 @@ const Home: NextPage<Props> = ({ currentPosts, microBlogs }) => {
 export const getStaticProps: GetStaticProps = async () => {
   const currentPosts = getPostsByType('current')
   const microBlogs = getPostsByType('microblog') || []
+  const allPosts = getAllPosts('desc')
 
   const microBlogsWithContent = microBlogs.map(async (post) => {
     const mdxContent = await serialize(post.content)
     return { post: { ...post }, mdxContent: mdxContent }
   })
 
+  const allPostsWithContent = allPosts.map((post) => {
+    const mdx = <MDXProvider>{post.content}</MDXProvider>
+    const html = ReactDOMServer.renderToStaticMarkup(mdx)
+    return { post: { ...post }, html }
+  })
+
   const microBlogsWithContentResolved = await Promise.all(microBlogsWithContent)
+  generateRSSFeed(allPostsWithContent)
 
   return {
     props: { currentPosts, microBlogs: microBlogsWithContentResolved },
