@@ -1967,10 +1967,10 @@
     "@emotion/react" "^11.1.1"
     "@theme-ui/css" "0.11.3"
 
-"@theme-ui/prism@^0.11.3":
-  version "0.11.3"
-  resolved "https://registry.npmjs.org/@theme-ui/prism/-/prism-0.11.3.tgz"
-  integrity sha512-zhAIsmCDkleTchPAVqtNy7S4jiGmiF6EZro24jtDEpKzxcvr7/mCMduxhMnGf3xFYgfI8jWY5xKb+sliVgKMPg==
+"@theme-ui/prism@^0.12.0":
+  version "0.12.0"
+  resolved "https://registry.yarnpkg.com/@theme-ui/prism/-/prism-0.12.0.tgz#90a8e6e40365cabe9f7b140619c14264c0a490e6"
+  integrity sha512-QaS1l8f85KJhbkInygF+/f/3DWqcVCfvF9md4uJ2Hg8igguCJz+hYzycb6ZycZWQWq/kx0ucc81bwb+9KpvQfA==
   dependencies:
     prism-react-renderer "^1.1.1"
 
