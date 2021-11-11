@@ -24,28 +24,29 @@ const AncillaryNav = () => {
             mt: 2,
           }}
         >
-          <a
-            href="/rss.xml"
-            sx={{
-              fontFamily: 'body',
-              fontSize: 0,
-              color: 'secondary',
-              textDecoration: 'none',
-              display: 'flex',
-              alignItems: 'center',
-              '&:hover': {
-                color: 'accent',
-              },
-            }}
-          >
-            <RssIcon
-              sx={{ mr: 1 }}
-              width={16}
-              height={16}
-              viewBox="0 0 24 24"
-            />
-            <span sx={{ whiteSpace: 'nowrap' }}>RSS</span>
-          </a>
+          <Link href="/rss.xml" passHref>
+            <a
+              sx={{
+                fontFamily: 'body',
+                fontSize: 0,
+                color: 'secondary',
+                textDecoration: 'none',
+                display: 'flex',
+                alignItems: 'center',
+                '&:hover': {
+                  color: 'accent',
+                },
+              }}
+            >
+              <RssIcon
+                sx={{ mr: 1 }}
+                width={16}
+                height={16}
+                viewBox="0 0 24 24"
+              />
+              <span sx={{ whiteSpace: 'nowrap' }}>RSS</span>
+            </a>
+          </Link>
         </li>
         <li>
           <Link href="/archive" passHref>
