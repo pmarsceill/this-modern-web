@@ -13,7 +13,7 @@
     "@next/mdx": "^11.1.2",
     "@svgr/webpack": "^5.5.0",
     "@theme-ui/color": "^0.12.0",
-    "@theme-ui/prism": "^0.11.3",
+    "@theme-ui/prism": "^0.12.0",
     "@types/remove-markdown": "^0.3.1",
     "bookcovers": "^0.1.0",
     "date-fns": "^2.25.0",
@@ -40,7 +40,7 @@
   "devDependencies": {
     "@types/react": "17.0.27",
     "@types/react-dom": "^17.0.11",
-    "@types/sharp": "^0.29.2",
+    "@types/sharp": "^0.29.3",
     "@types/smoothscroll-polyfill": "^0.3.1",
     "@typescript-eslint/eslint-plugin": "^4.33.0",
     "@typescript-eslint/parser": "^4.33.0",
