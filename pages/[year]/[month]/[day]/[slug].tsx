@@ -120,7 +120,16 @@ const Post: NextPage<PostProps> = ({
         <article>
           <TwoColLayout isExtended>
             <div>
-              <span sx={{ display: 'block', fontSize: 2 }}>⌘</span>
+              <span
+                sx={{
+                  display: ['inline-block', '', '', 'block'],
+                  fontSize: [0, '', '', 3],
+                  mr: [3, '', '', 0],
+                  ml: [1, '', '', 0],
+                }}
+              >
+                ⌘
+              </span>
               <time
                 sx={{
                   fontSize: 0,
@@ -128,7 +137,7 @@ const Post: NextPage<PostProps> = ({
                   fontFamily: 'body',
                   mt: 1,
                   mb: 3,
-                  display: 'block',
+                  display: ['inline-block', '', '', 'block'],
                 }}
               >
                 {format(parseISO(post.date), 'PP')}
@@ -146,8 +155,8 @@ const Post: NextPage<PostProps> = ({
             <div
               sx={{
                 backgroundColor: 'inset',
-                px: 6,
-                py: 5,
+                px: [5, '', '', 6],
+                py: [3, '', '', 5],
                 borderRadius: 3,
                 fontFamily: 'monospace',
                 fontSize: 1,

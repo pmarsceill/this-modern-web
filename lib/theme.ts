@@ -306,9 +306,9 @@ export const theme: Theme = {
       },
       '.large-image': {
         position: 'relative',
-        ml: -6,
-        mr: -6,
-        width: 'calc(100% + 128px) !important',
+        ml: ['', '', '', -6],
+        mr: ['', '', '', -6],
+        width: ['', '', '', 'calc(100% + 128px) !important'],
       },
       '.small-image': {
         mx: 'auto',
