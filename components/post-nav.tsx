@@ -48,7 +48,7 @@ const PostNav = ({ previous, next }: PostNavProps) => {
                 ←{' '}
                 {hasPreviousTitle
                   ? previous.title
-                  : `${format(parseISO(previous.date), 'PP')} ・ ${format(
+                  : `${format(parseISO(previous.date), 'PP')}・${format(
                       parseISO(previous.date),
                       'p'
                     )}`}{' '}
@@ -79,7 +79,7 @@ const PostNav = ({ previous, next }: PostNavProps) => {
               >
                 {hasNextTitle
                   ? next.title
-                  : `${format(parseISO(next.date), 'PP')} ・ ${format(
+                  : `${format(parseISO(next.date), 'PP')}・${format(
                       parseISO(next.date),
                       'p'
                     )}`}{' '}
@@ -88,7 +88,9 @@ const PostNav = ({ previous, next }: PostNavProps) => {
             </Link>
           ) : (
             <Link href="/" passHref>
-              <a rel="next">Feed →</a>
+              <a rel="next" sx={{ fontSize: 0, display: 'block' }}>
+                Feed →
+              </a>
             </Link>
           )}
         </li>
