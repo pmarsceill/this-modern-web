@@ -30,9 +30,10 @@ const generateRSSFeed = (posts: { post: PostType; html: string }[]) => {
     const { title, date, description, year, month, day, slug } = item.post
     const url = `${baseUrl}/${year}/${month}/${day}/${slug}`
     const html = item.html
+    const hasTitle = title && date !== title
 
     feed.addItem({
-      title: title || '',
+      title: hasTitle ? title : '',
       id: url,
       link: url,
       description: description || '',
