@@ -10,14 +10,13 @@ import Button from '../components/button'
 import GlobalLayout from '../components/global/global-layout'
 import Image from 'next/image'
 import Link from 'next/link'
-import { MDXProvider } from '@theme-ui/mdx'
 import Nav from '../components/nav'
 import { NextSeo } from 'next-seo'
 import PostType from '../types/post'
 import ReactDOMServer from 'react-dom/server'
 import TwoColLayout from '../components/two-col-layout'
 import generateRSSFeed from '../lib/rss-generator'
-import imageMetadata from '../lib/image-metadata'
+import imageAbsoluteUrls from '../lib/image-absolute-urls'
 import mdxPrism from 'mdx-prism'
 import remarkUnwrapImages from 'remark-unwrap-images'
 import { rssComponents } from '../pages/[year]/[month]/[day]/[slug]'
@@ -237,7 +236,7 @@ export const getStaticProps: GetStaticProps = async () => {
       // Optionally pass remark/rehype plugins
       mdxOptions: {
         remarkPlugins: [remarkUnwrapImages],
-        rehypePlugins: [mdxPrism, imageMetadata],
+        rehypePlugins: [mdxPrism, imageAbsoluteUrls],
       },
       scope: post.frontmatter,
     })
