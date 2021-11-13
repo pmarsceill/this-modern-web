@@ -13,4 +13,13 @@ module.exports = withMDX({
 
     return config
   },
+  async redirects() {
+    return [
+      {
+        source: '/inbox',
+        destination: '/now',
+        permanent: true,
+      },
+    ]
+  },
 })
