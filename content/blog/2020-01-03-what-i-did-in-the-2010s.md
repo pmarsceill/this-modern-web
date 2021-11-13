@@ -1,7 +1,7 @@
 ---
 title: 'Some things I did in the 2010s'
 description: 'Music, family, and a career'
-date: 2020-01-03T23:40:23-0500
+date: 2020-01-03T17:40:23-0500
 tags: ['journal', 'retrospective', '2010s']
 ---
 
