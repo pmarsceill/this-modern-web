@@ -24,8 +24,8 @@ const NowWorkingOn = () => {
         designers, I reevaluated what I wanted to get out of my work. I&apos;ve
         always been most driven by making things and after spending this last
         chunk of my career managing other designers I found myself very far away
-        from what I&apos;m most passionate about. I decided it was time to go
-        back to being an individual contributor. It was a little scary, I admit,
+        from what I&apos;m most passionate about. It was time to go
+        back to being an individual contributor. It was a little scary
         but absolutely the right choice for me. I changed teams, changed titles,
         and shifted to another area of GitHub that needed help.
       </Themed.p>
