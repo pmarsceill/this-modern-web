@@ -42,7 +42,7 @@ export const theme: Theme = {
   },
   lineHeights: {
     body: 1.4,
-    heading: 1.15,
+    heading: 1.1,
     content: 1.5,
   },
   letterSpacings: {
@@ -53,7 +53,7 @@ export const theme: Theme = {
       '0 1px 2px rgba(0,0,0,0.07), 0 2px 4px rgba(0,0,0,0.07), 0 4px 8px rgba(0,0,0,0.07), 0 8px 16px rgba(0,0,0,0.07),0 16px 32px rgba(0,0,0,0.07), 0 32px 64px rgba(0,0,0,0.07)',
   },
   radii: [0, 4, 8, 12],
-  fontSizes: [13, 15, 17, 22, 28, 32, 36, 42, 64, 72, 78],
+  fontSizes: [13, 15, 17, 22, 26, 32, 36, 42, 64, 72, 78],
   space: [0, 4, 8, 12, 16, 32, 64, 128, 256, 512],
   sizes: {
     container: 1268,
@@ -114,6 +114,13 @@ export const theme: Theme = {
         backgroundPosition: '0 92%',
         backgroundSize: '1px 1px',
       },
+    },
+    pageHeading: {
+      fontSize: [5, 6, 7],
+      fontFamily: 'heading',
+      fontWeight: 'heading',
+      lineHeight: 'heading',
+      letterSpacing: 'heading',
     },
   },
   styles: {

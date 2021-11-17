@@ -24,10 +24,10 @@ const NowWorkingOn = () => {
         designers, I reevaluated what I wanted to get out of my work. I&apos;ve
         always been most driven by making things and after spending this last
         chunk of my career managing other designers I found myself very far away
-        from what I&apos;m most passionate about. It was time to go
-        back to being an individual contributor. It was a little scary
-        but absolutely the right choice for me. I changed teams, changed titles,
-        and shifted to another area of GitHub that needed help.
+        from what I&apos;m most passionate about. It was time to go back to
+        being an individual contributor. It was a little scary but absolutely
+        the right choice for me. I changed teams, changed titles, and shifted to
+        another area of GitHub that needed help.
       </Themed.p>
       <Themed.p>
         The first assignment I was handed as Staff Designer at GitHub was to
@@ -280,10 +280,7 @@ const Now: NextPage = () => {
         <div>
           <h1
             sx={{
-              fontFamily: 'heading',
-              fontSize: [5, 6, 7],
-              letterSpacing: 'heading',
-              lineHeight: 'heading',
+              variant: 'text.pageHeading',
             }}
           >
             Now

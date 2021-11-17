@@ -168,7 +168,7 @@ const PostsByMonthsPerYear = ({
                           <div
                             sx={{
                               fontFamily: 'monospace',
-                              fontSize: 0,
+                              fontSize: [1, 1, 0],
                               lineHeight: 'content',
                             }}
                           >
