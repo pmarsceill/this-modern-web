@@ -38,10 +38,7 @@ const About = () => {
           <div sx={{ gridArea: 'intro' }}>
             <h1
               sx={{
-                fontFamily: 'heading',
-                fontSize: [5, 6, 7],
-                letterSpacing: 'heading',
-                lineHeight: 'heading',
+                variant: 'text.pageHeading',
                 width: ['', '150%'],
               }}
             >

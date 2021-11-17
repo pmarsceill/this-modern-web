@@ -8,6 +8,7 @@ type PostType = {
   tags?: [string]
   content: string
   date: string
+  utcDate: string
   frontmatter: {
     [key: string]: any
   }

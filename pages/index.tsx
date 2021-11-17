@@ -60,7 +60,7 @@ const CurrentPost = ({ post, isFirst }: PostProps) => {
           }}
         >
           <div sx={{ maxWidth: '660px' }}>
-            <h3
+            <h2
               sx={{
                 display: 'inline',
                 fontFamily: 'heading',
@@ -70,7 +70,7 @@ const CurrentPost = ({ post, isFirst }: PostProps) => {
               }}
             >
               {post.title}
-            </h3>
+            </h2>
             <p
               sx={{
                 fontFamily: 'heading',

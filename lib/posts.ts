@@ -28,12 +28,19 @@ export function getPostBySlug(slug: string) {
 
   const { data, content } = matter(fileContents)
   const date = data.date as string
+
+  // Offset the date because it's stored as UTC
+  const realDate = new Date(
+    parseISO(date).getTime() - parseISO(date).getTimezoneOffset() * 60000
+  )
+  const realDateString = realDate.toISOString()
+
   const title = data.title || null
   const tags = data.tags
   const description = data.description || null
-  const postYear = format(parseISO(date), 'yyyy')
-  const postMonth = format(parseISO(date), 'MM')
-  const postDay = format(parseISO(date), 'dd')
+  const postYear = format(realDate, 'yyyy')
+  const postMonth = format(realDate, 'MM')
+  const postDay = format(realDate, 'dd')
   const colorMode = data.colorMode || 'light'
 
   return {
@@ -44,7 +51,8 @@ export function getPostBySlug(slug: string) {
     month: postMonth,
     day: postDay,
     description,
-    date: date,
+    date: realDateString,
+    utcDate: date,
     tags,
     frontmatter: data,
     colorMode,
