@@ -1,20 +1,19 @@
 /** @jsxImportSource theme-ui */
 
-import { parse, parseISO } from 'date-fns'
-
-import GlobalLayout from '../components/global/global-layout'
-import Image from 'next/image'
-import MdxImage from '../components/mdx-image'
-import Nav from '../components/nav'
+import { Themed } from '@theme-ui/mdx'
+import { parseISO } from 'date-fns'
+import format from 'date-fns/format'
 import { NextPage } from 'next'
 import { NextSeo } from 'next-seo'
-import { Themed } from '@theme-ui/mdx'
-import TrackType from '../types/track'
+import Image from 'next/image'
+import useSWR from 'swr'
+import GlobalLayout from '../components/global/global-layout'
+import MdxImage from '../components/mdx-image'
+import Nav from '../components/nav'
 import TwoColLayout from '../components/two-col-layout'
-import format from 'date-fns/format'
+import { TrackType } from '../lib/types'
 import ghProjectsBeta from '../public/assets/now/gh-projects-beta.png'
 import homeImage from '../public/assets/now/home.jpg'
-import useSWR from 'swr'
 
 const NowWorkingOn = () => {
   return (
@@ -89,7 +88,7 @@ const NowHome = () => {
 
 const NowPlaying = () => {
   const fetcher = (url: string) => fetch(url).then((r) => r.json())
-  const { data, error } = useSWR('/api/spotify-recently-played', fetcher)
+  const { data, error } = useSWR('/api/recently-played', fetcher)
 
   if (error)
     return (
@@ -164,108 +163,11 @@ const NowPlaying = () => {
                     fontFamily: 'body',
                   }}
                 >
-                  Played {format(parseISO(track.played_at), 'PPpp')}
+                  Played {format(parseISO(track.playedAt), 'PPp')}
                 </p>
               </div>
             )
           })}
-      </div>
-    </>
-  )
-}
-
-const NowPlayingLive = () => {
-  const fetcher = (url: string) => fetch(url).then((r) => r.json())
-
-  // TODO Hook up API credentials so this doesn't 402
-  const { data, error } = useSWR('/api/spotify-currently-playing', fetcher)
-
-  if (error) return <div>Failed to load currently playing.</div>
-
-  return (
-    <>
-      <Themed.h2>Now playing on Spotify</Themed.h2>
-    </>
-  )
-}
-
-const NowReading = () => {
-  const fetcher = (url: string) => fetch(url).then((r) => r.json())
-  const { data, error } = useSWR('/api/oku', fetcher)
-
-  if (error) return <div>Failed to load recently read books.</div>
-
-  const books = data?.books
-
-  // TODO figure out a more reliable source for book cover images. Open Library isn't good enough.
-  return (
-    <>
-      <h2>Recently read books</h2>
-      <div
-        sx={{
-          display: 'grid',
-          gridTemplateColumns: [
-            '1fr 1fr',
-            '1fr 1fr 1fr',
-            '',
-            '1fr 1fr 1fr 1fr',
-          ],
-          gridGap: 5,
-        }}
-      >
-        {books &&
-          books.map(
-            (book: {
-              title: string
-              author: string
-              coverImageUrl: string
-              coverImageMetadata: { width: number; height: number }
-              readDate: string
-            }) => {
-              const date = parse(
-                book.readDate,
-                'EEE, dd LLL y 00:00:00 +0000',
-                new Date()
-              )
-              console.log('date', date)
-              return (
-                <div key={book.title}>
-                  <div
-                    sx={{
-                      position: 'relative',
-                      height: '320px',
-                      borderRadius: 1,
-                      overflow: 'hidden',
-                      bg: 'muted',
-                      boxShadow: 'default',
-                    }}
-                  >
-                    <Image
-                      src={book.coverImageUrl}
-                      alt=""
-                      objectFit="cover"
-                      layout="fill"
-                      objectPosition="center"
-                    />
-                  </div>
-                  <Themed.h3 sx={{ mt: 3, mb: 2 }}>
-                    {book.title}{' '}
-                    <span sx={{ color: 'secondary' }}> by {book.author}</span>
-                  </Themed.h3>
-                  <p
-                    sx={{
-                      mt: 0,
-                      fontSize: 0,
-                      color: 'secondary',
-                      fontFamily: 'body',
-                    }}
-                  >
-                    Read {format(date, 'PP')}
-                  </p>
-                </div>
-              )
-            }
-          )}
       </div>
     </>
   )

@@ -1,9 +1,8 @@
 import { format, parseISO } from 'date-fns'
-
-import PostType from '../types/post'
 import fs from 'fs'
-import { join } from 'path'
 import matter from 'gray-matter'
+import { join } from 'path'
+import { PostType } from '../lib/types'
 
 const postsDirectory = join(process.cwd(), 'content', 'blog')
 const microPostsDirectory = join(process.cwd(), 'content', 'microblog')

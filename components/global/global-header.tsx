@@ -1,11 +1,11 @@
 /** @jsxImportSource theme-ui */
 
+import { useColorMode } from '@theme-ui/color-modes'
+import { useRouter } from 'next/dist/client/router'
 import Head from 'next/head'
 import Link from 'next/link'
 import { ReactNode } from 'react'
 import { theme } from '../../lib/theme'
-import { useColorMode } from '@theme-ui/color-modes'
-import { useRouter } from 'next/dist/client/router'
 
 type SiteTitleProps = {
   isHome?: boolean

@@ -1,36 +1,35 @@
 /** @jsxImportSource theme-ui */
 
+import { useColorMode } from '@theme-ui/color-modes'
+import { Themed } from '@theme-ui/mdx'
+import { format, parseISO } from 'date-fns'
+import { NextPage } from 'next'
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'
+import { serialize } from 'next-mdx-remote/serialize'
+import { NextSeo } from 'next-seo'
+import { useState } from 'react'
+import rehypePrism from 'rehype-prism-plus'
+import remarkUnwrapImages from 'remark-unwrap-images'
+import removeMd from 'remove-markdown'
+import AncillaryNav from '../../../../components/ancillary-nav'
+import Button from '../../../../components/button'
+import GlobalLayout from '../../../../components/global/global-layout'
 import MdxImage, {
   ImageRow,
   LargeImage,
   SmallImage,
 } from '../../../../components/mdx-image'
-import { format, parseISO } from 'date-fns'
+import PostNav from '../../../../components/post-nav'
+import TwoColLayout from '../../../../components/two-col-layout'
+import Video from '../../../../components/video'
+import { imageMetadata } from '../../../../lib/images'
 import {
   getAllPosts,
   getNextPost,
   getPostBySlug,
   getPreviousPost,
 } from '../../../../lib/posts'
-
-import AncillaryNav from '../../../../components/ancillary-nav'
-import Button from '../../../../components/button'
-import GlobalLayout from '../../../../components/global/global-layout'
-import { NextPage } from 'next'
-import { NextSeo } from 'next-seo'
-import PostNav from '../../../../components/post-nav'
-import PostType from '../../../../types/post'
-import { Themed } from '@theme-ui/mdx'
-import TwoColLayout from '../../../../components/two-col-layout'
-import Video from '../../../../components/video'
-import imageMetadata from '../../../../lib/image-metadata'
-import mdxPrism from 'mdx-prism'
-import remarkUnwrapImages from 'remark-unwrap-images'
-import removeMd from 'remove-markdown'
-import { serialize } from 'next-mdx-remote/serialize'
-import { useColorMode } from '@theme-ui/color-modes'
-import { useState } from 'react'
+import { PostType } from '../../../../lib/types'
 
 type PostProps = {
   post: PostType
@@ -296,7 +295,7 @@ export async function getStaticProps({ params }: Params) {
     // Optionally pass remark/rehype plugins
     mdxOptions: {
       remarkPlugins: [remarkUnwrapImages],
-      rehypePlugins: [mdxPrism, imageMetadata],
+      rehypePlugins: [rehypePrism, imageMetadata as any],
     },
     scope: post.frontmatter,
   })

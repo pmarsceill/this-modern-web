@@ -1,9 +1,8 @@
 /** @jsxImportSource theme-ui */
 
 import { format, parseISO } from 'date-fns'
-
 import Link from 'next/link'
-import PostType from '../types/post'
+import { PostType } from '../lib/types'
 
 type PostNavProps = {
   previous?: PostType

@@ -1,12 +1,14 @@
-import { Data, Node } from 'unist'
-
-import { Processor } from 'unified'
-import { VFile } from 'vfile'
 // Similiar structure to:
 // https://github.com/JS-DevTools/rehype-inline-svg/blob/master/src/inline-svg.ts
 import path from 'path'
 import sharp from 'sharp'
+import { Processor } from 'unified'
+import { Data, Node } from 'unist'
 import { visit } from 'unist-util-visit'
+import { VFile } from 'vfile'
+
+// BaseUrl is used to generate absolute URLs for RSS feed
+const BASE_URL = 'https://thismodernweb.com'
 
 /**
  * An `<img>` HAST node
@@ -76,10 +78,18 @@ async function addRemoteMetadata(node: ImageNode): Promise<void> {
 }
 
 /**
+ * Adds the image's absolute URL for RSS feed
+ */
+async function addAbsoluteUrl(node: ImageNode): Promise<void> {
+  const path = node.properties.src
+  node.properties.src = `${BASE_URL}${path}`
+}
+
+/**
  * This is a Rehype plugin that finds image `<img>` elements and adds the height and width to the properties.
  * Read more about Next.js image: https://nextjs.org/docs/api-reference/next/image#layout
  */
-export default function imageMetadata(this: Processor) {
+export function imageMetadata(this: Processor) {
   return async function transformer(tree: Node, file: VFile): Promise<Node> {
     const imgNodes: ImageNode[] = []
     const remoteImages: ImageNode[] = []
@@ -98,6 +108,27 @@ export default function imageMetadata(this: Processor) {
 
     for (const node of remoteImages) {
       await addRemoteMetadata(node)
+    }
+
+    return tree
+  }
+}
+
+/**
+ * This is a Rehype plugin that finds image `<img>` elements and replaces their paths with their absolute URL.
+ */
+export function imageAbsoluteUrls(this: Processor) {
+  return async function transformer(tree: Node, file: VFile): Promise<Node> {
+    const imgNodes: ImageNode[] = []
+
+    visit(tree, 'element', (node: Node<Data>) => {
+      if (isImageNode(node) && filterImageNode(node)) {
+        imgNodes.push(node)
+      }
+    })
+
+    for (const node of imgNodes) {
+      await addAbsoluteUrl(node)
     }
 
     return tree
