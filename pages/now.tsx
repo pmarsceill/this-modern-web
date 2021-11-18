@@ -88,7 +88,7 @@ const NowHome = () => {
 
 const NowPlaying = () => {
   const fetcher = (url: string) => fetch(url).then((r) => r.json())
-  const { data, error } = useSWR('/api/spotify-recently-played', fetcher)
+  const { data, error } = useSWR('/api/recently-played', fetcher)
 
   if (error)
     return (
@@ -163,7 +163,7 @@ const NowPlaying = () => {
                     fontFamily: 'body',
                   }}
                 >
-                  Played {format(parseISO(track.played_at), 'PPpp')}
+                  Played {format(parseISO(track.playedAt), 'PPp')}
                 </p>
               </div>
             )
