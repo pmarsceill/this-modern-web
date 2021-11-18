@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Prototyping Q&A"
+title: 'Prototyping Q&A'
 date: 2013-12-11 11:20
-tags: ["legacy"]
+tags: ['legacy']
 ---
 
 A few months ago <a href="http://happycog.com">Happy Cog&trade;</a> released <a href="https://mijingo.com/products/bundles/the-happy-cog-way">The Happy Cog Way</a>, an instructional video series highlighting our methods and best practices. As part of this series I created a course in <a href="http://mijingo.com/products/screencasts/html-prototyping">HTML Prototyping</a>, a beginners guide to using <a href="http://foundation.zurb.com">Zurb Foundation</a>, <a href="http://sass-lang.com">Sass</a>, and <a href="http://incident57.com/codekit/">CodeKit</a> to create responsive prototypes. Since its release, I've received some really great feedback about my video and the series, including this set of questions that a reader emailed me.

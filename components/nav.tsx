@@ -1,7 +1,7 @@
 /** @jsxImportSource theme-ui */
 
-import NavLink from './nav-link'
 import { ThemeUIStyleObject } from '@theme-ui/css'
+import NavLink from './nav-link'
 
 const Nav = () => {
   const navItemStyles: ThemeUIStyleObject = {

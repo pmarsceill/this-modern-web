@@ -1,7 +1,7 @@
 /** @jsxImportSource theme-ui */
 
-import ArchiveIcon from '../public/icons/activity.svg'
 import Link from 'next/link'
+import ArchiveIcon from '../public/icons/activity.svg'
 import RssIcon from '../public/icons/rss.svg'
 
 const AncillaryNav = () => {

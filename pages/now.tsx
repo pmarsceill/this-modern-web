@@ -1,20 +1,19 @@
 /** @jsxImportSource theme-ui */
 
-import { parse, parseISO } from 'date-fns'
-
-import GlobalLayout from '../components/global/global-layout'
-import Image from 'next/image'
-import MdxImage from '../components/mdx-image'
-import Nav from '../components/nav'
+import { Themed } from '@theme-ui/mdx'
+import { parseISO } from 'date-fns'
+import format from 'date-fns/format'
 import { NextPage } from 'next'
 import { NextSeo } from 'next-seo'
-import { Themed } from '@theme-ui/mdx'
-import TrackType from '../types/track'
+import Image from 'next/image'
+import useSWR from 'swr'
+import GlobalLayout from '../components/global/global-layout'
+import MdxImage from '../components/mdx-image'
+import Nav from '../components/nav'
 import TwoColLayout from '../components/two-col-layout'
-import format from 'date-fns/format'
+import { TrackType } from '../lib/types'
 import ghProjectsBeta from '../public/assets/now/gh-projects-beta.png'
 import homeImage from '../public/assets/now/home.jpg'
-import useSWR from 'swr'
 
 const NowWorkingOn = () => {
   return (

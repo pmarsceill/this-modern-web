@@ -1,11 +1,9 @@
 /** @jsxImportSource theme-ui */
 
-import Button from '../components/button'
-import GlobalLayout from '../components/global/global-layout'
-import Link from 'next/link'
+import { Themed } from '@theme-ui/mdx'
 import { NextPage } from 'next'
 import { NextSeo } from 'next-seo'
-import { Themed } from '@theme-ui/mdx'
+import GlobalLayout from '../components/global/global-layout'
 
 const Custom500: NextPage = () => {
   return (

@@ -1,20 +1,19 @@
 /** @jsxImportSource theme-ui */
 
+import { alpha } from '@theme-ui/color'
+import { format, parseISO } from 'date-fns'
 import { GetStaticProps, NextPage } from 'next'
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'
-import { createRef, useEffect } from 'react'
-import { format, parseISO } from 'date-fns'
-
-import Button from '../components/button'
-import GlobalLayout from '../components/global/global-layout'
-import Link from 'next/link'
-import { NextSeo } from 'next-seo'
-import PostType from '../types/post'
-import { alpha } from '@theme-ui/color'
-import { getPostsByType } from '../lib/posts'
 import { serialize } from 'next-mdx-remote/serialize'
+import { NextSeo } from 'next-seo'
+import Link from 'next/link'
+import { createRef, useEffect } from 'react'
 import smoothscroll from 'smoothscroll-polyfill'
 import { useColorMode } from 'theme-ui'
+import Button from '../components/button'
+import GlobalLayout from '../components/global/global-layout'
+import { getPostsByType } from '../lib/posts'
+import { PostType } from '../lib/types'
 
 type PostsByMonthPerYearProps = {
   currentPosts: PostType[]

@@ -1,15 +1,14 @@
 /** @jsxImportSource theme-ui */
 
-import { Styled, Themed } from '@theme-ui/mdx'
-
-import AboutGif from '../public/patrick-marsceill.gif'
-import GlobalLayout from '../components/global/global-layout'
+import { Themed } from '@theme-ui/mdx'
+import { NextSeo } from 'next-seo'
 import Image from 'next/image'
 import Link from 'next/link'
-import Nav from '../components/nav'
-import { NextSeo } from 'next-seo'
-import TwoColLayout from '../components/two-col-layout'
 import { useColorMode } from 'theme-ui'
+import GlobalLayout from '../components/global/global-layout'
+import Nav from '../components/nav'
+import TwoColLayout from '../components/two-col-layout'
+import AboutGif from '../public/patrick-marsceill.gif'
 
 const About = () => {
   const [colorMode, setColorMode] = useColorMode()
