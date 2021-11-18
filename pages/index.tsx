@@ -235,7 +235,7 @@ export const getStaticProps: GetStaticProps = async () => {
       // Optionally pass remark/rehype plugins
       mdxOptions: {
         remarkPlugins: [remarkUnwrapImages],
-        rehypePlugins: [mdxPrism, imageAbsoluteUrls],
+        rehypePlugins: [rehypePrism, imageAbsoluteUrls as any],
       },
       scope: post.frontmatter,
     })

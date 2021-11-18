@@ -295,7 +295,7 @@ export async function getStaticProps({ params }: Params) {
     // Optionally pass remark/rehype plugins
     mdxOptions: {
       remarkPlugins: [remarkUnwrapImages],
-      rehypePlugins: [mdxPrism, imageMetadata],
+      rehypePlugins: [rehypePrism, imageMetadata as any],
     },
     scope: post.frontmatter,
   })
