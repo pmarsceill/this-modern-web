@@ -15,6 +15,11 @@
 # production
 /build
 
+# local rss
+/public/rss.xml
+/public/microblog.xml
+/public/feed.json
+
 # misc
 .DS_Store
 *.pem
