@@ -245,7 +245,7 @@ export const theme: Theme = {
         width: (theme: Theme) => `${theme.space && theme.space[7]}px`,
         height: '2px',
         left: (theme: Theme) =>
-          `calc(50% - ${theme.space && theme.space[7]}px)`,
+          `calc(50% - ${theme.space && theme.space[6]}px)`,
         top: 'calc(50% - 2px)',
         backgroundColor: 'muted',
         content: '""',
