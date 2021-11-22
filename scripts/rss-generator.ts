@@ -38,10 +38,11 @@ const generateRSSFeed = (posts: { post: PostType; html: string }[]) => {
   })
 
   posts.forEach(async (item) => {
-    const { title, date, description, year, month, day, slug, tags } = item.post
+    const { title, utcDate, date, description, year, month, day, slug, tags } =
+      item.post
     const url = `${baseUrl}/${year}/${month}/${day}/${slug}`
     const html = item.html
-    const hasTitle = title && date !== title
+    const hasTitle = title && utcDate !== title
 
     feed.addItem({
       title: hasTitle ? title : '',
@@ -49,18 +50,18 @@ const generateRSSFeed = (posts: { post: PostType; html: string }[]) => {
       link: url,
       description: description || '',
       content: html,
-      author: [author],
+      author: [{ name: author.name }],
       date: new Date(date),
     })
 
     if (tags && tags.includes('microblog')) {
       microblogFeed.addItem({
-        title: hasTitle ? title : '',
+        title: '',
         id: url,
         link: url,
         description: description || '',
         content: html,
-        author: [author],
+        author: [{ name: author.name }],
         date: new Date(date),
       })
     }
