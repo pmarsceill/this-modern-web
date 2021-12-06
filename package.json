@@ -17,7 +17,7 @@
     "fathom-client": "^3.2.0",
     "feed": "^4.2.2",
     "gray-matter": "^4.0.3",
-    "next": "12.0.4",
+    "next": "12.0.7",
     "next-mdx-remote": "^3.0.8",
     "next-seo": "^4.28.1",
     "querystring": "^0.2.1",
