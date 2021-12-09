@@ -7,6 +7,7 @@ import { NextPage } from 'next'
 import { NextSeo } from 'next-seo'
 import Image from 'next/image'
 import useSWR from 'swr'
+import { useColorMode } from 'theme-ui'
 import GlobalLayout from '../components/global/global-layout'
 import MdxImage from '../components/mdx-image'
 import Nav from '../components/nav'
@@ -16,6 +17,9 @@ import ghProjectsBeta from '../public/assets/now/gh-projects-beta.png'
 import homeImage from '../public/assets/now/home.jpg'
 
 const NowWorkingOn = () => {
+  const [colorMode, setColorMode] = useColorMode()
+  setColorMode('dark')
+
   return (
     <>
       <Themed.p>
