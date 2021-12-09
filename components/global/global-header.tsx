@@ -1,12 +1,12 @@
 /** @jsxImportSource theme-ui */
 
-import { useColorMode } from '@theme-ui/color-modes'
 import { useRouter } from 'next/dist/client/router'
 import Head from 'next/head'
 import Link from 'next/link'
 import { ReactNode } from 'react'
-import { theme } from '../../lib/theme'
 import GlobalFavicon from './global-favicon'
+import GlobalMeta from './global-meta'
+import GlobalMicropub from './global-micropub'
 
 type SiteTitleProps = {
   isHome?: boolean
@@ -46,29 +46,13 @@ const SiteTitle = ({ children, isHome }: SiteTitleProps) => {
 const GlobalHeader = () => {
   const router = useRouter()
   const isHome = router.pathname === '/'
-  const [colorMode] = useColorMode()
 
   return (
     <>
       <Head>
         <GlobalFavicon />
-
-        <link rel="micropub" href="https://tmw-mp-enpoint.glitch.me/micropub" />
-        <meta
-          name="msapplication-TileColor"
-          content={`${theme.colors?.background}`}
-        />
-        <meta name="msapplication-TileImage" content="/favicon-144x144.png" />
-        <meta name="msapplication-config" content="/browserconfig.xml" />
-        <link rel="manifest" href="/manifest.json" />
-        {colorMode === 'dark' ? (
-          <meta
-            name="theme-color"
-            content={`${theme.colors?.modes?.dark?.background}`}
-          />
-        ) : (
-          <meta name="theme-color" content={`${theme.colors?.background}`} />
-        )}
+        <GlobalMicropub />
+        <GlobalMeta />
       </Head>
       <div
         sx={{

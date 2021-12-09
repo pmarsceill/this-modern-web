@@ -56,14 +56,6 @@ const GlobalFavicon = () => {
       />
       <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
       <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-      <link
-        rel="authorization_endpoint"
-        href="https://github-indieauth.herokuapp.com/auth"
-      />
-      <link
-        rel="token_endpoint"
-        href="https://github-indieauth.herokuapp.com/token"
-      />
     </>
   )
 }
