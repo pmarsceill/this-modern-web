@@ -11,7 +11,7 @@
   "dependencies": {
     "@mdx-js/loader": "^1.6.22",
     "@stitches/react": "^1.2.5",
-    "@svgr/webpack": "^6.1.1",
+    "@svgr/webpack": "^6.1.2",
     "@theme-ui/color": "^0.12.1",
     "@theme-ui/prism": "^0.12.0",
     "date-fns": "^2.27.0",
@@ -32,7 +32,7 @@
     "remove-markdown": "^0.3.0",
     "sharp": "^0.29.3",
     "smoothscroll-polyfill": "^0.4.4",
-    "swr": "^1.1.0",
+    "swr": "^1.1.1",
     "unist-util-visit": "^4.1.0",
     "xml-js": "^1.6.11"
   },
@@ -51,6 +51,6 @@
     "eslint-plugin-react": "^7.27.1",
     "prettier": "^2.5.1",
     "prettier-plugin-organize-imports": "^2.3.4",
-    "typescript": "4.5.2"
+    "typescript": "4.5.3"
   }
 }
