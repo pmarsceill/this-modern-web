@@ -1,5 +1,8 @@
 import Link from 'next/link'
+import Heading from '../../components/primitives/heading'
 import { styled } from '../../stitches.config'
+import Box from '../primitives/box'
+import Text from '../primitives/text'
 
 type SiteHeaderType = {
   isHome: boolean
@@ -12,7 +15,7 @@ const LogoType = ({ isHome }: SiteHeaderType) => {
     height: 'auto',
 
     '@2': {
-      width: isHome ? '456px' : '262px',
+      width: isHome ? '465px' : '262px',
     },
   })
 
@@ -85,9 +88,9 @@ const SiteTitle = ({ isHome }: SiteHeaderType) => {
   const TitleLink = () => {
     if (isHome) {
       return (
-        <h1 sx={{ color: 'primary' }}>
+        <Heading as="h1" css={{ color: '$primary' }}>
           <LogoType isHome={isHome} />
-        </h1>
+        </Heading>
       )
     }
 
@@ -105,25 +108,33 @@ const SiteTitle = ({ isHome }: SiteHeaderType) => {
   }
 
   return (
-    <div
-      sx={{
+    <Box
+      css={{
         display: 'block',
         fontSize: '0',
         lineHeight: '0',
       }}
     >
       <TitleLink />
-      <p
-        sx={{
-          color: 'secondary',
-          mt: 1,
+      <Text
+        css={{
+          color: '$secondary',
+          mt: '$1',
           lineHeight: '1',
-          fontSize: isHome ? [0, 1, 2] : 0,
+          fontSize: '$0',
+          display: 'block',
+
+          '@1': {
+            fontSize: isHome ? '$1' : '$0',
+          },
+          '@2': {
+            fontSize: isHome ? '$2' : '$0',
+          },
         }}
       >
         The personal website of Patrick Marsceill
-      </p>
-    </div>
+      </Text>
+    </Box>
   )
 }
 

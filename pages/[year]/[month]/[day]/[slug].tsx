@@ -16,6 +16,9 @@ import MdxImage, {
   SmallImage,
 } from '../../../../components/mdx-image'
 import PostNav from '../../../../components/post-nav'
+import Box from '../../../../components/primitives/box'
+import Prose from '../../../../components/primitives/prose'
+import Text from '../../../../components/text'
 import TwoColLayout from '../../../../components/two-col-layout'
 import Video from '../../../../components/video'
 import { imageMetadata } from '../../../../lib/images'
@@ -59,7 +62,7 @@ export const rssComponents = {
 const TimeWarning = ({ postYear, currentYear }: TimeWarningProps) => {
   return (
     <>
-      <p sx={{ mt: 0, mb: '1em' }}>
+      <Text as="p" css={{ mt: '$0', mb: '1em' }}>
         👋{' '}
         <em>
           Hello reader, this blog post has aged {currentYear - postYear} years
@@ -72,14 +75,14 @@ const TimeWarning = ({ postYear, currentYear }: TimeWarningProps) => {
           something feels off or if you&apos;re relying on it for any serious
           purpose.{' '}
         </em>
-      </p>
-      <p sx={{ m: 0 }}>
+      </Text>
+      <Text as="p" css={{ m: '$0' }}>
         <em>
           Thanks,
           <br />
           Patrick
         </em>
-      </p>
+      </Text>
       <hr />
     </>
   )
@@ -114,57 +117,82 @@ const Post: NextPage<PostProps> = ({
         />
         <article>
           <TwoColLayout isExtended>
-            <div>
-              <span
+            <Box>
+              <Text
                 sx={{
-                  display: ['inline-block', '', '', 'block'],
-                  fontSize: [0, '', '', 3],
-                  mr: [3, '', '', 0],
-                  ml: [1, '', '', 0],
+                  display: 'inline-block',
+                  fontSize: '$0',
+                  mr: '$3',
+                  ml: '$0',
+
+                  '@3': {
+                    display: 'block',
+                    fontSize: '$3',
+                    mr: '$0',
+                    ml: '$0',
+                  },
                 }}
               >
                 ⌘
-              </span>
-              <time
-                sx={{
-                  fontSize: 0,
-                  color: 'secondary',
-                  fontFamily: 'body',
-                  mt: 1,
-                  mb: 3,
-                  display: ['inline-block', '', '', 'block'],
+              </Text>
+              <Text
+                as="time"
+                css={{
+                  fontSize: '$0',
+                  color: '$secondary',
+                  fontFamily: '$body',
+                  mt: '$1',
+                  mb: '$3',
+                  display: 'inline-block',
+
+                  '@3': {
+                    display: 'block',
+                  },
                 }}
               >
                 {format(parseISO(post.date), 'PP')}
-                <span
-                  sx={{
-                    display: ['', '', '', 'block'],
+                <Text
+                  as="span"
+                  css={{
                     fontFamily: 'monospace',
-                    ml: [1, '', '', 0],
+                    ml: '$1',
+
+                    '@3': {
+                      display: 'block',
+                      ml: '$0',
+                    },
                   }}
                 >
                   {format(parseISO(post.date), 'p')}
-                </span>
-              </time>
-            </div>
-            <div
-              sx={{
+                </Text>
+              </Text>
+            </Box>
+            <Prose
+              css={{
                 backgroundColor: 'inset',
-                px: [5, '', '', 6],
-                py: [3, '', '', 5],
+                px: '$5',
+                py: '$3',
                 borderRadius: 3,
                 fontFamily: 'monospace',
                 fontSize: 1,
+
+                '@3': {
+                  px: '$6',
+                  py: '$5',
+                },
               }}
               className="prose"
             >
               <MDXRemote {...content} />
-            </div>
+            </Prose>
             <AncillaryNav />
           </TwoColLayout>
-          <footer sx={{ mt: 6, borderTop: '1px solid', borderColor: 'muted' }}>
+          <Box
+            as="footer"
+            css={{ mt: '$6', borderTop: '1px solid', borderColor: '$muted' }}
+          >
             <PostNav next={nextPost} previous={previousPost} />
-          </footer>
+          </Box>
         </article>
       </GlobalLayout>
     )
