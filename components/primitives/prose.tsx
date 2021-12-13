@@ -2,6 +2,24 @@ import { styled } from '../../stitches.config'
 import Box from './box'
 
 const Prose = styled(Box, {
+  '& p': {
+    my: '1em',
+  },
+  a: {
+    color: '$primary',
+    textDecoration: 'none',
+    overflow: 'hidden',
+    textOverflow: 'ellipses',
+    whitespace: 'nowrap',
+
+    '&:hover': {
+      color: '$accent',
+    },
+    backgroundImage: 'linear-gradient($accentMuted 0%, $accentMuted 100%)',
+    backgroundRepeat: 'repeat-x',
+    backgroundPosition: '0 92%',
+    backgroundSize: '1px 1px',
+  },
   h1: {
     lineHeight: '$heading',
     fontFamily: '$heading',
@@ -61,10 +79,10 @@ const Prose = styled(Box, {
       position: 'relative',
       mb: '0.33em',
       pl: '1.2em',
-      '::before': {
+      '&:before': {
         position: 'absolute',
         left: '$0',
-        content: '"–"',
+        content: '–',
         fontWeight: 'normal',
         color: '$secondary',
       },
@@ -72,7 +90,7 @@ const Prose = styled(Box, {
       '@1': {
         pl: '$0',
 
-        '&::before': {
+        '&:before': {
           left: '-1em',
         },
       },
@@ -128,16 +146,13 @@ const Prose = styled(Box, {
     position: 'relative',
     '&::after': {
       position: 'absolute',
-      width: (theme: Theme) => `${theme.space && theme.space[7]}px`,
+      width: '$7',
       height: '2px',
-      left: (theme: Theme) => `calc(50% - ${theme.space && theme.space[6]}px)`,
+      left: 'calc(50% - $6)',
       top: 'calc(50% - 2px)',
       backgroundColor: '$muted',
       content: '""',
     },
-  },
-  p: {
-    my: '1em',
   },
   img: {
     width: '100%',
@@ -147,9 +162,9 @@ const Prose = styled(Box, {
     background: 'transparent',
     border: '1px solid',
     borderColor: '$muted',
-    marginBottom: 4,
+    marginBottom: '$4',
     lineHeight: '1',
-    p: 3,
+    p: '$3',
     borderRadius: '4px',
     overflowX: 'auto',
     maxWidth: '100%',

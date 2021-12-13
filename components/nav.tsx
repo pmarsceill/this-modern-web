@@ -12,7 +12,7 @@ const Nav = () => {
     justifyContent: 'space-between',
     borderBottom: '1px solid',
     borderColor: 'muted',
-    top: 6,
+    top: '$6',
 
     '@3': {
       display: 'block',

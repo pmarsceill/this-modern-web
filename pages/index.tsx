@@ -17,6 +17,7 @@ import Nav from '../components/nav'
 import Anchor from '../components/primitives/anchor'
 import Box from '../components/primitives/box'
 import Heading from '../components/primitives/heading'
+import Prose from '../components/primitives/prose'
 import Text from '../components/primitives/text'
 import TwoColLayout from '../components/two-col-layout'
 import { imageAbsoluteUrls } from '../lib/images'
@@ -183,7 +184,9 @@ const MicroBlog = ({ post, mdxContent }: MicroBlogProps) => {
           lineHeight: '$content',
         }}
       >
-        {mdxContent ? <MDXRemote {...mdxContent} /> : fallBackBody}
+        <Prose>
+          {mdxContent ? <MDXRemote {...mdxContent} /> : fallBackBody}
+        </Prose>
       </Box>
       <Link
         href={`/${post.year}/${post.month}/${post.day}/${post.slug}`}
