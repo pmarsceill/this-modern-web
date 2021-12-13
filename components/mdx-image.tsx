@@ -1,5 +1,3 @@
-/** @jsxImportSource theme-ui */
-
 import NextImage from 'next/image'
 
 type Props = {

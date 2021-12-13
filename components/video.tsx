@@ -1,5 +1,3 @@
-/** @jsxImportSource theme-ui */
-
 type Props = {
   src: string
   alt?: string

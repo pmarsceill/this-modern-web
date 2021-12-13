@@ -1,5 +1,3 @@
-/** @jsxImportSource theme-ui */
-
 import Link from 'next/link'
 import ArchiveIcon from '../public/icons/activity.svg'
 import RssIcon from '../public/icons/rss.svg'

@@ -1,5 +1,3 @@
-/** @jsxImportSource theme-ui */
-
 import { format, parseISO } from 'date-fns'
 import Link from 'next/link'
 import { PostType } from '../lib/types'

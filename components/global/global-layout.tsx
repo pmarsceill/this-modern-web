@@ -1,5 +1,4 @@
-/** @jsxImportSource theme-ui */
-
+import Box from '../primitives/box'
 import GlobalFooter from './global-footer'
 import GlobalHeader from './global-header'
 
@@ -11,21 +10,50 @@ type Props = {
 const GlobalLayout = ({ children, fullWidth }: Props) => {
   return (
     <>
-      <div sx={{ maxWidth: 'container', mx: 'auto', px: [4, 6, 7, 5] }}>
-        <GlobalHeader />
-      </div>
-      <main
-        sx={{
-          maxWidth: fullWidth ? 'none' : 'container',
+      <Box
+        css={{
+          maxWidth: '$container',
           mx: 'auto',
-          px: fullWidth ? [4, 6, 0] : [4, 6, 7, 5],
+          px: '$4',
+          '@1': { px: '$6' },
+          '@2': { px: '$7' },
+          '@3': { px: '$5' },
+        }}
+      >
+        <GlobalHeader />
+      </Box>
+      <Box
+        as="main"
+        css={{
+          maxWidth: fullWidth ? 'none' : '$container',
+          mx: 'auto',
+          px: '$4',
+          '@1': {
+            px: '$6',
+          },
+          '@2': {
+            px: fullWidth ? '$0' : '$7',
+          },
+          '@3': {
+            px: fullWidth ? '$0' : '$5',
+          },
         }}
       >
         {children}
-      </main>
-      <div sx={{ maxWidth: 'container', mx: 'auto', px: [4, 6, 7, 5] }}>
+      </Box>
+
+      <Box
+        css={{
+          maxWidth: '$container',
+          mx: 'auto',
+          px: '$4',
+          '@1': { px: '$6' },
+          '@2': { px: '$7' },
+          '@3': { px: '$5' },
+        }}
+      >
         <GlobalFooter />
-      </div>
+      </Box>
     </>
   )
 }

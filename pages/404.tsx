@@ -1,6 +1,3 @@
-/** @jsxImportSource theme-ui */
-
-import { Themed } from '@theme-ui/mdx'
 import { NextPage } from 'next'
 import { NextSeo } from 'next-seo'
 import Link from 'next/link'
@@ -17,14 +14,14 @@ const Custom404: NextPage = () => {
           found
         </h1>
         <div className="prose">
-          <Themed.p>
+          <p>
             This page does not exist. The URL may be incorrect, the page may
             have been moved, or deleted. In any case, there’s nothing to see
             here...
-          </Themed.p>
-          <Themed.p>
+          </p>
+          <p>
             <em>ProTip: Everything is available in the Everything Archive.</em>
-          </Themed.p>
+          </p>
           <Link href="/archive" passHref>
             <Button as="a" variant="outline">
               Everything Archive

@@ -1,5 +1,3 @@
-/** @jsxImportSource theme-ui */
-
 import Link from 'next/link'
 
 const GlobalFooter = () => {

@@ -33,6 +33,10 @@ export const {
       8: '256px',
       9: '512px',
     },
+    sizes: {
+      container: '1268px',
+      content: '924px',
+    },
     fonts: {
       body: '-apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif',
       heading:
@@ -115,6 +119,5 @@ export const {
     bgClip: (value: string) => ({ backgroundClip: value }),
     bgOrigin: (value: string) => ({ backgroundOrigin: value }),
     bgColor: (value: string) => ({ backgroundColor: value }),
-    bgOpacity: (value: number) => ({ backgroundColor: `rgba(0,0,0,${value})` }),
   },
 })

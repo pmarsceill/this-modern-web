@@ -1,7 +1,3 @@
-/** @jsxImportSource theme-ui */
-
-import { useColorMode } from '@theme-ui/color-modes'
-import { Themed } from '@theme-ui/mdx'
 import { format, parseISO } from 'date-fns'
 import { NextPage } from 'next'
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'
@@ -84,7 +80,7 @@ const TimeWarning = ({ postYear, currentYear }: TimeWarningProps) => {
           Patrick
         </em>
       </p>
-      <Themed.hr />
+      <hr />
     </>
   )
 }
