@@ -1,78 +1,67 @@
 import Link from 'next/link'
+import Text from '../components/primitives/text'
 import ArchiveIcon from '../public/icons/activity.svg'
 import RssIcon from '../public/icons/rss.svg'
+import { styled } from '../stitches.config'
+import Box from './primitives/box'
+
+const NavAnchor = styled('a', {
+  fontFamily: '$body',
+  fontSize: '$0',
+  color: '$secondary',
+  textDecoration: 'none',
+  display: 'flex',
+  alignItems: 'center',
+  '&:hover': {
+    color: '$accent',
+  },
+})
 
 const AncillaryNav = () => {
   return (
-    <div
-      sx={{
-        mt: [6, '', 0],
+    <Box
+      css={{
+        mt: '$6',
+        '@2': {
+          mt: '$0',
+        },
       }}
     >
-      <ul
-        sx={{
+      <Box
+        as="ul"
+        css={{
           listStyle: 'none',
-          pl: 0,
-          m: 0,
+          pl: '$0',
+          m: '$0',
+          color: '$secondary',
         }}
       >
-        <li
-          sx={{
-            mb: 2,
-            mt: 2,
+        <Box
+          as="li"
+          css={{
+            mb: '$2',
+            mt: '$2',
           }}
         >
           <Link href="/rss.xml" passHref>
-            <a
-              sx={{
-                fontFamily: 'body',
-                fontSize: 0,
-                color: 'secondary',
-                textDecoration: 'none',
-                display: 'flex',
-                alignItems: 'center',
-                '&:hover': {
-                  color: 'accent',
-                },
-              }}
-            >
-              <RssIcon
-                sx={{ mr: 1 }}
-                width={16}
-                height={16}
-                viewBox="0 0 24 24"
-              />
-              <span sx={{ whiteSpace: 'nowrap' }}>RSS</span>
-            </a>
+            <NavAnchor>
+              <RssIcon width={16} height={16} viewBox="0 0 24 24" />
+              <Text css={{ whiteSpace: 'nowrap', ml: '$1' }}>RSS</Text>
+            </NavAnchor>
           </Link>
-        </li>
-        <li>
+        </Box>
+        <Box as="li">
           <Link href="/archive" passHref>
-            <a
-              sx={{
-                fontFamily: 'body',
-                fontSize: 0,
-                color: 'secondary',
-                textDecoration: 'none',
-                display: 'flex',
-                alignItems: 'center',
-                '&:hover': {
-                  color: 'accent',
-                },
-              }}
-            >
-              <ArchiveIcon
-                sx={{ mr: 1 }}
-                width={16}
-                height={16}
-                viewBox="0 0 24 24"
-              />
-              <span sx={{ whiteSpace: 'nowrap' }}>Everything Archive</span>
-            </a>
+            <NavAnchor>
+              <ArchiveIcon width={16} height={16} viewBox="0 0 24 24" />
+              <Text css={{ whiteSpace: 'nowrap', ml: '$1' }}>
+                Everything Archive
+              </Text>
+            </NavAnchor>
           </Link>
-        </li>
-      </ul>
-    </div>
+        </Box>
+      </Box>
+    </Box>
   )
 }
 

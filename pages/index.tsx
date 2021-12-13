@@ -14,6 +14,10 @@ import AncillaryNav from '../components/ancillary-nav'
 import Button from '../components/button'
 import GlobalLayout from '../components/global/global-layout'
 import Nav from '../components/nav'
+import Anchor from '../components/primitives/anchor'
+import Box from '../components/primitives/box'
+import Heading from '../components/primitives/heading'
+import Text from '../components/primitives/text'
 import TwoColLayout from '../components/two-col-layout'
 import { imageAbsoluteUrls } from '../lib/images'
 import { getAllPosts, getPostsByType } from '../lib/posts'
@@ -38,14 +42,6 @@ type PostProps = {
 }
 
 const Article = styled('article', {})
-const Anchor = styled('a', {})
-const Box = styled('div', {})
-const Heading = styled('h2', {
-  fontFamily: '$heading',
-  letterSpacing: '$heading',
-  lineheight: '$heading',
-})
-const Text = styled('span', {})
 
 const CurrentPost = ({ post, isFirst }: PostProps) => {
   return (

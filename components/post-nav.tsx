@@ -1,11 +1,29 @@
 import { format, parseISO } from 'date-fns'
 import Link from 'next/link'
 import { PostType } from '../lib/types'
+import { styled } from '../stitches.config'
+import Anchor from './primitives/anchor'
+import Box from './primitives/box'
+import Text from './primitives/text'
 
 type PostNavProps = {
   previous?: PostType
   next?: PostType
 }
+
+const NavUl = styled('ul', {
+  display: 'grid',
+  width: '100%',
+  gridTemplateColumns: '1fr 1fr',
+  listStyle: 'none',
+  p: '$0',
+  m: '$0',
+})
+
+const NavLi = styled('li', {
+  m: '$0',
+  p: '$0',
+})
 
 const PostNav = ({ previous, next }: PostNavProps) => {
   const previousHref = `/${previous?.year}/${previous?.month}/${previous?.day}/${previous?.slug}`
@@ -15,33 +33,24 @@ const PostNav = ({ previous, next }: PostNavProps) => {
   const hasNextTitle = next?.title && next?.utcDate !== next?.title
 
   return (
-    <nav sx={{ mt: 5 }}>
-      <ul
-        sx={{
-          display: 'grid',
-          width: '100%',
-          gridTemplateColumns: ['1fr 1fr'],
-          listStyle: 'none',
-          p: 0,
-          m: 0,
-        }}
-      >
-        <li>
-          <span
-            sx={{
-              fontSize: 0,
-              color: 'secondary',
+    <Box as="nav" css={{ mt: '$5' }}>
+      <NavUl>
+        <NavLi>
+          <Text
+            css={{
+              fontSize: '$0',
+              color: '$secondary',
               display: 'block',
               fontStyle: 'italic',
             }}
           >
             previously
-          </span>
+          </Text>
           {previous ? (
             <Link href={previousHref} passHref>
-              <a
+              <Anchor
                 rel="previous"
-                sx={{ fontSize: 0, fontFamily: 'body', display: 'block' }}
+                css={{ fontSize: '$0', fontFamily: '$body', display: 'block' }}
               >
                 ←{' '}
                 {hasPreviousTitle
@@ -50,30 +59,35 @@ const PostNav = ({ previous, next }: PostNavProps) => {
                       parseISO(previous.date),
                       'p'
                     )}`}{' '}
-              </a>
+              </Anchor>
             </Link>
           ) : (
             <Link href="/" passHref>
-              <a rel="previous">← Feed</a>
+              <Anchor
+                rel="previous"
+                css={{ fontSize: '$0', fontFamily: '$body', display: 'block' }}
+              >
+                ← Feed
+              </Anchor>
             </Link>
           )}
-        </li>
-        <li sx={{ textAlign: 'right' }}>
-          <span
-            sx={{
-              fontSize: 0,
-              color: 'secondary',
+        </NavLi>
+        <NavLi css={{ textAlign: 'right' }}>
+          <Text
+            css={{
+              fontSize: '$0',
+              color: '$secondary',
               display: 'block',
               fontStyle: 'italic',
             }}
           >
             next
-          </span>
+          </Text>
           {next ? (
             <Link href={nextHref} passHref>
-              <a
+              <Anchor
                 rel="next"
-                sx={{ fontSize: 0, fontFamily: 'body', display: 'block' }}
+                css={{ fontSize: '$0', fontFamily: '$body', display: 'block' }}
               >
                 {hasNextTitle
                   ? next.title
@@ -82,18 +96,21 @@ const PostNav = ({ previous, next }: PostNavProps) => {
                       'p'
                     )}`}{' '}
                 →
-              </a>
+              </Anchor>
             </Link>
           ) : (
             <Link href="/" passHref>
-              <a rel="next" sx={{ fontSize: 0, display: 'block' }}>
+              <Anchor
+                rel="next"
+                css={{ fontSize: '$0', fontFamily: '$body', display: 'block' }}
+              >
                 Feed →
-              </a>
+              </Anchor>
             </Link>
           )}
-        </li>
-      </ul>
-    </nav>
+        </NavLi>
+      </NavUl>
+    </Box>
   )
 }
 

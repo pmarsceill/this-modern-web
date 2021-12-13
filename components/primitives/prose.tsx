@@ -113,7 +113,7 @@ const Prose = styled(Box, {
         content: 'counter(step-counter)',
         counterIncrement: 'step-counter',
         fontSize: 1,
-        fontFamily: 'body',
+        fontFamily: '$body',
         lineHeight: 1,
       },
     },

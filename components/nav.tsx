@@ -42,6 +42,10 @@ const Nav = () => {
       color: '$primary',
     },
 
+    '&:hover': {
+      color: '$accent',
+    },
+
     '@3': {
       fontSize: '$2',
     },
