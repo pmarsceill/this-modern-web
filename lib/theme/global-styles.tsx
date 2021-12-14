@@ -28,6 +28,7 @@ const useGlobalStyles = globalCss({
     boxSizing: 'border-box',
     m: 0,
     p: 0,
+    lineHeight: '$body',
   },
   body: {
     margin: 0,

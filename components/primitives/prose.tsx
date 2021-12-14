@@ -208,7 +208,7 @@ const Prose = styled(Box, {
   variants: {
     type: {
       longform: {
-        '> p:first-of-type': { mt: '$0' },
+        '> p:first-of-type': { mt: '-$1' },
         fontFamily: '$serif',
         fontSize: '19px',
         color: '$primary',

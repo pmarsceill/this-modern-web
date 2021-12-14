@@ -64,7 +64,7 @@ const Nav = () => {
   return (
     <nav>
       <NavUl>
-        <NavLi css={{ mt: '$0', '@3': { mt: '$4' } }}>
+        <NavLi css={{ mt: '$0', '@3': { mt: '$4', pt: '$1' } }}>
           <NavLink href="/" passHref>
             <NavAnchor>
               <NavCounter>1.0</NavCounter> Feed

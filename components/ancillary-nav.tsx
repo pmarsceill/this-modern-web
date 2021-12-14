@@ -40,7 +40,6 @@ const AncillaryNav = () => {
           as="li"
           css={{
             mb: '$2',
-            mt: '$2',
           }}
         >
           <Link href="/rss.xml" passHref>

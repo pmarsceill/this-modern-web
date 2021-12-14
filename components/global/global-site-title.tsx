@@ -14,7 +14,7 @@ const LogoType = ({ isHome }: SiteHeaderType) => {
     width: '262px',
     height: 'auto',
 
-    '@2': {
+    '@1': {
       width: isHome ? '465px' : '262px',
     },
   })
