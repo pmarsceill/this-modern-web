@@ -1,6 +1,3 @@
-/** @jsxImportSource theme-ui */
-
-import { alpha } from '@theme-ui/color'
 import { format, parseISO } from 'date-fns'
 import { GetStaticProps, NextPage } from 'next'
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'
@@ -9,9 +6,12 @@ import { NextSeo } from 'next-seo'
 import Link from 'next/link'
 import { createRef, useEffect } from 'react'
 import smoothscroll from 'smoothscroll-polyfill'
-import { useColorMode } from 'theme-ui'
 import Button from '../components/button'
 import GlobalLayout from '../components/global/global-layout'
+import Box from '../components/primitives/box'
+import Heading from '../components/primitives/heading'
+import Prose from '../components/primitives/prose'
+import Text from '../components/primitives/text'
 import { getPostsByType } from '../lib/posts'
 import { PostType } from '../lib/types'
 
@@ -91,157 +91,180 @@ const PostsByMonthsPerYear = ({
   })
 
   return (
-    <div
-      sx={{
+    <Box
+      css={{
         display: 'flex',
-        flexDirection: ['column-reverse', 'column-reverse', 'row'],
+        flexDirection: 'column-reverse',
         overflowX: 'scroll',
-        scrollSnapType: ['', '', 'x mandatory'],
         scrollBehavior: 'smooth',
-        borderBottom: ['', '', '1px solid'],
-        borderColor: ['', '', 'muted'],
+
+        '@2': {
+          flexDirection: 'row',
+          scrollSnapType: 'x mandatory',
+          borderBottom: '1px solid',
+          borderColor: '$muted',
+        },
       }}
       ref={scrollRef}
     >
       {postsByYear.map((months, year) => (
-        <div key={year} sx={{ mx: ['', '', '4'] }}>
-          <h2
-            sx={{
-              fontFamily: 'heading',
-              letterSpacing: 'heading',
-              fontSize: '1',
-              color: 'secondary',
-              mb: [5, '', 4],
-              px: ['', '', 3],
+        <Box key={year} css={{ mx: '$0', '@2': { mx: '$4' } }}>
+          <Heading
+            as="h2"
+            css={{
+              fontFamily: '$heading',
+              letterSpacing: '$heading',
+              fontSize: '$1',
+              color: '$secondary',
+              mb: '$5',
+
+              '@2': {
+                mb: '$4',
+                px: '$3',
+              },
             }}
           >
             {year}
-          </h2>
-          <ul
-            sx={{
+          </Heading>
+          <Box
+            as="ul"
+            css={{
               listStyle: 'none',
               display: 'flex',
-              flexDirection: ['column-reverse', 'column-reverse', 'row'],
+              flexDirection: 'column-reverse',
+
+              '@2': {
+                flexDirection: 'row',
+              },
             }}
           >
             {months.reverse().map((month: string) => (
-              <li
+              <Box
+                as="li"
                 key={year + month}
-                sx={{
-                  width: ['', '', '320px'],
-                  flexShrink: 0,
-                  px: ['', '', 3],
-                  scrollSnapAlign: ['', '', 'start'],
+                css={{
+                  flexShrink: '0',
+
+                  '@2': {
+                    width: '320px',
+                    px: '$3',
+                    scrollSnapAlign: 'start',
+                  },
                 }}
               >
-                <h3
-                  sx={{
-                    fontFamily: 'heading',
-                    letterSpacing: 'heading',
-                    fontSize: '1',
-                    color: 'secondary',
+                <Heading
+                  css={{
+                    fontSize: '$1',
+                    color: '$secondary',
                     borderBottom: '2px solid',
-                    borderColor: 'muted',
-                    py: '3',
-                    mb: [5, '', 4],
+                    borderColor: '$muted',
+                    py: '$3',
+                    mb: '$4',
                     fontWeight: 'normal',
-                    display: ['none', '', 'block'],
+                    display: 'none',
+
+                    '@2': {
+                      display: 'block',
+                    },
                   }}
                 >
                   {month}
-                </h3>
-                <ul sx={{ listStyle: 'none' }}>
+                </Heading>
+                <Box as="ul" css={{ listStyle: 'none' }}>
                   {posts.map((post) =>
                     post.year === year.toString() &&
                     format(parseISO(post.date), 'MMMM') === month ? (
-                      <li
+                      <Box
+                        as="li"
                         key={post.slug}
-                        sx={{
-                          mb: ['5', '', '4'],
-                          pb: ['5', '', '4'],
+                        css={{
+                          mb: '$5',
+                          pb: '$5',
                           borderBottom: '1px solid',
-                          borderColor: 'muted',
+                          borderColor: '$muted',
+
+                          '@2': {
+                            mb: '$4',
+                            pb: '$4',
+                          },
                         }}
                       >
                         {post.mdxContent ? (
-                          <div
-                            sx={{
+                          <Prose
+                            css={{
                               fontFamily: 'monospace',
-                              fontSize: [1, 1, 0],
-                              lineHeight: 'content',
+                              fontSize: '$1',
+
+                              '@2': {
+                                fontSize: '$0',
+                              },
                             }}
                           >
                             <MDXRemote {...post.mdxContent} />
-                            <time
-                              sx={{
+                            <Text
+                              as="time"
+                              css={{
                                 display: 'block',
                                 fontSize: 0,
-                                color: 'secondary',
-                                fontFamily: 'body',
-                                mt: 2,
+                                color: '$secondary',
+                                fontFamily: '$body',
+                                mt: '$2',
                               }}
                             >
                               {format(parseISO(post.date), 'MMMM dd')}
-                            </time>
-                          </div>
+                            </Text>
+                          </Prose>
                         ) : (
                           <>
                             <Link
                               href={`${post.year}/${post.month}/${post.day}/${post.slug}`}
                               passHref
                             >
-                              <a
-                                sx={{
+                              <Heading
+                                as="a"
+                                css={{
+                                  color: '$primary',
                                   display: 'inline',
-                                  fontFamily: 'heading',
-                                  fontSize: [4],
-                                  letterSpacing: 'heading',
-                                  lineHeight: 'heading',
-                                  fontWeight: 'heading',
+                                  fontSize: '$4',
                                 }}
                               >
                                 {post.title}
                                 {post.description && (
-                                  <span
-                                    sx={{
-                                      fontFamily: 'heading',
-                                      display: 'inline',
-                                      fontSize: [4],
-                                      color: 'secondary',
-                                      fontWeight: 'bold',
-                                      letterSpacing: 'heading',
-                                      lineHeight: 'heading',
-                                      ml: 2,
+                                  <Text
+                                    css={{
+                                      color: '$secondary',
+                                      ml: '$2',
                                     }}
                                   >
                                     {post.description}
-                                  </span>
+                                  </Text>
                                 )}
-                              </a>
+                              </Heading>
                             </Link>
-                            <time
-                              sx={{
+                            <Text
+                              as="time"
+                              css={{
                                 display: 'block',
-                                fontSize: 0,
-                                color: 'secondary',
-                                fontFamily: 'body',
-                                mt: 2,
+                                fontSize: '$0',
+                                color: '$secondary',
+                                fontFamily: '$body',
+                                mt: '$2',
                               }}
                             >
                               {format(parseISO(post.date), 'MMMM dd')}
-                            </time>
+                            </Text>
                           </>
                         )}
-                      </li>
+                      </Box>
                     ) : null
                   )}
-                </ul>
-              </li>
+                </Box>
+              </Box>
             ))}
-          </ul>
-        </div>
+          </Box>
+        </Box>
       ))}
-    </div>
+    </Box>
   )
 }
 
@@ -250,9 +273,6 @@ const Archive: NextPage<Props> = ({
   legacyPosts,
   microBlogs,
 }) => {
-  const [colorMode, setColorMode] = useColorMode()
-  setColorMode('dark')
-
   useEffect(() => {
     scroll('today')
     smoothscroll.polyfill()
@@ -261,43 +281,49 @@ const Archive: NextPage<Props> = ({
   return (
     <GlobalLayout fullWidth>
       <NextSeo title="Everything Archive — This Modern Web" />
-      <div
-        sx={{
-          position: ['static', 'static', 'sticky'],
-          top: 0,
-          py: 3,
-          background: () => `${alpha('background', 0.55)}`,
+      <Box
+        css={{
+          position: 'static',
+          top: '0px',
+          py: '$3',
           backgroundBlendMode: 'overlay',
           backdropFilter: 'blur(10px)',
-          zIndex: 3,
-          mb: [5, '', 6],
+          zIndex: '$3',
+          mb: '$5',
+
+          '@2': {
+            position: 'sticky',
+            mb: '$6',
+          },
         }}
       >
-        <div
-          sx={{
-            maxWidth: 'container',
+        <Box
+          css={{
+            maxWidth: '$container',
             mx: 'auto',
-            px: ['', '', 7, 5],
             display: 'flex',
+            alignItems: 'center',
+
+            '@2': {
+              px: '$7',
+            },
+            '@3': {
+              px: '$5',
+            },
           }}
         >
-          <h1
-            sx={{
-              fontSize: [6, 7],
-              letterSpacing: 'heading',
-              lineHeight: 'heading',
-              flex: 'auto',
-              fontWeight: 'normal',
-              fontStyle: 'italic',
-            }}
-          >
+          <Heading context="pageHeading" css={{ flex: 'auto', mb: '$0' }}>
             Everything archive
-          </h1>
-          <div
-            sx={{
-              display: ['none', 'none', 'flex'],
+          </Heading>
+          <Box
+            css={{
+              display: 'none',
               flexItems: 'center',
               flexGrow: 0,
+
+              '@2': {
+                display: 'flex',
+              },
             }}
           >
             <Button
@@ -305,7 +331,7 @@ const Archive: NextPage<Props> = ({
               onClick={() => {
                 scroll('left')
               }}
-              sx={{ mr: 2, flexGrow: 0, cursor: 'pointer' }}
+              css={{ mr: '$2', py: '$3', flexGrow: '0', cursor: 'pointer' }}
             >
               ←
             </Button>
@@ -314,13 +340,13 @@ const Archive: NextPage<Props> = ({
               onClick={() => {
                 scroll('right')
               }}
-              sx={{ flexGrow: 0, cursor: 'pointer' }}
+              css={{ py: '$3', flexGrow: '0', cursor: 'pointer' }}
             >
               →
             </Button>
-          </div>
-        </div>
-      </div>
+          </Box>
+        </Box>
+      </Box>
       <PostsByMonthsPerYear
         currentPosts={currentPosts}
         legacyPosts={legacyPosts}

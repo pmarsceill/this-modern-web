@@ -1,12 +1,16 @@
+import { useTheme } from 'next-themes'
 import { useRouter } from 'next/dist/client/router'
 import Head from 'next/head'
+import darkTheme from '../../lib/theme/dark-theme'
+import { theme } from '../../stitches.config'
 import Box from '../primitives/box'
 import SiteTitle from './global-site-title'
 
 const GlobalHeader = () => {
+  const { theme: themeName, setTheme } = useTheme()
+
   const router = useRouter()
   const isHome = router.pathname === '/'
-  // const [colorMode] = useColorMode()
 
   return (
     <>
@@ -76,6 +80,15 @@ const GlobalHeader = () => {
 
         <link rel="manifest" href="/manifest.json" />
 
+        <meta
+          name="theme-color"
+          content={
+            themeName === 'dark'
+              ? darkTheme.colors.background.value
+              : theme.colors.background.value
+          }
+        />
+
         {/* Preload fonts */}
         <link
           rel="preload"
@@ -102,16 +115,6 @@ const GlobalHeader = () => {
           href="https://github-indieauth.herokuapp.com/token"
         />
         <link rel="micropub" href="https://tmw-mp-enpoint.glitch.me/micropub" />
-
-        {/* Ensure the correct browser theme is loaded on every page */}
-        {/* {colorMode === 'dark' ? (
-          <meta
-            name="theme-color"
-            content={`${theme.colors?.modes?.dark?.background}`}
-          />
-        ) : (
-          <meta name="theme-color" content={`${theme.colors?.background}`} />
-        )} */}
       </Head>
       <Box
         css={{
