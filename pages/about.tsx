@@ -196,22 +196,16 @@ const About = () => {
               <a href="https://github.com/anewtypeofinterference/Optician-Sans">
                 Open Source on GitHub
               </a>
-              ), the body copy is set in <em>Freight Text Pro</em> and the rest
-              of the site uses system-safe font stacks:
+              ), the body copy is set in <em>Freight Text Pro</em>, monospace is{' '}
+              <em>IBM Plex Mono</em> and the rest of the site uses a system-safe
+              font stack:
             </p>
-            <ul>
-              <li>
-                Headings:{' '}
-                <code>
-                  -apple-system, BlinkMacSystemFont, Helvetica, Arial,
-                  sans-serif
-                </code>
-              </li>
-              <li>
-                Monospace:{' '}
-                <code>SFMono-Regular, Consolas, Menlo, Andale, monospace</code>
-              </li>
-            </ul>
+            <pre>
+              <code>
+                font-family: -apple-system, BlinkMacSystemFont, Helvetica,
+                Arial, sans-serif
+              </code>
+            </pre>
           </Prose>
         </Box>
       </TwoColLayout>
