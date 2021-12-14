@@ -124,21 +124,19 @@ const CurrentPost = ({ post, isFirst }: PostProps) => {
             <Box
               css={{
                 position: 'relative',
-                flexShrink: 0,
+                flexShrink: '0',
                 backgroundColor: '$muted',
                 borderRadius: '$3',
                 overflow: 'hidden',
+                ml: '$3',
+                width: '100px',
+                height: '100px',
                 '@1': {
-                  ml: '$3',
-                  width: '100px',
-                  height: '100px',
-                },
-                '@2': {
                   ml: '$4',
                   width: '140px',
                   height: '140px',
                 },
-                '@3': {
+                '@2': {
                   width: isFirst ? '180px' : '140px',
                   height: isFirst ? '180px' : '140px',
                 },
