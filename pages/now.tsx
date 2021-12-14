@@ -111,7 +111,7 @@ const NowPlaying = () => {
         css={{
           display: 'grid',
           gridTemplateColumns: '1fr 1fr',
-          gridGap: 5,
+          gridGap: '$5',
 
           '@1': {
             gridTemplateColumns: '1fr 1fr 1fr',
