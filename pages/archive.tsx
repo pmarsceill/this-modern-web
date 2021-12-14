@@ -288,7 +288,7 @@ const Archive: NextPage<Props> = ({
           py: '$3',
           backgroundBlendMode: 'overlay',
           backdropFilter: 'blur(10px)',
-          zIndex: '$3',
+          zIndex: '1',
           mb: '$5',
 
           '@2': {
