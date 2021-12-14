@@ -110,6 +110,8 @@ const About = () => {
               layout="responsive"
               css={{
                 mb: '$4',
+                borderRadius: '$3',
+                overflow: 'hidden',
               }}
             />
           </Box>

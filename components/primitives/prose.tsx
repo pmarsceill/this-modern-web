@@ -199,6 +199,12 @@ const Prose = styled(Box, {
     },
   },
 
+  overflowX: 'hidden',
+
+  '@1': {
+    overflowX: 'unset',
+  },
+
   variants: {
     type: {
       longform: {
