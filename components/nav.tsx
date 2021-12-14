@@ -11,7 +11,7 @@ const Nav = () => {
     pb: '$5',
     justifyContent: 'space-between',
     borderBottom: '1px solid',
-    borderColor: 'muted',
+    borderColor: '$muted',
     top: '$6',
 
     '@3': {

@@ -3,7 +3,8 @@ import { NextPage } from 'next'
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'
 import { serialize } from 'next-mdx-remote/serialize'
 import { NextSeo } from 'next-seo'
-import { useState } from 'react'
+import { useTheme } from 'next-themes'
+import { useEffect, useState } from 'react'
 import rehypePrism from 'rehype-prism-plus'
 import remarkUnwrapImages from 'remark-unwrap-images'
 import removeMd from 'remove-markdown'
@@ -17,8 +18,9 @@ import MdxImage, {
 } from '../../../../components/mdx-image'
 import PostNav from '../../../../components/post-nav'
 import Box from '../../../../components/primitives/box'
+import Heading from '../../../../components/primitives/heading'
 import Prose from '../../../../components/primitives/prose'
-import Text from '../../../../components/text'
+import Text from '../../../../components/primitives/text'
 import TwoColLayout from '../../../../components/two-col-layout'
 import Video from '../../../../components/video'
 import { imageMetadata } from '../../../../lib/images'
@@ -94,17 +96,20 @@ const Post: NextPage<PostProps> = ({
   nextPost,
   previousPost,
 }) => {
-  const [colorMode, setColorMode] = useColorMode()
-
+  const { theme, setTheme } = useTheme()
   const [showSideTitle, setShowSideTitle] = useState(false)
   const currentYear = new Date().getFullYear()
   const postYear = parseInt(post.year)
   const contentString = removeMd(post.content)
   const exerpt = contentString.substring(0, Math.min(contentString.length, 160))
+  const isMicroBlog = post.tags?.includes('microblog')
+  const colorMode = isMicroBlog ? 'dark' : post.colorMode || 'theme'
 
-  if (post.tags?.includes('microblog')) {
-    const postColorMode = 'dark'
-    setColorMode(postColorMode)
+  useEffect(() => {
+    setTheme(colorMode)
+  }, [colorMode, setTheme])
+
+  if (isMicroBlog) {
     return (
       <GlobalLayout>
         <NextSeo
@@ -119,7 +124,7 @@ const Post: NextPage<PostProps> = ({
           <TwoColLayout isExtended>
             <Box>
               <Text
-                sx={{
+                css={{
                   display: 'inline-block',
                   fontSize: '$0',
                   mr: '$3',
@@ -169,19 +174,18 @@ const Post: NextPage<PostProps> = ({
             </Box>
             <Prose
               css={{
-                backgroundColor: 'inset',
+                backgroundColor: '$inset',
                 px: '$5',
                 py: '$3',
-                borderRadius: 3,
+                borderRadius: '$3',
                 fontFamily: 'monospace',
-                fontSize: 1,
+                fontSize: '$1',
 
                 '@3': {
                   px: '$6',
                   py: '$5',
                 },
               }}
-              className="prose"
             >
               <MDXRemote {...content} />
             </Prose>
@@ -197,8 +201,6 @@ const Post: NextPage<PostProps> = ({
       </GlobalLayout>
     )
   } else {
-    const postColorMode = post.colorMode || 'light'
-    setColorMode(postColorMode)
     return (
       <GlobalLayout>
         {post.frontmatter.featuredImage ? (
@@ -231,76 +233,104 @@ const Post: NextPage<PostProps> = ({
           />
         )}
         <article>
-          <header
-            sx={{
-              mb: [5, '', 6],
-              maxWidth: ['420px', '100%', '720px'],
-              pr: ['', 5, 0, 0],
+          <Box
+            as="header"
+            css={{
+              mb: '$5',
+              maxWidth: '420px',
+
+              '@1': {
+                maxWidth: '100%',
+                pr: '$5',
+              },
+              '@2': {
+                mb: '$6',
+                maxWidth: '720px',
+                pr: '$0',
+              },
             }}
           >
             {post.title ? (
-              <h1
-                sx={{
-                  fontFamily: 'heading',
-                  fontSize: [5, 6, 7],
+              <Heading
+                as="h1"
+                css={{
+                  fontSize: '$5',
                   display: 'inline',
-                  color: 'primary',
-                  letterSpacing: 'heading',
-                  lineHeight: 'heading',
-                  mr: 2,
+                  color: '$primary',
+                  mr: '$2',
+
+                  '@1': {
+                    fontSize: '$6',
+                  },
+                  '@2': {
+                    fontSize: '$7',
+                  },
                 }}
               >
                 {post.title}
-              </h1>
+              </Heading>
             ) : null}
             {post.description ? (
-              <h2
-                sx={{
-                  fontFamily: 'heading',
-                  fontSize: [5, 6, 7],
-                  fontWeight: 'bold',
-                  color: 'secondary',
+              <Heading
+                as="h2"
+                css={{
+                  fontSize: '$5',
+                  color: '$secondary',
                   display: 'inline',
-                  letterSpacing: 'heading',
-                  lineHeight: 'heading',
+
+                  '@1': {
+                    fontSize: '$6',
+                  },
+                  '@2': {
+                    fontSize: '$7',
+                  },
                 }}
               >
                 {post.description}
-              </h2>
+              </Heading>
             ) : null}
-          </header>
+          </Box>
           <TwoColLayout isExtended>
-            <div>
-              <time
-                sx={{
-                  fontSize: 0,
-                  color: 'secondary',
-                  fontFamily: 'body',
-                  mt: 1,
+            <Box>
+              <Text
+                as="time"
+                css={{
+                  fontSize: '$0',
+                  color: '$secondary',
+                  fontFamily: '$body',
+                  mt: '$1',
                 }}
               >
                 {format(parseISO(post.date), 'PPP')}
-              </time>
-            </div>
-            <section
-              sx={{
-                pt: [4, '', '', 0],
+              </Text>
+            </Box>
+            <Box
+              as="section"
+              css={{
+                pt: '$4',
+
+                '@3': {
+                  pt: '$0',
+                },
               }}
             >
-              <div sx={{ '> p:first-of-type': { mt: 0 } }} className="prose">
+              <Prose type="longform">
                 {currentYear - postYear >= 3 && (
                   <TimeWarning currentYear={currentYear} postYear={postYear} />
                 )}
                 <MDXRemote {...content} components={components} />
-              </div>
-            </section>
-            <aside>
+              </Prose>
+            </Box>
+            <Box as="aside">
               <AncillaryNav />
-            </aside>
+            </Box>
           </TwoColLayout>
-          <footer sx={{ mt: 6, borderTop: '1px solid', borderColor: 'muted' }}>
+          <Box
+            as="footer"
+            css={{ mt: '$6', borderTop: '1px solid', borderColor: '$muted' }}
+          >
             <PostNav next={nextPost} previous={previousPost} />
-          </footer>
+          </Box>
         </article>
       </GlobalLayout>
     )

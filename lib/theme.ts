@@ -298,10 +298,6 @@ export const theme: Theme = {
       a: {
         variant: 'text.anchor.default',
       },
-      'h1, h2, h3, h4, h5, ol, ul, p, button, input, textarea, hr': {
-        m: 0,
-        p: 0,
-      },
       '.prose': {
         lineHeight: 'content',
         a: {

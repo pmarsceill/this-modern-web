@@ -60,8 +60,8 @@ const MdxImage = ({
       >
         <Box
           css={{
-            boxShadow: shadow ? 'default' : undefined,
-            borderRadius: rounded ? 1 : undefined,
+            boxShadow: shadow ? '$default' : undefined,
+            borderRadius: rounded ? '$1' : undefined,
             overflow: 'hidden',
           }}
         >
@@ -79,11 +79,11 @@ const MdxImage = ({
         <Text
           as="figcaption"
           css={{
-            fontSize: 1,
+            fontSize: '$1',
             fontStyle: 'italic',
-            color: 'secondary',
+            color: '$secondary',
             textAlign: 'center',
-            mt: 2,
+            mt: '$2',
             position: isRemote ? 'absolute' : undefined,
             bottom: isRemote ? -5 : undefined,
             width: isRemote ? '100%' : undefined,
@@ -107,11 +107,34 @@ const MdxImage = ({
 }
 
 const SmallImage = ({ children }: SmallImageProps) => {
-  return <div className="small-image">{children}</div>
+  return (
+    <Box
+      css={{
+        mx: 'auto',
+        maxWidth: '420px',
+      }}
+    >
+      {children}
+    </Box>
+  )
 }
 
 const LargeImage = ({ children }: LargeImageProps) => {
-  return <div className="large-image">{children}</div>
+  return (
+    <Box
+      css={{
+        position: 'relative',
+
+        '@3': {
+          ml: '-$6',
+          mr: '-$6',
+          width: 'calc(100% + 128px) !important',
+        },
+      }}
+    >
+      {children}
+    </Box>
+  )
 }
 
 const ImageRow = ({ children, imgWidth = 200 }: ImageRowProps) => {

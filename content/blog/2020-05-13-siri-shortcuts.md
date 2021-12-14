@@ -87,4 +87,8 @@ As mentioned earlier in this post, this allows for the potential to create relat
 
 While the GitHub app has no editor and is focused on triaging issues, pull requests, and other notifications; it does allow you to "share" to Working Copy if you have it installed, which has a fairly nice text editor built in. This doesn't actually use Shortcuts specifically, but it does use a similar action in the share sheet within the GitHub app.
 
-<Video src="/assets/siri-shortcuts/working-copy-to-gh.mp4" alt="Video showing sharing between GitHub iOS app and Working Copy iOS app" className="small-image" controls loop />
+<SmallImage>
+
+<Video src="/assets/siri-shortcuts/working-copy-to-gh.mp4" alt="Video showing sharing between GitHub iOS app and Working Copy iOS app" controls loop />
+
+</SmallImage>

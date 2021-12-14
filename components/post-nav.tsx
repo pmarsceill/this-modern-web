@@ -25,6 +25,16 @@ const NavLi = styled('li', {
   p: '$0',
 })
 
+const NavAnchor = styled(Anchor, {
+  color: '$secondary',
+  fontSize: '$0',
+  fontFamily: '$body',
+  display: 'block',
+  '&:hover': {
+    color: '$accent',
+  },
+})
+
 const PostNav = ({ previous, next }: PostNavProps) => {
   const previousHref = `/${previous?.year}/${previous?.month}/${previous?.day}/${previous?.slug}`
   const nextHref = `/${next?.year}/${next?.month}/${next?.day}/${next?.slug}`
@@ -42,16 +52,14 @@ const PostNav = ({ previous, next }: PostNavProps) => {
               color: '$secondary',
               display: 'block',
               fontStyle: 'italic',
+              fontFamily: '$serif',
             }}
           >
             previously
           </Text>
           {previous ? (
             <Link href={previousHref} passHref>
-              <Anchor
-                rel="previous"
-                css={{ fontSize: '$0', fontFamily: '$body', display: 'block' }}
-              >
+              <NavAnchor rel="previous">
                 ←{' '}
                 {hasPreviousTitle
                   ? previous.title
@@ -59,16 +67,11 @@ const PostNav = ({ previous, next }: PostNavProps) => {
                       parseISO(previous.date),
                       'p'
                     )}`}{' '}
-              </Anchor>
+              </NavAnchor>
             </Link>
           ) : (
             <Link href="/" passHref>
-              <Anchor
-                rel="previous"
-                css={{ fontSize: '$0', fontFamily: '$body', display: 'block' }}
-              >
-                ← Feed
-              </Anchor>
+              <NavAnchor rel="previous">← Feed</NavAnchor>
             </Link>
           )}
         </NavLi>
@@ -79,16 +82,14 @@ const PostNav = ({ previous, next }: PostNavProps) => {
               color: '$secondary',
               display: 'block',
               fontStyle: 'italic',
+              fontFamily: '$serif',
             }}
           >
             next
           </Text>
           {next ? (
             <Link href={nextHref} passHref>
-              <Anchor
-                rel="next"
-                css={{ fontSize: '$0', fontFamily: '$body', display: 'block' }}
-              >
+              <NavAnchor rel="next">
                 {hasNextTitle
                   ? next.title
                   : `${format(parseISO(next.date), 'PP')}・${format(
@@ -96,16 +97,11 @@ const PostNav = ({ previous, next }: PostNavProps) => {
                       'p'
                     )}`}{' '}
                 →
-              </Anchor>
+              </NavAnchor>
             </Link>
           ) : (
             <Link href="/" passHref>
-              <Anchor
-                rel="next"
-                css={{ fontSize: '$0', fontFamily: '$body', display: 'block' }}
-              >
-                Feed →
-              </Anchor>
+              <NavAnchor rel="next">Feed →</NavAnchor>
             </Link>
           )}
         </NavLi>

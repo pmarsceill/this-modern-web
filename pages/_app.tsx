@@ -4,6 +4,7 @@ import { AppProps } from 'next/dist/shared/lib/router/router'
 import useAnalytics from '../lib/analytics'
 import darkTheme from '../lib/theme/dark-theme'
 import useGlobalStyles from '../lib/theme/global-styles'
+import pinkTheme from '../lib/theme/pink-theme'
 
 function MyApp({ Component, pageProps }: AppProps) {
   useAnalytics()
@@ -11,7 +12,11 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <ThemeProvider
-      value={{ light: 'light-theme', dark: darkTheme.className }}
+      value={{
+        light: 'light-theme',
+        dark: darkTheme.className,
+        pink: pinkTheme.className,
+      }}
       enableSystem={false}
       attribute="class"
     >

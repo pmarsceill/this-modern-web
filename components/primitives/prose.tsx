@@ -5,6 +5,7 @@ const Prose = styled(Box, {
   '& p': {
     my: '1em',
   },
+  lineHeight: '$content',
   a: {
     color: '$primary',
     textDecoration: 'none',
@@ -188,6 +189,21 @@ const Prose = styled(Box, {
     },
     '.selector, .attr-name, .string, .char, .builtin, .inserted': {
       color: '$secondary',
+    },
+  },
+
+  variants: {
+    type: {
+      longform: {
+        '> p:first-of-type': { mt: '$0' },
+        fontFamily: '$serif',
+        fontSize: '19px',
+        color: '$primary',
+
+        '@2': {
+          fontSize: '21px',
+        },
+      },
     },
   },
 })

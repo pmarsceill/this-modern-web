@@ -98,9 +98,16 @@ const SiteTitle = ({ isHome }: SiteHeaderType) => {
       <>
         <Link href="/">
           <a>
-            <span sx={{ color: 'secondary', display: 'inline-block' }}>
+            <Text
+              as="span"
+              css={{
+                color: '$secondary',
+                display: 'inline-block',
+                '&:hover': { color: '$accent' },
+              }}
+            >
               <LogoType isHome={isHome} />
-            </span>
+            </Text>
           </a>
         </Link>
       </>
