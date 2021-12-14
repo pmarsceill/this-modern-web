@@ -1,26 +1,31 @@
-/** @jsxImportSource theme-ui */
-
 import { format, formatDistance, parseISO } from 'date-fns'
 import type { GetStaticProps, NextPage } from 'next'
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'
 import { serialize } from 'next-mdx-remote/serialize'
 import { NextSeo } from 'next-seo'
+import { useTheme } from 'next-themes'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useEffect } from 'react'
 import ReactDOMServer from 'react-dom/server'
 import rehypePrism from 'rehype-prism-plus'
 import remarkUnwrapImages from 'remark-unwrap-images'
-import { useColorMode } from 'theme-ui'
 import AncillaryNav from '../components/ancillary-nav'
 import Button from '../components/button'
 import GlobalLayout from '../components/global/global-layout'
 import Nav from '../components/nav'
+import Anchor from '../components/primitives/anchor'
+import Box from '../components/primitives/box'
+import Heading from '../components/primitives/heading'
+import Prose from '../components/primitives/prose'
+import Text from '../components/primitives/text'
 import TwoColLayout from '../components/two-col-layout'
 import { imageAbsoluteUrls } from '../lib/images'
 import { getAllPosts, getPostsByType } from '../lib/posts'
 import { PostType } from '../lib/types'
 import { rssComponents } from '../pages/[year]/[month]/[day]/[slug]'
 import generateRSSFeed from '../scripts/rss-generator'
+import { styled } from '../stitches.config'
 
 type Props = {
   currentPosts: PostType[]
@@ -37,81 +42,104 @@ type PostProps = {
   isFirst?: boolean
 }
 
-const CurrentPost = ({ post, isFirst }: PostProps) => {
-  const [colorMode, setColorMode] = useColorMode()
-  setColorMode('dark')
+const Article = styled('article', {})
 
+const CurrentPost = ({ post, isFirst }: PostProps) => {
   return (
-    <article
-      sx={{ mb: 5, pb: 5, borderBottom: '1px solid', borderColor: 'muted' }}
+    <Article
+      css={{
+        mb: '$5',
+        pb: '$5',
+        borderBottom: '1px solid',
+        borderColor: '$muted',
+      }}
     >
       <Link
         href={`/${post.year}/${post.month}/${post.day}/${post.slug}`}
         passHref
       >
-        <a
-          sx={{
-            color: 'primary',
+        <Anchor
+          css={{
+            color: '$primary',
             display: 'flex',
             '&:hover': {
-              color: 'accent',
+              color: '$accent',
             },
           }}
         >
-          <div sx={{ maxWidth: '660px' }}>
-            <h2
-              sx={{
+          <Box css={{ maxWidth: '660px' }}>
+            <Heading
+              as="h2"
+              css={{
                 display: 'inline',
-                fontFamily: 'heading',
-                fontSize: isFirst ? [4, 5, 7] : [4, 5],
-                letterSpacing: 'heading',
-                lineHeight: 'heading',
+                fontFamily: '$heading',
+                letterSpacing: '$heading',
+                lineHeight: '$heading',
+                fontSize: '$4',
+                '@1': {
+                  fontSize: '$5',
+                },
+                '@2': {
+                  fontSize: isFirst ? '$7' : '$5',
+                },
               }}
             >
               {post.title}
-            </h2>
-            <p
-              sx={{
-                fontFamily: 'heading',
+            </Heading>
+            <Text
+              css={{
+                fontFamily: '$heading',
                 display: 'inline',
-                fontSize: isFirst ? [4, 5, 7] : [4, 5],
-                color: 'secondary',
+                color: '$secondary',
                 fontWeight: 'bold',
-                letterSpacing: 'heading',
-                lineHeight: 'heading',
+                letterSpacing: '$heading',
+                lineHeight: '$heading',
                 hyphens: 'auto',
-                ml: 2,
+                ml: '$2',
+                fontSize: '$4',
+                '@1': {
+                  fontSize: '$5',
+                },
+                '@2': {
+                  fontSize: isFirst ? '$7' : '$5',
+                },
               }}
             >
               {post.description}
-            </p>
-            <time
-              sx={{
-                fontFamily: 'body',
+            </Text>
+            <Text
+              as="time"
+              css={{
+                fontFamily: '$body',
                 display: 'block',
-                fontSize: [0],
-                color: 'secondary',
-                mt: 3,
+                fontSize: '$0',
+                color: '$secondary',
+                mt: '$3',
               }}
             >
               {format(parseISO(post.date), 'PP')}
-            </time>
-          </div>
+            </Text>
+          </Box>
           {post.frontmatter.featuredImage && (
-            <div
-              sx={{
+            <Box
+              css={{
                 position: 'relative',
-                flexShrink: 0,
-                width: isFirst
-                  ? ['100px', '140px', '180px']
-                  : ['100px', '140px'],
-                height: isFirst
-                  ? ['100px', '140px', '180px']
-                  : ['100px', '140px'],
-                backgroundColor: 'muted',
-                borderRadius: 3,
+                flexShrink: '0',
+                backgroundColor: '$muted',
+                borderRadius: '$3',
                 overflow: 'hidden',
-                ml: [3, 4],
+                ml: '$3',
+                width: '100px',
+                height: '100px',
+                '@1': {
+                  ml: '$4',
+                  width: '140px',
+                  height: '140px',
+                },
+                '@2': {
+                  width: isFirst ? '180px' : '140px',
+                  height: isFirst ? '180px' : '140px',
+                },
               }}
             >
               <Image
@@ -123,11 +151,11 @@ const CurrentPost = ({ post, isFirst }: PostProps) => {
                 objectFit="cover"
                 objectPosition="right center"
               />
-            </div>
+            </Box>
           )}
-        </a>
+        </Anchor>
       </Link>
-    </article>
+    </Article>
   )
 }
 
@@ -138,46 +166,50 @@ const MicroBlog = ({ post, mdxContent }: MicroBlogProps) => {
   })
 
   return (
-    <article
-      sx={{
-        mb: 5,
-        pb: 5,
+    <Article
+      css={{
+        mb: '$5',
+        pb: '$5',
         borderBottom: '1px solid',
-        borderColor: 'muted',
+        borderColor: '$muted',
       }}
       id={post.slug}
     >
-      <div
-        sx={{ fontFamily: 'monospace', fontSize: [1], lineHeight: 'content' }}
-      >
+      <Prose type="microblog">
         {mdxContent ? <MDXRemote {...mdxContent} /> : fallBackBody}
-      </div>
+      </Prose>
       <Link
         href={`/${post.year}/${post.month}/${post.day}/${post.slug}`}
         passHref
       >
-        <a
-          sx={{
-            color: 'secondary',
-            fontSize: 0,
-            mt: 3,
-            fontFamily: 'monospace',
+        <Anchor
+          css={{
+            color: '$secondary',
+            fontSize: '$0',
+            mt: '$3',
+            fontFamily: '$monospace',
           }}
         >
-          ⌘ <time>{formattedDate}</time>
-        </a>
+          ⌘ <Text as="time">{formattedDate}</Text>
+        </Anchor>
       </Link>
-    </article>
+    </Article>
   )
 }
 
 const Home: NextPage<Props> = ({ currentPosts, microBlogs }) => {
+  const { theme, setTheme } = useTheme()
+
+  useEffect(() => {
+    setTheme('dark')
+  }, [setTheme])
+
   return (
     <GlobalLayout>
       <NextSeo title="This Modern Web — Patrick Marsceill" />
       <TwoColLayout isExtended>
         <Nav />
-        <div>
+        <Box>
           {currentPosts.map(
             (post, i) =>
               i === 0 && (
@@ -209,11 +241,15 @@ const Home: NextPage<Props> = ({ currentPosts, microBlogs }) => {
               )
           )}
           <Link href="/archive" passHref>
-            <Button as="a" block variant="outline" sx={{ fontSize: 2 }}>
+            <Button
+              as="a"
+              variant="outline"
+              css={{ fontSize: '$2', d: 'block' }}
+            >
               Everything Archive
             </Button>
           </Link>
-        </div>
+        </Box>
         <AncillaryNav />
       </TwoColLayout>
     </GlobalLayout>

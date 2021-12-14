@@ -1,6 +1,6 @@
-/** @jsxImportSource theme-ui */
-
 import NextImage from 'next/image'
+import Box from './primitives/box'
+import Text from './primitives/text'
 
 type Props = {
   src: string | StaticImageData
@@ -46,32 +46,28 @@ const MdxImage = ({
 
   if (alt || title) {
     return (
-      <figure
+      <Box
+        as="figure"
         className={classNameList}
-        sx={{
+        css={{
           position: 'relative',
-          p: 0,
-          my: 6,
-          mx: 0,
+          p: '$0',
+          my: '$6',
+          mx: '$0',
           width: isRemote ? '100%' : undefined,
           height: isRemote ? '468px' : undefined,
         }}
       >
-        <div
-          sx={{
-            boxShadow: shadow ? 'default' : undefined,
-            borderRadius: rounded ? 1 : undefined,
+        <Box
+          css={{
+            boxShadow: shadow ? '$default' : undefined,
+            borderRadius: rounded ? '$1' : undefined,
             overflow: 'hidden',
           }}
         >
           <NextImage
             src={src}
             alt={title ? alt : ''}
-            sx={{
-              p: 0,
-              m: 0,
-              boxShadow: shadow ? 'default' : undefined,
-            }}
             layout={!isRemote ? 'responsive' : 'fill'}
             width={width}
             height={height}
@@ -79,22 +75,23 @@ const MdxImage = ({
             blurDataURL={placeholderData ? placeholderData : undefined}
             objectFit={isRemote ? 'cover' : undefined}
           />
-        </div>
-        <figcaption
-          sx={{
-            fontSize: 1,
+        </Box>
+        <Text
+          as="figcaption"
+          css={{
+            fontSize: '$1',
             fontStyle: 'italic',
-            color: 'secondary',
+            color: '$secondary',
             textAlign: 'center',
-            mt: 2,
+            mt: '$2',
             position: isRemote ? 'absolute' : undefined,
             bottom: isRemote ? -5 : undefined,
             width: isRemote ? '100%' : undefined,
           }}
         >
           {title || alt}
-        </figcaption>
-      </figure>
+        </Text>
+      </Box>
     )
   }
   return (
@@ -110,24 +107,43 @@ const MdxImage = ({
 }
 
 const SmallImage = ({ children }: SmallImageProps) => {
-  return <div className="small-image">{children}</div>
+  return (
+    <Box
+      css={{
+        mx: 'auto',
+        maxWidth: '420px',
+      }}
+    >
+      {children}
+    </Box>
+  )
 }
 
 const LargeImage = ({ children }: LargeImageProps) => {
-  return <div className="large-image">{children}</div>
+  return (
+    <Box
+      css={{
+        position: 'relative',
+
+        '@3': {
+          ml: '-$6',
+          mr: '-$6',
+          width: 'calc(100% + 128px) !important',
+        },
+      }}
+    >
+      {children}
+    </Box>
+  )
 }
 
 const ImageRow = ({ children, imgWidth = 200 }: ImageRowProps) => {
   return (
-    <div
-      sx={{
+    <Box
+      css={{
         position: 'relative',
-        display: ['', 'flex'],
-        ml: ['', -6],
-        mr: ['', -6],
         '> *': {
           flexGrow: 1,
-          width: ['', `${imgWidth}px`],
           m: 0,
           p: 0,
         },
@@ -139,10 +155,20 @@ const ImageRow = ({ children, imgWidth = 200 }: ImageRowProps) => {
           pt: 5,
           px: 3,
         },
+
+        '@1': {
+          d: 'flex',
+          ml: '-$6',
+          mr: '-$6',
+
+          '> *': {
+            width: `${imgWidth}px`,
+          },
+        },
       }}
     >
       {children}
-    </div>
+    </Box>
   )
 }
 

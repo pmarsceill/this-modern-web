@@ -1,69 +1,91 @@
-/** @jsxImportSource theme-ui */
-
-import { ThemeUIStyleObject } from '@theme-ui/css'
+import { styled } from '../stitches.config'
 import NavLink from './nav-link'
 
 const Nav = () => {
-  const navItemStyles: ThemeUIStyleObject = {
-    display: 'block',
-    mb: [0, '', '', 6],
-    color: 'secondary',
-  }
+  const NavUl = styled('ul', {
+    position: 'sticky',
+    display: 'flex',
+    listStyle: 'none',
+    my: '$5',
+    pl: '$0',
+    pb: '$5',
+    justifyContent: 'space-between',
+    borderBottom: '1px solid',
+    borderColor: '$muted',
+    top: '$6',
 
-  const navLinkStyles: ThemeUIStyleObject = {
+    '@3': {
+      display: 'block',
+      my: '$0',
+      pb: '$0',
+      borderBottom: 'none',
+    },
+  })
+
+  const NavLi = styled('li', {
+    display: 'block',
+    mb: '$0',
+    color: '$secondary',
+
+    '@3': {
+      mb: '$6',
+    },
+  })
+
+  const NavAnchor = styled('a', {
     color: 'inherit',
     textDecoration: 'none',
-    fontFamily: 'body',
-    fontSize: [1, '', '', 2],
-    '&.active': {
-      color: 'primary',
-    },
-  }
+    fontFamily: '$body',
+    fontSize: '$1',
 
-  const navLinkCounterStyles: ThemeUIStyleObject = {
-    fontFamily: 'monospace',
-    fontSize: 1,
-    mr: [1, '', '', 2],
-  }
+    '&.active': {
+      color: '$primary',
+    },
+
+    '&:hover': {
+      color: '$accent',
+    },
+
+    '@3': {
+      fontSize: '$2',
+    },
+  })
+
+  const NavCounter = styled('span', {
+    fontFamily: '$monospace',
+    fontSize: '$1',
+    mr: '$1',
+
+    '@3': {
+      mr: '$2',
+    },
+  })
 
   return (
     <nav>
-      <ul
-        sx={{
-          position: 'sticky',
-          display: ['flex', '', '', 'block'],
-          listStyle: 'none',
-          my: [5, '', '', 0],
-          pl: 0,
-          pb: [5, '', '', 0],
-          justifyContent: 'space-between',
-          borderBottom: ['1px solid', '', '', 'none'],
-          borderColor: 'muted',
-          top: 6,
-        }}
-      >
-        <li sx={{ ...navItemStyles, mt: [0, '', '', 4] }}>
+      <NavUl>
+        <NavLi css={{ mt: '$0', '@3': { mt: '$4', pt: '$1' } }}>
           <NavLink href="/" passHref>
-            <a sx={navLinkStyles}>
-              <span sx={navLinkCounterStyles}>1.0</span> Feed
-            </a>
+            <NavAnchor>
+              <NavCounter>1.0</NavCounter> Feed
+            </NavAnchor>
           </NavLink>
-        </li>
-        <li sx={navItemStyles}>
+        </NavLi>
+        <NavLi>
           <NavLink href="/about" passHref>
-            <a sx={navLinkStyles}>
-              <span sx={navLinkCounterStyles}>2.0</span> About
-            </a>
+            <NavAnchor>
+              <NavCounter>2.0</NavCounter> About
+            </NavAnchor>
           </NavLink>
-        </li>
-        <li sx={navItemStyles}>
+        </NavLi>
+        <NavLi>
           <NavLink href="/now" passHref>
-            <a sx={navLinkStyles}>
-              <span sx={navLinkCounterStyles}>3.0</span> Now
-            </a>
+            <NavAnchor>
+              <NavCounter>3.0</NavCounter> Now
+            </NavAnchor>
           </NavLink>
-        </li>
-      </ul>
+        </NavLi>
+      </NavUl>
     </nav>
   )
 }

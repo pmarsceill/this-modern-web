@@ -1,16 +1,25 @@
 import { DefaultSeo } from 'next-seo'
+import { ThemeProvider } from 'next-themes'
 import { AppProps } from 'next/dist/shared/lib/router/router'
-import { ThemeProvider } from 'theme-ui'
-import GlobalStyles from '../components/global/global-styles'
 import useAnalytics from '../lib/analytics'
-import { theme } from '../lib/theme'
+import darkTheme from '../lib/theme/dark-theme'
+import useGlobalStyles from '../lib/theme/global-styles'
+import pinkTheme from '../lib/theme/pink-theme'
 
 function MyApp({ Component, pageProps }: AppProps) {
   useAnalytics()
+  useGlobalStyles()
 
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyles theme={theme} />
+    <ThemeProvider
+      value={{
+        light: 'light-theme',
+        dark: darkTheme.className,
+        pink: pinkTheme.className,
+      }}
+      enableSystem={false}
+      attribute="class"
+    >
       <DefaultSeo
         title="This Modern Web"
         description="The personal website of Patrick Marsceill"

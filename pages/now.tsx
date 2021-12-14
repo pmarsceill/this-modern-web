@@ -1,28 +1,30 @@
-/** @jsxImportSource theme-ui */
-
-import { Themed } from '@theme-ui/mdx'
 import { parseISO } from 'date-fns'
 import format from 'date-fns/format'
 import { NextPage } from 'next'
 import { NextSeo } from 'next-seo'
+import { useTheme } from 'next-themes'
 import Image from 'next/image'
+import { useEffect } from 'react'
 import useSWR from 'swr'
-import { useColorMode } from 'theme-ui'
 import GlobalLayout from '../components/global/global-layout'
 import MdxImage from '../components/mdx-image'
 import Nav from '../components/nav'
+import Box from '../components/primitives/box'
+import Heading from '../components/primitives/heading'
+import Prose from '../components/primitives/prose'
+import Text from '../components/primitives/text'
 import TwoColLayout from '../components/two-col-layout'
 import { TrackType } from '../lib/types'
 import ghProjectsBeta from '../public/assets/now/gh-projects-beta.png'
 import homeImage from '../public/assets/now/home.jpg'
 
 const NowWorkingOn = () => {
-  const [colorMode, setColorMode] = useColorMode()
-  setColorMode('dark')
+  // const [colorMode, setColorMode] = useColorMode()
+  // setColorMode('dark')
 
   return (
-    <>
-      <Themed.p>
+    <Prose type="longform">
+      <p>
         In December of 2020, after five years of managing teams of product
         designers, I reevaluated what I wanted to get out of my work. I&apos;ve
         always been most driven by making things and after spending this last
@@ -31,8 +33,8 @@ const NowWorkingOn = () => {
         being an individual contributor. It was a little scary but absolutely
         the right choice for me. I changed teams, changed titles, and shifted to
         another area of GitHub that needed help.
-      </Themed.p>
-      <Themed.p>
+      </p>
+      <p>
         The first assignment I was handed as Staff Designer at GitHub was to
         reimagine our project managment tools and what they could be. From
         December until October of 2021, I worked with a team of product
@@ -42,7 +44,7 @@ const NowWorkingOn = () => {
           GitHub Issues &amp; Projects beta
         </a>
         .
-      </Themed.p>
+      </p>
       <MdxImage
         src={ghProjectsBeta}
         width={1366}
@@ -52,7 +54,7 @@ const NowWorkingOn = () => {
         shadow
         rounded
       />
-      <Themed.p>
+      <p>
         Today, my role on this team is to lead the design direction and
         execution across our planning and tracking products. I spend a good
         amount of my time synthesizing the output of our research team, weekly
@@ -62,21 +64,21 @@ const NowWorkingOn = () => {
         portion of the front-end UI in our React codebase, and work with the
         Design Systems team to extend and create patterns in our React component
         library.
-      </Themed.p>
-    </>
+      </p>
+    </Prose>
   )
 }
 
 const NowHome = () => {
   return (
-    <>
-      <Themed.p>
+    <Prose type="longform">
+      <p>
         The house of my dreams was built in 1830 and sits proudly a few miles
         from the Hudson river in Upstate New York. After seeing it pop up
         through a random Zillow search in late August of 2020, my family visited
         it a few times, and then we couldn&apos;t stop thinking about it. Two
         days before Christmas eve in 2020, we were living here.
-      </Themed.p>
+      </p>
       <MdxImage
         src={homeImage}
         width={3893}
@@ -86,7 +88,7 @@ const NowHome = () => {
         shadow
         rounded
       />
-    </>
+    </Prose>
   )
 }
 
@@ -96,25 +98,27 @@ const NowPlaying = () => {
 
   if (error)
     return (
-      <div>
+      <Text>
         <em>Failed to load recently played tracks.</em>
-      </div>
+      </Text>
     )
 
   const tracks = data?.tracks
 
   return (
     <>
-      <div
-        sx={{
+      <Box
+        css={{
           display: 'grid',
-          gridTemplateColumns: [
-            '1fr 1fr',
-            '1fr 1fr 1fr',
-            '',
-            '1fr 1fr 1fr 1fr',
-          ],
-          gridGap: 5,
+          gridTemplateColumns: '1fr 1fr',
+          gridGap: '$5',
+
+          '@1': {
+            gridTemplateColumns: '1fr 1fr 1fr',
+          },
+          '@3': {
+            gridTemplateColumns: '1fr 1fr 1fr 1fr',
+          },
         }}
       >
         {tracks &&
@@ -122,20 +126,30 @@ const NowPlaying = () => {
             const track = item.track as TrackType
 
             return (
-              <div key={track.id} sx={{ mb: ['', 4, 6] }}>
-                <div
-                  sx={{
+              <Box
+                key={track.id}
+                css={{ mb: '$0', '@1': { mb: '$4' }, '@2': { mb: '$6' } }}
+              >
+                <Box
+                  css={{
                     display: 'flex',
                     flexDirection: 'column',
-                    height: ['60vw', '25vw', '', '223px'],
-                    maxHeight: ['300px'],
+                    height: '60vw',
+                    maxHeight: '300px',
                     justifyContent: 'flex-end',
                     overflow: 'visible',
+
+                    '@1': {
+                      height: '25vw',
+                    },
+                    '@3': {
+                      height: '223px',
+                    },
                   }}
                 >
-                  <div
-                    sx={{
-                      borderRadius: 1,
+                  <Box
+                    css={{
+                      borderRadius: '$1',
                       overflow: 'hidden',
                       bg: 'muted',
                       boxShadow: 'default',
@@ -150,75 +164,84 @@ const NowPlaying = () => {
                       width={300}
                       height={300}
                     />
-                  </div>
-                </div>
-                <Themed.h3 sx={{ mt: 3, mb: 2 }}>
+                  </Box>
+                </Box>
+                <Heading
+                  as="h3"
+                  css={{
+                    fontSize: '$4',
+                    color: '$primary',
+                    mt: '$3',
+                    mb: '$2',
+                  }}
+                >
                   {track.name}
-                  <span sx={{ color: 'secondary' }}>
+                  <Text css={{ color: '$secondary' }}>
                     {' '}
                     by {track.artists.map((artist) => artist.name).join(', ')}
-                  </span>
-                </Themed.h3>
-                <p
-                  sx={{
-                    mt: 0,
-                    fontSize: 0,
-                    color: 'secondary',
-                    fontFamily: 'body',
+                  </Text>
+                </Heading>
+                <Text
+                  as="p"
+                  css={{
+                    mt: '$0',
+                    fontSize: '$0',
+                    color: '$secondary',
+                    fontFamily: '$body',
                   }}
                 >
                   Played {format(parseISO(track.playedAt), 'PPp')}
-                </p>
-              </div>
+                </Text>
+              </Box>
             )
           })}
-      </div>
+      </Box>
     </>
   )
 }
 
 const Now: NextPage = () => {
+  const { theme, setTheme } = useTheme()
+
+  useEffect(() => {
+    setTheme('dark')
+  }, [setTheme])
+
   return (
     <GlobalLayout>
       <NextSeo title="Now — This Modern Web" />
       <TwoColLayout>
         <Nav />
-        <div>
-          <h1
-            sx={{
-              variant: 'text.pageHeading',
-            }}
-          >
-            Now
-          </h1>
-          <div
-            sx={{
+        <Box>
+          <Heading context="pageHeading">Now</Heading>
+          <Prose
+            css={{
               maxWidth: '759px',
             }}
-            className="prose"
+            type="longform"
           >
-            <Themed.p>
+            <p>
               <em>Updated Novermber 7, 2021 from Hudson, NY</em>
-            </Themed.p>
-            <Themed.h2>
-              <span sx={{ color: 'secondary' }}>3.1 —</span> working on
-            </Themed.h2>
+            </p>
+            <h2>
+              <Text css={{ color: '$secondary' }}>3.1 —</Text> working on
+            </h2>
             <NowWorkingOn />
-            <Themed.h2>
-              <span sx={{ color: 'secondary' }}>3.2 —</span> home
-            </Themed.h2>
+            <h2>
+              <Text css={{ color: '$secondary' }}>3.2 —</Text> home
+            </h2>
             <NowHome />
-          </div>
-          <div className="prose">
-            <Themed.h2>
-              <span sx={{ color: 'secondary' }}>3.3 —</span> playing
-            </Themed.h2>
-            <Themed.p>
+          </Prose>
+          <Prose type="longform">
+            <h2>
+              <Text css={{ color: '$secondary' }}>3.3 —</Text> playing
+            </h2>
+            <p>
               The latest plays from my Spotify account, automatically updated...
-            </Themed.p>{' '}
+            </p>{' '}
             <NowPlaying />
-          </div>
-        </div>
+          </Prose>
+        </Box>
       </TwoColLayout>
     </GlobalLayout>
   )

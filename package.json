@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@mdx-js/loader": "^1.6.22",
+    "@stitches/react": "^1.2.5",
     "@svgr/webpack": "^6.1.2",
     "@theme-ui/color": "^0.12.1",
     "@theme-ui/prism": "^0.12.0",
@@ -20,6 +21,7 @@
     "next": "12.0.7",
     "next-mdx-remote": "^3.0.8",
     "next-seo": "^4.28.1",
+    "next-themes": "^0.0.15",
     "querystring": "^0.2.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
@@ -31,7 +33,6 @@
     "sharp": "^0.29.3",
     "smoothscroll-polyfill": "^0.4.4",
     "swr": "^1.1.1",
-    "theme-ui": "^0.12.1",
     "unist-util-visit": "^4.1.0",
     "xml-js": "^1.6.11"
   },

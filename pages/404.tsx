@@ -1,37 +1,38 @@
-/** @jsxImportSource theme-ui */
-
-import { Themed } from '@theme-ui/mdx'
 import { NextPage } from 'next'
 import { NextSeo } from 'next-seo'
 import Link from 'next/link'
 import Button from '../components/button'
 import GlobalLayout from '../components/global/global-layout'
+import Box from '../components/primitives/box'
+import Heading from '../components/primitives/heading'
+import Prose from '../components/primitives/prose'
+import Text from '../components/primitives/text'
 
 const Custom404: NextPage = () => {
   return (
     <GlobalLayout>
       <NextSeo title="Page not found — This Modern Web" />
-      <div sx={{ maxWidth: '800px' }}>
-        <h1 sx={{ variant: 'text.pageHeading' }}>
-          <span sx={{ color: 'secondary' }}>Server error 404:</span> Page not
+      <Box css={{ maxWidth: '800px' }}>
+        <Heading context="pageHeading">
+          <Text css={{ color: '$secondary' }}>Server error 404:</Text> Page not
           found
-        </h1>
-        <div className="prose">
-          <Themed.p>
+        </Heading>
+        <Prose type="longform">
+          <p>
             This page does not exist. The URL may be incorrect, the page may
             have been moved, or deleted. In any case, there’s nothing to see
             here...
-          </Themed.p>
-          <Themed.p>
+          </p>
+          <p>
             <em>ProTip: Everything is available in the Everything Archive.</em>
-          </Themed.p>
+          </p>
           <Link href="/archive" passHref>
             <Button as="a" variant="outline">
-              Everything Archive
+              Everything archive
             </Button>
           </Link>
-        </div>
-      </div>
+        </Prose>
+      </Box>
     </GlobalLayout>
   )
 }

@@ -1,100 +1,72 @@
-/** @jsxImportSource theme-ui */
-
 import Link from 'next/link'
+import { styled } from '../../stitches.config'
+import Box from '../primitives/box'
+
+const NavUl = styled('ul', {
+  listStyle: 'none',
+  pl: '$0',
+  fontSize: '$1',
+  display: 'block',
+
+  '@1': {
+    display: 'flex',
+  },
+})
+
+const NavLi = styled('li', {
+  mr: '$4',
+})
+
+const NavAnchor = styled('a', {
+  display: 'inline-block',
+  color: '$primary',
+  textDecoration: 'none',
+  py: '$1',
+
+  '&:hover': {
+    color: '$accent',
+  },
+
+  '@2': {
+    py: '$0',
+  },
+})
 
 const GlobalFooter = () => {
   return (
-    <footer
-      sx={{
-        fontFamily: 'body',
-        fontSize: [1],
-        color: 'secondary',
-        py: 6,
+    <Box
+      as="footer"
+      css={{
+        fontFamily: '$body',
+        fontSize: '$1',
+        color: '$secondary',
+        py: '$6',
       }}
     >
-      <div sx={{ mb: 2 }}>
+      <Box css={{ mb: '$2' }}>
         &copy; 2012-{new Date().getFullYear()} Patrick Marsceill.
-      </div>
-      <ul
-        sx={{
-          listStyle: 'none',
-          pl: 0,
-          fontSize: 1,
-          display: ['block', 'flex'],
-        }}
-      >
-        <li
-          sx={{
-            mr: 4,
-          }}
-        >
+      </Box>
+      <NavUl>
+        <NavLi>
           <Link href={'#top'} passHref>
-            <a
-              sx={{
-                display: 'inline-block',
-                color: 'primary',
-                textDecoration: 'none',
-                py: [1, '', 0],
-              }}
-            >
-              Back to top
-            </a>
+            <NavAnchor>Back to top</NavAnchor>
           </Link>
-        </li>
-        <li
-          sx={{
-            mr: 4,
-          }}
-        >
-          <a
-            href="mailto:patrick@thismodernweb.com"
-            sx={{
-              display: 'inline-block',
-              color: 'primary',
-              textDecoration: 'none',
-              py: [1, '', 0],
-            }}
-          >
+        </NavLi>
+        <NavLi>
+          <NavAnchor href="mailto:patrick@thismodernweb.com">
             Email me
-          </a>
-        </li>
-        <li
-          sx={{
-            mr: 4,
-          }}
-        >
-          <a
-            href="https://twitter.com/pmarsceill"
-            sx={{
-              display: 'inline-block',
-              color: 'primary',
-              textDecoration: 'none',
-              py: [1, '', 0],
-            }}
-          >
-            Twitter
-          </a>
-        </li>
-        <li
-          sx={{
-            mr: 4,
-          }}
-        >
-          <a
-            href="https://github.com/pmarsceill"
-            rel="me"
-            sx={{
-              display: 'inline-block',
-              color: 'primary',
-              textDecoration: 'none',
-              py: [1, '', 0],
-            }}
-          >
+          </NavAnchor>
+        </NavLi>
+        <NavLi>
+          <NavAnchor href="https://twitter.com/pmarsceill">Twitter</NavAnchor>
+        </NavLi>
+        <NavLi>
+          <NavAnchor href="https://github.com/pmarsceill" rel="me">
             GitHub
-          </a>
-        </li>
-      </ul>
-    </footer>
+          </NavAnchor>
+        </NavLi>
+      </NavUl>
+    </Box>
   )
 }
 

@@ -1,59 +1,77 @@
-/** @jsxImportSource theme-ui */
-
-import { Themed } from '@theme-ui/mdx'
 import { NextSeo } from 'next-seo'
-import Image from 'next/image'
+import { useTheme } from 'next-themes'
 import Link from 'next/link'
-import { useColorMode } from 'theme-ui'
+import { useEffect } from 'react'
 import GlobalLayout from '../components/global/global-layout'
 import Nav from '../components/nav'
+import Box from '../components/primitives/box'
+import Heading from '../components/primitives/heading'
+import Image from '../components/primitives/image'
+import Prose from '../components/primitives/prose'
+import Text from '../components/primitives/text'
 import TwoColLayout from '../components/two-col-layout'
 import AboutGif from '../public/patrick-marsceill.gif'
 
 const About = () => {
-  const [colorMode, setColorMode] = useColorMode()
-  setColorMode('light')
-
+  const { theme, setTheme } = useTheme()
   const yearsAtGitHub = new Date().getFullYear() - 2015
+
+  useEffect(() => {
+    setTheme('light')
+  }, [setTheme])
 
   return (
     <GlobalLayout>
       <NextSeo title="About Patrick Marsceill — This Modern Web" />
       <TwoColLayout>
         <Nav />
-        <div
-          sx={{
-            display: ['grid'],
-            columnGap: ['', '', 5, 6],
-            gridTemplateColumns: ['', '2fr 1fr 1fr', '', '3.25fr 1fr 1fr'],
-            gridTemplateAreas: [
-              '"intro" "image" "details" "more"',
-              '"intro image image" "details details details" "more more more"',
-              '"intro image image" "details details details" "more more more"',
-              '"intro image image" "details image image" "more more x"',
-            ],
+        <Box
+          css={{
+            display: 'grid',
+            gridTemplateAreas: '"intro" "image" "details" "more"',
+
+            '@1': {
+              gridTemplateColumns: '2fr 1fr 1fr',
+              gridTemplateAreas:
+                '"intro image image" "details details details" "more more more"',
+            },
+
+            '@2': {
+              columnGap: '$5',
+            },
+            '@3': {
+              columnGap: '$6',
+              gridTemplateColumns: '3.25fr 1fr 1fr',
+              gridTemplateAreas:
+                '"intro image image" "details image image" "more more x"',
+            },
           }}
         >
-          <div sx={{ gridArea: 'intro' }}>
-            <h1
-              sx={{
-                variant: 'text.pageHeading',
-                width: ['', '150%'],
+          <Box css={{ gridArea: 'intro' }}>
+            <Heading
+              as="h1"
+              context="pageHeading"
+              css={{
+                width: '100%',
+
+                '@1': {
+                  width: '150%',
+                },
               }}
             >
               Patrick Marsceill is a product designer at GitHub
-              <span
-                sx={{
-                  color: 'secondary',
+              <Text
+                css={{
+                  color: '$secondary',
                   ml: '0.2em',
                 }}
               >
                 You&apos;ve found his home on the internet —
-              </span>
-            </h1>
-          </div>
-          <div sx={{ gridArea: 'details' }} className="prose">
-            <Themed.p>
+              </Text>
+            </Heading>
+          </Box>
+          <Prose css={{ gridArea: 'details' }} type="longform">
+            <p>
               My earliest post here was in 2012, so you could say that is the
               year that I established this site. Back then though, it was under
               my own namesake over at <em>patrickmarsceill.com</em> (which now
@@ -65,8 +83,8 @@ const About = () => {
               I&apos;m trying to do here. In the past, I never kept up a regular
               writing schedule, but these days I try to get something new up at
               least twice a week.
-            </Themed.p>
-            <Themed.p>
+            </p>
+            <p>
               I tend to write about design + tech, my own life, and occasionally
               music and film. If you&apos;re curious about what I&apos;m
               currently watching, listening to, or reading, check out my{' '}
@@ -74,27 +92,32 @@ const About = () => {
                 <a>Now</a>
               </Link>{' '}
               page.
-            </Themed.p>
-          </div>
-          <div
-            sx={{
+            </p>
+          </Prose>
+          <Box
+            css={{
               gridArea: 'image',
-              mb: ['', '', 4],
               position: 'relative',
+
+              '@2': {
+                mb: '$4',
+              },
             }}
           >
             <Image
               src={AboutGif}
               alt="Patrick Marsceill"
               layout="responsive"
-              sx={{
-                mt: [4, 6, ''],
+              css={{
+                mb: '$4',
+                borderRadius: '$3',
+                overflow: 'hidden',
               }}
             />
-          </div>
-          <div sx={{ gridArea: 'more' }} className="prose">
-            <Themed.h2>My work</Themed.h2>
-            <Themed.p>
+          </Box>
+          <Prose type="longform" css={{ gridArea: 'more' }}>
+            <h2>My work</h2>
+            <p>
               I have been a designer in some capacity at GitHub for about{' '}
               {yearsAtGitHub} years. In my time at GitHub, I have worked on
               almost every part of the product. I have managed product design
@@ -108,22 +131,22 @@ const About = () => {
                 GitHub issues and projects
               </a>
               .
-            </Themed.p>
-            <Themed.p>
+            </p>
+            <p>
               My working style is hands-on and I enjoy writing code as much I
               like thinking about problems, designing interfaces, and
               collaborating with my team. Inevitably one of these things will
               lead to another.
-            </Themed.p>
-            <Themed.p>
+            </p>
+            <p>
               Before joining GitHub in 2015, I led design teams at{' '}
               <a href="https://www.happycog.com">Happy Cog</a> and Empathy Lab
               working with Fortune 500 industry leaders, scrappy start-ups, and
               mission-driven non-profits to build digital products for screens
               of all sizes.
-            </Themed.p>
-            <Themed.h2>Personal projects</Themed.h2>
-            <Themed.p>
+            </p>
+            <h2>Personal projects</h2>
+            <p>
               I&apos;ve loved the internet since I first logged on as a pre-teen
               in the early 90&apos;s. From the start, I was hooked on the
               ability to create for this medium. Over the years I have designed
@@ -133,8 +156,8 @@ const About = () => {
                 archive.org
               </a>
               .
-            </Themed.p>
-            <Themed.ul>
+            </p>
+            <ul>
               <li>
                 <a href="https://pmarsceill.github.io/just-the-docs">
                   Just the Docs
@@ -155,9 +178,9 @@ const About = () => {
                 tablature and music notation with an abstract markdown-like
                 language.
               </li>
-            </Themed.ul>
-            <Themed.h2>About this website</Themed.h2>
-            <Themed.p>
+            </ul>
+            <h2>About this website</h2>
+            <p>
               I wrote this website in TypeScript using the Next.js framework.
               The source code is on GitHub and is under a{' '}
               <a
@@ -169,32 +192,24 @@ const About = () => {
               </a>
               . This website is hosted on{' '}
               <a href="https://vercel.com">Vercel</a>.
-            </Themed.p>
-            <Themed.p>
+            </p>
+            <p>
               The logotype is set in <em>Optician Sans</em> (
               <a href="https://github.com/anewtypeofinterference/Optician-Sans">
                 Open Source on GitHub
               </a>
-              ), the body copy is set in <em>Freight Text Pro</em> and the rest
-              of the site uses system-safe font stacks:
-            </Themed.p>
-            <Themed.ul>
-              <li>
-                Headings:{' '}
-                <Themed.code>
-                  -apple-system, BlinkMacSystemFont, Helvetica, Arial,
-                  sans-serif
-                </Themed.code>
-              </li>
-              <li>
-                Monospace:{' '}
-                <Themed.code>
-                  SFMono-Regular, Consolas, Menlo, Andale, monospace
-                </Themed.code>
-              </li>
-            </Themed.ul>
-          </div>
-        </div>
+              ), the body copy is set in <em>Freight Text Pro</em>, monospace is{' '}
+              <em>IBM Plex Mono</em> and the rest of the site uses a system-safe
+              font stack:
+            </p>
+            <pre>
+              <code>
+                font-family: -apple-system, BlinkMacSystemFont, Helvetica,
+                Arial, sans-serif
+              </code>
+            </pre>
+          </Prose>
+        </Box>
       </TwoColLayout>
     </GlobalLayout>
   )

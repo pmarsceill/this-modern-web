@@ -1,4 +1,4 @@
-/** @jsxImportSource theme-ui */
+import Box from './primitives/box'
 
 type Props = {
   isExtended?: boolean
@@ -10,21 +10,26 @@ const TwoColLayout = ({ isExtended, children }: Props) => {
   const largeColSize = '154px'
 
   return (
-    <div
-      sx={{
-        display: ['block', '', '', 'grid'],
-        gridGap: ['', '', '', 5, 6],
-        gridTemplateColumns: [
-          '',
-          '',
-          '',
-          `${smallColSize} minmax(0, 1fr) ${isExtended ? smallColSize : ''}`,
-          `${largeColSize} minmax(0, 1fr) ${isExtended ? largeColSize : ''}`,
-        ],
+    <Box
+      css={{
+        display: 'block',
+        '@3': {
+          display: 'grid',
+          gridGap: '$5',
+          gridTemplateColumns: `${smallColSize} minmax(0, 1fr) ${
+            isExtended ? smallColSize : ''
+          }`,
+        },
+        '@4': {
+          gridGap: '$6',
+          gridTemplateColumns: `${largeColSize} minmax(0, 1fr) ${
+            isExtended ? largeColSize : ''
+          }`,
+        },
       }}
     >
       {children}
-    </div>
+    </Box>
   )
 }
 

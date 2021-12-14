@@ -1,4 +1,5 @@
-/** @jsxImportSource theme-ui */
+import Box from './primitives/box'
+import Text from './primitives/text'
 
 type Props = {
   src: string
@@ -9,39 +10,49 @@ type Props = {
 const Video = ({ src, alt, className, ...props }: Props) => {
   if (alt) {
     return (
-      <figure
+      <Box
+        as="figure"
         className={className}
-        sx={{
+        css={{
           width: '100%',
           height: 'auto',
-          p: 0,
-          my: 6,
-          mx: 0,
+          p: '$0',
+          my: '$6',
+          mx: '$0',
         }}
       >
-        <video {...props} sx={{ width: '100%', height: 'auto', p: 0, m: 0 }}>
+        <Box
+          as="video"
+          {...props}
+          css={{ width: '100%', height: 'auto', p: 0, m: 0 }}
+        >
           <source src={src} type="video/mp4" />
           Your browser does not support this video type.
-        </video>
-        <figcaption
-          sx={{
-            fontSize: 1,
+        </Box>
+        <Text
+          css={{
+            fontSize: '$1',
             fontStyle: 'italic',
-            color: 'secondary',
+            color: '$secondary',
             textAlign: 'center',
-            mt: 2,
+            mt: '$2',
           }}
+          as="figcaption"
         >
           {alt}
-        </figcaption>
-      </figure>
+        </Text>
+      </Box>
     )
   }
   return (
-    <video {...props} sx={{ width: '100%', height: 'auto', p: 0, m: 0 }}>
+    <Box
+      as="video"
+      {...props}
+      css={{ width: '100%', height: 'auto', p: 0, m: 0 }}
+    >
       <source src={src} type="video/mp4" />
       Your browser does not support this video type.
-    </video>
+    </Box>
   )
 }
 
