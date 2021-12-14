@@ -159,7 +159,7 @@ const Post: NextPage<PostProps> = ({
                 <Text
                   as="span"
                   css={{
-                    fontFamily: 'monospace',
+                    fontFamily: '$monospace',
                     ml: '$1',
 
                     '@3': {
@@ -178,14 +178,13 @@ const Post: NextPage<PostProps> = ({
                 px: '$5',
                 py: '$3',
                 borderRadius: '$3',
-                fontFamily: 'monospace',
-                fontSize: '$1',
 
                 '@3': {
                   px: '$6',
                   py: '$5',
                 },
               }}
+              type="microblog"
             >
               <MDXRemote {...content} />
             </Prose>

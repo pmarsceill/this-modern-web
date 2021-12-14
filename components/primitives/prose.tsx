@@ -143,12 +143,13 @@ const Prose = styled(Box, {
   hr: {
     borderStyle: 'solid',
     border: 'none',
-    py: 5,
+    py: '$5',
     position: 'relative',
     '&::after': {
+      display: 'block',
       position: 'absolute',
       width: '$7',
-      height: '2px',
+      height: '$1',
       left: 'calc(50% - $6)',
       top: 'calc(50% - 2px)',
       backgroundColor: '$muted',
@@ -159,12 +160,17 @@ const Prose = styled(Box, {
     width: '100%',
     height: 'auto',
   },
+  'pre, code': {
+    fontFamily: '$monospace',
+    fontSize: '76%',
+    lineHeight: '$monospace',
+  },
+
   pre: {
     background: 'transparent',
     border: '1px solid',
     borderColor: '$muted',
     marginBottom: '$4',
-    lineHeight: '1',
     p: '$3',
     borderRadius: '4px',
     overflowX: 'auto',
@@ -172,6 +178,7 @@ const Prose = styled(Box, {
 
     code: {
       whiteSpace: 'pre',
+      fontSize: '$0',
     },
 
     '.comment,.prolog,.doctype,.cdata,.punctuation,.operator,.entity,.url': {
@@ -202,6 +209,17 @@ const Prose = styled(Box, {
 
         '@2': {
           fontSize: '21px',
+        },
+      },
+
+      microblog: {
+        fontFamily: '$monospace',
+        fontSize: '$1',
+        lineHeight: '$content',
+
+        '& blockquote': {
+          fontStyle: 'normal !important',
+          color: '$secondary',
         },
       },
     },

@@ -177,17 +177,9 @@ const MicroBlog = ({ post, mdxContent }: MicroBlogProps) => {
       }}
       id={post.slug}
     >
-      <Box
-        css={{
-          fontFamily: '$monospace',
-          fontSize: '$1',
-          lineHeight: '$content',
-        }}
-      >
-        <Prose>
-          {mdxContent ? <MDXRemote {...mdxContent} /> : fallBackBody}
-        </Prose>
-      </Box>
+      <Prose type="microblog">
+        {mdxContent ? <MDXRemote {...mdxContent} /> : fallBackBody}
+      </Prose>
       <Link
         href={`/${post.year}/${post.month}/${post.day}/${post.slug}`}
         passHref

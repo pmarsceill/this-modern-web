@@ -36,12 +36,23 @@ export const {
     sizes: {
       container: '1268px',
       content: '924px',
+      0: '0px',
+      1: '4px',
+      2: '8px',
+      3: '12px',
+      4: '16px',
+      5: '32px',
+      6: '64px',
+      7: '128px',
+      8: '256px',
+      9: '512px',
     },
     fonts: {
       body: '-apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif',
       heading:
         '-apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif',
-      monospace: 'SFMono-Regular,Consolas,Menlo,Andale,monospace',
+      monospace:
+        'IBM Plex Mono, SFMono-Regular,Consolas,Menlo,Andale,monospace',
       serif:
         'Freight Text Pro,-apple-system-ui-serif, ui-serif,Palatino,Palatino Linotype,Palatino LT STD,Book Antiqua,Georgia,serif',
     },

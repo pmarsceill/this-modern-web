@@ -16,6 +16,13 @@ const useGlobalStyles = globalCss({
       fontDisplay: 'swap',
       src: `url(/fonts/Freight-Text-Pro-Book-Italic.woff2) format('woff2'), url(/fonts/Freight-Text-Pro-Book-Italic.woff) format('woff')`,
     },
+    {
+      fontFamily: 'IBM Plex Mono',
+      fontStyle: 'normal',
+      fontWeight: 400,
+      fontDisplay: 'swap',
+      src: `url(/fonts/IBMPlexMono-Regular.woff2) format('woff2'), url(/fonts/IBMPlexMono-Regular.woff) format('woff')`,
+    },
   ],
   '*': {
     boxSizing: 'border-box',
