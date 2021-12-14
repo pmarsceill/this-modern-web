@@ -1,9 +1,6 @@
 import { useRouter } from 'next/dist/client/router'
 import Head from 'next/head'
 import Box from '../primitives/box'
-import GlobalFavicon from './global-favicon'
-import GlobalMeta from './global-meta'
-import GlobalMicropub from './global-micropub'
 import SiteTitle from './global-site-title'
 
 const GlobalHeader = () => {
@@ -14,10 +11,99 @@ const GlobalHeader = () => {
   return (
     <>
       <Head>
-        <GlobalFavicon />
-        <GlobalMicropub />
-        <GlobalMeta />
+        <link rel="apple-touch-icon" sizes="57x57" href="/favicon-57x57.png" />
+        <link rel="apple-touch-icon" sizes="60x60" href="/favicon-60x60.png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="/favicon-72x72.png" />
+        <link rel="apple-touch-icon" sizes="76x76" href="/favicon-76x76.png" />
+        <link
+          rel="apple-touch-icon"
+          sizes="114x114"
+          href="/favicon-114x114.png"
+        />
+        <link
+          rel="apple-touch-icon"
+          sizes="120x120"
+          href="/favicon-120x120.png"
+        />
+        <link
+          rel="apple-touch-icon"
+          sizes="144x144"
+          href="/favicon-144x144.png"
+        />
+        <link
+          rel="apple-touch-icon"
+          sizes="152x152"
+          href="/favicon-152x152.png"
+        />
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/favicon-180x180.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/favicon-16x16.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/favicon-32x32.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="96x96"
+          href="/favicon-96x96.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="192x192"
+          href="/favicon-192x192.png"
+        />
+        <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 
+        {/* <meta
+          name="msapplication-TileColor"
+          content={`${theme.colors?.background}`}
+        /> */}
+        <meta name="msapplication-TileImage" content="/favicon-144x144.png" />
+        <meta name="msapplication-config" content="/browserconfig.xml" />
+
+        <link rel="manifest" href="/manifest.json" />
+
+        {/* Preload fonts */}
+        <link
+          rel="preload"
+          href="/fonts/Freight-Text-Pro-Book.woff"
+          as="font"
+          type="font/woff"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/fonts/Freight-Text-Pro-Book.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+
+        {/* Micropub  */}
+        <link
+          rel="authorization_endpoint"
+          href="https://github-indieauth.herokuapp.com/auth"
+        />
+        <link
+          rel="token_endpoint"
+          href="https://github-indieauth.herokuapp.com/token"
+        />
+        <link rel="micropub" href="https://tmw-mp-enpoint.glitch.me/micropub" />
+
+        {/* Ensure the correct browser theme is loaded on every page */}
         {/* {colorMode === 'dark' ? (
           <meta
             name="theme-color"

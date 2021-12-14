@@ -130,6 +130,7 @@ const SiteTitle = ({ isHome }: SiteHeaderType) => {
           lineHeight: '1',
           fontSize: '$0',
           display: 'block',
+          fontFamily: '$serif',
 
           '@1': {
             fontSize: isHome ? '$1' : '$0',
