@@ -1,17 +1,21 @@
 import { NextPage } from 'next'
 import { NextSeo } from 'next-seo'
 import GlobalLayout from '../components/global/global-layout'
+import Box from '../components/primitives/box'
+import Heading from '../components/primitives/heading'
+import Prose from '../components/primitives/prose'
+import Text from '../components/primitives/text'
 
 const Custom500: NextPage = () => {
   return (
     <GlobalLayout>
       <NextSeo title="Page not found — This Modern Web" />
-      <div sx={{ maxWidth: '800px' }}>
-        <h1 sx={{ variant: 'text.pageHeading' }}>
-          <span sx={{ color: 'secondary' }}>Server error 500:</span>{' '}
-          Something&apos;s wrong
-        </h1>
-        <div className="prose">
+      <Box css={{ maxWidth: '800px' }}>
+        <Heading context="pageHeading">
+          <Text css={{ color: '$secondary' }}>Server error 500:</Text> Something
+          is wrong
+        </Heading>
+        <Prose type="longform">
           <p>
             This page failed to load properly from the server. That&apos;s all
             we know right now.
@@ -22,8 +26,8 @@ const Custom500: NextPage = () => {
               more information.
             </em>
           </p>
-        </div>
-      </div>
+        </Prose>
+      </Box>
     </GlobalLayout>
   )
 }
