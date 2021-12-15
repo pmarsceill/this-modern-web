@@ -72,9 +72,18 @@ const About = () => {
           </Box>
           <Prose css={{ gridArea: 'details' }} type="longform">
             <p>
+              I tend to write about design + tech, my own life, and occasionally
+              music and film. If you&apos;re curious about what I&apos;m
+              currently watching, listening to, or reading, check out my{' '}
+              <Link href="/now" passHref>
+                <a>Now</a>
+              </Link>{' '}
+              page.
+            </p>
+            <p>
               My earliest post here was in 2012, so you could say that is the
               year that I established this site. Back then though, it was under
-              my own namesake over at <em>patrickmarsceill.com</em> (which now
+              my own namesake, <em>patrickmarsceill.com</em> (which now
               redirects over here). I{' '}
               <Link href="/2020/02/17/new-site-who-dis/" passHref>
                 <a>wrote a post</a>
@@ -83,15 +92,6 @@ const About = () => {
               I&apos;m trying to do here. In the past, I never kept up a regular
               writing schedule, but these days I try to get something new up at
               least twice a week.
-            </p>
-            <p>
-              I tend to write about design + tech, my own life, and occasionally
-              music and film. If you&apos;re curious about what I&apos;m
-              currently watching, listening to, or reading, check out my{' '}
-              <Link href="/now" passHref>
-                <a>Now</a>
-              </Link>{' '}
-              page.
             </p>
           </Prose>
           <Box
@@ -181,8 +181,11 @@ const About = () => {
             </ul>
             <h2>About this website</h2>
             <p>
-              I wrote this website in TypeScript using the Next.js framework.
-              The source code is on GitHub and is under a{' '}
+              I wrote this website in TypeScript using the Next.js framework.{' '}
+              <a href="https://github.com/pmarsceill/this-modern-web">
+                The source code is on GitHub
+              </a>{' '}
+              and is under a{' '}
               <a
                 rel="license"
                 href="http://creativecommons.org/licenses/by-nc/4.0/"
