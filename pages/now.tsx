@@ -169,7 +169,7 @@ const NowPlaying = () => {
                 <Heading
                   as="h3"
                   css={{
-                    fontSize: '$4',
+                    fontSize: '$3',
                     color: '$primary',
                     mt: '$3',
                     mb: '$2',
