@@ -79,10 +79,10 @@ const Prose = styled(Box, {
     li: {
       position: 'relative',
       mb: '0.33em',
-      pl: '1.2em',
+      pl: '1.3em',
       '&:before': {
         position: 'absolute',
-        left: '$0',
+        left: '.2em',
         content: '–',
         fontWeight: 'normal',
         color: '$secondary',
@@ -120,20 +120,32 @@ const Prose = styled(Box, {
     li: {
       mb: '0.25em',
     },
-    pl: 0,
+    pl: '$0',
     '> li': {
       position: 'relative',
-      pl: ['1.6em', 0],
+      pl: '1.3em',
       '&::before': {
         position: 'absolute',
-        top: ['0.5em', '', '0.68em'],
-        left: ['0.25em', '-1.6em'],
+        top: '0.25em',
+        left: '0em',
         color: '$secondary',
         content: 'counter(step-counter)',
         counterIncrement: 'step-counter',
-        fontSize: 1,
+        fontSize: '$1',
         fontFamily: '$body',
-        lineHeight: 1,
+        lineHeight: '$1',
+        textAlign: 'right',
+        width: '1em',
+
+        '@1': {
+          left: '-1.8em',
+        },
+        '@2': {
+          top: '0.38em',
+        },
+      },
+      '@1': {
+        pl: '$0',
       },
     },
     ol: {

@@ -22,13 +22,10 @@ const NavAnchor = styled('a', {
   color: '$primary',
   textDecoration: 'none',
   py: '$1',
+  px: '$1',
 
   '&:hover': {
     color: '$accent',
-  },
-
-  '@2': {
-    py: '$0',
   },
 })
 

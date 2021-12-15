@@ -169,7 +169,7 @@ const NowPlaying = () => {
                 <Heading
                   as="h3"
                   css={{
-                    fontSize: '$4',
+                    fontSize: '$3',
                     color: '$primary',
                     mt: '$3',
                     mb: '$2',
@@ -232,15 +232,18 @@ const Now: NextPage = () => {
             </h2>
             <NowHome />
           </Prose>
-          <Prose type="longform">
-            <h2>
-              <Text css={{ color: '$secondary' }}>3.3 —</Text> playing
-            </h2>
-            <p>
-              The latest plays from my Spotify account, automatically updated...
-            </p>{' '}
+          <Box>
+            <Prose type="longform">
+              <h2>
+                <Text css={{ color: '$secondary' }}>3.3 —</Text> playing
+              </h2>
+              <p>
+                The latest plays from my Spotify account, automatically
+                updated...
+              </p>{' '}
+            </Prose>
             <NowPlaying />
-          </Prose>
+          </Box>
         </Box>
       </TwoColLayout>
     </GlobalLayout>
