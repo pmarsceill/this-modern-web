@@ -19,6 +19,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       }}
       enableSystem={false}
       attribute="class"
+      forcedTheme={Component.theme || null}
     >
       <DefaultSeo
         title="This Modern Web"
