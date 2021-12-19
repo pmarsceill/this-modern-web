@@ -72,6 +72,7 @@ const Prose = styled(Box, {
     borderLeft: '2px solid',
     borderColor: '$muted',
     fontStyle: 'italic',
+    color: '$secondary',
   },
   ul: {
     listStyle: 'none',
