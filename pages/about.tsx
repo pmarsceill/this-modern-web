@@ -1,7 +1,6 @@
+import { NextPage } from 'next'
 import { NextSeo } from 'next-seo'
-import { useTheme } from 'next-themes'
 import Link from 'next/link'
-import { useEffect } from 'react'
 import GlobalLayout from '../components/global/global-layout'
 import Nav from '../components/nav'
 import Box from '../components/primitives/box'
@@ -12,13 +11,8 @@ import Text from '../components/primitives/text'
 import TwoColLayout from '../components/two-col-layout'
 import AboutGif from '../public/patrick-marsceill.gif'
 
-const About = () => {
-  const { theme, setTheme } = useTheme()
+const About: NextPage & { theme: string } = () => {
   const yearsAtGitHub = new Date().getFullYear() - 2015
-
-  useEffect(() => {
-    setTheme('light')
-  }, [setTheme])
 
   return (
     <GlobalLayout>
@@ -217,5 +211,7 @@ const About = () => {
     </GlobalLayout>
   )
 }
+
+About.theme = 'light'
 
 export default About

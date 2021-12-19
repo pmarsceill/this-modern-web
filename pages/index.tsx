@@ -3,10 +3,8 @@ import type { GetStaticProps, NextPage } from 'next'
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'
 import { serialize } from 'next-mdx-remote/serialize'
 import { NextSeo } from 'next-seo'
-import { useTheme } from 'next-themes'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useEffect } from 'react'
 import ReactDOMServer from 'react-dom/server'
 import rehypePrism from 'rehype-prism-plus'
 import remarkUnwrapImages from 'remark-unwrap-images'
@@ -197,13 +195,10 @@ const MicroBlog = ({ post, mdxContent }: MicroBlogProps) => {
   )
 }
 
-const Home: NextPage<Props> = ({ currentPosts, microBlogs }) => {
-  const { theme, setTheme } = useTheme()
-
-  useEffect(() => {
-    setTheme('dark')
-  }, [setTheme])
-
+const Home: NextPage<Props> & { theme: string } = ({
+  currentPosts,
+  microBlogs,
+}) => {
   return (
     <GlobalLayout>
       <NextSeo title="This Modern Web — Patrick Marsceill" />
@@ -289,4 +284,7 @@ export const getStaticProps: GetStaticProps = async () => {
     props: { currentPosts, microBlogs: microBlogsWithContentResolved },
   }
 }
+
+Home.theme = 'dark'
+
 export default Home

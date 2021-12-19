@@ -268,7 +268,7 @@ const PostsByMonthsPerYear = ({
   )
 }
 
-const Archive: NextPage<Props> = ({
+const Archive: NextPage<Props> & { theme: string } = ({
   currentPosts,
   legacyPosts,
   microBlogs,
@@ -377,5 +377,7 @@ export const getStaticProps: GetStaticProps = async () => {
     },
   }
 }
+
+Archive.theme = 'dark'
 
 export default Archive

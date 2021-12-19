@@ -2,9 +2,7 @@ import { parseISO } from 'date-fns'
 import format from 'date-fns/format'
 import { NextPage } from 'next'
 import { NextSeo } from 'next-seo'
-import { useTheme } from 'next-themes'
 import Image from 'next/image'
-import { useEffect } from 'react'
 import useSWR from 'swr'
 import GlobalLayout from '../components/global/global-layout'
 import MdxImage from '../components/mdx-image'
@@ -19,9 +17,6 @@ import ghProjectsBeta from '../public/assets/now/gh-projects-beta.png'
 import homeImage from '../public/assets/now/home.jpg'
 
 const NowWorkingOn = () => {
-  // const [colorMode, setColorMode] = useColorMode()
-  // setColorMode('dark')
-
   return (
     <Prose type="longform">
       <p>
@@ -200,13 +195,7 @@ const NowPlaying = () => {
   )
 }
 
-const Now: NextPage = () => {
-  const { theme, setTheme } = useTheme()
-
-  useEffect(() => {
-    setTheme('dark')
-  }, [setTheme])
-
+const Now: NextPage & { theme: string } = () => {
   return (
     <GlobalLayout>
       <NextSeo title="Now — This Modern Web" />
@@ -249,5 +238,7 @@ const Now: NextPage = () => {
     </GlobalLayout>
   )
 }
+
+Now.theme = 'dark'
 
 export default Now
