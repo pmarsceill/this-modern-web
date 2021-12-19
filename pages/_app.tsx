@@ -1,3 +1,4 @@
+import { NextPage } from 'next'
 import { DefaultSeo } from 'next-seo'
 import { ThemeProvider } from 'next-themes'
 import { AppProps } from 'next/dist/shared/lib/router/router'
@@ -6,7 +7,10 @@ import darkTheme from '../lib/theme/dark-theme'
 import useGlobalStyles from '../lib/theme/global-styles'
 import pinkTheme from '../lib/theme/pink-theme'
 
-function MyApp({ Component, pageProps }: AppProps) {
+function App({
+  Component,
+  pageProps,
+}: { Component: NextPage & { theme?: string } } & AppProps) {
   useAnalytics()
   useGlobalStyles()
 
@@ -19,7 +23,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       }}
       enableSystem={false}
       attribute="class"
-      forcedTheme={Component.theme || null}
+      forcedTheme={Component.theme || undefined}
     >
       <DefaultSeo
         title="This Modern Web"
@@ -47,4 +51,4 @@ function MyApp({ Component, pageProps }: AppProps) {
     </ThemeProvider>
   )
 }
-export default MyApp
+export default App
