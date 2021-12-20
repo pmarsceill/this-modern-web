@@ -1654,10 +1654,10 @@
     "@emotion/react" "^11.6.0"
     csstype "^3.0.10"
 
-"@theme-ui/prism@^0.12.0":
-  version "0.12.0"
-  resolved "https://registry.yarnpkg.com/@theme-ui/prism/-/prism-0.12.0.tgz#90a8e6e40365cabe9f7b140619c14264c0a490e6"
-  integrity sha512-QaS1l8f85KJhbkInygF+/f/3DWqcVCfvF9md4uJ2Hg8igguCJz+hYzycb6ZycZWQWq/kx0ucc81bwb+9KpvQfA==
+"@theme-ui/prism@^0.12.1":
+  version "0.12.1"
+  resolved "https://registry.yarnpkg.com/@theme-ui/prism/-/prism-0.12.1.tgz#95edc1854999cba8b06096d100033888594cfdac"
+  integrity sha512-9eiQcd7SGFB0m1m33xRe8zbJpr7nNtVSybPuxZ3BaWUN7RRESPG40VMsY7qCIeHe++/n+GZJ0m8P1xm2TmIkhw==
   dependencies:
     prism-react-renderer "^1.1.1"
 
