@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@mdx-js/loader": "^1.6.22",
-    "@stitches/react": "^1.2.5",
+    "@stitches/react": "^1.2.6",
     "@svgr/webpack": "^6.1.2",
     "@theme-ui/color": "^0.12.1",
     "@theme-ui/prism": "^0.12.1",
