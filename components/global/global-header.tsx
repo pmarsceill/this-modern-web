@@ -7,7 +7,7 @@ import Box from '../primitives/box'
 import SiteTitle from './global-site-title'
 
 const GlobalHeader = () => {
-  const { theme: themeName, setTheme } = useTheme()
+  const { forcedTheme: themeName } = useTheme()
 
   const router = useRouter()
   const isHome = router.pathname === '/'
