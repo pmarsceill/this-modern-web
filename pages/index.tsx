@@ -3,10 +3,9 @@ import type { GetStaticProps, NextPage } from 'next'
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'
 import { serialize } from 'next-mdx-remote/serialize'
 import { NextSeo } from 'next-seo'
-import { useTheme } from 'next-themes'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useEffect } from 'react'
+import { useRef } from 'react'
 import ReactDOMServer from 'react-dom/server'
 import rehypePrism from 'rehype-prism-plus'
 import remarkUnwrapImages from 'remark-unwrap-images'
@@ -19,6 +18,7 @@ import Box from '../components/primitives/box'
 import Heading from '../components/primitives/heading'
 import Prose from '../components/primitives/prose'
 import Text from '../components/primitives/text'
+import Spinner from '../components/spinner'
 import TwoColLayout from '../components/two-col-layout'
 import { imageAbsoluteUrls } from '../lib/images'
 import { getAllPosts, getPostsByType } from '../lib/posts'
@@ -45,6 +45,13 @@ type PostProps = {
 const Article = styled('article', {})
 
 const CurrentPost = ({ post, isFirst }: PostProps) => {
+  const spinnerRef = useRef<HTMLSpanElement>(null)
+  const handleImageLoad = () => {
+    if (spinnerRef.current) {
+      spinnerRef.current.style.display = 'none'
+    }
+  }
+
   return (
     <Article
       css={{
@@ -142,6 +149,19 @@ const CurrentPost = ({ post, isFirst }: PostProps) => {
                 },
               }}
             >
+              <Box
+                ref={spinnerRef}
+                as="span"
+                css={{
+                  position: 'absolute',
+                  top: '0',
+                  left: '0',
+                  width: '100%',
+                  height: '100%',
+                }}
+              >
+                <Spinner />
+              </Box>
               <Image
                 src={post.frontmatter.featuredImage}
                 alt={post.title}
@@ -150,6 +170,10 @@ const CurrentPost = ({ post, isFirst }: PostProps) => {
                 height={180}
                 objectFit="cover"
                 objectPosition="right center"
+                priority={isFirst}
+                onLoadingComplete={() => {
+                  handleImageLoad()
+                }}
               />
             </Box>
           )}
@@ -197,13 +221,10 @@ const MicroBlog = ({ post, mdxContent }: MicroBlogProps) => {
   )
 }
 
-const Home: NextPage<Props> = ({ currentPosts, microBlogs }) => {
-  const { theme, setTheme } = useTheme()
-
-  useEffect(() => {
-    setTheme('dark')
-  }, [setTheme])
-
+const Home: NextPage<Props> & { theme: string } = ({
+  currentPosts,
+  microBlogs,
+}) => {
   return (
     <GlobalLayout>
       <NextSeo title="This Modern Web — Patrick Marsceill" />
@@ -289,4 +310,7 @@ export const getStaticProps: GetStaticProps = async () => {
     props: { currentPosts, microBlogs: microBlogsWithContentResolved },
   }
 }
+
+Home.theme = 'dark'
+
 export default Home

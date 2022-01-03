@@ -10,11 +10,11 @@
   },
   "dependencies": {
     "@mdx-js/loader": "^1.6.22",
-    "@stitches/react": "^1.2.5",
+    "@stitches/react": "^1.2.6",
     "@svgr/webpack": "^6.1.2",
-    "@theme-ui/color": "^0.12.1",
-    "@theme-ui/prism": "^0.12.0",
-    "date-fns": "^2.27.0",
+    "@theme-ui/color": "^0.13.0",
+    "@theme-ui/prism": "^0.13.0",
+    "date-fns": "^2.28.0",
     "fathom-client": "^3.2.0",
     "feed": "^4.2.2",
     "gray-matter": "^4.0.3",
@@ -32,15 +32,15 @@
     "remove-markdown": "^0.3.0",
     "sharp": "^0.29.3",
     "smoothscroll-polyfill": "^0.4.4",
-    "swr": "^1.1.1",
+    "swr": "^1.1.2",
     "unist-util-visit": "^4.1.0",
     "xml-js": "^1.6.11"
   },
   "devDependencies": {
-    "@types/react": "17.0.37",
+    "@types/react": "17.0.38",
     "@types/react-dom": "^17.0.11",
     "@types/remove-markdown": "^0.3.1",
-    "@types/sharp": "^0.29.4",
+    "@types/sharp": "^0.29.5",
     "@types/smoothscroll-polyfill": "^0.3.1",
     "@typescript-eslint/eslint-plugin": "^4.33.0",
     "@typescript-eslint/parser": "^4.33.0",
@@ -48,9 +48,9 @@
     "eslint-config-next": "12.0.7",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-react": "^7.27.1",
+    "eslint-plugin-react": "^7.28.0",
     "prettier": "^2.5.1",
     "prettier-plugin-organize-imports": "^2.3.4",
-    "typescript": "4.5.3"
+    "typescript": "4.5.4"
   }
 }

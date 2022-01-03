@@ -2,9 +2,8 @@ import { parseISO } from 'date-fns'
 import format from 'date-fns/format'
 import { NextPage } from 'next'
 import { NextSeo } from 'next-seo'
-import { useTheme } from 'next-themes'
 import Image from 'next/image'
-import { useEffect } from 'react'
+import { RefObject, useRef } from 'react'
 import useSWR from 'swr'
 import GlobalLayout from '../components/global/global-layout'
 import MdxImage from '../components/mdx-image'
@@ -13,15 +12,13 @@ import Box from '../components/primitives/box'
 import Heading from '../components/primitives/heading'
 import Prose from '../components/primitives/prose'
 import Text from '../components/primitives/text'
+import Spinner from '../components/spinner'
 import TwoColLayout from '../components/two-col-layout'
 import { TrackType } from '../lib/types'
 import ghProjectsBeta from '../public/assets/now/gh-projects-beta.png'
 import homeImage from '../public/assets/now/home.jpg'
 
 const NowWorkingOn = () => {
-  // const [colorMode, setColorMode] = useColorMode()
-  // setColorMode('dark')
-
   return (
     <Prose type="longform">
       <p>
@@ -92,7 +89,11 @@ const NowHome = () => {
   )
 }
 
-const NowPlaying = () => {
+type NowPlayingProps = {
+  spinnerRef: RefObject<HTMLSpanElement>
+}
+
+const NowPlaying = ({ spinnerRef }: NowPlayingProps) => {
   const fetcher = (url: string) => fetch(url).then((r) => r.json())
   const { data, error } = useSWR('/api/recently-played', fetcher)
 
@@ -103,8 +104,42 @@ const NowPlaying = () => {
       </Text>
     )
 
+  if (!data)
+    return (
+      <Box
+        as="span"
+        css={{
+          position: 'relative',
+          backgroundColor: '$inset',
+          p: '$5',
+          borderRadius: '$2',
+          display: 'block',
+        }}
+      >
+        <Spinner />
+        <Text
+          as="p"
+          css={{
+            fontFamily: '$monospace',
+            fontSize: '$0',
+            color: '$secondary',
+            mt: '$3',
+            mb: '$0',
+            textAlign: 'center',
+          }}
+        >
+          Fetching recently played tracks...
+        </Text>
+      </Box>
+    )
+
   const tracks = data?.tracks
 
+  const handleImageLoad = () => {
+    if (spinnerRef.current) {
+      spinnerRef.current.style.display = 'none'
+    }
+  }
   return (
     <>
       <Box
@@ -124,7 +159,6 @@ const NowPlaying = () => {
         {tracks &&
           tracks.map((item: { track: TrackType }, index: number) => {
             const track = item.track as TrackType
-
             return (
               <Box
                 key={track.id}
@@ -153,8 +187,22 @@ const NowPlaying = () => {
                       overflow: 'hidden',
                       bg: 'muted',
                       boxShadow: 'default',
+                      position: 'relative',
                     }}
                   >
+                    <Box
+                      ref={spinnerRef}
+                      as="span"
+                      css={{
+                        position: 'absolute',
+                        top: '0',
+                        left: '0',
+                        width: '100%',
+                        height: '100%',
+                      }}
+                    >
+                      <Spinner />
+                    </Box>
                     <Image
                       src={track.album.images[0].url}
                       alt=""
@@ -163,6 +211,7 @@ const NowPlaying = () => {
                       objectPosition="center"
                       width={300}
                       height={300}
+                      onLoadingComplete={() => handleImageLoad()}
                     />
                   </Box>
                 </Box>
@@ -200,12 +249,8 @@ const NowPlaying = () => {
   )
 }
 
-const Now: NextPage = () => {
-  const { theme, setTheme } = useTheme()
-
-  useEffect(() => {
-    setTheme('dark')
-  }, [setTheme])
+const Now: NextPage & { theme: string } = () => {
+  const spinnerRef = useRef<HTMLSpanElement>(null)
 
   return (
     <GlobalLayout>
@@ -242,12 +287,14 @@ const Now: NextPage = () => {
                 updated...
               </p>{' '}
             </Prose>
-            <NowPlaying />
+            <NowPlaying spinnerRef={spinnerRef} />
           </Box>
         </Box>
       </TwoColLayout>
     </GlobalLayout>
   )
 }
+
+Now.theme = 'dark'
 
 export default Now

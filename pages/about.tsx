@@ -1,7 +1,7 @@
+import { NextPage } from 'next'
 import { NextSeo } from 'next-seo'
-import { useTheme } from 'next-themes'
 import Link from 'next/link'
-import { useEffect } from 'react'
+import { useRef } from 'react'
 import GlobalLayout from '../components/global/global-layout'
 import Nav from '../components/nav'
 import Box from '../components/primitives/box'
@@ -9,16 +9,18 @@ import Heading from '../components/primitives/heading'
 import Image from '../components/primitives/image'
 import Prose from '../components/primitives/prose'
 import Text from '../components/primitives/text'
+import Spinner from '../components/spinner'
 import TwoColLayout from '../components/two-col-layout'
 import AboutGif from '../public/patrick-marsceill.gif'
 
-const About = () => {
-  const { theme, setTheme } = useTheme()
+const About: NextPage & { theme: string } = () => {
   const yearsAtGitHub = new Date().getFullYear() - 2015
-
-  useEffect(() => {
-    setTheme('light')
-  }, [setTheme])
+  const spinnerRef = useRef<HTMLSpanElement>(null)
+  const handleImageLoad = () => {
+    if (spinnerRef.current) {
+      spinnerRef.current.style.display = 'none'
+    }
+  }
 
   return (
     <GlobalLayout>
@@ -104,6 +106,19 @@ const About = () => {
               },
             }}
           >
+            <Box
+              ref={spinnerRef}
+              as="span"
+              css={{
+                position: 'absolute',
+                top: '0',
+                left: '0',
+                width: '100%',
+                height: '100%',
+              }}
+            >
+              <Spinner />
+            </Box>
             <Image
               src={AboutGif}
               alt="Patrick Marsceill"
@@ -113,6 +128,10 @@ const About = () => {
                 borderRadius: '$3',
                 overflow: 'hidden',
               }}
+              onLoadingComplete={() => {
+                handleImageLoad()
+              }}
+              priority
             />
           </Box>
           <Prose type="longform" css={{ gridArea: 'more' }}>
@@ -217,5 +236,7 @@ const About = () => {
     </GlobalLayout>
   )
 }
+
+About.theme = 'light'
 
 export default About
