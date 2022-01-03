@@ -13,7 +13,7 @@
     "@stitches/react": "^1.2.6",
     "@svgr/webpack": "^6.1.2",
     "@theme-ui/color": "^0.13.0",
-    "@theme-ui/prism": "^0.12.1",
+    "@theme-ui/prism": "^0.13.0",
     "date-fns": "^2.27.0",
     "fathom-client": "^3.2.0",
     "feed": "^4.2.2",
