@@ -15,8 +15,16 @@ In the spirit of sharing great work, I wanted to create a similar list focusing 
 
 ---
 
-- [briOS](https://brianlovin.com) - Brian Lovin's site redesign featuring an app-like interface, internal commenting system, stack-tracking system, and more features that stretch the boundaries of what a personal site can be. [GitHub](https://github.com/brianlovin/brios)
+- [Cron](https://cron.io) - I don't _love_ using Google Calendar, but I do love using Cron. Cron is a native app that allows gives you an iterface to Google Calendar and has a very robust keyboard-first approach.
+
+- [briOS](https://brianlovin.com) - Brian Lovin's site redesign featuring an app-like interface, internal commenting system, stack-tracking system, and more features that stretch the boundaries personal site and personal app. [GitHub](https://github.com/brianlovin/brios)
+
+- [Automator](https://automator.design) - As if everything that Jordan Singer makes doesn't make me jealous, this Figma automation suite is certainly one of the most worthy of this list.
 
 - [Radix](https://radix-ui.com) - Radix is a set of unstyled, accessible, and high composable components for React ready for your next project. [GitHub](https://github.com/modulz/radix-ui)
 
-- [Companion in a box](https://www.companioninabox.art) - The only NFTs that I'm legit jealous of. Fellow GitHubber [@mkwng](https://twitter.com/mkwng) created a beautiful system of companions that hang out into said box.
+- [Companion in a box](https://www.companioninabox.art) - The only NFTs set that I'm legitimatlly jealous of. Fellow GitHubber [@mkwng](https://twitter.com/mkwng) created a beautiful system of companions that hang out into said box.
+
+- [Minimal Shapes](https://adrianmg.gumroad.com/) - Adrian and I worked together for a while at GitHub and I remember when he started playing around with Blender a few years ago... Now he's got the most beautiful collection of wallpapers and textures.
+
+- [leerob.io](https://leerob.io) - Ever wonder what the "right way" to make a Next.js personal site/blog/portfolio is? I've found my self splunking Lee's [GitHub repo](https://github.com/leerob/leerob.io) for tips and tricks more than once.
