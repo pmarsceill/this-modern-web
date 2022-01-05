@@ -1,6 +1,7 @@
 import { globalCss } from '../../stitches.config'
 
 const useGlobalStyles = globalCss({
+  /* Web fonts */
   '@font-face': [
     {
       fontFamily: 'Freight Text Pro',
@@ -24,11 +25,38 @@ const useGlobalStyles = globalCss({
       src: `url(/fonts/IBMPlexMono-Regular.woff2) format('woff2'), url(/fonts/IBMPlexMono-Regular.woff) format('woff')`,
     },
   ],
+
+  /*
+  Josh's Custom CSS Reset
+  https://www.joshwcomeau.com/css/custom-css-reset/
+  */
   '*': {
+    margin: '0',
     boxSizing: 'border-box',
-    m: 0,
-    p: 0,
+
+    '&:before, &:after': {
+      boxSizing: 'border-box',
+    },
   },
+  'html, body': {
+    height: '100%',
+    '-webkit-font-smoothing': 'antialiased',
+  },
+  'img, picture, video, canvas, svg': {
+    display: 'block',
+    maxWidth: '100%',
+  },
+  'input, button, textarea, select': {
+    font: 'inherit',
+  },
+  'p, h1, h2, h3, h4, h5, h6': {
+    overflowWrap: 'break-word',
+  },
+  '#root, #__next': {
+    isolation: 'isolate',
+  },
+
+  /* Theme specific global styles */
   body: {
     bgColor: '$background',
   },

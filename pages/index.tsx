@@ -8,6 +8,7 @@ import Link from 'next/link'
 import { useRef } from 'react'
 import ReactDOMServer from 'react-dom/server'
 import rehypePrism from 'rehype-prism-plus'
+import remarkSmartypants from 'remark-smartypants'
 import remarkUnwrapImages from 'remark-unwrap-images'
 import AncillaryNav from '../components/ancillary-nav'
 import Button from '../components/button'
@@ -83,6 +84,7 @@ const CurrentPost = ({ post, isFirst }: PostProps) => {
                 letterSpacing: '$heading',
                 lineHeight: '$heading',
                 fontSize: '$4',
+                fontWeight: '$heading',
                 '@1': {
                   fontSize: '$5',
                 },
@@ -98,7 +100,7 @@ const CurrentPost = ({ post, isFirst }: PostProps) => {
                 fontFamily: '$heading',
                 display: 'inline',
                 color: '$secondary',
-                fontWeight: 'bold',
+                fontWeight: '$heading',
                 letterSpacing: '$heading',
                 lineHeight: '$heading',
                 hyphens: 'auto',
@@ -135,15 +137,10 @@ const CurrentPost = ({ post, isFirst }: PostProps) => {
                 backgroundColor: '$muted',
                 borderRadius: '$3',
                 overflow: 'hidden',
-                ml: '$3',
+                ml: '$4',
                 width: '100px',
                 height: '100px',
                 '@1': {
-                  ml: '$4',
-                  width: '140px',
-                  height: '140px',
-                },
-                '@2': {
                   width: isFirst ? '180px' : '140px',
                   height: isFirst ? '180px' : '140px',
                 },
@@ -291,7 +288,7 @@ export const getStaticProps: GetStaticProps = async () => {
     const mdxContent = await serialize(post.content, {
       // Optionally pass remark/rehype plugins
       mdxOptions: {
-        remarkPlugins: [remarkUnwrapImages],
+        remarkPlugins: [remarkUnwrapImages, remarkSmartypants],
         rehypePlugins: [rehypePrism, imageAbsoluteUrls as any],
       },
       scope: post.frontmatter,
