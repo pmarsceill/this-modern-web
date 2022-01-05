@@ -102,7 +102,10 @@ const Post: NextPage<PostProps> = ({
   const currentYear = new Date().getFullYear()
   const postYear = parseInt(post.year)
   const contentString = removeMd(post.content)
-  const exerpt = contentString.substring(0, Math.min(contentString.length, 160))
+  const excerpt = contentString.substring(
+    0,
+    Math.min(contentString.length, 160)
+  )
   const isMicroBlog = post.tags?.includes('microblog')
   const colorMode = isMicroBlog ? 'dark' : post.colorMode || 'theme'
 
@@ -114,7 +117,7 @@ const Post: NextPage<PostProps> = ({
     return (
       <GlobalLayout>
         <NextSeo
-          title={`Patrick Marsceill: ${exerpt}`}
+          title={`Patrick Marsceill: ${excerpt}`}
           description={`posted on ${format(parseISO(post.date), 'PPP')}`}
           openGraph={{
             title: post.title,
@@ -236,17 +239,17 @@ const Post: NextPage<PostProps> = ({
           <Box
             as="header"
             css={{
-              mb: '$5',
+              mb: '$3',
               maxWidth: '420px',
               lineHeight: '$heading',
 
               '@1': {
-                maxWidth: '100%',
+                maxWidth: '640px',
                 pr: '$5',
               },
-              '@2': {
-                mb: '$6',
+              '@3': {
                 maxWidth: '720px',
+                mb: '$6',
                 pr: '$0',
               },
             }}
@@ -310,7 +313,7 @@ const Post: NextPage<PostProps> = ({
             <Box
               as="section"
               css={{
-                pt: '$4',
+                pt: '$5',
 
                 '@3': {
                   pt: '$0',
