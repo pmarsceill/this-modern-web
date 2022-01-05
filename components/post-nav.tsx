@@ -71,7 +71,7 @@ const PostNav = ({ previous, next }: PostNavProps) => {
             </Link>
           ) : (
             <Link href="/" passHref>
-              <NavAnchor rel="previous">← Feed</NavAnchor>
+              <NavAnchor rel="previous">⤴︎ Feed</NavAnchor>
             </Link>
           )}
         </NavLi>
@@ -101,7 +101,7 @@ const PostNav = ({ previous, next }: PostNavProps) => {
             </Link>
           ) : (
             <Link href="/" passHref>
-              <NavAnchor rel="next">Feed →</NavAnchor>
+              <NavAnchor rel="next">Feed ⤴︎</NavAnchor>
             </Link>
           )}
         </NavLi>

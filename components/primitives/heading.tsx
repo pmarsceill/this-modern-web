@@ -4,6 +4,7 @@ const Heading = styled('h2', {
   fontFamily: '$heading',
   letterSpacing: '$heading',
   lineHeight: '$heading',
+  fontWeight: '$heading',
 
   variants: {
     context: {

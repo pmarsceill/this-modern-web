@@ -4,8 +4,9 @@ import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'
 import { serialize } from 'next-mdx-remote/serialize'
 import { NextSeo } from 'next-seo'
 import { useTheme } from 'next-themes'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import rehypePrism from 'rehype-prism-plus'
+import remarkSmartypants from 'remark-smartypants'
 import remarkUnwrapImages from 'remark-unwrap-images'
 import removeMd from 'remove-markdown'
 import AncillaryNav from '../../../../components/ancillary-nav'
@@ -96,8 +97,8 @@ const Post: NextPage<PostProps> = ({
   nextPost,
   previousPost,
 }) => {
-  const { theme, setTheme } = useTheme()
-  const [showSideTitle, setShowSideTitle] = useState(false)
+  const { setTheme } = useTheme()
+  // const [showSideTitle, setShowSideTitle] = useState(false)
   const currentYear = new Date().getFullYear()
   const postYear = parseInt(post.year)
   const contentString = removeMd(post.content)
@@ -237,6 +238,7 @@ const Post: NextPage<PostProps> = ({
             css={{
               mb: '$5',
               maxWidth: '420px',
+              lineHeight: '$heading',
 
               '@1': {
                 maxWidth: '100%',
@@ -256,6 +258,7 @@ const Post: NextPage<PostProps> = ({
                   fontSize: '$5',
                   display: 'inline',
                   color: '$primary',
+                  fontWeight: '$heading',
                   mr: '$2',
 
                   '@1': {
@@ -276,6 +279,7 @@ const Post: NextPage<PostProps> = ({
                   fontSize: '$5',
                   color: '$secondary',
                   display: 'inline',
+                  fontWeight: '$heading',
 
                   '@1': {
                     fontSize: '$6',
@@ -347,7 +351,7 @@ export async function getStaticProps({ params }: Params) {
   const mdxSource = await serialize(post.content, {
     // Optionally pass remark/rehype plugins
     mdxOptions: {
-      remarkPlugins: [remarkUnwrapImages],
+      remarkPlugins: [remarkUnwrapImages, remarkSmartypants],
       rehypePlugins: [rehypePrism, imageMetadata as any],
     },
     scope: post.frontmatter,

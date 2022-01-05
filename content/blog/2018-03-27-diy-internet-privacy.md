@@ -22,7 +22,7 @@ Having a VPN server laying around for this type of personal use has historically
 
 I choose Digital Ocean because it was easy, required next to no setup, and costs less than five bucks a month (and comes with a ten dollar referral credit). If you want a setup like mine, use this link to create your account... _Note that you don't need to configure a Droplet or anything yet, this will happen automatically later._
 
-<Button href="https://m.do.co/c/e675b6b6aa8e" variant="outline" size="1" as="a">💁 Sign up for Digital Ocean</Button>
+<Button href="https://m.do.co/c/e675b6b6aa8e" variant="outline" fontSize="0" as="a">💁 Sign up for Digital Ocean</Button>
 
 ### 2. Download the VPN server source locally
 

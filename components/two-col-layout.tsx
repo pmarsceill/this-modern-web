@@ -15,7 +15,7 @@ const TwoColLayout = ({ isExtended, children }: Props) => {
         display: 'block',
         '@3': {
           display: 'grid',
-          gridGap: '$5',
+          gridGap: '$6',
           gridTemplateColumns: `${smallColSize} minmax(0, 1fr) ${
             isExtended ? smallColSize : ''
           }`,

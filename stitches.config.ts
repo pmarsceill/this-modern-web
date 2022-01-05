@@ -34,7 +34,7 @@ export const {
       9: '512px',
     },
     sizes: {
-      container: '1268px',
+      container: '1168px',
       content: '924px',
       0: '0px',
       1: '4px',
@@ -71,16 +71,16 @@ export const {
     },
     lineHeights: {
       body: 1.4,
-      heading: 1.1,
+      heading: 1,
       content: 1.5,
     },
     letterSpacings: {
-      heading: '-0.03em',
+      heading: '-0.025em',
     },
     fontWeights: {
       body: 400,
-      heading: 700,
-      bold: 700,
+      heading: 600,
+      bold: 600,
     },
     shadows: {
       default:
