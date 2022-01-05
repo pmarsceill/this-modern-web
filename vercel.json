@@ -1,6 +1,6 @@
 {
   "functions": {
-    "pages/[year]/[month]/[day]/[slug].js": {
+    "*": {
       "excludeFiles": "public/assets/**/*"
     }
   }
