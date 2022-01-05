@@ -57,7 +57,7 @@ const About: NextPage & { theme: string } = () => {
                 width: '100%',
 
                 '@1': {
-                  width: '150%',
+                  width: '145%',
                 },
               }}
             >
