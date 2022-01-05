@@ -1,65 +1,32 @@
 import { format, parseISO } from 'date-fns'
 import { NextPage } from 'next'
-import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'
-import { serialize } from 'next-mdx-remote/serialize'
+import { useMDXComponent } from 'next-contentlayer/hooks'
 import { NextSeo } from 'next-seo'
 import { useTheme } from 'next-themes'
 import { useEffect } from 'react'
-import rehypePrism from 'rehype-prism-plus'
-import remarkSmartypants from 'remark-smartypants'
-import remarkUnwrapImages from 'remark-unwrap-images'
 import removeMd from 'remove-markdown'
+import { allMicroBlogs } from '../../../../.contentlayer/data/allMicroBlogs.mjs'
+import { allPosts } from '../../../../.contentlayer/data/allPosts.mjs'
+import { DocumentTypes, Post } from '../../../../.contentlayer/types'
 import AncillaryNav from '../../../../components/ancillary-nav'
-import Button from '../../../../components/button'
 import GlobalLayout from '../../../../components/global/global-layout'
-import MdxImage, {
-  ImageRow,
-  LargeImage,
-  SmallImage,
-} from '../../../../components/mdx-image'
-import PostNav from '../../../../components/post-nav'
+import { components } from '../../../../components/mdx-components'
 import Box from '../../../../components/primitives/box'
 import Heading from '../../../../components/primitives/heading'
 import Prose from '../../../../components/primitives/prose'
 import Text from '../../../../components/primitives/text'
 import TwoColLayout from '../../../../components/two-col-layout'
-import Video from '../../../../components/video'
-import { imageMetadata } from '../../../../lib/images'
-import {
-  getAllPosts,
-  getNextPost,
-  getPostBySlug,
-  getPreviousPost,
-} from '../../../../lib/posts'
-import { PostType } from '../../../../lib/types'
+import { pick } from '../../../../lib/utils'
 
 type PostProps = {
-  post: PostType
-  content: MDXRemoteSerializeResult
-  nextPost: PostType
-  previousPost: PostType
+  post: DocumentTypes
+  // nextPost: PostType
+  // previousPost: PostType
 }
 
 type TimeWarningProps = {
   currentYear: number
   postYear: number
-}
-
-const components = {
-  Button: Button,
-  ImageRow: ImageRow,
-  SmallImage: SmallImage,
-  LargeImage: LargeImage,
-  img: MdxImage,
-  Video: Video,
-}
-
-export const rssComponents = {
-  Button: Button,
-  ImageRow: ImageRow,
-  SmallImage: SmallImage,
-  LargeImage: LargeImage,
-  Video: Video,
 }
 
 const TimeWarning = ({ postYear, currentYear }: TimeWarningProps) => {
@@ -93,20 +60,23 @@ const TimeWarning = ({ postYear, currentYear }: TimeWarningProps) => {
 
 const Post: NextPage<PostProps> = ({
   post,
-  content,
-  nextPost,
-  previousPost,
+  // nextPost,
+  // previousPost,
 }) => {
   const { setTheme } = useTheme()
   // const [showSideTitle, setShowSideTitle] = useState(false)
+  const MDXContent = useMDXComponent(post.body.code)
+
   const currentYear = new Date().getFullYear()
   const postYear = parseInt(post.year)
-  const contentString = removeMd(post.content)
+
+  const contentString = removeMd(post.body.raw)
   const excerpt = contentString.substring(
     0,
     Math.min(contentString.length, 160)
   )
-  const isMicroBlog = post.tags?.includes('microblog')
+
+  const isMicroBlog = post.type === 'MicroBlog'
   const colorMode = isMicroBlog ? 'dark' : post.colorMode || 'theme'
 
   useEffect(() => {
@@ -120,8 +90,8 @@ const Post: NextPage<PostProps> = ({
           title={`Patrick Marsceill: ${excerpt}`}
           description={`posted on ${format(parseISO(post.date), 'PPP')}`}
           openGraph={{
-            title: post.title,
-            description: post.description,
+            title: `Patrick Marsceill: ${excerpt}`,
+            description: `posted on ${format(parseISO(post.date), 'PPP')}`,
           }}
         />
         <article>
@@ -190,23 +160,23 @@ const Post: NextPage<PostProps> = ({
               }}
               type="microblog"
             >
-              <MDXRemote {...content} />
+              <MDXContent />
             </Prose>
             <AncillaryNav />
           </TwoColLayout>
-          <Box
+          {/* <Box
             as="footer"
             css={{ mt: '$6', borderTop: '1px solid', borderColor: '$muted' }}
           >
             <PostNav next={nextPost} previous={previousPost} />
-          </Box>
+          </Box> */}
         </article>
       </GlobalLayout>
     )
   } else {
     return (
       <GlobalLayout>
-        {post.frontmatter.featuredImage ? (
+        {post.featuredImage ? (
           <NextSeo
             title={`${post.title} — This Modern Web`}
             description={
@@ -217,7 +187,7 @@ const Post: NextPage<PostProps> = ({
               description: post.description,
               images: [
                 {
-                  url: `https://thismodernweb.com${post.frontmatter.featuredImage}`,
+                  url: `https://thismodernweb.com${post.featuredImage}`,
                   alt: post.title,
                 },
               ],
@@ -324,19 +294,19 @@ const Post: NextPage<PostProps> = ({
                 {currentYear - postYear >= 3 && (
                   <TimeWarning currentYear={currentYear} postYear={postYear} />
                 )}
-                <MDXRemote {...content} components={components} />
+                <MDXContent components={components} />
               </Prose>
             </Box>
             <Box as="aside">
               <AncillaryNav />
             </Box>
           </TwoColLayout>
-          <Box
+          {/* <Box
             as="footer"
             css={{ mt: '$6', borderTop: '1px solid', borderColor: '$muted' }}
           >
             <PostNav next={nextPost} previous={previousPost} />
-          </Box>
+          </Box> */}
         </article>
       </GlobalLayout>
     )
@@ -348,35 +318,35 @@ type Params = {
 }
 
 export async function getStaticProps({ params }: Params) {
-  const post = getPostBySlug(
-    `${params.year}-${params.month}-${params.day}-${params.slug}`
-  )
-  const mdxSource = await serialize(post.content, {
-    // Optionally pass remark/rehype plugins
-    mdxOptions: {
-      remarkPlugins: [remarkUnwrapImages, remarkSmartypants],
-      rehypePlugins: [rehypePrism, imageMetadata as any],
-    },
-    scope: post.frontmatter,
-  })
+  const posts = [...allMicroBlogs, ...allPosts]
 
-  const nextPost = getNextPost(post.slug)
-  const previousPost = getPreviousPost(post.slug)
+  const post = posts.find(
+    (post) =>
+      post.day === params.day &&
+      post.month === params.month &&
+      post.year === params.year &&
+      post.slug === params.slug
+  )
+
+  // const nextPost = getNextPost(post.slug || 'feed')
+  // const previousPost = getPreviousPost(post.slug || 'feed')
 
   return {
     props: {
-      post: {
-        ...post,
-      },
-      content: mdxSource,
-      nextPost,
-      previousPost,
+      post,
     },
   }
 }
 
 export async function getStaticPaths() {
-  const posts = getAllPosts()
+  const blogPosts = allPosts.map((post) =>
+    pick(post, ['slug', 'year', 'month', 'day'])
+  )
+  const microBlogs = allMicroBlogs.map((post) =>
+    pick(post, ['slug', 'year', 'month', 'day'])
+  )
+
+  const posts = [...blogPosts, ...microBlogs]
 
   return {
     paths: posts.map((post) => {

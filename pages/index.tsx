@@ -1,15 +1,13 @@
 import { format, formatDistance, parseISO } from 'date-fns'
 import type { GetStaticProps, NextPage } from 'next'
-import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'
-import { serialize } from 'next-mdx-remote/serialize'
+import { useMDXComponent } from 'next-contentlayer/hooks'
 import { NextSeo } from 'next-seo'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRef } from 'react'
-import ReactDOMServer from 'react-dom/server'
-import rehypePrism from 'rehype-prism-plus'
-import remarkSmartypants from 'remark-smartypants'
-import remarkUnwrapImages from 'remark-unwrap-images'
+import { allMicroBlogs } from '../.contentlayer/data/allMicroBlogs.mjs'
+import { allPosts } from '../.contentlayer/data/allPosts.mjs'
+import { MicroBlog, Post } from '../.contentlayer/types'
 import AncillaryNav from '../components/ancillary-nav'
 import Button from '../components/button'
 import GlobalLayout from '../components/global/global-layout'
@@ -21,29 +19,23 @@ import Prose from '../components/primitives/prose'
 import Text from '../components/primitives/text'
 import Spinner from '../components/spinner'
 import TwoColLayout from '../components/two-col-layout'
-import { imageAbsoluteUrls } from '../lib/images'
-import { getAllPosts, getPostsByType } from '../lib/posts'
-import { PostType } from '../lib/types'
-import { rssComponents } from '../pages/[year]/[month]/[day]/[slug]'
-import generateRSSFeed from '../scripts/rss-generator'
 import { styled } from '../stitches.config'
 
 type Props = {
-  currentPosts: PostType[]
-  microBlogs: MicroBlogProps[]
+  currentPosts: Post[]
+  microBlogs: MicroBlog[]
 }
 
 type MicroBlogProps = {
-  post: PostType
-  mdxContent: MDXRemoteSerializeResult
+  post: MicroBlog
 }
 
 type PostProps = {
-  post: PostType
+  post: Post
   isFirst?: boolean
 }
 
-const Article = styled('article', {})
+const Article = styled('article')
 
 const CurrentPost = ({ post, isFirst }: PostProps) => {
   const spinnerRef = useRef<HTMLSpanElement>(null)
@@ -129,7 +121,7 @@ const CurrentPost = ({ post, isFirst }: PostProps) => {
               {format(parseISO(post.date), 'PP')}
             </Text>
           </Box>
-          {post.frontmatter.featuredImage && (
+          {post.featuredImage && (
             <Box
               css={{
                 position: 'relative',
@@ -160,7 +152,7 @@ const CurrentPost = ({ post, isFirst }: PostProps) => {
                 <Spinner />
               </Box>
               <Image
-                src={post.frontmatter.featuredImage}
+                src={post.featuredImage}
                 alt={post.title}
                 layout="responsive"
                 width={180}
@@ -180,11 +172,12 @@ const CurrentPost = ({ post, isFirst }: PostProps) => {
   )
 }
 
-const MicroBlog = ({ post, mdxContent }: MicroBlogProps) => {
-  const fallBackBody = post.title || post.slug
+const MicroBlog = ({ post }: MicroBlogProps) => {
   const formattedDate = formatDistance(parseISO(post.date), new Date(), {
     addSuffix: true,
   })
+
+  const MdxContent = useMDXComponent(post.body.code)
 
   return (
     <Article
@@ -197,7 +190,7 @@ const MicroBlog = ({ post, mdxContent }: MicroBlogProps) => {
       id={post.slug}
     >
       <Prose type="microblog">
-        {mdxContent ? <MDXRemote {...mdxContent} /> : fallBackBody}
+        <MdxContent />
       </Prose>
       <Link
         href={`/${post.year}/${post.month}/${post.day}/${post.slug}`}
@@ -235,28 +228,15 @@ const Home: NextPage<Props> & { theme: string } = ({
               )
           )}
           {microBlogs.map(
-            (microBlog, i) =>
-              i < 4 && (
-                <MicroBlog
-                  post={microBlog.post}
-                  key={microBlog.post.date}
-                  mdxContent={microBlog.mdxContent}
-                />
-              )
+            (post, i) => i < 4 && <MicroBlog post={post} key={post.date} />
           )}
           {currentPosts.map(
             (post, i) =>
               i >= 1 && i < 5 && <CurrentPost post={post} key={post.slug} />
           )}
           {microBlogs.map(
-            (microBlog, i) =>
-              i >= 4 && (
-                <MicroBlog
-                  post={microBlog.post}
-                  key={microBlog.post.date}
-                  mdxContent={microBlog.mdxContent}
-                />
-              )
+            (post, i) =>
+              i >= 4 && i < 15 && <MicroBlog post={post} key={post.date} />
           )}
           <Link href="/archive" passHref>
             <Button
@@ -275,36 +255,15 @@ const Home: NextPage<Props> & { theme: string } = ({
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const currentPosts = getPostsByType('current')
-  const microBlogs = getPostsByType('microblog') || []
-  const allPosts = getAllPosts('desc')
-
-  const microBlogsWithContent = microBlogs.map(async (post) => {
-    const mdxContent = await serialize(post.content)
-    return { post: { ...post }, mdxContent: mdxContent }
+  const currentPosts = allPosts.sort((a, b) => {
+    return Number(new Date(b.date)) - Number(new Date(a.date))
   })
-
-  const allPostsWithContent = allPosts.map(async (post) => {
-    const mdxContent = await serialize(post.content, {
-      // Optionally pass remark/rehype plugins
-      mdxOptions: {
-        remarkPlugins: [remarkUnwrapImages, remarkSmartypants],
-        rehypePlugins: [rehypePrism, imageAbsoluteUrls as any],
-      },
-      scope: post.frontmatter,
-    })
-    const mdx = <MDXRemote components={rssComponents} {...mdxContent} />
-    const html = ReactDOMServer.renderToStaticMarkup(mdx)
-    return { post: { ...post }, html }
+  const microBlogs = allMicroBlogs.sort((a, b) => {
+    return Number(new Date(b.date)) - Number(new Date(a.date))
   })
-
-  const microBlogsWithContentResolved = await Promise.all(microBlogsWithContent)
-  const allPostsWithContentResolved = await Promise.all(allPostsWithContent)
-
-  generateRSSFeed(allPostsWithContentResolved)
 
   return {
-    props: { currentPosts, microBlogs: microBlogsWithContentResolved },
+    props: { currentPosts, microBlogs },
   }
 }
 

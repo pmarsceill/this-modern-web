@@ -1,35 +1,29 @@
 import { format, parseISO } from 'date-fns'
 import { GetStaticProps, NextPage } from 'next'
-import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'
-import { serialize } from 'next-mdx-remote/serialize'
+import { useMDXComponent } from 'next-contentlayer/hooks'
 import { NextSeo } from 'next-seo'
 import Link from 'next/link'
 import { createRef, useEffect } from 'react'
 import smoothscroll from 'smoothscroll-polyfill'
+import { allMicroBlogs } from '../.contentlayer/data/allMicroBlogs.mjs'
+import { allPosts } from '../.contentlayer/data/allPosts.mjs'
+import { MicroBlog, Post } from '../.contentlayer/types'
 import Button from '../components/button'
 import GlobalLayout from '../components/global/global-layout'
 import Box from '../components/primitives/box'
 import Heading from '../components/primitives/heading'
 import Prose from '../components/primitives/prose'
 import Text from '../components/primitives/text'
-import { getPostsByType } from '../lib/posts'
-import { PostType } from '../lib/types'
 
 type PostsByMonthPerYearProps = {
-  currentPosts: PostType[]
-  legacyPosts: PostType[]
-  microBlogs: PostWithContentType[]
+  blogPosts: Post[]
+  microBlogs: MicroBlog[]
   scrollRef: React.RefObject<HTMLDivElement>
 }
 
-interface PostWithContentType extends PostType {
-  mdxContent?: MDXRemoteSerializeResult
-}
-
 type Props = {
-  currentPosts: PostType[]
-  legacyPosts: PostType[]
-  microBlogs: PostWithContentType[]
+  blogPosts: Post[]
+  microBlogs: MicroBlog[]
 }
 
 const scrollContainer = createRef<HTMLDivElement>()
@@ -59,19 +53,45 @@ const scroll = (direction: 'left' | 'right' | 'today') => {
   }
 }
 
+const MicroBlogContent = (post: MicroBlog) => {
+  const MDXContent = useMDXComponent(post.body.code)
+
+  return (
+    <Prose
+      css={{
+        fontFamily: 'monospace',
+        fontSize: '$1',
+
+        '@2': {
+          fontSize: '$0',
+        },
+      }}
+    >
+      <MDXContent />
+      <Text
+        as="time"
+        css={{
+          display: 'block',
+          fontSize: '$1',
+          color: '$secondary',
+          fontFamily: '$body',
+          mt: '$2',
+        }}
+      >
+        {format(parseISO(post.date), 'MMMM dd')}
+      </Text>
+    </Prose>
+  )
+}
+
 const PostsByMonthsPerYear = ({
-  currentPosts,
-  legacyPosts,
+  blogPosts,
   microBlogs,
   scrollRef,
 }: PostsByMonthPerYearProps) => {
   const postsByYear: any[] = []
 
-  const posts = [
-    ...microBlogs,
-    ...legacyPosts,
-    ...currentPosts,
-  ] as PostWithContentType[]
+  const posts = [...blogPosts, ...microBlogs]
 
   posts.sort((a, b) => {
     return parseISO(b.date).getTime() - parseISO(a.date).getTime()
@@ -189,31 +209,8 @@ const PostsByMonthsPerYear = ({
                           },
                         }}
                       >
-                        {post.mdxContent ? (
-                          <Prose
-                            css={{
-                              fontFamily: 'monospace',
-                              fontSize: '$1',
-
-                              '@2': {
-                                fontSize: '$0',
-                              },
-                            }}
-                          >
-                            <MDXRemote {...post.mdxContent} />
-                            <Text
-                              as="time"
-                              css={{
-                                display: 'block',
-                                fontSize: 0,
-                                color: '$secondary',
-                                fontFamily: '$body',
-                                mt: '$2',
-                              }}
-                            >
-                              {format(parseISO(post.date), 'MMMM dd')}
-                            </Text>
-                          </Prose>
+                        {post.type === 'MicroBlog' ? (
+                          <MicroBlogContent {...post} />
                         ) : (
                           <>
                             <Link
@@ -269,8 +266,7 @@ const PostsByMonthsPerYear = ({
 }
 
 const Archive: NextPage<Props> & { theme: string } = ({
-  currentPosts,
-  legacyPosts,
+  blogPosts,
   microBlogs,
 }) => {
   useEffect(() => {
@@ -348,8 +344,7 @@ const Archive: NextPage<Props> & { theme: string } = ({
         </Box>
       </Box>
       <PostsByMonthsPerYear
-        currentPosts={currentPosts}
-        legacyPosts={legacyPosts}
+        blogPosts={blogPosts}
         microBlogs={microBlogs}
         scrollRef={scrollContainer}
       />
@@ -358,22 +353,13 @@ const Archive: NextPage<Props> & { theme: string } = ({
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const currentPosts = getPostsByType('current')
-  const legacyPosts = getPostsByType('legacy')
-  const microBlogs = getPostsByType('microblog') || []
-
-  const microBlogsWithContent = microBlogs.map(async (post) => {
-    const mdxContent = await serialize(post.content)
-    return { mdxContent: mdxContent, ...post }
-  })
-
-  const microBlogsWithContentResolved = await Promise.all(microBlogsWithContent)
+  const blogPosts = allPosts
+  const microBlogs = allMicroBlogs
 
   return {
     props: {
-      microBlogs: microBlogsWithContentResolved,
-      currentPosts,
-      legacyPosts,
+      microBlogs,
+      blogPosts,
     },
   }
 }

@@ -11,8 +11,6 @@ The decade began much like the years leading up to it; the US economy was crawli
 
 I was 26 years old in 2010. In almost all of my free time I was playing in bands — it was awesome. I was in two at the time: _Sun Airway_ (which began as an electronic duo and had been recently signed to [Dead Oceans](https://deadoceans.com)) and _Blood Feathers_ (a down-home six-piece rock n' roll band). These two groups couldn't have been more different in sound, personnel, and personality which worked in my favor as I never found myself bored. There were multiple US tours with both bands that kicked off in 2010, the longest of which was Sun Airway's first tour to support our debut album _Nocturne of Exploded Crystal Chandelier_ ([coming in at a whopping 7.8 on Pitchfork](https://pitchfork.com/reviews/albums/14780-nocturne-of-exploded-crystal-chandelier/)).
 
-<!-- <img src="/assets/what-i-did-in-the-2010s/sa-nocturne.jpg" alt="Sun Airway - Nocturne of Exploded Crystal Chandelier (Dead Oceans, 2010)" className="big-image" /> -->
-
 Last year (in 2019), [Pitchfork published an interesting retrospective](https://pitchfork.com/features/article/2010s-chillwave-best-coast-washed-out-neon-indian/) of the genre that Sun Airway was ultimately pegged as: _chillwave_.
 
 > This purposeful placelessness—a slight-of-hand attempt at creating mystique—also speaks to chillwave’s escapist tendencies. When Philadelphia duo Sun Airway, one of the few group efforts in early chillwave’s largely solitary confines, emerged with their own slightly emo-tinged sound, the airline-esque moniker made perfect sense: Chillwave existed as the ultimate vessel to leave your surroundings—and, in an authorial sense, yourself—behind.
