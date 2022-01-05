@@ -275,11 +275,11 @@ const Now: NextPage & { theme: string } = () => {
                   fontFamily: '$monospace',
                   fontWeight: '$body',
                   fontSize: '$1',
-                  mr: '$2',
+                  mr: '$3',
                 }}
               >
                 3.1
-              </Text>{' '}
+              </Text>
               Working on
             </h2>
             <NowWorkingOn />
@@ -290,11 +290,11 @@ const Now: NextPage & { theme: string } = () => {
                   fontFamily: '$monospace',
                   fontWeight: '$body',
                   fontSize: '$1',
-                  mr: '$2',
+                  mr: '$3',
                 }}
               >
                 3.2
-              </Text>{' '}
+              </Text>
               Home
             </h2>
             <NowHome />
@@ -308,7 +308,7 @@ const Now: NextPage & { theme: string } = () => {
                     fontFamily: '$monospace',
                     fontWeight: '$body',
                     fontSize: '$1',
-                    mr: '$2',
+                    mr: '$3',
                   }}
                 >
                   3.3
