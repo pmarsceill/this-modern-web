@@ -269,18 +269,51 @@ const Now: NextPage & { theme: string } = () => {
               <em>Updated Novermber 7, 2021 from Hudson, NY</em>
             </p>
             <h2>
-              <Text css={{ color: '$secondary' }}>3.1 —</Text> working on
+              <Text
+                css={{
+                  color: '$secondary',
+                  fontFamily: '$monospace',
+                  fontWeight: '$body',
+                  fontSize: '$1',
+                  mr: '$3',
+                }}
+              >
+                3.1
+              </Text>
+              Working on
             </h2>
             <NowWorkingOn />
             <h2>
-              <Text css={{ color: '$secondary' }}>3.2 —</Text> home
+              <Text
+                css={{
+                  color: '$secondary',
+                  fontFamily: '$monospace',
+                  fontWeight: '$body',
+                  fontSize: '$1',
+                  mr: '$3',
+                }}
+              >
+                3.2
+              </Text>
+              Home
             </h2>
             <NowHome />
           </Prose>
           <Box>
             <Prose type="longform">
               <h2>
-                <Text css={{ color: '$secondary' }}>3.3 —</Text> playing
+                <Text
+                  css={{
+                    color: '$secondary',
+                    fontFamily: '$monospace',
+                    fontWeight: '$body',
+                    fontSize: '$1',
+                    mr: '$3',
+                  }}
+                >
+                  3.3
+                </Text>
+                Playing
               </h2>
               <p>
                 The latest plays from my Spotify account, automatically
