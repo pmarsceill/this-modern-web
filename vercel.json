@@ -1,0 +1,7 @@
+{
+  "functions": {
+    "_next/data/**": {
+    "excludeFiles": "public/**"
+    }
+  }
+}
