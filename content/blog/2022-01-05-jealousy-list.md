@@ -1,7 +1,7 @@
 ---
 title: 'Jealousy List 2021'
 description: 'Projects from peers and strangers that I wish were my own'
-date: 2022-01-05T03:52:44Z-05:00
+date: 2022-01-05T04:32:50-05:00
 tags: ['journal', 'showcase', 'Jealousy-list']
 featuredImage: /assets/jealousy-list-2021/jealousy-list.png
 colorMode: light
