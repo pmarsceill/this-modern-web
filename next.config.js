@@ -1,7 +1,10 @@
 const { withContentlayer } = require('next-contentlayer')
 
-module.exports = withContentlayer({
-  pageExtensions: ['js', 'ts', 'jsx', 'tsx'],
+/**
+ * @type {import('next').NextConfig}
+ */
+module.exports = {
+  swcMinify: true,
   images: {
     domains: ['farm8.staticflickr.com', 'i.scdn.co', 'covers.openlibrary.org'],
   },
@@ -22,4 +25,4 @@ module.exports = withContentlayer({
       },
     ]
   },
-})
+}

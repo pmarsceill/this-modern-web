@@ -85,29 +85,31 @@ const CurrentPost = ({ post, isFirst }: PostProps) => {
                 },
               }}
             >
-              {post.title}
+              {post.title || post.slug}
             </Heading>
-            <Text
-              css={{
-                fontFamily: '$heading',
-                display: 'inline',
-                color: '$secondary',
-                fontWeight: '$heading',
-                letterSpacing: '$heading',
-                lineHeight: '$heading',
-                hyphens: 'auto',
-                ml: '$2',
-                fontSize: '$4',
-                '@1': {
-                  fontSize: '$5',
-                },
-                '@2': {
-                  fontSize: isFirst ? '$7' : '$5',
-                },
-              }}
-            >
-              {post.description}
-            </Text>
+            {post.description && (
+              <Text
+                css={{
+                  fontFamily: '$heading',
+                  display: 'inline',
+                  color: '$secondary',
+                  fontWeight: '$heading',
+                  letterSpacing: '$heading',
+                  lineHeight: '$heading',
+                  hyphens: 'auto',
+                  ml: '$2',
+                  fontSize: '$4',
+                  '@1': {
+                    fontSize: '$5',
+                  },
+                  '@2': {
+                    fontSize: isFirst ? '$7' : '$5',
+                  },
+                }}
+              >
+                {post.description}
+              </Text>
+            )}
             <Text
               as="time"
               css={{
@@ -177,7 +179,7 @@ const MicroBlog = ({ post }: MicroBlogProps) => {
     addSuffix: true,
   })
 
-  const MdxContent = useMDXComponent(post.body.code)
+  const MdxContent = useMDXComponent(post.body.code) || ''
 
   return (
     <Article
@@ -187,7 +189,7 @@ const MicroBlog = ({ post }: MicroBlogProps) => {
         borderBottom: '1px solid',
         borderColor: '$muted',
       }}
-      id={post.slug}
+      id={post.date}
     >
       <Prose type="microblog">
         <MdxContent />

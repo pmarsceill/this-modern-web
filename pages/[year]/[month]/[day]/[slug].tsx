@@ -200,8 +200,9 @@ const Post: NextPage<PostProps> = ({
               post.description || 'the personal website of Patrick Marsceill'
             }
             openGraph={{
-              title: post.title,
-              description: post.description,
+              title: `${post.title} — This Modern Web`,
+              description:
+                post.description || 'The personal website of Patrick Marsceill',
             }}
           />
         )}
