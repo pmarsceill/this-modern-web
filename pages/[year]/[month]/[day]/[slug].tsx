@@ -10,6 +10,7 @@ import { DocumentTypes, Post } from '../../../../.contentlayer/types'
 import AncillaryNav from '../../../../components/ancillary-nav'
 import GlobalLayout from '../../../../components/global/global-layout'
 import { components } from '../../../../components/mdx-components'
+import PostNav from '../../../../components/post-nav'
 import Box from '../../../../components/primitives/box'
 import Heading from '../../../../components/primitives/heading'
 import Prose from '../../../../components/primitives/prose'
@@ -19,8 +20,8 @@ import { pick } from '../../../../lib/utils'
 
 type PostProps = {
   post: DocumentTypes
-  // nextPost: PostType
-  // previousPost: PostType
+  nextPost: DocumentTypes
+  previousPost: DocumentTypes
 }
 
 type TimeWarningProps = {
@@ -57,11 +58,7 @@ const TimeWarning = ({ postYear, currentYear }: TimeWarningProps) => {
   )
 }
 
-const Post: NextPage<PostProps> = ({
-  post,
-  // nextPost,
-  // previousPost,
-}) => {
+const Post: NextPage<PostProps> = ({ post, nextPost, previousPost }) => {
   const { setTheme } = useTheme()
   // const [showSideTitle, setShowSideTitle] = useState(false)
   const MDXContent = useMDXComponent(post.body.code)
@@ -163,12 +160,12 @@ const Post: NextPage<PostProps> = ({
             </Prose>
             <AncillaryNav />
           </TwoColLayout>
-          {/* <Box
+          <Box
             as="footer"
             css={{ mt: '$6', borderTop: '1px solid', borderColor: '$muted' }}
           >
             <PostNav next={nextPost} previous={previousPost} />
-          </Box> */}
+          </Box>
         </article>
       </GlobalLayout>
     )
@@ -301,12 +298,12 @@ const Post: NextPage<PostProps> = ({
               <AncillaryNav />
             </Box>
           </TwoColLayout>
-          {/* <Box
+          <Box
             as="footer"
             css={{ mt: '$6', borderTop: '1px solid', borderColor: '$muted' }}
           >
             <PostNav next={nextPost} previous={previousPost} />
-          </Box> */}
+          </Box>
         </article>
       </GlobalLayout>
     )
@@ -318,7 +315,9 @@ type Params = {
 }
 
 export async function getStaticProps({ params }: Params) {
-  const posts = [...allMicroBlogs, ...allPosts]
+  const posts = [...allMicroBlogs, ...allPosts].sort((a, b) => {
+    return Number(new Date(a.date)) - Number(new Date(b.date))
+  })
 
   const post = posts.find(
     (post) =>
@@ -328,12 +327,15 @@ export async function getStaticProps({ params }: Params) {
       post.slug === params.slug
   )
 
-  // const nextPost = getNextPost(post.slug || 'feed')
-  // const previousPost = getPreviousPost(post.slug || 'feed')
+  const postIndex = post ? posts.indexOf(post) : -1
+  const nextPost = posts[postIndex + 1] || null
+  const previousPost = posts[postIndex - 1] || null
 
   return {
     props: {
       post,
+      previousPost,
+      nextPost,
     },
   }
 }
