@@ -38,8 +38,8 @@ const NavAnchor = styled(Anchor, {
 const PostNav = ({ previous, next }: PostNavProps) => {
   const previousHref = `/${previous?.year}/${previous?.month}/${previous?.day}/${previous?.slug}`
   const nextHref = `/${next?.year}/${next?.month}/${next?.day}/${next?.slug}`
-  const hasPreviousTitle = previous?.title && previous?.date !== previous?.title
-  const hasNextTitle = next?.title && next?.date !== next?.title
+  const hasPreviousTitle = previous?.title
+  const hasNextTitle = next?.title
 
   return (
     <Box as="nav" css={{ mt: '$5' }}>
