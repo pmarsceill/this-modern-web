@@ -256,9 +256,23 @@ const Home: NextPage<Props> & { theme: string } = ({
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const currentPosts = allPosts.sort((a, b) => {
-    return Number(new Date(b.date)) - Number(new Date(a.date))
-  })
+  const currentPosts = allPosts
+    // TODO figure out how to pick non-required fields..
+    // .map((post) =>
+    //   pick(post, [
+    //     'slug',
+    //     'year',
+    //     'month',
+    //     'day',
+    //     'date',
+    //     'title',
+    //     'description',     // non-required
+    //     'featuredImage',   // non-required
+    //   ])
+    // )
+    .sort((a, b) => {
+      return Number(new Date(b.date)) - Number(new Date(a.date))
+    })
   const microBlogs = allMicroBlogs.sort((a, b) => {
     return Number(new Date(b.date)) - Number(new Date(a.date))
   })

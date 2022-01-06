@@ -1,8 +1,8 @@
+import { allDocuments } from '.contentlayer/data'
 import { Feed } from 'feed'
 import fs from 'fs'
-import { PostType } from '../lib/types'
 
-const generateRSSFeed = (posts: { post: PostType; html: string }[]) => {
+const generateRSSFeed = (posts) => {
   const baseUrl = 'https://thismodernweb.com'
   const author = {
     name: 'Patrick Marsceill',
@@ -38,14 +38,14 @@ const generateRSSFeed = (posts: { post: PostType; html: string }[]) => {
   })
 
   posts.forEach(async (item) => {
-    const { title, utcDate, date, description, year, month, day, slug, tags } =
-      item.post
+    const { title, date, year, month, day, slug, tags } = item
     const url = `${baseUrl}/${year}/${month}/${day}/${slug}`
-    const html = item.html
-    const hasTitle = title && utcDate !== title
+    const description = item.type === 'Post' ? item.description || null : null
+
+    const html = ''
 
     feed.addItem({
-      title: hasTitle ? title : '',
+      title: title || '',
       id: url,
       link: url,
       description: description || '',
@@ -54,7 +54,7 @@ const generateRSSFeed = (posts: { post: PostType; html: string }[]) => {
       date: new Date(date),
     })
 
-    if (tags && tags.includes('microblog')) {
+    if (item.type === 'MicroBlog') {
       microblogFeed.addItem({
         title: '',
         id: url,
@@ -72,4 +72,8 @@ const generateRSSFeed = (posts: { post: PostType; html: string }[]) => {
   fs.writeFileSync(`public/microblog.xml`, microblogFeed.rss2())
 }
 
-export default generateRSSFeed
+const allItems = allDocuments.sort((a, b) => {
+  return Number(new Date(b.date)) - Number(new Date(a.date))
+})
+
+generateRSSFeed(allItems)
