@@ -1,6 +1,6 @@
+import { DocumentTypes } from '.contentlayer/types'
 import { format, parseISO } from 'date-fns'
 import Link from 'next/link'
-import { DocumentTypes } from '../.contentlayer/types'
 import { styled } from '../stitches.config'
 import Anchor from './primitives/anchor'
 import Box from './primitives/box'
