@@ -5,6 +5,7 @@ const { withContentlayer } = require('next-contentlayer')
  */
 module.exports = {
   swcMinify: true,
+  reactStrictMode: true,
   images: {
     domains: ['farm8.staticflickr.com', 'i.scdn.co', 'covers.openlibrary.org'],
   },
