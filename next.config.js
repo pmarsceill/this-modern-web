@@ -1,4 +1,6 @@
-module.exports = {
+const { withContentlayer } = require('next-contentlayer')
+
+module.exports = withContentlayer({
   pageExtensions: ['js', 'ts', 'jsx', 'tsx'],
   images: {
     domains: ['farm8.staticflickr.com', 'i.scdn.co', 'covers.openlibrary.org'],
@@ -20,4 +22,4 @@ module.exports = {
       },
     ]
   },
-}
+})
