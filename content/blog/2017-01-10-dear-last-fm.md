@@ -1,8 +1,6 @@
 ---
-layout: 'post'
 title: 'Dear Last.fm,'
 description: 'It’s been awhile. Seven years, actually'
-tags: ['journal', 'music', 'streaming-services', 'Spotify', 'Last.fm']
 date: 2017-01-10 15:30
 featuredImage: /assets/dear-last-fm/dear-last-fm.png
 ---

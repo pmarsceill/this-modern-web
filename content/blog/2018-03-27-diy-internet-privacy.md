@@ -1,7 +1,5 @@
 ---
-layout: 'post'
 title: 'DIY internet privacy'
-tags: ['journal', 'IPSec', 'VPN', 'DIY']
 date: 2018-03-27 14:38
 description: 'Roll your own VPN for (almost) free'
 featuredImage: /assets/diy-internet-privacy/featured.png

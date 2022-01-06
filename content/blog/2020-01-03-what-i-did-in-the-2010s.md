@@ -2,7 +2,6 @@
 title: 'Some things I did in the 2010s'
 description: 'Music, family, and a career'
 date: 2020-01-03T17:40:23-0500
-tags: ['journal', 'retrospective', '2010s']
 ---
 
 The decade began much like the years leading up to it; the US economy was crawling out of the recession, Obama was two years into his first term, Steve Jobs was still somehow making public appearances, and my adult life was really just beginning to take shape. It's cathartic to take a chunk of time like ten years and play back your memories in fast-forward trying to catch the good parts to watch in slow motion. Memories are faulty and my sense of time is only getting worse, so recapping the last ten years morphed into an exercise in my own personal anthropology. Digging through my Photos library, old emails, and archived Dropbox folders helped me piece together the holes in time, especially in the early 2010s when digital life _wasn't_ on the cloud by default.

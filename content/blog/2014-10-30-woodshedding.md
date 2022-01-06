@@ -1,9 +1,6 @@
 ---
-layout: post
 title: 'Woodshedding'
 date: 2014-10-30 14:30
-tags: ['legacy']
-medium_link: https://medium.com/@pmarsceill/woodshedding-c80f5ad91e32#.5jnunv89s
 featuredImage: /assets/woodshedding/feature.jpg
 ---
 
