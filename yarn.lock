@@ -1588,10 +1588,10 @@
   dependencies:
     csstype "^3.0.10"
 
-"@theme-ui/prism@^0.13.0":
-  version "0.13.0"
-  resolved "https://registry.yarnpkg.com/@theme-ui/prism/-/prism-0.13.0.tgz#94e64d790ab017c09828b20945366a5737187bd3"
-  integrity sha512-xPEl/JlO7sSgac752nzMsatOGB+h0FNd7ANHl4uud4P8DOdsVa8cyecwh/eu1n+FP8ZApkIlwxXsFb7pqZ0GBg==
+"@theme-ui/prism@^0.13.1":
+  version "0.13.1"
+  resolved "https://registry.yarnpkg.com/@theme-ui/prism/-/prism-0.13.1.tgz#0cd50cea7e412b52e4cbb58a0f4cc19ed16c9b5e"
+  integrity sha512-G4JtBmxetEj63Nnb2RcIsr8BlK9DUXLbGKHCFclcoJSiSiGSNYy0lJHYdgr/lwKKQYlJxWiOqQYG482baXHwBQ==
   dependencies:
     prism-react-renderer "^1.1.1"
 
