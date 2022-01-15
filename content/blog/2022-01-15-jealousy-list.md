@@ -36,7 +36,7 @@ _Links: [cron.com](https://cron.com)_
 
 ![](/assets/jealousy-list-2021/radix.png)
 
-Radix is a set of un-styled, accessible, and high composable components for React ready for your next project created by the [Modulz team](https://modulz.app).
+Radix is a set of un-styled, accessible, and highly composable components for React ready for your next project created by the [Modulz team](https://modulz.app).
 
 _Links: [Radix](https://radix-ui.com), [radix-ui on GitHub](https://github.com/modulz/radix-ui)_
 
