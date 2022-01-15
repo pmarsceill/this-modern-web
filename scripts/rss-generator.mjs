@@ -1,6 +1,13 @@
-import { allDocuments } from '.contentlayer/data'
+import * as runtime from 'react/jsx-runtime.js'
+
+import { compile, run } from '@mdx-js/mdx'
+
 import { Feed } from 'feed'
+import React from 'react'
+import ReactDOMServer from 'react-dom/server.js'
+import { allDocuments } from '.contentlayer/data'
 import fs from 'fs'
+import { rssComponents } from '../components/js-components/mdx-components.mjs'
 
 const generateRSSFeed = (posts) => {
   const baseUrl = 'https://thismodernweb.com'
@@ -38,9 +45,26 @@ const generateRSSFeed = (posts) => {
   })
 
   posts.forEach(async (item) => {
-    const { title, date, year, month, day, slug, tags } = item
+    const { title, date, year, month, day, slug } = item
     const url = `${baseUrl}/${year}/${month}/${day}/${slug}`
     const description = item.type === 'Post' ? item.description || null : null
+
+    // TODO convert item.body.code to html
+    // const html = <MDXProvider>{item.body.raw}</MDXProvider>
+
+    async function mdxToHtml(mdx) {
+      const code = String(await compile(mdx, { outputFormat: 'function-body' }))
+      console.log(code)
+      const { default: Content } = await run(code, runtime)
+
+      return ReactDOMServer.renderToStaticMarkup(
+        React.createElement(Content, { components: rssComponents })
+      )
+    }
+
+    const test = await mdxToHtml(item.body.raw)
+
+    console.log(test)
 
     const html = ''
 
