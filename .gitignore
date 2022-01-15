@@ -42,4 +42,5 @@ yarn-error.log*
 # Contentlayer
 .contentlayer
 
+# Auto-generated js files from build
 components/js-components
