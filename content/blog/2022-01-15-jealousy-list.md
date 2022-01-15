@@ -1,6 +1,6 @@
 ---
 title: 'Jealousy List 2021'
-description: 'Shout-outs to all the work that made me jealous this year'
+description: 'Shout-out to all the work that made me jealous this year'
 date: 2022-01-15T22:45:57-0500
 featuredImage: /assets/jealousy-list-2021/jealousy-list.png
 colorMode: light

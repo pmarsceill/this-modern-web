@@ -1,46 +1,33 @@
-import { parseISO } from 'date-fns'
-import format from 'date-fns/format'
-import { NextPage } from 'next'
-import { NextSeo } from 'next-seo'
-import Image from 'next/image'
 import { RefObject, useRef } from 'react'
-import useSWR from 'swr'
+
+import Box from '../components/primitives/box'
 import GlobalLayout from '../components/global/global-layout'
+import Heading from '../components/primitives/heading'
+import Image from 'next/image'
 import MdxImage from '../components/mdx-image'
 import Nav from '../components/nav'
-import Box from '../components/primitives/box'
-import Heading from '../components/primitives/heading'
+import { NextPage } from 'next'
+import { NextSeo } from 'next-seo'
 import Prose from '../components/primitives/prose'
-import Text from '../components/primitives/text'
 import Spinner from '../components/spinner'
-import TwoColLayout from '../components/two-col-layout'
+import Text from '../components/primitives/text'
 import { TrackType } from '../lib/types'
+import TwoColLayout from '../components/two-col-layout'
+import format from 'date-fns/format'
 import ghProjectsBeta from '../public/assets/now/gh-projects-beta.png'
 import homeImage from '../public/assets/now/home.jpg'
+import { parseISO } from 'date-fns'
+import useSWR from 'swr'
 
 const NowWorkingOn = () => {
   return (
     <Prose type="longform">
       <p>
-        In December of 2020, after five years of managing teams of product
-        designers, I reevaluated what I wanted to get out of my work. I&apos;ve
-        always been most driven by making things and after spending this last
-        chunk of my career managing other designers I found myself very far away
-        from what I&apos;m most passionate about. It was time to go back to
-        being an individual contributor. It was a little scary but absolutely
-        the right choice for me. I changed teams, changed titles, and shifted to
-        another area of GitHub that needed help.
-      </p>
-      <p>
-        The first assignment I was handed as Staff Designer at GitHub was to
-        reimagine our project managment tools and what they could be. From
-        December until October of 2021, I worked with a team of product
-        managers, designers, engineers, and researchers, to build what is now
-        the{' '}
-        <a href="https://github.com/features/issues">
-          GitHub Issues &amp; Projects beta
-        </a>
-        .
+        I spent all 2021 designing and building the new GitHub Projects product.
+        This was an incredibly fulfilling and fun way to spend my last year at
+        GitHub. I got to do a little bit of everything from product
+        management/strategy, product design, front-end engineering, and user
+        research.
       </p>
       <MdxImage
         src={ghProjectsBeta}
@@ -52,15 +39,12 @@ const NowWorkingOn = () => {
         rounded
       />
       <p>
-        Today, my role on this team is to lead the design direction and
-        execution across our planning and tracking products. I spend a good
-        amount of my time synthesizing the output of our research team, weekly
-        executive leadership meetings, early customer feedback, and internal
-        usage data to create actionable design decisions. The product design
-        team works extensively to create Figma prototypes, we write a large
-        portion of the front-end UI in our React codebase, and work with the
-        Design Systems team to extend and create patterns in our React component
-        library.
+        In early 2022, I left GitHub after spending six-and-a-half years on the
+        Product Design team. GitHub is an amazing company (and product) — truly
+        the best job I've had — but I was longing for the energy of a start-up.
+        On January 10th, I joined the team at{' '}
+        <a href="https://workos.com">WorkOS</a> and can't wait to share more of
+        what we've already started building together.
       </p>
     </Prose>
   )
@@ -71,10 +55,10 @@ const NowHome = () => {
     <Prose type="longform">
       <p>
         The house of my dreams was built in 1830 and sits proudly a few miles
-        from the Hudson river in Upstate New York. After seeing it pop up
-        through a random Zillow search in late August of 2020, my family visited
-        it a few times, and then we couldn&apos;t stop thinking about it. Two
-        days before Christmas eve in 2020, we were living here.
+        from the Hudson river in Upstate New York. After seeing it pop-up on a
+        random Zillow search in late August of 2020, my family decided to visit.
+        We couldn&apos;t stop thinking about it and two days before Christmas
+        eve that year, we were living here.
       </p>
       <MdxImage
         src={homeImage}
@@ -266,7 +250,7 @@ const Now: NextPage & { theme: string } = () => {
             type="longform"
           >
             <p>
-              <em>Updated Novermber 7, 2021 from Hudson, NY</em>
+              <em>Updated January 15, 2022 from Hudson, NY</em>
             </p>
             <h2>
               <Text
