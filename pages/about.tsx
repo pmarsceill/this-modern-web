@@ -1,20 +1,19 @@
-import { NextPage } from 'next'
-import { NextSeo } from 'next-seo'
-import Link from 'next/link'
-import { useRef } from 'react'
-import GlobalLayout from '../components/global/global-layout'
-import Nav from '../components/nav'
+import AboutGif from '../public/patrick-marsceill.gif'
 import Box from '../components/primitives/box'
+import GlobalLayout from '../components/global/global-layout'
 import Heading from '../components/primitives/heading'
 import Image from '../components/primitives/image'
+import Link from 'next/link'
+import Nav from '../components/nav'
+import { NextPage } from 'next'
+import { NextSeo } from 'next-seo'
 import Prose from '../components/primitives/prose'
-import Text from '../components/primitives/text'
 import Spinner from '../components/spinner'
+import Text from '../components/primitives/text'
 import TwoColLayout from '../components/two-col-layout'
-import AboutGif from '../public/patrick-marsceill.gif'
+import { useRef } from 'react'
 
 const About: NextPage & { theme: string } = () => {
-  const yearsAtGitHub = new Date().getFullYear() - 2015
   const spinnerRef = useRef<HTMLSpanElement>(null)
   const handleImageLoad = () => {
     if (spinnerRef.current) {
@@ -61,14 +60,14 @@ const About: NextPage & { theme: string } = () => {
                 },
               }}
             >
-              Patrick Marsceill is a product designer at GitHub
+              Patrick Marsceill is a product designer at WorkOS
               <Text
                 css={{
                   color: '$secondary',
                   ml: '0.2em',
                 }}
               >
-                You&apos;ve found his home on the internet —
+                Youʼve found his home on the internet —
               </Text>
             </Heading>
           </Box>
@@ -137,15 +136,22 @@ const About: NextPage & { theme: string } = () => {
           <Prose type="longform" css={{ gridArea: 'more' }}>
             <h2>My work</h2>
             <p>
-              I have been a designer in some capacity at GitHub for about{' '}
-              {yearsAtGitHub} years. In my time at GitHub, I have worked on
-              almost every part of the product. I have managed product design
-              teams and led design efforts on many core features like{' '}
-              <em>GitHub actions</em>, <em>pull requests</em>,{' '}
-              <em>code review</em>, <em>security</em>, <em>ecosystem / api</em>,{' '}
-              <em>marketing / top-of-funnel</em>, and{' '}
-              <em>new user experience</em>. Currently, I am a Staff Designer
-              working on building{' '}
+              In early 2022, I joined the team at{' '}
+              <a href="https://workos.com">WorkOS</a> and am now focused on
+              designing and building tools for developers integrating
+              enterprise-focused features like single sign-on, directory sync,
+              HR integrations, and audit trails.
+            </p>
+            <p>
+              Prior to WorkOS, I was a product designer at GitHub for about
+              six-and-a-half years. In my time there, I worked on almost every
+              part of the product. I managed teams and led design efforts on
+              many core features like <em>GitHub actions</em>,{' '}
+              <em>pull requests</em>, <em>code review</em>, <em>security</em>,{' '}
+              <em>ecosystem / api</em>, <em>marketing / top-of-funnel</em>, and{' '}
+              <em>new user experience</em> and was an early contributor to the
+              Primer design system. Most recently though, I was a Staff Designer
+              working on{' '}
               <a href="https://github.com/features/issues">
                 GitHub issues and projects
               </a>
