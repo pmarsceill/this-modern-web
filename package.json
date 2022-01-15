@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "postbuild": "esbuild ./components/mdx-components.tsx --bundle --outfile=./components/js-components/mdx-components.js --format=esm --target=es2020 && NODE_OPTIONS='--experimental-json-modules' node ./scripts/rss-generator.mjs",
+    "postbuild": "esbuild ./components/mdx-components.tsx --bundle --outfile=./components/js-components/mdx-components.mjs --format=esm --target=es2020 && NODE_OPTIONS='--experimental-json-modules' node ./scripts/rss-generator.mjs",
     "start": "next start",
     "lint": "next lint"
   },
