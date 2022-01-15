@@ -2,7 +2,6 @@
 title: 'Some things I did in the 2010s'
 description: 'Music, family, and a career'
 date: 2020-01-03T17:40:23-0500
-tags: ['journal', 'retrospective', '2010s']
 ---
 
 The decade began much like the years leading up to it; the US economy was crawling out of the recession, Obama was two years into his first term, Steve Jobs was still somehow making public appearances, and my adult life was really just beginning to take shape. It's cathartic to take a chunk of time like ten years and play back your memories in fast-forward trying to catch the good parts to watch in slow motion. Memories are faulty and my sense of time is only getting worse, so recapping the last ten years morphed into an exercise in my own personal anthropology. Digging through my Photos library, old emails, and archived Dropbox folders helped me piece together the holes in time, especially in the early 2010s when digital life _wasn't_ on the cloud by default.
@@ -10,8 +9,6 @@ The decade began much like the years leading up to it; the US economy was crawli
 ---
 
 I was 26 years old in 2010. In almost all of my free time I was playing in bands — it was awesome. I was in two at the time: _Sun Airway_ (which began as an electronic duo and had been recently signed to [Dead Oceans](https://deadoceans.com)) and _Blood Feathers_ (a down-home six-piece rock n' roll band). These two groups couldn't have been more different in sound, personnel, and personality which worked in my favor as I never found myself bored. There were multiple US tours with both bands that kicked off in 2010, the longest of which was Sun Airway's first tour to support our debut album _Nocturne of Exploded Crystal Chandelier_ ([coming in at a whopping 7.8 on Pitchfork](https://pitchfork.com/reviews/albums/14780-nocturne-of-exploded-crystal-chandelier/)).
-
-<!-- <img src="/assets/what-i-did-in-the-2010s/sa-nocturne.jpg" alt="Sun Airway - Nocturne of Exploded Crystal Chandelier (Dead Oceans, 2010)" className="big-image" /> -->
 
 Last year (in 2019), [Pitchfork published an interesting retrospective](https://pitchfork.com/features/article/2010s-chillwave-best-coast-washed-out-neon-indian/) of the genre that Sun Airway was ultimately pegged as: _chillwave_.
 

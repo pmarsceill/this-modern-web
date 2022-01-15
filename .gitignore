@@ -37,3 +37,10 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+
+# Contentlayer
+.contentlayer
+
+# Auto-generated js files from build
+components/js-components

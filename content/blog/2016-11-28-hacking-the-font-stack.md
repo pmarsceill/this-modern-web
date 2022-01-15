@@ -1,9 +1,7 @@
 ---
-layout: post
 title: 'Hacking the font Stack'
 description: 'Explorations in a modern native fonts on the web'
 date: 2016-11-28 17:18
-tags: ['native-type']
 featuredImage: /assets/hacking-font-stack/hacking-font-stack.png
 ---
 

@@ -1,7 +1,5 @@
 ---
-layout: 'post'
 title: 'Here we go again'
-tags: ['journal', 'decentralized-web', 'Micro.blog', 'indieweb', 'micropub']
 date: 2018-03-14 01:00
 description: 'Is the future of the web a network of independent sites?'
 ---

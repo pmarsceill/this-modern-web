@@ -1,8 +1,6 @@
 ---
-layout: post
 title: 'Prototyping Q&A'
 date: 2013-12-11 11:20
-tags: ['legacy']
 ---
 
 A few months ago <a href="http://happycog.com">Happy Cog&trade;</a> released <a href="https://mijingo.com/products/bundles/the-happy-cog-way">The Happy Cog Way</a>, an instructional video series highlighting our methods and best practices. As part of this series I created a course in <a href="http://mijingo.com/products/screencasts/html-prototyping">HTML Prototyping</a>, a beginners guide to using <a href="http://foundation.zurb.com">Zurb Foundation</a>, <a href="http://sass-lang.com">Sass</a>, and <a href="http://incident57.com/codekit/">CodeKit</a> to create responsive prototypes. Since its release, I've received some really great feedback about my video and the series, including this set of questions that a reader emailed me.
@@ -10,8 +8,6 @@ A few months ago <a href="http://happycog.com">Happy Cog&trade;</a> released <a 
 > I'm a front end dev that's been in the business for over 15 years. I've always hand coded my sites, and I've never really gotten into grid systems. (I was working online back int the table days).
 
 Grid systems and “hand coding” are not mutually exclusive. For me, grid systems are just as much of a design tool as they are a development tool. Designers have been using proportional grids to layout designs on paper since the days before the printing press was invented.
-
-<!--more-->
 
 In the context of web development, grids allow designers and developers to layout pages with the consistency and flexibility that modern day web development requires. While it is a good idea to use a grid to help layout your pages, you may not want an entire “front end framework” like Zurb Foundation or Twitter Bootstrap to weigh down your production-level code. At Happy Cog, we use these as tools to get ideas into the browser early, but we don’t use these for production. Here are a few options that still allow a developer to use grid-based designs efficiently in front-end production:
 
@@ -32,7 +28,5 @@ Prototypes serve as an alternative to exclusively creating paper wireframes. The
 > If Happy Cog doesn't use foundation or convert their prototypes to live sites, isn't it more work to try and hand code a site later to match your Foundation prototype? (You're re-creating the styes and html but without the "cruft")
 
 Since our prototypes have essentially replaced paper wireframes in most cases--it actually speeds up the design process and facilitates more conversations between our design and development teams. This allows our front end developers to see how elements on the page should behave and then plan for the best possible implementation sooner in the process. If prototyping were not part of our process, we would spend a fairly large chunk of time trying to document the same information on paper--which can be very time consuming. Front end teams would still have to hand code the site based on paper wireframes which inevidably leaves some nuances left undocumented. We’ve found that prototyping provides a more complete and definitive documentation, with clearer direction to stakeholders and developers alike.
-
-<!--aside-one-->
 
 [HTML Prototyping](http://mijingo.com/products/screencasts/html-prototyping/) is available for purchase on [Mijingo.com](http://mijingo.com). For more questions about the prototyping process, [email me](mailto:patrick@thismodernweb.com).

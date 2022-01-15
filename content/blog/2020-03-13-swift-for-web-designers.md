@@ -2,7 +2,6 @@
 title: 'This web designer gets his wings'
 description: 'My first impressions of SwiftUI'
 date: 2020-03-13T02:59:33-0500
-tags: ['journal', 'SwiftUI', 'Learning']
 featuredImage: /assets/swift-for-web-designers/swift_logo.png
 ---
 

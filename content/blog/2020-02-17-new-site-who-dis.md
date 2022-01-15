@@ -2,7 +2,6 @@
 title: 'This modern what?'
 description: 'A new decade, a new site, and a new name'
 date: 2020-02-17T15:29:38-0500
-tags: ['journal', 'new site', 'This Modern Web']
 featuredImage: /assets/new-site-who-dis/tmw.png
 colorMode: 'dark'
 ---
