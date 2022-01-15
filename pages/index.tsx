@@ -1,6 +1,7 @@
 import { allMicroBlogs, allPosts } from '.contentlayer/data'
 import { MicroBlog, Post } from '.contentlayer/types'
 import { format, formatDistance, parseISO } from 'date-fns'
+import { pick } from 'lib/utils'
 import type { GetStaticProps, NextPage } from 'next'
 import { useMDXComponent } from 'next-contentlayer/hooks'
 import { NextSeo } from 'next-seo'
@@ -257,19 +258,18 @@ const Home: NextPage<Props> & { theme: string } = ({
 
 export const getStaticProps: GetStaticProps = async () => {
   const currentPosts = allPosts
-    // TODO figure out how to pick non-required fields..
-    // .map((post) =>
-    //   pick(post, [
-    //     'slug',
-    //     'year',
-    //     'month',
-    //     'day',
-    //     'date',
-    //     'title',
-    //     'description',     // non-required
-    //     'featuredImage',   // non-required
-    //   ])
-    // )
+    .map((post) =>
+      pick(post, [
+        'slug',
+        'year',
+        'month',
+        'day',
+        'date',
+        'title',
+        'description', // non-required
+        'featuredImage', // non-required
+      ])
+    )
     .sort((a, b) => {
       return Number(new Date(b.date)) - Number(new Date(a.date))
     })

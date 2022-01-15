@@ -1,18 +1,21 @@
-import { allMicroBlogs, allPosts } from '.contentlayer/data'
-import { MicroBlog, Post } from '.contentlayer/types'
-import { format, parseISO } from 'date-fns'
 import { GetStaticProps, NextPage } from 'next'
-import { useMDXComponent } from 'next-contentlayer/hooks'
-import { NextSeo } from 'next-seo'
-import Link from 'next/link'
+import { MicroBlog, Post } from '.contentlayer/types'
+import { allMicroBlogs, allPosts } from '.contentlayer/data'
 import { createRef, useEffect } from 'react'
-import smoothscroll from 'smoothscroll-polyfill'
+import { format, parseISO } from 'date-fns'
+
+import Anchor from 'components/primitives/anchor'
+import Box from '../components/primitives/box'
 import Button from '../components/button'
 import GlobalLayout from '../components/global/global-layout'
-import Box from '../components/primitives/box'
 import Heading from '../components/primitives/heading'
+import Link from 'next/link'
+import { NextSeo } from 'next-seo'
 import Prose from '../components/primitives/prose'
 import Text from '../components/primitives/text'
+import { pick } from 'lib/utils'
+import smoothscroll from 'smoothscroll-polyfill'
+import { useMDXComponent } from 'next-contentlayer/hooks'
 
 type PostsByMonthPerYearProps = {
   blogPosts: Post[]
@@ -216,26 +219,34 @@ const PostsByMonthsPerYear = ({
                               href={`${post.year}/${post.month}/${post.day}/${post.slug}`}
                               passHref
                             >
-                              <Heading
-                                as="a"
+                              <Anchor
                                 css={{
                                   color: '$primary',
-                                  display: 'inline',
-                                  fontSize: '$4',
+                                  display: 'flex',
+                                  '&:hover': {
+                                    color: '$accent',
+                                  },
                                 }}
                               >
-                                {post.title}
-                                {post.description && (
-                                  <Text
-                                    css={{
-                                      color: '$secondary',
-                                      ml: '$2',
-                                    }}
-                                  >
-                                    {post.description}
-                                  </Text>
-                                )}
-                              </Heading>
+                                <Heading
+                                  css={{
+                                    display: 'inline',
+                                    fontSize: '$4',
+                                  }}
+                                >
+                                  {post.title}
+                                  {post.description && (
+                                    <Text
+                                      css={{
+                                        color: '$secondary',
+                                        ml: '$2',
+                                      }}
+                                    >
+                                      {post.description}
+                                    </Text>
+                                  )}
+                                </Heading>
+                              </Anchor>
                             </Link>
                             <Text
                               as="time"
@@ -352,7 +363,18 @@ const Archive: NextPage<Props> & { theme: string } = ({
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const blogPosts = allPosts
+  const blogPosts = allPosts.map((post) =>
+    pick(post, [
+      'slug',
+      'year',
+      'month',
+      'day',
+      'title',
+      'description',
+      'date',
+      'type',
+    ])
+  )
   const microBlogs = allMicroBlogs
 
   return {

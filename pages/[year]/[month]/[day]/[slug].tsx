@@ -1,6 +1,6 @@
 import { allMicroBlogs, allPosts } from '.contentlayer/data'
 import { DocumentTypes, Post } from '.contentlayer/types'
-import { pick } from 'contentlayer/client'
+import { pick } from '../../../../lib/utils'
 import { format, parseISO } from 'date-fns'
 import { NextPage } from 'next'
 import { useMDXComponent } from 'next-contentlayer/hooks'
