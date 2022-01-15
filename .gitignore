@@ -42,4 +42,4 @@ yarn-error.log*
 # Contentlayer
 .contentlayer
 
-./components/js-components
+components/js-components
