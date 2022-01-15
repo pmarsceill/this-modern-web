@@ -1,5 +1,6 @@
-import Button from './button'
 import MdxImage, { ImageRow, LargeImage, SmallImage } from './mdx-image'
+
+import Button from './button'
 import Video from './video'
 
 export const components = {
@@ -12,9 +13,9 @@ export const components = {
 }
 
 export const rssComponents = {
-  Button: Button,
-  ImageRow: ImageRow,
-  SmallImage: SmallImage,
-  LargeImage: LargeImage,
-  Video: Video,
+  Button: 'a',
+  ImageRow: 'div',
+  SmallImage: 'div',
+  LargeImage: 'div',
+  Video: 'video',
 }

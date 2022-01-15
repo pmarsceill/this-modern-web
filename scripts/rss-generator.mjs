@@ -44,43 +44,34 @@ const generateRSSFeed = (posts) => {
     author,
   })
 
+  async function mdxToHtml(mdx) {
+    const code = String(await compile(mdx, { outputFormat: 'function-body' }))
+    const { default: Content } = await run(code, runtime)
+
+    return ReactDOMServer.renderToStaticMarkup(
+      React.createElement(Content, { components: rssComponents })
+    )
+  }
+
   posts.forEach(async (item) => {
     const { title, date, year, month, day, slug } = item
     const url = `${baseUrl}/${year}/${month}/${day}/${slug}`
     const description = item.type === 'Post' ? item.description || null : null
 
-    // TODO convert item.body.code to html
-    // const html = <MDXProvider>{item.body.raw}</MDXProvider>
+    // async function mdxToHtml(mdx) {
+    //   const code = String(await compile(mdx, { outputFormat: 'function-body' }))
+    //   const { default: Content } = await run(code, runtime)
 
-    async function mdxToHtml(mdx) {
-      const code = String(await compile(mdx, { outputFormat: 'function-body' }))
-      console.log(code)
-      const { default: Content } = await run(code, runtime)
+    //   return ReactDOMServer.renderToStaticMarkup(
+    //     React.createElement(Content, { components: rssComponents })
+    //   )
+    // }
 
-      return ReactDOMServer.renderToStaticMarkup(
-        React.createElement(Content, { components: rssComponents })
-      )
-    }
+    // console.log(test)
 
-    const test = await mdxToHtml(item.body.raw)
-
-    console.log(test)
-
-    const html = ''
-
-    feed.addItem({
-      title: title || '',
-      id: url,
-      link: url,
-      description: description || '',
-      content: html,
-      author: [{ name: author.name }],
-      date: new Date(date),
-    })
-
-    if (item.type === 'MicroBlog') {
-      microblogFeed.addItem({
-        title: '',
+    const html = await mdxToHtml(item.body.raw).then((html) => {
+      feed.addItem({
+        title: title || '',
         id: url,
         link: url,
         description: description || '',
@@ -88,12 +79,23 @@ const generateRSSFeed = (posts) => {
         author: [{ name: author.name }],
         date: new Date(date),
       })
-    }
-  })
 
-  fs.writeFileSync(`public/rss.xml`, feed.rss2())
-  fs.writeFileSync(`public/feed.json`, feed.json1())
-  fs.writeFileSync(`public/microblog.xml`, microblogFeed.rss2())
+      if (item.type === 'MicroBlog') {
+        microblogFeed.addItem({
+          title: '',
+          id: url,
+          link: url,
+          description: description || '',
+          content: html,
+          author: [{ name: author.name }],
+          date: new Date(date),
+        })
+      }
+      fs.writeFileSync(`public/rss.xml`, feed.rss2())
+      fs.writeFileSync(`public/feed.json`, feed.json1())
+      fs.writeFileSync(`public/microblog.xml`, microblogFeed.rss2())
+    })
+  })
 }
 
 const allItems = allDocuments.sort((a, b) => {
