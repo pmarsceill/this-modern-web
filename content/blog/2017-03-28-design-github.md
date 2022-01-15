@@ -1,7 +1,6 @@
 ---
 title: 'Design GitHub, the product'
 date: 2017-03-28 11:34
-tags: ['journal', 'GitHub', 'hiring', 'product-design']
 description: 'Shape the future of software development'
 featuredImage: /assets/design-github/design-github.png
 ---

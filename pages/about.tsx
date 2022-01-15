@@ -207,10 +207,9 @@ const About: NextPage & { theme: string } = () => {
               and is under a{' '}
               <a
                 rel="license"
-                href="http://creativecommons.org/licenses/by-nc/4.0/"
+                href="https://choosealicense.com/licenses/gpl-3.0/"
               >
-                Creative Commons Attribution-NonCommercial 4.0 International
-                License
+                GNU General Public License v3.0
               </a>
               . This website is hosted on{' '}
               <a href="https://vercel.com">Vercel</a>.

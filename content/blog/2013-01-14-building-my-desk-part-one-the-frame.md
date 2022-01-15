@@ -1,8 +1,6 @@
 ---
-layout: post
 title: 'Building My Desk — Part One: The Frame'
 date: 2013-01-14 16:15
-tags: ['legacy']
 ---
 
 Over the last week and a half, I designed and constructed a new desk for my home office. If you <a href="http://instagram.com/pmarsceill" title="Patrick Marsceill's Instagram">follow me on Instagram</a> you might have seen some of the progress photos that I've been posting. I wanted to document my experience building this thing and what learned along the way. This was not only one of my favorite construction projects from a process perspective, but also my favorite finished product.

@@ -1,8 +1,6 @@
 ---
-layout: post
 title: 'How I Setup My Machine for Prototyping'
 date: 2012-11-19 17:27
-tags: ['legacy']
 ---
 
 A few weeks ago, I wrote <a href="http://cognition.happycog.com/article/its-alive-prototyping-in-the-browser">a post for Cognition</a> explaining my process for creating prototypes and how I arrived there. After being asked for more technical detail around my actual setup, I decided to create this step by step guide.

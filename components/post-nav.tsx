@@ -1,14 +1,14 @@
+import { DocumentTypes } from '.contentlayer/types'
 import { format, parseISO } from 'date-fns'
 import Link from 'next/link'
-import { PostType } from '../lib/types'
 import { styled } from '../stitches.config'
 import Anchor from './primitives/anchor'
 import Box from './primitives/box'
 import Text from './primitives/text'
 
 type PostNavProps = {
-  previous?: PostType
-  next?: PostType
+  previous?: DocumentTypes
+  next?: DocumentTypes
 }
 
 const NavUl = styled('ul', {
@@ -38,9 +38,8 @@ const NavAnchor = styled(Anchor, {
 const PostNav = ({ previous, next }: PostNavProps) => {
   const previousHref = `/${previous?.year}/${previous?.month}/${previous?.day}/${previous?.slug}`
   const nextHref = `/${next?.year}/${next?.month}/${next?.day}/${next?.slug}`
-  const hasPreviousTitle =
-    previous?.title && previous?.utcDate !== previous?.title
-  const hasNextTitle = next?.title && next?.utcDate !== next?.title
+  const hasPreviousTitle = previous?.title
+  const hasNextTitle = next?.title
 
   return (
     <Box as="nav" css={{ mt: '$5' }}>
@@ -71,7 +70,7 @@ const PostNav = ({ previous, next }: PostNavProps) => {
             </Link>
           ) : (
             <Link href="/" passHref>
-              <NavAnchor rel="previous">⤴︎ Feed</NavAnchor>
+              <NavAnchor rel="previous">⤴ Feed</NavAnchor>
             </Link>
           )}
         </NavLi>

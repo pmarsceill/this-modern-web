@@ -1,5 +1,11 @@
-module.exports = {
-  pageExtensions: ['js', 'ts', 'jsx', 'tsx'],
+const { withContentlayer } = require('next-contentlayer')
+
+/**
+ * @type {import('next').NextConfig}
+ */
+module.exports = withContentlayer()({
+  swcMinify: true,
+  reactStrictMode: true,
   images: {
     domains: ['farm8.staticflickr.com', 'i.scdn.co', 'covers.openlibrary.org'],
   },
@@ -11,13 +17,4 @@ module.exports = {
 
     return config
   },
-  async redirects() {
-    return [
-      {
-        source: '/inbox',
-        destination: '/now',
-        permanent: true,
-      },
-    ]
-  },
-}
+})
