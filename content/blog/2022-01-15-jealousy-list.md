@@ -44,7 +44,7 @@ _Links: [Radix](https://radix-ui.com), [radix-ui on GitHub](https://github.com/m
 
 ![](/assets/jealousy-list-2021/minimalshapes.png)
 
-I remember when [Adrian](https://twitter.com/adrianmg) started playing around with Blender a few years ago... Fast forward to now and he's got the most beautiful collection of wallpapers and textures.
+I remember when [Adrian](https://twitter.com/adrianmg) started playing around with Blender a few years ago... Fast forward and now he's got the most beautiful collection of wallpapers and textures.
 
 _Links: [Minimal Shapes on Gumroad](https://adrianmg.gumroad.com/)_
 
@@ -92,7 +92,7 @@ _Links: [openpeeps.com](https://openpeeps.com)_
 
 ![](/assets/jealousy-list-2021/brianlovin.png)
 
-Brian Lovin's site redesign featuring an app-like interface, internal commenting system, stack-tracking system, and more features that stretch the boundaries personal site and personal app.
+Brian Lovin's site redesign features an app-like interface, internal commenting system, stack-tracking system, and more features that stretch the boundaries personal site and personal app.
 
 _Links: [brianlovin.com](https://brianlovin.com), [briOS on GitHub](https://github.com/brianlovin/brios)_
 
@@ -132,7 +132,7 @@ _Links: [companioninabox.art](https://www.companioninabox.art)_
 
 ![](/assets/jealousy-list-2021/bueno.png)
 
-Bueno is a no-code toolkit for NFT creators. This type of thing feels like the future of NFT creation as it democratizes the process significantly.
+Bueno is a no-code toolkit for NFT creators, it makes creating all the permutations of a collection _a lot_ easier to manage. This type of thing feels like the future of NFT creation as it democratizes the process significantly.
 
 _Links: [bueno.art](https://www.bueno.art)_
 
