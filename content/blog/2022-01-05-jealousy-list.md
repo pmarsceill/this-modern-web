@@ -43,11 +43,15 @@ _Links: [cron.com](https://cron.com)_
 
 ### [brianlovin.com](https://brianlovin.com)
 
+![](/assets/jealousy-list-2021/brianlovin.png)
+
 Brian Lovin's site redesign featuring an app-like interface, internal commenting system, stack-tracking system, and more features that stretch the boundaries personal site and personal app.
 
 _Links: [brianlovin.com](https://brianlovin.com), [briOS on GitHub](https://github.com/brianlovin/brios)_
 
 ### [Radix](https://radix-ui.com)
+
+![](/assets/jealousy-list-2021/radix.png)
 
 Radix is a set of un-styled, accessible, and high composable components for React ready for your next project created by the [Modulz team](https://modulz.app).
 
@@ -132,6 +136,8 @@ Bueno is a no-code toolkit for NFT creators. This type of thing feels like the f
 _Links: [bueno.art](https://www.bueno.art)_
 
 ### [Read.cv](https://read.cv)
+
+![](/assets/jealousy-list-2021/readcv.png)
 
 Maybe the anti-LinkedIn professional network? Read.cv is a platform created by [Mehdi Mulani](https://メディ.com) and [Andy Chung](https://twitter.com/_andychung) which allows users to create a resumé-like profiles and share a bit about what they're working on.
 
