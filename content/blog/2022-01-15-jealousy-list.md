@@ -1,8 +1,7 @@
 ---
 title: 'Jealousy List 2021'
-description: 'Projects from peers and strangers that I wish were my own'
-date: 2022-01-05T04:32:50-0500
-tags: ['journal', 'showcase', 'Jealousy-list']
+description: 'Shout-outs to all the work that made me jealous this year'
+date: 2022-01-15T22:45:57-0500
 featuredImage: /assets/jealousy-list-2021/jealousy-list.png
 colorMode: light
 ---
@@ -13,7 +12,7 @@ Since 2015, Bloomberg Businessweek staff has published a [Jealousy List](https:/
 
 _h/t [pxlnv](https://pxlnv.com/linklog/jealousy-list-2021/)_
 
-In the spirit of sharing great work, I wanted to create a similar list focusing on some of the great work that I've come across this past year (and I wish had my fingerprints on it). If anything this exercise has taught me that there isn't a great place for showcasing small tools and side projects (aside from being lost in the noise of Twitter) and maybe a cool meta-side project would building such a thing.
+In the spirit of sharing great work, I wanted to create a similar list focusing on some of the great work that I've come across this past year (and I wish had my fingerprints on it). If anything this exercise has taught me that there isn't a great place for showcasing small tools and side projects (aside from being lost in the noise of Twitter) and maybe a meta-side project would building such a place.
 
 ---
 
@@ -25,14 +24,6 @@ As if everything that [Jordan Singer](https://ibuildmyideas.com) makes doesn't m
 
 _Links: [automator.design](https://automator.design)_
 
-### [Companion in a Box](https://www.companioninabox.art)
-
-![](/assets/jealousy-list-2021/ciab.png)
-
-The only NFTs that I'm legitimately jealous of. Fellow GitHubber [@mkwng](https://twitter.com/mkwng) created a beautiful system of companions that hang out in said box.
-
-_Links: [companioninabox.art](https://www.companioninabox.art)_
-
 ### [Cron](https://cron.com)
 
 ![](/assets/jealousy-list-2021/cron.png)
@@ -40,14 +31,6 @@ _Links: [companioninabox.art](https://www.companioninabox.art)_
 I don't _love_ using Google Calendar, but I do love using Cron. Cron is a native app that provides an interface to Google Calendar, has some stunning UI design, and a very robust keyboard-first approach.
 
 _Links: [cron.com](https://cron.com)_
-
-### [brianlovin.com](https://brianlovin.com)
-
-![](/assets/jealousy-list-2021/brianlovin.png)
-
-Brian Lovin's site redesign featuring an app-like interface, internal commenting system, stack-tracking system, and more features that stretch the boundaries personal site and personal app.
-
-_Links: [brianlovin.com](https://brianlovin.com), [briOS on GitHub](https://github.com/brianlovin/brios)_
 
 ### [Radix](https://radix-ui.com)
 
@@ -67,6 +50,8 @@ _Links: [Minimal Shapes on Gumroad](https://adrianmg.gumroad.com/)_
 
 ### [Typefully](https://typefully.com)
 
+![](/assets/jealousy-list-2021/typefully.jpg)
+
 It's been a few years since a new Twitter client did something completely different. Typefully completely re-imagines how you create content on Twitter, optimizing your threads, and making the authoring experience feel more civilized and focused. Made by the talented [Mailbrew](https://mailbrew.com) team.
 
 _Links: [typefully.com](https://typefully.com)_
@@ -83,7 +68,7 @@ _Links: [The bowl on Twitter](https://twitter.com/pifafu/status/1468316497940410
 
 ![](/assets/jealousy-list-2021/ostalgia.png)
 
-[Michael Feeney](https://swallowmygraphicdesign.com) explores what various modern apps would have looked like in MacOS 9. Complete with a MacOS 9 UI kit for Figma.
+I've said it before — but I am a sucker for vintage internet nostalgia, so [Michael Feeney](https://swallowmygraphicdesign.com) exploring what various modern apps would have looked like in MacOS 9 is really up my alley. Complete with a MacOS 9 UI kit for Figma.
 
 _Links: [swallowmygraphicdesign.com](https://swallowmygraphicdesign.com/project/macostalgia)_
 
@@ -99,9 +84,17 @@ _Links: [Vic's 3D work on Twitter](https://twitter.com/killnicole/status/1467898
 
 ![](/assets/jealousy-list-2021/openpeeps.png)
 
-Open peeps is a really nice set of customizable, diverse pay-what-you-want set of hand-drawn people illustrations by [Pablo Stanley](https://blush.design). Comes packaged up as a file for your favorite web graphics editor (Figma, Sketch, Xd) and is under a Creative Commons license. The drawing style isn't over-done (yet) so if feels unique compared to other similar libraries.
+Open peeps is a really nice set of customizable, diverse, pay-what-you-want set of hand-drawn people illustrations by [Pablo Stanley](https://blush.design). Comes packaged up as a file for your favorite web graphics editor (Figma, Sketch, Xd) and is under a Creative Commons license. The drawing style isn't over-done (yet) so if feels unique compared to other similar libraries.
 
 _Links: [openpeeps.com](https://openpeeps.com)_
+
+### [brianlovin.com](https://brianlovin.com)
+
+![](/assets/jealousy-list-2021/brianlovin.png)
+
+Brian Lovin's site redesign featuring an app-like interface, internal commenting system, stack-tracking system, and more features that stretch the boundaries personal site and personal app.
+
+_Links: [brianlovin.com](https://brianlovin.com), [briOS on GitHub](https://github.com/brianlovin/brios)_
 
 ### [Poolsuite Mixtapes](https://poolsuite.net)
 
@@ -123,9 +116,17 @@ _Links: [cobe.vercel.app](https://cobe.vercel.app), [COBE on GitHub](https://git
 
 ![](/assets/jealousy-list-2021/sleeve.jpg)
 
-Sleeve is a custom music player for Spotify, Apple Music, and Dopler that allows you to personalize the UI in almost any way imaginable. I almost built something similar to this a few years ago because I really disliked how bloated the Spotify player was, but this solves that problem in a much more elegant way than I could have imagined.
+Sleeve is a custom music display for Spotify, Apple Music, and Dopler that allows you to personalize the UI in almost any way imaginable. I almost built something similar to this a few years ago because I really disliked how bloated the Spotify player UI was, but this solves that problem in a much more flexible way than I could have imagined.
 
 _Links: [replay.software/sleeve](https://replay.software/sleeve)_
+
+### [Companion in a Box](https://www.companioninabox.art)
+
+![](/assets/jealousy-list-2021/ciab.png)
+
+The only NFTs that I'm legitimately jealous of. Fellow GitHubber [@mkwng](https://twitter.com/mkwng) created a beautiful system of companions that hang out in said box.
+
+_Links: [companioninabox.art](https://www.companioninabox.art)_
 
 ### [Bueno](https://www.bueno.art)
 
@@ -141,7 +142,7 @@ _Links: [bueno.art](https://www.bueno.art)_
 
 Maybe the anti-LinkedIn professional network? Read.cv is a platform created by [Mehdi Mulani](https://メディ.com) and [Andy Chung](https://twitter.com/_andychung) which allows users to create a resumé-like profiles and share a bit about what they're working on.
 
-_Links: [read.cv/](https://read.cv/)_
+_Links: [read.cv](https://read.cv/)_
 
 ---
 

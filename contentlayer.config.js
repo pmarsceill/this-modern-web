@@ -1,8 +1,10 @@
 import { defineDocumentType, makeSource } from 'contentlayer/source-files'
+
+import { imageMetadata } from './lib/images'
 import rehypePrism from 'rehype-prism-plus'
+import remarkGfm from 'remark-gfm'
 import remarkSmartypants from 'remark-smartypants'
 import remarkUnwrapImages from 'remark-unwrap-images'
-import { imageMetadata } from './lib/images'
 
 export const Post = defineDocumentType(() => ({
   name: 'Post',
@@ -105,7 +107,7 @@ export default makeSource({
   contentDirPath: 'content',
   documentTypes: [Post, MicroBlog],
   mdx: {
-    remarkPlugins: [remarkUnwrapImages, remarkSmartypants],
+    remarkPlugins: [remarkUnwrapImages, remarkSmartypants, remarkGfm],
     rehypePlugins: [rehypePrism, imageMetadata],
   },
 })
