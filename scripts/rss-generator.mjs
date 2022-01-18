@@ -58,17 +58,6 @@ const generateRSSFeed = (posts) => {
     const url = `${baseUrl}/${year}/${month}/${day}/${slug}`
     const description = item.type === 'Post' ? item.description || null : null
 
-    // async function mdxToHtml(mdx) {
-    //   const code = String(await compile(mdx, { outputFormat: 'function-body' }))
-    //   const { default: Content } = await run(code, runtime)
-
-    //   return ReactDOMServer.renderToStaticMarkup(
-    //     React.createElement(Content, { components: rssComponents })
-    //   )
-    // }
-
-    // console.log(test)
-
     const html = await mdxToHtml(item.body.raw).then((html) => {
       feed.addItem({
         title: title || '',
