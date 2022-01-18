@@ -1,10 +1,12 @@
-import { allDocuments } from '.contentlayer/data'
+import * as runtime from 'react/jsx-runtime.js'
+
 import { compile, run } from '@mdx-js/mdx'
+
 import { Feed } from 'feed'
-import fs from 'fs'
 import React from 'react'
 import ReactDOMServer from 'react-dom/server.js'
-import * as runtime from 'react/jsx-runtime.js'
+import { allDocuments } from '.contentlayer/data'
+import fs from 'fs'
 import { rssComponents } from '../components/js-components/mdx-components.mjs'
 
 const generateRSSFeed = (posts) => {
