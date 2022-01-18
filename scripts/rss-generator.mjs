@@ -1,12 +1,10 @@
-import * as runtime from 'react/jsx-runtime.js'
-
+import { allDocuments } from '.contentlayer/data'
 import { compile, run } from '@mdx-js/mdx'
-
 import { Feed } from 'feed'
+import fs from 'fs'
 import React from 'react'
 import ReactDOMServer from 'react-dom/server.js'
-import { allDocuments } from '.contentlayer/data'
-import fs from 'fs'
+import * as runtime from 'react/jsx-runtime.js'
 import { rssComponents } from '../components/js-components/mdx-components.mjs'
 
 const generateRSSFeed = (posts) => {
@@ -57,17 +55,6 @@ const generateRSSFeed = (posts) => {
     const { title, date, year, month, day, slug } = item
     const url = `${baseUrl}/${year}/${month}/${day}/${slug}`
     const description = item.type === 'Post' ? item.description || null : null
-
-    // async function mdxToHtml(mdx) {
-    //   const code = String(await compile(mdx, { outputFormat: 'function-body' }))
-    //   const { default: Content } = await run(code, runtime)
-
-    //   return ReactDOMServer.renderToStaticMarkup(
-    //     React.createElement(Content, { components: rssComponents })
-    //   )
-    // }
-
-    // console.log(test)
 
     const html = await mdxToHtml(item.body.raw).then((html) => {
       feed.addItem({
