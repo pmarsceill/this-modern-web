@@ -1,5 +1,5 @@
-import Box from './primitives/box'
 import NextImage from 'next/image'
+import Box from './primitives/box'
 import Text from './primitives/text'
 
 type Props = {

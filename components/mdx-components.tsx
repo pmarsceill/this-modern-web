@@ -1,6 +1,5 @@
-import MdxImage, { ImageRow, LargeImage, SmallImage } from './mdx-image'
-
 import Button from './button'
+import MdxImage, { ImageRow, LargeImage, SmallImage } from './mdx-image'
 import Video from './video'
 
 export const components = {
