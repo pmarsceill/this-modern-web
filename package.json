@@ -34,7 +34,7 @@
     "remove-markdown": "^0.3.0",
     "sharp": "^0.29.3",
     "smoothscroll-polyfill": "^0.4.4",
-    "swr": "^1.1.2",
+    "swr": "^1.2.0",
     "unist-util-visit": "^4.1.0",
     "xml-js": "^1.6.11"
   },
