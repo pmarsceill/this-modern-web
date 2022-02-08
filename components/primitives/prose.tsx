@@ -1,5 +1,5 @@
-import { styled } from '../../stitches.config'
 import Box from './box'
+import { styled } from '../../stitches.config'
 
 const Prose = styled(Box, {
   '& p': {
@@ -238,12 +238,16 @@ const Prose = styled(Box, {
 
       microblog: {
         fontFamily: '$monospace',
-        fontSize: '$1',
+        fontSize: '$0',
         lineHeight: '$content',
 
         '& blockquote': {
           fontStyle: 'normal !important',
           color: '$secondary',
+        },
+
+        '@1': {
+          fontSize: '$1',
         },
       },
     },

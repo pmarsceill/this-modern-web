@@ -1,10 +1,10 @@
-import { useTheme } from 'next-themes'
-import { useRouter } from 'next/dist/client/router'
+import Box from '../primitives/box'
 import Head from 'next/head'
+import SiteTitle from './global-site-title'
 import darkTheme from '../../lib/theme/dark-theme'
 import { theme } from '../../stitches.config'
-import Box from '../primitives/box'
-import SiteTitle from './global-site-title'
+import { useRouter } from 'next/dist/client/router'
+import { useTheme } from 'next-themes'
 
 const GlobalHeader = () => {
   const { forcedTheme: themeName } = useTheme()
@@ -132,7 +132,7 @@ const GlobalHeader = () => {
       </Head>
       <Box
         css={{
-          mt: '$4',
+          mt: '$5',
           mb: '$5',
           pb: '$5',
           position: 'relative',
