@@ -1,7 +1,11 @@
-import { styled } from '../stitches.config'
 import NavLink from './nav-link'
+import { styled } from '../stitches.config'
+import { useTheme } from 'next-themes'
 
 const Nav = () => {
+  const { theme, forcedTheme } = useTheme()
+  const isDark = theme === 'dark' || forcedTheme === 'dark'
+
   const NavUl = styled('ul', {
     position: 'sticky',
     display: 'flex',
@@ -37,9 +41,21 @@ const Nav = () => {
     textDecoration: 'none',
     fontFamily: '$body',
     fontSize: '$1',
+    position: 'relative',
 
     '&.active': {
       color: '$primary',
+
+      '&::before': {
+        content: '"•"',
+        color: '$accent',
+        fontSize: '$1',
+        fontWeight: 'bold',
+        position: 'absolute',
+        left: '-$3',
+        $$shadowColor: '$colors-accent',
+        textShadow: isDark && '0 0 6px $$shadowColor',
+      },
     },
 
     '&:hover': {
@@ -53,8 +69,12 @@ const Nav = () => {
 
   const NavCounter = styled('span', {
     fontFamily: '$monospace',
-    fontSize: '$1',
+    fontSize: '$0',
     mr: '$1',
+
+    '@1': {
+      fontSize: '$1',
+    },
 
     '@3': {
       mr: '$2',
