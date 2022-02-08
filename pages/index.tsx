@@ -96,7 +96,7 @@ const CurrentPost = ({ post, isFirst }: PostProps) => {
                   fontWeight: '$heading',
                   letterSpacing: '$heading',
                   lineHeight: '$heading',
-                  hyphens: 'auto',
+                  hyphens: post.featuredImage ? 'auto' : 'none',
                   ml: '$2',
                   fontSize: '$4',
                   '@1': {

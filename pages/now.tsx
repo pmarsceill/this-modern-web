@@ -1,22 +1,23 @@
-import { parseISO } from 'date-fns'
-import format from 'date-fns/format'
-import { NextPage } from 'next'
-import { NextSeo } from 'next-seo'
-import Image from 'next/image'
 import { RefObject, useRef } from 'react'
-import useSWR from 'swr'
+
+import Box from '../components/primitives/box'
 import GlobalLayout from '../components/global/global-layout'
+import Heading from '../components/primitives/heading'
+import Image from 'next/image'
 import MdxImage from '../components/mdx-image'
 import Nav from '../components/nav'
-import Box from '../components/primitives/box'
-import Heading from '../components/primitives/heading'
+import { NextPage } from 'next'
+import { NextSeo } from 'next-seo'
 import Prose from '../components/primitives/prose'
-import Text from '../components/primitives/text'
 import Spinner from '../components/spinner'
-import TwoColLayout from '../components/two-col-layout'
+import Text from '../components/primitives/text'
 import { TrackType } from '../lib/types'
+import TwoColLayout from '../components/two-col-layout'
+import format from 'date-fns/format'
 import ghProjectsBeta from '../public/assets/now/gh-projects-beta.png'
 import homeImage from '../public/assets/now/home.jpg'
+import { parseISO } from 'date-fns'
+import useSWR from 'swr'
 
 const NowWorkingOn = () => {
   return (
@@ -40,8 +41,8 @@ const NowWorkingOn = () => {
       <p>
         In early 2022, I left GitHub after spending six-and-a-half years on the
         Product Design team. GitHub is an amazing company (and product) — truly
-        the best job I've had — but I was longing for the energy of a start-up.
-        On January 10th, I joined the team at{' '}
+        the best job I've had. Ultimately though, I was longing for the energy
+        of a start-up. On January 10th, I joined the team at{' '}
         <a href="https://workos.com">WorkOS</a> and can't wait to share more of
         what we've already started building together.
       </p>

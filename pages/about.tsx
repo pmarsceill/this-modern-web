@@ -1,17 +1,17 @@
-import { NextPage } from 'next'
-import { NextSeo } from 'next-seo'
-import Link from 'next/link'
-import { useRef } from 'react'
-import GlobalLayout from '../components/global/global-layout'
-import Nav from '../components/nav'
+import AboutGif from '../public/patrick-marsceill.gif'
 import Box from '../components/primitives/box'
+import GlobalLayout from '../components/global/global-layout'
 import Heading from '../components/primitives/heading'
 import Image from '../components/primitives/image'
+import Link from 'next/link'
+import Nav from '../components/nav'
+import { NextPage } from 'next'
+import { NextSeo } from 'next-seo'
 import Prose from '../components/primitives/prose'
-import Text from '../components/primitives/text'
 import Spinner from '../components/spinner'
+import Text from '../components/primitives/text'
 import TwoColLayout from '../components/two-col-layout'
-import AboutGif from '../public/patrick-marsceill.gif'
+import { useRef } from 'react'
 
 const About: NextPage & { theme: string } = () => {
   const spinnerRef = useRef<HTMLSpanElement>(null)
@@ -123,7 +123,7 @@ const About: NextPage & { theme: string } = () => {
               alt="Patrick Marsceill"
               layout="responsive"
               css={{
-                mb: '$4',
+                mb: '$5',
                 borderRadius: '$3',
                 overflow: 'hidden',
               }}
