@@ -11,15 +11,15 @@ A few months before I decided that It Was Time™, I had a discussion with someo
 
 As GitHub grew and scaled, more formal processes were built around the work we did, things became more complicated as more specialized roles were added, and the path to shipping the product grew longer and less straightforward. The entrepreneurial instincts that I had in my first few years were slowly exchanged for figuring out how to fit in bits that _I_ cared most about into the larger product.
 
-Working as an IC for a big tech company in 2022 is provides a lot: you get consistency, job security, above-market salary and equity compensation, and if you're there long enough you get to specialize in things. The tradeoffs are your own personal impact on a company / directional level, the ability to take big risks, and straying outside of established processes without asking for permission/forgiveness. Depending on what you're seeking out of work, you may land on either side of these tradeoffs: predictability, compensation, and job security vs. autonomy, individual impact, and the ability to make big bets. The more I talked and thought about it, the more I realized that I was ready to exchange one for the other.
+Working as an IC for a big tech company in 2022 provides a lot niceties: you get consistency, job security, above-market salary and equity compensation, and if you're there long enough you get to specialize in things. The tradeoffs are your own personal impact on a company / directional level, the ability to take big risks, and straying outside of established processes without asking for permission/forgiveness. Depending on what you're seeking out of work, you may land on either side of these tradeoffs: predictability, compensation, and job security vs. autonomy, individual impact, and the ability to make big bets. The more I talked and thought about it, the more I realized that I was ready to exchange one for the other.
 
 ## A framework my next job
 
-At a certain point after this conversation, I realized that I never wrote down the things that I wanted from a potential employer before. I had a lot of ideas about the type of role that I wanted, but not the type of place I wanted to work. Back in 2020, after a few years in a management role, I realized that it wasn't for me so I dove head-first into a staff designer position. There's [been a lot written about the pursuing a senior+ IC designer track](https://staff.design), but I've never thought about evaluating this at a company level before. Also around this time I stumbled upon Muan's _[On looking for a job](https://muan.co/2021/12/15/notes-on-looking-for-a-job/)_, which I would recommend to anyone in tech looking for their next thing. So I guess, all of this was rattling around in my head and I decided that I needed to formalize some type of framework to decide what's next.
+At a certain point after this conversation, I realized that I never wrote down the things that I wanted from a potential employer before. I had a lot of ideas about the type of role that I wanted, but not the type of place I wanted to work. Back in 2020, after a few years in a management role, I realized that it wasn't for me so I dove head-first into a staff designer position. There's [been a lot written about the pursuing a senior+ IC designer track](https://staff.design), but I've never thought about evaluating this at a company level before. Also around this time I stumbled upon Muan's _[On looking for a job](https://muan.co/2021/12/15/notes-on-looking-for-a-job/)_, which I would recommend to anyone in tech looking for their next thing. With all of this was rattling around in my head, I decided that I needed to formalize some type of framework to help me decide what's next.
 
 1. Type of product / design
 
-   > Working at GitHub made me fall in love with designing developer tools. I get a lot of joy out of making tools for people who make. In my next role, I knew I wanted to stay in this space and perhaps get even more focused on a singular aspect of it. It is developer tools or bust for me. Product taste is also played a role in this, even if the money was good, I couldn't pursue any company whose products I wouldn't use myself.
+   > Working at GitHub made me fall in love with designing developer tools. I get a lot of joy out of making tools for people who make. In my next role, I knew I wanted to stay in this space and perhaps get even more focused on a singular aspect of it. It is developer tools or bust for me. Product taste is also played a role in this, even if the money was good, I couldn't pursue any company whose products I wouldn't use myself and truly believe in.
 
 1. Stage and size of company
 
@@ -27,11 +27,11 @@ At a certain point after this conversation, I realized that I never wrote down t
 
 1. Equity / Salary compensation
 
-   > When considering a move from a big tech company ➡️ startup, getting paid usually also means taking on more risk. Typically early stage companies offer less cash salary than and more equity (and growth potential). My financial situation allowed me to take a bit of a salary decrease, in exchange for more upside on my equity.
+   > When considering a move from a big tech company ➡️ startup, getting paid usually also means taking on more risk. Typically early stage companies offer less cash salary than and more potential for equity growth. My financial situation allowed me to take a bit of a salary decrease, in exchange for more upside on my equity. Startup equity is hardly a sure thing, but I wasn't going to take a position at a company that I didn't have confidence in.
 
 1. Management structure
 
-   > Another hard requirement that I had was that I had to, for now, report directly to a founder. This was a forcing function for me not to step into a company that was top-heavy with management, too large, or too process heavy.
+   > Another hard requirement that I had was that I had to, for now, report directly to a founder. This was a forcing function for me not to step into a company that was top-heavy with management, too large, or too process heavy. I fully expected that this wouldn't be a forever thing, but a near-term thing that would allow me to help scale the design org and eventually hire my own boss.
 
 1. Tech stack / tooling
 
@@ -43,6 +43,6 @@ At a certain point after this conversation, I realized that I never wrote down t
    >
    > Additionally, I wanted to make sure that the company had a remote-first culture, in 2015 this was more rare than it is now, but any requirements to move or eventually go back to an in-person focused environment quickly disqualified a role for me.
 
-## Where I landed
+## My Goldilocks zone
 
-After going talking to multiple companies, I only really seriously considered one position that aligned to the framework that I laid out. I felt like Goldilocks tasting porridge and in the end one bowl was perfect. In the second week of January, I joined the team at [WorkOS](https://workos.com) and I can't wait to share what we're building.
+After talking to multiple companies, I only really seriously considered one position that fit into to the criteria of the framework that I laid out. In the second week of January, I joined the team at [WorkOS](https://workos.com) and I can't wait to share what we're building. The process taught me that patience and really honing in on the things you care about and letting go of the things you don't is the way to find a job that leads to personal happiness. For me, frameworks
