@@ -45,4 +45,4 @@ At a certain point after this conversation, I realized that I never wrote down t
 
 ## My Goldilocks zone
 
-After talking to multiple companies, I only really seriously considered one position that fit into to the criteria of the framework that I laid out. In the second week of January, I joined the team at [WorkOS](https://workos.com) and I can't wait to share what we're building. The process taught me that patience and really honing in on the things you care about and letting go of the things you don't is the way to find a job that leads to personal happiness. For me, frameworks
+After talking to multiple companies, I only really seriously considered one position that fit into to the criteria of the framework that I laid out. In the second week of January, I joined the team at [WorkOS](https://workos.com) and I can't wait to share what we're building. The process taught me that patience and really honing in on the things you care about and letting go of the things you don't is the way to find a job that leads to personal happiness.
