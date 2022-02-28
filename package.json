@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@mdx-js/mdx": "^2.0.0",
-    "@stitches/react": "^1.2.6",
+    "@stitches/react": "^1.2.7",
     "@svgr/webpack": "^6.2.1",
     "@theme-ui/color": "^0.13.1",
     "contentlayer": "^0.0.33",
