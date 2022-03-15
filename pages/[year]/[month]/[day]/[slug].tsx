@@ -1,5 +1,9 @@
-import { allMicroBlogs, allPosts } from '.contentlayer/data'
-import { DocumentTypes, Post } from '.contentlayer/types'
+import {
+  allMicroBlogs,
+  allPosts,
+  DocumentTypes,
+  Post,
+} from 'contentlayer/generated'
 import { format, parseISO } from 'date-fns'
 import { NextPage } from 'next'
 import { useMDXComponent } from 'next-contentlayer/hooks'

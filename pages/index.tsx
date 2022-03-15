@@ -1,5 +1,9 @@
-import { allMicroBlogs, allPosts } from '.contentlayer/data'
-import { MicroBlog, Post } from '.contentlayer/types'
+import {
+  allMicroBlogs,
+  allPosts,
+  MicroBlog,
+  Post,
+} from 'contentlayer/generated'
 import { format, formatDistance, parseISO } from 'date-fns'
 import { pick } from 'lib/utils'
 import type { GetStaticProps, NextPage } from 'next'
@@ -250,7 +254,9 @@ const Home: NextPage<Props> & { theme: string } = ({
             </Button>
           </Link>
         </Box>
-        <AncillaryNav />
+        <Box css={{ mt: '$2' }}>
+          <AncillaryNav />
+        </Box>
       </TwoColLayout>
     </GlobalLayout>
   )
