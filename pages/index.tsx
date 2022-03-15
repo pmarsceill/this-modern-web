@@ -1,5 +1,9 @@
-import { allMicroBlogs, allPosts } from '.contentlayer/data'
-import { MicroBlog, Post } from '.contentlayer/types'
+import {
+  allMicroBlogs,
+  allPosts,
+  MicroBlog,
+  Post,
+} from 'contentlayer/generated'
 import { format, formatDistance, parseISO } from 'date-fns'
 import { pick } from 'lib/utils'
 import type { GetStaticProps, NextPage } from 'next'

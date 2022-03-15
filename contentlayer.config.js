@@ -1,14 +1,15 @@
 import { defineDocumentType, makeSource } from 'contentlayer/source-files'
+
+import { imageMetadata } from './lib/images'
 import rehypePrism from 'rehype-prism-plus'
 import remarkGfm from 'remark-gfm'
 import remarkSmartypants from 'remark-smartypants'
 import remarkUnwrapImages from 'remark-unwrap-images'
-import { imageMetadata } from './lib/images'
 
 export const Post = defineDocumentType(() => ({
   name: 'Post',
   filePathPattern: `blog/*.md`,
-  bodyType: 'mdx',
+  contentType: 'mdx',
   fields: {
     title: {
       type: 'string',
@@ -64,7 +65,7 @@ export const Post = defineDocumentType(() => ({
 export const MicroBlog = defineDocumentType(() => ({
   name: 'MicroBlog',
   filePathPattern: `microblog/*.md`,
-  bodyType: 'mdx',
+  contentType: 'mdx',
   fields: {
     title: {
       type: 'string',

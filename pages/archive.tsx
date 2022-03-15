@@ -1,6 +1,10 @@
 import { GetStaticProps, NextPage } from 'next'
-import { MicroBlog, Post } from '.contentlayer/types'
-import { allMicroBlogs, allPosts } from '.contentlayer/data'
+import {
+  MicroBlog,
+  Post,
+  allMicroBlogs,
+  allPosts,
+} from 'contentlayer/generated'
 import { createRef, useEffect } from 'react'
 import { format, parseISO } from 'date-fns'
 

@@ -1,10 +1,11 @@
-import { DocumentTypes } from '.contentlayer/types'
 import { format, parseISO } from 'date-fns'
-import Link from 'next/link'
-import { styled } from '../stitches.config'
+
 import Anchor from './primitives/anchor'
 import Box from './primitives/box'
+import { DocumentTypes } from 'contentlayer/generated'
+import Link from 'next/link'
 import Text from './primitives/text'
+import { styled } from '../stitches.config'
 
 type PostNavProps = {
   previous?: DocumentTypes
