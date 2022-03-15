@@ -1,20 +1,20 @@
-import { allMicroBlogs, allPosts } from '.contentlayer/data'
-import { MicroBlog, Post } from '.contentlayer/types'
-import Anchor from 'components/primitives/anchor'
-import { format, parseISO } from 'date-fns'
-import { pick } from 'lib/utils'
 import { GetStaticProps, NextPage } from 'next'
-import { useMDXComponent } from 'next-contentlayer/hooks'
-import { NextSeo } from 'next-seo'
-import Link from 'next/link'
+import { MicroBlog, Post } from '.contentlayer/types'
+import { allMicroBlogs, allPosts } from '.contentlayer/data'
 import { createRef, useEffect } from 'react'
-import smoothscroll from 'smoothscroll-polyfill'
+import { format, parseISO } from 'date-fns'
+
+import Anchor from 'components/primitives/anchor'
+import Box from '../components/primitives/box'
 import Button from '../components/button'
 import GlobalLayout from '../components/global/global-layout'
-import Box from '../components/primitives/box'
 import Heading from '../components/primitives/heading'
+import Link from 'next/link'
+import { NextSeo } from 'next-seo'
 import Prose from '../components/primitives/prose'
 import Text from '../components/primitives/text'
+import { pick } from 'lib/utils'
+import { useMDXComponent } from 'next-contentlayer/hooks'
 
 type PostsByMonthPerYearProps = {
   blogPosts: Post[]
@@ -280,7 +280,6 @@ const Archive: NextPage<Props> & { theme: string } = ({
 }) => {
   useEffect(() => {
     scroll('today')
-    smoothscroll.polyfill()
   }, [])
 
   return (

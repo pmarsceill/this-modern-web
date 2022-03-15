@@ -250,7 +250,9 @@ const Home: NextPage<Props> & { theme: string } = ({
             </Button>
           </Link>
         </Box>
-        <AncillaryNav />
+        <Box css={{ mt: '$2' }}>
+          <AncillaryNav />
+        </Box>
       </TwoColLayout>
     </GlobalLayout>
   )

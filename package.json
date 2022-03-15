@@ -33,7 +33,6 @@
     "remark-unwrap-images": "^3.0.1",
     "remove-markdown": "^0.3.0",
     "sharp": "^0.30.2",
-    "smoothscroll-polyfill": "^0.4.4",
     "swr": "^1.2.2",
     "unist-util-visit": "^4.1.0",
     "xml-js": "^1.6.11"
@@ -43,7 +42,6 @@
     "@types/react-dom": "^17.0.13",
     "@types/remove-markdown": "^0.3.1",
     "@types/sharp": "^0.30.0",
-    "@types/smoothscroll-polyfill": "^0.3.1",
     "@typescript-eslint/eslint-plugin": "^4.33.0",
     "@typescript-eslint/parser": "^4.33.0",
     "esbuild": "^0.14.26",
