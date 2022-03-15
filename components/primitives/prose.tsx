@@ -246,7 +246,7 @@ const Prose = styled(Box, {
           color: '$secondary',
         },
 
-        '@1': {
+        '@0': {
           fontSize: '$1',
         },
       },
