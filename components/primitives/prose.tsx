@@ -238,16 +238,12 @@ const Prose = styled(Box, {
 
       microblog: {
         fontFamily: '$monospace',
-        fontSize: '$0',
+        fontSize: '$1',
         lineHeight: '$content',
 
         '& blockquote': {
           fontStyle: 'normal !important',
           color: '$secondary',
-        },
-
-        '@0': {
-          fontSize: '$1',
         },
       },
     },
