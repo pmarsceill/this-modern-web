@@ -1760,18 +1760,18 @@
     "@svgr/plugin-jsx" "^6.4.0"
     "@svgr/plugin-svgo" "^6.3.1"
 
-"@theme-ui/color@^0.14.7":
-  version "0.14.7"
-  resolved "https://registry.yarnpkg.com/@theme-ui/color/-/color-0.14.7.tgz#7ad0611d55ba9487dd9eab56b17cc601e08f75cf"
-  integrity sha512-0e1IhJeaAkzAdYvFI98qZcUqxl38ZuCdE6DPVInM/73qXzvi5dmBs0B8Uto/X2bsViNDjTUk0eikhZVkeR8pwQ==
+"@theme-ui/color@^0.15.1":
+  version "0.15.1"
+  resolved "https://registry.yarnpkg.com/@theme-ui/color/-/color-0.15.1.tgz#b6a69524c3ce93e0c16beaf79462722b026dbc28"
+  integrity sha512-ubWPDkKRfys5Tp5ID9xpOlSGDGRkIU4sOTQ57jv7+YvKJuRYX5IBZ39M9w4MaMQTsxEzxLloZ4ftnVG8UxwisQ==
   dependencies:
-    "@theme-ui/css" "0.14.7"
+    "@theme-ui/css" "^0.15.1"
     polished "^4.0.5"
 
-"@theme-ui/css@0.14.7":
-  version "0.14.7"
-  resolved "https://registry.yarnpkg.com/@theme-ui/css/-/css-0.14.7.tgz#4a3e22486a5be953b1dcb7f4e84dfa1b5b70c4eb"
-  integrity sha512-DbGw0T4MrTjiRs6lnyYgSD2TV/LvFErzDDpm0ICPL2KqDwqgHX4mFpDafj8/DkyCO9wx2KEiUuE+0NtOlR3i4w==
+"@theme-ui/css@^0.15.1":
+  version "0.15.1"
+  resolved "https://registry.yarnpkg.com/@theme-ui/css/-/css-0.15.1.tgz#bcbc04eecb4cf46eb92fe2395afe797219ccdf01"
+  integrity sha512-Ab0t6cnLC09OzfO+SaxzUJWRr4RGfzVm/gpSjZP6CK4UETwWkQ3S2wQdeIBqD4nss0Df6PQkscpGe3eVPjXcdQ==
   dependencies:
     csstype "^3.0.10"
 
