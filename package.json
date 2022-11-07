@@ -20,7 +20,7 @@
     "feed": "^4.2.2",
     "next": "12.1.0",
     "next-contentlayer": "^0.1.2",
-    "next-seo": "^5.11.1",
+    "next-seo": "^5.14.0",
     "next-themes": "^0.2.1",
     "querystring": "^0.2.1",
     "react": "17.0.2",
