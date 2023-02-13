@@ -10,7 +10,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@mdx-js/mdx": "^2.2.1",
+    "@mdx-js/mdx": "^2.3.0",
     "@stitches/react": "^1.2.8",
     "@svgr/webpack": "^6.5.1",
     "@theme-ui/color": "^0.15.5",
