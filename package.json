@@ -15,7 +15,7 @@
     "@svgr/webpack": "^7.0.0",
     "@theme-ui/color": "^0.15.7",
     "contentlayer": "^0.1.2",
-    "date-fns": "^2.29.3",
+    "date-fns": "^2.30.0",
     "fathom-client": "^3.5.0",
     "feed": "^4.2.2",
     "next": "12.1.0",
