@@ -44,7 +44,7 @@
     "@types/sharp": "^0.32.0",
     "@typescript-eslint/eslint-plugin": "^4.33.0",
     "@typescript-eslint/parser": "^4.33.0",
-    "esbuild": "^0.18.9",
+    "esbuild": "^0.18.11",
     "eslint": "^7.32.0",
     "eslint-config-next": "13.4.7",
     "eslint-config-prettier": "^8.8.0",
