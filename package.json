@@ -13,7 +13,7 @@
     "@mdx-js/mdx": "^2.3.0",
     "@stitches/react": "^1.2.8",
     "@svgr/webpack": "^8.0.1",
-    "@theme-ui/color": "^0.16.0",
+    "@theme-ui/color": "^0.16.1",
     "contentlayer": "^0.1.2",
     "date-fns": "^2.30.0",
     "fathom-client": "^3.5.0",
